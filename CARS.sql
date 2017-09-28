@@ -1,3 +1,14 @@
+--DB setup, copy, paste and CMD+ENTER for blankDB slate
+--Create a DB called CARS_DB 
+--Tables for CARS_DB
+--New Users
+CREATE TABLE users (
+	"id" serial PRIMARY KEY,
+	"username" text,
+	"password" text,
+    "role" text
+);
+
 --New Customer
 CREATE TABLE "customer_info" (
 	"customer_id" serial PRIMARY KEY,
@@ -93,6 +104,8 @@ CREATE TABLE "cars_checklist" (
 	"current_mileage" text,
 	"vehicle_id" int REFERENCES "vehicle_info" ("vehicle_id")
 );
+
+--End DB setup
 
 
 
