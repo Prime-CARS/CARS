@@ -15,19 +15,19 @@ myApp.config(function($routeProvider, $locationProvider) {
     })
     .when('/admin', {
       templateUrl: '/views/templates/admin.landing.html',
-      controller: 'UserController as uc',
+      controller: 'AdminController as uc',
       resolve: {
-        getuser : function(UserService){
-          return UserService.getuser();
+        getuser : function(AdminService){
+          return AdminService.getuser();
         }
       }
     })
     .when('/mechanic', {
       templateUrl: '/views/templates/mechanic.landing.html',
-      controller: 'InfoController',
+      controller: 'MechanicController',
       resolve: {
-        getuser : function(UserService){
-          return UserService.getuser();
+        getuser : function(AdminService){
+          return AdminService.getuser();
         }
       }
     })
