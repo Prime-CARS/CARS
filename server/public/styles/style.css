@@ -11,7 +11,7 @@ body, html {
 }
 
 .instructions {
-  background-color: #333333;
+ 
   color: #DDDDDD;
   padding: 15px;
 }
@@ -93,7 +93,7 @@ header, footer {
 .landingpagelinks {
 padding: 1em;
     color: white;
-    background-color: black;
+    background-color: white;
     clear: left;
     text-align: center;
 
@@ -104,6 +104,7 @@ padding: 1em;
     color: white;
     margin: 20px 0 20px 0;
     padding: 20px;
+   width: 40
 
 }
 
