@@ -7,16 +7,20 @@ myApp.controller('AdminController', function(AdminService) {
   vm.showRequests = true;
   vm.InfoExpanded = false;
   vm.nrqstneeded = false;
-  vm.Requests = {};
+  vm.showAuths = false;
+  vm.RetrievedRequests = AdminService.Requests;
+
 
   vm.makeRequestsVisible = function(){
     vm.showRequests = true;
+    vm.showAuths = false;
     console.log(vm.showRequests);
     }
 
   vm.showSearch = function(){
     vm.showRequests = false;
     vm.nrqstneeded = false;
+    vm.showAuths = false;
     console.log(vm.showRequests);
     }
 
@@ -30,7 +34,8 @@ myApp.controller('AdminController', function(AdminService) {
     }
 
   vm.getRequests= function(){
-    vm.Requests = AdminService.Requests;
+    vm.Requests = AdminService.getRequests();
+
     }
 
   vm.AddRequest= function(){
@@ -46,5 +51,17 @@ myApp.controller('AdminController', function(AdminService) {
     console.log('search button hit, passed', z, 'as search stuff')
   }
 
+  vm.showAuth = function(){
+    vm.showAuths = true;
+    vm.showRequests = false;
+    vm.nrqstneeded = false;
+  }
+  
+  vm.hideAuth = function () {
+    vm.showAuths = false;
+  }
+
   vm.getRequests()
+  console.log(vm.RetrievedRequests)
+
 });
