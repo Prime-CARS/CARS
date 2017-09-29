@@ -2,21 +2,24 @@
 <div class="container">
 
     <h1 id="welcome" class="lead">Hello {{ac.userObject.userName}}!</h1>
-    <button class="btn btn-default" ng-click="ac.AdminService.logout()">Log Out</button>
-    <button ng-click="ac.makeRequestsVisible()">Service Requests</button><button ng-click="ac.showSearch()">Service History</button>
+    <button ng-click="ac.AdminService.logout()">Log Out</button>
+    <button ng-click="ac.makeRequestsVisible()">Service Requests</button>
+    <button ng-click="ac.showSearch()">Service History</button>
+    <button ng-click="ac.showAuth()">Pending Authorizations</button>
     <hr>
-   
+
     <div ng-show="ac.showRequests">
         <h3>These requests are pending review and scheduling</h3>
-        
-        <div class="rqst" ng-click="ac.expandInfo()" ng-hide=ac.InfoExpanded>pending request # 1</div>
-            <div ng-show="ac.InfoExpanded" class="expanded_request"> Pending request #1 Name:{{ac}} Phone:{{ac}} Vehicle Year/Make/Model: {{ac}}/{{ac}}/{{ac}}
-                Qualifier:{{ac}} Vehicle Issue:{{ac}} Scheduled Date:<input type="date"> Scheduled Time:<input type="time"> <button ng-click="ac.shrinkInfo()">-</button> </div>
-        <div class="rqst">pending request # 2</div>
-        <div class="rqst">pending request # 3</div>
+        <div ng-repeat="data in ac.RetrievedRequests.list.data" class="rqst" ng-click="ac.expandInfo()" ng-hide=ac.InfoExpanded>{{data.name}} {{data.year}} {{data.make}} {{data.model}}</div>
+        <div ng-repeat="data in ac.RetrievedRequests.list.data" ng-show="ac.InfoExpanded" class="expanded_request"> Pending request #1 Name:{{data.name}} Phone:{{data.cellphone}} Alt Phone:{{data.alternative_phone}}
+            Year/Make/Model/VIN: {{data.year}}/{{data.make}}/{{data.model}}/{{data.vin}} Qualifier:{{data.qualify_input}}
+             Vehicle Issue:{{data.service_request}} 
+             Scheduled Date:<input type="date"> Scheduled Time:<input type="time"> 
+             <button ng-click="ac.shrinkInfo()">-</button>
+        </div>
         <div class="nrqst" ng-click="ac.AddRequest()">New request </div>
     </div>
-   
+
     <div ng-hide="ac.showRequests">
         <form><input type="text" id="search" ng-model="history_search"><button ng-click="ac.search_history(history_search)">submit</button></form>
     </div>
@@ -24,5 +27,11 @@
         New request form will be copied into here with the addition of a scheduled box so it can be immediatly cleared.
         <button ng-click="ac.ReduceRequest()">Done</button>
     </div>
+
+    <div ng-show="ac.showAuths">
+        <h3>These authorizations have been created and need to be printed.</h3>
+        <div class="rqst">pending auth 1</div>
+    </div>
+
 
 </div>
