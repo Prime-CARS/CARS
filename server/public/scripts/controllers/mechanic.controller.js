@@ -5,4 +5,9 @@ myApp.controller('MechanicController', function(AdminService, ChecklistService) 
   ChecklistService.getChecklistsStatus();
   vm.carsStatus = ChecklistService.carsStatus;
 
+  vm.getChecklist = () => {
+    console.log('Checklist button clicked!');
+    
+  }
+
 });

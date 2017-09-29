@@ -138,3 +138,10 @@ padding: 1em;
   background-color: lightblue; 
 }
 
+.ready{
+  background-color: greenyellow;
+}
+
+.in_progress{
+  background-color: lightcoral;
+}
