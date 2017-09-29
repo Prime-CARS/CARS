@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var pool = require('../modules/pool.js');
 
 //Checklists status page
 router.get('/', function(req, res) {
@@ -8,7 +9,7 @@ router.get('/', function(req, res) {
             console.log('Error connecting to database', err);
             res.sendStatus(500);
         } else {
-            client.query('SELECT customer_info.name, vehicle_info.year, vehicle_info.make, vehicle_info.model, vehicle_info.vin, vehicle_info.service_requested, cars_checklist.checklist_status FROM cars_checklist JOIN vehicle_info ON vehicle_info.vehicle_id=cars_checklist.vehicle_id JOIN customer_info ON customer_info.customer_id=vehicle_info.customer_id WHERE NOT cars_checklist.checklist_status=finished;', 
+            client.query('SELECT customer_info.name, vehicle_info.year, vehicle_info.make, vehicle_info.model, vehicle_info.vin, vehicle_info.service_requested, cars_checklist.checklist_status FROM cars_checklist JOIN vehicle_info ON vehicle_info.vehicle_id=cars_checklist.vehicle_id JOIN customer_info ON customer_info.customer_id=vehicle_info.customer_id WHERE NOT cars_checklist.checklist_status=\'finished\';', 
             function(err, result) {
                 if (err) {
                     console.log('Error selecting checklists', err);
