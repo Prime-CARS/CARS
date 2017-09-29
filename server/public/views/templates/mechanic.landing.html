@@ -1,6 +1,29 @@
 <div ng-include="'views/partials/nav.html'"></div>
 <div class="container">
   <h1 id="welcome" class="lead">Mechanic Landing Page</h1>
+
+  <!-- Current mc:{{mc}} -->
+
+  <h3>Vehicles Pending Service:</h3>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Year</th>
+      <th>Make</th>
+      <th>Model</th>
+      <th>VIN</th>
+      <th>Checklist Status</th>
+    </tr>
+    <tr ng-repeat="vehicle in mc.carsStatus.list" ng-class="'{{vehicle.checklist_status}}'">
+      <td>{{vehicle.name}}</td>
+      <td>{{vehicle.year}}</td>
+      <td>{{vehicle.make}}</td>
+      <td>{{vehicle.model}}</td>
+      <td>{{vehicle.vin}}</td>
+      <td><button ng-click="mc.getChecklist()">{{vehicle.checklist_status}}</button></td>
+    </tr>
+  </table>
+
+  <br>
   <button class="btn btn-default" ng-click="uc.AdminService.logout()">Log Out</button>
-  
 </div>
