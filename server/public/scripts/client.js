@@ -5,11 +5,11 @@ myApp.config(function($routeProvider, $locationProvider) {
   $locationProvider.hashPrefix('');
   console.log('myApp -- config')
   $routeProvider
-    .when('/home', {
+    .when('/login', {
       templateUrl: '/views/templates/login.html',
       controller: 'LoginController as lc',
     })
-    .when('/landingpage', {
+    .when('/cars', {
       templateUrl: '/views/templates/landing.page.html',
       controller: 'LandingPageController as lpc',
     })
@@ -36,6 +36,6 @@ myApp.config(function($routeProvider, $locationProvider) {
       }
     })
     .otherwise({
-      redirectTo: 'home'
+      redirectTo: 'cars'
     });
 });
