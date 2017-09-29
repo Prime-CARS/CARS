@@ -5,9 +5,13 @@ myApp.config(function($routeProvider, $locationProvider) {
   $locationProvider.hashPrefix('');
   console.log('myApp -- config')
   $routeProvider
-    .when('/home', {
+    .when('/login', {
       templateUrl: '/views/templates/login.html',
       controller: 'LoginController as lc',
+    })
+    .when('/cars', {
+      templateUrl: '/views/templates/landing.page.html',
+      controller: 'LandingPageController as lpc',
     })
     .when('/register', {
       templateUrl: '/views/templates/register.html',
@@ -15,7 +19,7 @@ myApp.config(function($routeProvider, $locationProvider) {
     })
     .when('/admin', {
       templateUrl: '/views/templates/admin.landing.html',
-      controller: 'AdminController as uc',
+      controller: 'AdminController as ac',
       resolve: {
         getuser : function(AdminService){
           return AdminService.getuser();
@@ -32,6 +36,6 @@ myApp.config(function($routeProvider, $locationProvider) {
       }
     })
     .otherwise({
-      redirectTo: 'home'
+      redirectTo: 'cars'
     });
 });

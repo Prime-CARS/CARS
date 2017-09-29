@@ -11,7 +11,7 @@ body, html {
 }
 
 .instructions {
-  background-color: #333333;
+ 
   color: #DDDDDD;
   padding: 15px;
 }
@@ -78,3 +78,63 @@ li a:hover {
   text-decoration: underline;
   color: #eee;
 }
+
+
+
+header, footer {
+    padding: 1em;
+    color: white;
+    background-color: maroon;
+    clear: left;
+    text-align: center;
+
+}
+
+.landingpagelinks {
+padding: 1em;
+    color: white;
+    background-color: white;
+    clear: left;
+    text-align: center;
+
+}
+
+.infocontainer {
+    background-color: maroon;
+    color: white;
+    margin: 20px 0 20px 0;
+    padding: 20px;
+   width: 40
+
+}
+
+
+
+.rqst{
+ position: relative;
+ margin: 10px 10px 10px 10px;
+ border: 2px dashed black;
+ height: 30px;
+ width: 250px;
+ background-color: lightgray;
+}
+.expanded_request{
+ margin: 10px 10px 10px 10px;
+ border: 2px dashed black;
+ width: 700px;
+  background-color: lightgray;
+}
+.nrqst{
+  margin: 10px 10px 10px 10px;
+  border: 2px dashed black;
+  height: 30px;
+  width: 250px;
+  background-color: lightblue;
+}
+.nrqstform{
+   margin: 10px 10px 10px 10px;
+  border: 2px dashed black;
+  width: 700px;
+  background-color: lightblue; 
+}
+
