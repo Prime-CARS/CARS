@@ -79,6 +79,36 @@ li a:hover {
   color: #eee;
 }
 
+
+
+header, footer {
+    padding: 1em;
+    color: white;
+    background-color: maroon;
+    clear: left;
+    text-align: center;
+
+}
+
+.landingpagelinks {
+padding: 1em;
+    color: white;
+    background-color: black;
+    clear: left;
+    text-align: center;
+
+}
+
+.infocontainer {
+    background-color: maroon;
+    color: white;
+    margin: 20px 0 20px 0;
+    padding: 20px;
+
+}
+
+
+
 .rqst{
  position: relative;
  margin: 10px 10px 10px 10px;
@@ -106,3 +136,4 @@ li a:hover {
   width: 700px;
   background-color: lightblue; 
 }
+

@@ -9,6 +9,10 @@ myApp.config(function($routeProvider, $locationProvider) {
       templateUrl: '/views/templates/login.html',
       controller: 'LoginController as lc',
     })
+    .when('/landingpage', {
+      templateUrl: '/views/templates/landing.page.html',
+      controller: 'LandingPageController as lpc',
+    })
     .when('/register', {
       templateUrl: '/views/templates/register.html',
       controller: 'LoginController as lc'
