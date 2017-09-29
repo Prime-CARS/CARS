@@ -19,8 +19,7 @@ CREATE TABLE "customer_info" (
 	"zip" text NOT NULL,
 	"cellphone" text NOT NULL,
 	"alternative_phone" text,
-	"email_address" text,
-    "date_timestamp" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+	"email_address" text
 );
 
 --Vehicle with new customer join
@@ -31,6 +30,7 @@ CREATE TABLE "vehicle_info" (
 	"model" text,
 	"vin" text NOT NULL,
     "service_request" text,
+    "date_timestamp" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 	"customer_id" int REFERENCES "customer_info" ("customer_id")
 );
 
