@@ -80,6 +80,7 @@ li a:hover {
 }
 
 
+
 header, footer {
     padding: 1em;
     color: white;
@@ -106,4 +107,33 @@ padding: 1em;
 
 }
 
+
+
+.rqst{
+ position: relative;
+ margin: 10px 10px 10px 10px;
+ border: 2px dashed black;
+ height: 30px;
+ width: 250px;
+ background-color: lightgray;
+}
+.expanded_request{
+ margin: 10px 10px 10px 10px;
+ border: 2px dashed black;
+ width: 700px;
+  background-color: lightgray;
+}
+.nrqst{
+  margin: 10px 10px 10px 10px;
+  border: 2px dashed black;
+  height: 30px;
+  width: 250px;
+  background-color: lightblue;
+}
+.nrqstform{
+   margin: 10px 10px 10px 10px;
+  border: 2px dashed black;
+  width: 700px;
+  background-color: lightblue; 
+}
 

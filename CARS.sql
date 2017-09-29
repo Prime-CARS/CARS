@@ -29,6 +29,8 @@ CREATE TABLE "vehicle_info" (
 	"make" text,
 	"model" text,
 	"vin" text NOT NULL,
+    "service_request" text,
+    "date_timestamp" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
 	"customer_id" int REFERENCES "customer_info" ("customer_id")
 );
 
@@ -122,5 +124,3 @@ INSERT INTO vehicle_info ( "customer_id" , "vin" ) VALUES
 --Change to be dynamic
 INSERT INTO cars_checklist ( "vehicle_id", "checklist_status" ) VALUES
 ( (SELECT "vehicle_id" FROM "vehicle_info" WHERE "vehicle_id"='1'), 'ready');
-
-
