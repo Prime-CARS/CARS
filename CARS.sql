@@ -99,7 +99,7 @@ CREATE TABLE "cars_checklist" (
 	"vehicle_observations" text,
 	"recommended_repairs" text,
 	"repairs_declined" text,
-	"date_timestamp" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+	"date_timestamp" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	"parts_installed" text,
 	"cost" money,
 	"checklist_status" text,
