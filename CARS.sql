@@ -30,7 +30,7 @@ CREATE TABLE "vehicle_info" (
 	"model" text,
 	"vin" text NOT NULL,
     "service_request" text,
-    "date_timestamp" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+    "date_timestamp" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
 	"customer_id" int REFERENCES "customer_info" ("customer_id")
 );
 
