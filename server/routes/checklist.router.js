@@ -3,7 +3,6 @@ var router = express.Router();
 
 // Initial Checklist population
 // Assuming that this is the first time mechanic has opened the checklist, checklist will populate with necessary information and is setting up for updates.
-
 //Basic checklist form
 router.get('/:customer_id/:status', function(req, res) {
     pool.connect(function (err, client, done) {
