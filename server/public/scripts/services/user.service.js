@@ -1,18 +1,17 @@
-myApp.factory('AdminService', function($http, $location){
+myApp.service('AdminService', function($http, $location){
   console.log('AdminService Loaded');
+  
+  vm = this
 
-  var userObject = {};
+  vm.userObject = {};
 
-  return {
-    userObject : userObject,
-
-    getuser : function(){
+    vm.getuser = function(){
       console.log('AdminService -- getuser');
       $http.get('/user').then(function(response) {
           if(response.data.username) {
               // user has a curret session on the server
-              userObject.userName = response.data.username;
-              console.log('AdminService -- getuser -- User Data: ', userObject.userName);
+              vm.userObject.userName = response.data.username;
+              console.log('AdminService -- getuser -- User Data: ', vm.userObject.userName);
           } else {
               console.log('AdminService -- getuser -- failure');
               // user has no session, bounce them back to the login page
@@ -22,9 +21,9 @@ myApp.factory('AdminService', function($http, $location){
         console.log('AdminService -- getuser -- failure: ', response);
         $location.path("/home");
       });
-    },
+    
 
-    logout : function() {
+    vm.logout = function() {
       console.log('AdminService -- logout');
       $http.get('/user/logout').then(function(response) {
         console.log('AdminService -- logout -- logged out');

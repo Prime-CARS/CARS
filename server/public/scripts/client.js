@@ -15,7 +15,7 @@ myApp.config(function($routeProvider, $locationProvider) {
     })
     .when('/admin', {
       templateUrl: '/views/templates/admin.landing.html',
-      controller: 'AdminController as uc',
+      controller: 'AdminController as ac',
       resolve: {
         getuser : function(AdminService){
           return AdminService.getuser();
