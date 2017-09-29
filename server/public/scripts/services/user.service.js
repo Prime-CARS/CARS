@@ -2,8 +2,16 @@ myApp.service('AdminService', function($http, $location){
   console.log('AdminService Loaded');
   
   vm = this
-
   vm.userObject = {};
+  vm.Requests = {list:[]}
+
+    vm.getRequests = function () {
+      $http.get('/RequestsForService').then(function(response){
+        console.log('getRequests', response);
+         vm.Requests.list = response;
+
+      })      
+    }
 
     vm.getuser = function(){
       console.log('AdminService -- getuser');
