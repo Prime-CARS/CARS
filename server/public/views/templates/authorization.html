@@ -1,0 +1,38 @@
+<div ng-include="'views/partials/nav.html'"></div>
+
+<H1>C.A.R.S.</H1>
+<h3>Service Authorization</h3>
+
+<p>I, {customer name here}, hereby authorize C.A.R.S. to perform the following services and repairs on the vehicle listed below:</p>
+<textarea rows="10" cols="200" ng-model=" "></textarea>
+<p>I understand that the service will be peformed by volunteers who are not professional autmotive techicians.</p>
+<p>Should I encounter any problems with the service performed by C.A.R.S. I will immediately cease driving the car and contact
+   C.A.R.S. I also agree that I will promptly return the car for examination if I am requested to do so. I understand that
+   I am solely responsible for the safe driving condition of my vehicle at all times.</p>
+<p>I agree that C.A.R.S. will not be responsible for the failure or breakdown of any components that were not serviced by C.A.R.S.
+   or it's volunteers and that C.A.R.S. and it's colunteers assume no responsibility or liability for the failure or breakdown
+   of any installed part. All part warranties shall be the responsibility of the seller and/or manufacturer of the part if
+   there is a warranty.</p>
+<p>I waive any and all claims, demands, or lawsuits for myself, my assignees,. and my estate against C.A.R.S., it's volunteers,
+   and/or agents which may arise from vehicle inspection or service performed by the C.A.R.S. Ministry.</p>
+
+
+
+<form id="carInfo">
+   <h2>Vehicle Information</h2>
+   <p><label>Year</label><input type="number" name="year" ng-model=" "></p>
+   <p><label>Make</label><input type="text" name="make" ng-model=" "></p>
+   <p><label>Model</label><input type="text" name="model" ng-model=" "></p>
+   <p><label>VIN</label><input type="text" name="VIN" ng-model=" "></p>
+
+</form>
+
+<form id="customerInfo">
+   <h2>Customer Information</h2>
+   <p><label>First Name</label><input type="text" name="first" ng-model=" "></p>
+   <p><label>Last Name</label><input type="text" name="last" ng-model=" "></p>
+   <p><label>Address</label><input type="text" name="address" ng-model=" "></p>
+   <p><label>City</label><input type="text" name="city" ng-model=" "></p>
+   <p><label>State</label><input type="text" name="state" ng-model=" "></p>
+   <p><label>Zip Code</label><input type="number" name="zip" ng-model=" "></p>
+</form>

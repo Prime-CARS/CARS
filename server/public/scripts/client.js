@@ -25,6 +25,15 @@ myApp.config(function($routeProvider, $locationProvider) {
           return AdminService.getuser();
         }
       }
+    })    
+    .when('/authorization', {
+      templateUrl: '/views/templates/authorization.html',
+      controller: 'AdminController as ac',
+      resolve: {
+        getuser : function(AdminService){
+          return AdminService.getuser();
+        }
+      }
     })
     .when('/mechanic', {
       templateUrl: '/views/templates/mechanic.landing.html',
