@@ -4,92 +4,104 @@
 
 {{rc.customer}}
 {{rc.vehicle}}
-    <form class="w3-container w3-row-padding w3-content" id="customerInfo">
+<form class="form-group" id="customerInfo">
+    <div class="container"></div>
         <p><label>Name</label></p>
-        <input type="text" class="w3-input w3-border w3-round" name="first" ng-model="rc.customer.name">
-
-        <p><label>Address</label></p>
-        <input type="text" class="w3-input w3-border w3-round" name="address" ng-model="rc.customer.address">
-    </form>   
-
-<form class="w3-container w3-row-padding" id="customerInfo">     
-    <div class="w3-row-padding">
-        <div class="w3-third">
-            <p><label>City</label></p>
-            <input type="text" class="w3-input w3-border w3-round" name="city" ng-model="rc.customer.city">
-        </div>
-
-        <div class="w3-third">
-            <p><label>State</label></p>
-            <input type="text" class="w3-input w3-border w3-round" name="state" ng-model="rc.customer.state">
-        </div>
-
-        <div class="w3-third">
-            <p><label>Zip Code</label></p>
-            <input type="number" class="w3-input w3-border w3-round" name="zip" ng-model="rc.customer.zip">
-        </div>
+        <input type="text" class="form control" name="first" ng-model="rc.customer.name">
     </div>
+
+    <div class="container">
+        <p><label>Address</label></p>
+        <input type="text" class="form-control" name="address" ng-model="rc.customer.address">
+    </div> 
+
+    <div class="container">
+        <p><label>City</label></p>
+        <input type="text" class="form control" name="city" ng-model="rc.customer.city">
+    </div>
+    
+    <div class="container">
+        <p><label>State</label></p>
+        <input type="text" class="form-control" name="state" ng-model="rc.customer.state">
+    </div>   
+
+    <div class="container">
+        <p><label>Zip Code</label></p>
+        <input type="text" class="form-control" name="zip" ng-model="rc.customer.zip">
+    </div>
+    
+    <div class="container">
+        <p><label>Cell Phone</label></p>
+        <input type="text" class="form-control" name="cellPhone" ng-model="rc.customer.cellPhone">
+    </div>   
+
+    <div class="container">
+        <p><label>Alternate Phone</label></p>
+        <input type="text" class="form-group" name="altPhone" ng-model="rc.customer.altPhone">
+    </div> 
+    
+    <div class="container">
+        <p><label>email address</label></p>
+        <input type="text" class="form-group" name="altPhone" ng-model="rc.customer.email">
+    </div>    
 </form>  
 
-<form class="w3-container" id="carInfo">
+<form class="form-group" id="carInfo">
     <h2>Vehicle Information</h2>
-    <div class="w3-container w3-row">
-        <div class="w3-container w3-third">
-            <p><label>Year</label></p>
-            <input type="number" class="w3-input w3-border w3-round" name="year" ng-model="rc.vehicle.year">
-        </div> 
+    <div class="container">
+        <p><label>Year</label></p>
+        <input type="text" class="form-control" name="year" ng-model="rc.vehicle.year">
+    </div> 
 
-        <div class="w3-container w3-third">
-            <p><label>Make</label></p>
-            <input type="text" class="w3-input w3-border w3-round" name="make" ng-model="rc.vehicle.make">
-        </div>
+    <div class="container">
+        <p><label>Make</label></p>
+        <input type="text" class="form-control" name="make" ng-model="rc.vehicle.make">
+    </div>
 
-        <div class="w3-container w3-third">
-            <p><label>model</label></p>
-            <input type="text" class="w3-input w3-border w3-round" name="model" ng-model="rc.vehicle.model">
-        </div>
+    <div class="container">
+        <p><label>model</label></p>
+        <input type="text" class="form-control" name="model" ng-model="rc.vehicle.model">
     </div>   
     
-    <div class="w3-container">
+    <div class="container">
         <p><label>VIN</label></p>
-        <input type="text" class="w3-input w3-border w3-round" name="VIN" ng-model="rc.vehicle.vin">
+        <input type="text" class="form-control" name="VIN" ng-model="rc.vehicle.vin">
     </div>
 </form>
-<h3>Please describe the problems you are having with the vehicle</h3>
+
+<h3>Please describe the problems you are having with your vehicle</h3>
 <textarea rows="15" cols="250" ng-model="rc.vehicle.problem"></textarea>
 
-<div class="w3-container">
+<div class="-container">
 <h3>Please indicate why you qualify to use the services of C.A.R.S. Ministry</h3>
     <label>
-        <input class="w3-radio" type="radio" name="qualification" value="singleMother" ng-model="rc.customer.qualification" checked>
+        <input class="w3-radio" type="radio" name="qualification" value="Single Mother" ng-model="rc.customer.qualification" checked>
         Single Mother
     </label>
     <br/>
     
     <label>
-        <input class="w3-radio" type="radio" name="qualification" value="singleWoman" ng-model="rc.customer.qualification" checked>    
+        <input class="w3-radio" type="radio" name="qualification" value="Sinflr Woman" ng-model="rc.customer.qualification" checked>    
         Single Woman
     </label> 
     <br/>
-    
     <label>
-        <input class="w3-radio" type="radio" name="qualification" value="widow" ng-model="rc.customer.qualification" checked>
+        <input class="w3-radio" type="radio" name="qualification" value="Widow" ng-model="rc.customer.qualification" checked>
         Widow
     </label>
     <br/>
     <label>
-        <input class="w3-radio" type="radio" name="qualification" value="financiallyLimited"   ng-model="rc.customer.qualification" checked>
+        <input class="w3-radio" type="radio" name="qualification" value="Financially Limited"  ng-model="rc.customer.qualification" checked>
         Financially Limited
     </label>
     <br/>
-   
-    <label>
+   <label>
         <input class="w3-radio" type="radio" name="qualification" value="other" ng-model="rc.customer.qualification" checked>
         Other
     </label>
-        <div ng-if="qualification == 'other'">
-            <textarea rows="4" cols="50"></textarea>
-        </div>
+    <div ng-if="qualification == 'other'">
+        <textarea rows="4" cols="50"></textarea>
+    </div>
 </div>
 
 <div class="w3-container w3-padding">
