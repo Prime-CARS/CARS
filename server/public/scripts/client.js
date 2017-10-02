@@ -35,6 +35,10 @@ myApp.config(function($routeProvider, $locationProvider) {
         }
       }
     })
+    .when('/requestService', {
+      templateUrl: '/views/templates/request.service.html',
+      controller: 'RequestController as rc',
+    })
     .otherwise({
       redirectTo: 'cars'
     });
