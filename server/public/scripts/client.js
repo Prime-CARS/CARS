@@ -27,7 +27,7 @@ myApp.config(function($routeProvider, $locationProvider) {
       }
     })
     .when('/mechanic', {
-      templateUrl: '/views/templates/mechanic.landing.html',
+      templateUrl: './views/templates/mechanic.landing.html',
       controller: 'MechanicController as mc',
       resolve: {
         getuser : function(AdminService){
@@ -43,6 +43,9 @@ myApp.config(function($routeProvider, $locationProvider) {
           return AdminService.getuser();
         }
       }
+    .when('/requestService', {
+      templateUrl: '/views/templates/request.service.html',
+      controller: 'RequestController as rc'
     })
     .otherwise({
       redirectTo: '/cars'
