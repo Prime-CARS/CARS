@@ -26,7 +26,7 @@ CREATE TABLE "customer_info" (
 	"make" text,
 	"model" text,
 	"vin" text NOT NULL,
-    "service_request" text DEFAULT 'requested',
+    "service_requested" text DEFAULT 'requested',
     "date_of_request" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
