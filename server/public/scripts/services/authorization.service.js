@@ -1,14 +1,14 @@
-myApp.service('AdminService', function ($http, $location) {
-   console.log('AdminService Loaded');
+myApp.service('AuthService', function ($http, $location) {
+   console.log('AuthService Loaded');
 
-   vm = this
-   vm.userObject = {};
-   vm.Requests = { list: [] }
+   self = this
+   self.userObject = {};
+   self.Requests = { list: [] }
 
-   vm.getAuth = function () {
-      $http.get('/RequestsForService').then(function (response) {
-         console.log('getRequests', response);
-         vm.Requests.list = response;
+   self.getAuth = function () {
+      $http.get('/authorization').then(function (response) {
+         console.log('getAuth', response);
+         self.serviceObject = response;
 
       })
    }

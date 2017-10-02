@@ -28,7 +28,7 @@ myApp.config(function($routeProvider, $locationProvider) {
     })    
     .when('/authorization', {
       templateUrl: '/views/templates/authorization.html',
-      controller: 'AdminController as ac',
+      controller: 'AuthController as ac',
       resolve: {
         getuser : function(AdminService){
           return AdminService.getuser();

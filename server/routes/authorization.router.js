@@ -3,7 +3,7 @@ var router = express.Router();
 var pool = require('../modules/pool.js')
 
 
-router.get('/:name', function (req, res) {
+router.get('/', function (req, res) {
     console.log('get authorization route hit');
     if (req.isAuthenticated()) {
         pool.connect(function (err, client, done) {

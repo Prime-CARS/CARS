@@ -1,12 +1,12 @@
-myApp.controller('AuthorizationController', function (AdminService) {
-   console.log('AuthorizationController created');
+myApp.controller('AuthController', function (AuthService) {
+   console.log('AuthController created');
 
    var self = this;
-   self.AdminService = AdminService;
-   self.userObject = AdminService.userObject;
+   self.AuthService = AuthService;
+   self.serviceObject = AuthService.serviceObject;
 
-   AdminService.getReq
-
+   AuthService.getAuth().then(function() {console.log('self.serviceObject', self.serviceObject)})
+   
 
 
 
