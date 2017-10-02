@@ -20,7 +20,8 @@ CREATE TABLE "customer_info" (
 	"cellphone" text NOT NULL,
 	"alternative_phone" text,
 	"email_address" text,
-    "qualify_input" text
+    "qualify_input" text,
+    "status" text
 );
 
 --Vehicle with new customer join

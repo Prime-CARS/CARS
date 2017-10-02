@@ -14,13 +14,14 @@
       <th>VIN</th>
       <th>Checklist Status</th>
     </tr>
+    
     <tr ng-repeat="vehicle in mc.carsStatus.list" ng-class="'{{vehicle.checklist_status}}'">
       <td>{{vehicle.name}}</td>
       <td>{{vehicle.year}}</td>
       <td>{{vehicle.make}}</td>
       <td>{{vehicle.model}}</td>
       <td>{{vehicle.vin}}</td>
-      <td><button ng-click="mc.getChecklist()">{{vehicle.checklist_status}}</button></td>
+      <td><a ng-href="#/checklist/{{vehicle.checklist_id}}">{{vehicle.checklist_status}}</a></td>
     </tr>
   </table>
 
