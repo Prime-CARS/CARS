@@ -35,7 +35,16 @@ myApp.config(function($routeProvider, $locationProvider) {
         }
       }
     })
+    .when('/:vin/checklist/:id', {
+      templateUrl: '/views/templates/mechanic.landing.html',
+      controller: 'ChecklistController as cc',
+      resolve: {
+        getuser : function(AdminService){
+          return AdminService.getuser();
+        }
+      }
+    })
     .otherwise({
-      redirectTo: 'cars'
+      redirectTo: '/cars'
     });
 });

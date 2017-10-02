@@ -1,7 +1,9 @@
-myApp.controller('ChecklistController', function(ChecklistService) {
+myApp.controller('ChecklistController', function(ChecklistService, $routeParams, $location) {
   console.log('ChecklistService created');
   var vm = this;
   vm.ChecklistService = ChecklistService;
+  
+
 
   // Call to populate Checklist service's carsStatus.list
 
