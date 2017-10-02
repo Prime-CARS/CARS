@@ -11,7 +11,7 @@ router.get('/', function (req, res) {
                 console.log("Error connecting: ", err);
                 res.sendStatus(500);
             }
-            client.query("SELECT * FROM vehicle_info JOIN customer_info ON customer_info.customer_id = vehicle_info.customer_id;",
+            client.query("SELECT * FROM customer_info;",
                 function (err, result) {
                     client.end();
                     if (err) {
