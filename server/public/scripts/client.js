@@ -27,7 +27,7 @@ myApp.config(function($routeProvider, $locationProvider) {
       }
     })
     .when('/mechanic', {
-      templateUrl: '/views/templates/mechanic.landing.html',
+      templateUrl: './views/templates/mechanic.landing.html',
       controller: 'MechanicController as mc',
       resolve: {
         getuser : function(AdminService){
@@ -35,12 +35,21 @@ myApp.config(function($routeProvider, $locationProvider) {
         }
       }
     })
-    .when('/requestservice', {
+    .when('/checklist/:checklist_id', {
+      templateUrl: '/views/templates/checklist.html',
+      controller: 'ChecklistController as cc',
+      resolve: {
+        getuser : function(AdminService){
+          return AdminService.getuser();
+        }
+      }
+    })
+    .when('/requestService', {
       templateUrl: '/views/templates/request.service.html',
-      controller: 'RequestController as rc',
+      controller: 'RequestController as rc'
     })
     .otherwise({
-      redirectTo: 'cars'
+      redirectTo: '/cars'
     });
 
 });
