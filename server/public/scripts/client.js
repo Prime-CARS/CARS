@@ -35,11 +35,20 @@ myApp.config(function($routeProvider, $locationProvider) {
         }
       }
     })
+    .when('/checklist/:checklist_id', {
+      templateUrl: '/views/templates/checklist.html',
+      controller: 'ChecklistController as cc',
+      resolve: {
+        getuser : function(AdminService){
+          return AdminService.getuser();
+        }
+      }
+    })
     .when('/requestService', {
       templateUrl: '/views/templates/request.service.html',
-      controller: 'RequestController as rc',
+      controller: 'RequestController as rc'
     })
     .otherwise({
-      redirectTo: 'cars'
+      redirectTo: '/cars'
     });
 });
