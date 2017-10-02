@@ -35,8 +35,8 @@ myApp.config(function($routeProvider, $locationProvider) {
         }
       }
     })
-    .when('/:vin/checklist/:id', {
-      templateUrl: '/views/templates/mechanic.landing.html',
+    .when('/checklist/:checklist_id', {
+      templateUrl: '/views/templates/checklist.html',
       controller: 'ChecklistController as cc',
       resolve: {
         getuser : function(AdminService){
