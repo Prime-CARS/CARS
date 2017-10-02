@@ -52,6 +52,7 @@ myApp.config(function($routeProvider, $locationProvider) {
           return AdminService.getuser();
         }
       }
+    })
     .when('/requestService', {
       templateUrl: '/views/templates/request.service.html',
       controller: 'RequestController as rc'
