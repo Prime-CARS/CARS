@@ -21,19 +21,13 @@ CREATE TABLE "customer_info" (
 	"alternative_phone" text,
 	"email_address" text,
     "qualify_input" text,
-    "status" text
-);
-
---Vehicle with new customer join
-CREATE TABLE "vehicle_info" (
-	"vehicle_id" serial PRIMARY KEY,
-	"year" integer,
+    "service_status" text,
+    "year" integer,
 	"make" text,
 	"model" text,
 	"vin" text NOT NULL,
     "service_request" text,
-    "date_timestamp" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-	"customer_id" int REFERENCES "customer_info" ("customer_id")
+    "date_of_request" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
 --Checklist joined to vehicle info
@@ -100,35 +94,46 @@ CREATE TABLE "cars_checklist" (
 	"vehicle_observations" text,
 	"recommended_repairs" text,
 	"repairs_declined" text,
-	"date_timestamp" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	"date_timestamp" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
 	"parts_installed" text,
 	"cost" money,
 	"checklist_status" text,
 	"mechanics" text,
 	"current_mileage" text,
-	"vehicle_id" int REFERENCES "vehicle_info" ("vehicle_id")
+	"customer_id" int REFERENCES "customer_info" ("customer_id")
 );
 --End DB setup
 
+--Vehicle with new customer join
+--Obsolete, combining both forms into one
+-- CREATE TABLE "vehicle_info" (
+-- 	"vehicle_id" serial PRIMARY KEY,
+-- 	"year" integer,
+-- 	"make" text,
+-- 	"model" text,
+-- 	"vin" text NOT NULL,
+--     "service_request" text,
+--     "date_timestamp" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+-- 	"customer_id" int REFERENCES "customer_info" ("customer_id")
+-- );
 
 --Inserting a new customer with vehicle information
 --Change to be dynamic
-INSERT INTO customer_info (	"name", "address", "city", "state", "zip", "cellphone" ) VALUES
-('john', 'address', 'city', 'state', 00000, 5555555);
-
-INSERT INTO vehicle_info ( "customer_id" , "vin" ) VALUES
-((SELECT "customer_id" FROM "customer_info" WHERE "name"='john'), 'VIN#AAAABBBBCC');
+INSERT INTO customer_info (	"name", "address", "city", "state", "zip", "cellphone", "vin" ) VALUES
+('john', 'address', 'city', 'state', 00000, 5555555, 'VIN#AAAABBBBCC');
 
 --Once a vehicle has been approved for service
 --Creates an empty checklist for mechanics, timestamp is updated with every update.
 --Change to be dynamic
-INSERT INTO cars_checklist ( "vehicle_id", "checklist_status" ) VALUES
-((SELECT "vehicle_id" FROM "vehicle_info" WHERE "vehicle_id"='1'), 'ready');
-
-
---SELECT customer_info and vehicle_info
+INSERT INTO cars_checklist ( "customer_id", "checklist_status" ) VALUES
+((SELECT "customer_id" FROM "customer_info" WHERE "customer_id"='$1'), 'ready');
 
 --Selecting customer's name, cellphone contact (Should we include another in case there is no cellphone??, cell is required...), why they qualify and the vin for pending requests (admin) view:
-SELECT customer_info.name, customer_info.cellphone, customer_info.qualify_input, vehicle_info.vin, vehicle_info.date_timestamp
-FROM vehicle_info
-JOIN customer_info ON customer_info.customer_id=vehicle_info.customer_id;
+SELECT customer_info.name, customer_info.cellphone, customer_info.qualify_input, customer_info.vin 
+FROM customer_info;
+
+--Selecting customer, vehicle info and current checklist
+SELECT customer_info.name, customer_info.year, customer_info.make, customer_info.model, customer_info.vin, customer_info.service_requested, cars_checklist.* 
+FROM cars_checklist 
+JOIN customer_info ON customer_info.customer_id=cars_checklist.customer_id  
+WHERE cars_checklist.checklist_id=3;
