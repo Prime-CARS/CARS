@@ -11,11 +11,10 @@
     <div ng-show="ac.showRequests">
         <h3>These requests are pending review and scheduling</h3>
         <div ng-repeat="data in ac.RetrievedRequests.list.data" class="rqst" ng-click="ac.expandInfo()" ng-hide=ac.InfoExpanded>{{data.name}} {{data.year}} {{data.make}} {{data.model}}</div>
-        <div ng-repeat="data in ac.RetrievedRequests.list.data" ng-show="ac.InfoExpanded" class="expanded_request"> Pending request #1 Name:{{data.name}} Phone:{{data.cellphone}} Alt Phone:{{data.alternative_phone}}
-            Year/Make/Model/VIN: {{data.year}}/{{data.make}}/{{data.model}}/{{data.vin}} Qualifier:{{data.qualify_input}}
-             Vehicle Issue:{{data.service_request}} 
-             Scheduled Date:<input type="date"> Scheduled Time:<input type="time"> 
-             <button ng-click="ac.shrinkInfo()">-</button>
+        <div ng-repeat="data in ac.RetrievedRequests.list.data" ng-show="ac.InfoExpanded" class="expanded_request"> Pending request #1 Name:{{data.name}} Phone:{{data.cellphone}} Alt Phone:{{data.alternative_phone}} Year/Make/Model/VIN:
+            {{data.year}}/{{data.make}}/{{data.model}}/{{data.vin}} Qualifier:{{data.qualify_input}} Vehicle Issue:{{data.service_request}}
+            Scheduled Date:<input type="date"> Scheduled Time:<input type="time">
+            <button ng-click="ac.shrinkInfo()">-</button>
         </div>
         <div class="nrqst" ng-click="ac.AddRequest()">New request </div>
     </div>
@@ -24,8 +23,81 @@
         <form><input type="text" id="search" ng-model="history_search"><button ng-click="ac.search_history(history_search)">submit</button></form>
     </div>
     <div class="nrqstform" ng-show="ac.nrqstneeded">
-        New request form will be copied into here with the addition of a scheduled box so it can be immediatly cleared.
-        <button ng-click="ac.ReduceRequest()">Done</button>
+        <!--start of new person entry -->
+        <form class="w3-container w3-row-padding w3-content" id="customerInfo">
+            <label>Name</label>
+            <input type="text" class="w3-input w3-border w3-round" name="first" ng-model="rc.customer.name">
+
+            <label>Address</label>
+            <input type="text" class="w3-input w3-border w3-round" name="address" ng-model="rc.customer.address">
+        </form>
+
+        <form class="w3-container w3-row-padding" id="customerInfo">
+            <div class="w3-row-padding">
+                    <label>City</label>
+                    <input type="text" class="w3-input w3-border w3-round" name="city" ng-model="rc.customer.city">
+                    <label>State</label>
+                    <input type="text" class="w3-input w3-border w3-round" name="state" ng-model="rc.customer.state">
+                    <label>Zip Code</label>
+                    <input type="number" class="w3-input w3-border w3-round" name="zip" ng-model="rc.customer.zip">
+            </div>
+        </form>
+
+        <form class="w3-container" id="carInfo">
+            <h2>Vehicle Information</h2>
+            <div class="w3-container w3-row">
+                    <label>VIN</label>
+                    <input type="text" class="w3-input w3-border w3-round" name="VIN" ng-model="rc.vehicle.vin">
+                    <label>Year</label>
+                    <input type="number" class="w3-input w3-border w3-round" name="year" ng-model="rc.vehicle.year">
+                    <label>Make</label>
+                    <input type="text" class="w3-input w3-border w3-round" name="make" ng-model="rc.vehicle.make">
+                    <label>model</label>
+                    <input type="text" class="w3-input w3-border w3-round" name="model" ng-model="rc.vehicle.model">
+            </div>
+        </form>
+        <h3>Please describe the problems you are having with the vehicle</h3>
+        <textarea rows="15" cols="100" ng-model="rc.vehicle.problem"></textarea>
+
+        <div class="w3-container">
+            <h3>Please indicate why you qualify to use the services of C.A.R.S. Ministry</h3>
+            <label>
+        <input class="w3-radio" type="radio" name="qualification" value="singleMother" ng-model="rc.customer.qualification" checked>
+        Single Mother
+    </label>
+
+
+            <label>
+        <input class="w3-radio" type="radio" name="qualification" value="singleWoman" ng-model="rc.customer.qualification" checked>    
+        Single Woman
+    </label>
+
+
+            <label>
+        <input class="w3-radio" type="radio" name="qualification" value="widow" ng-model="rc.customer.qualification" checked>
+        Widow
+    </label>
+
+            <label>
+        <input class="w3-radio" type="radio" name="qualification" value="financiallyLimited"   ng-model="rc.customer.qualification" checked>
+        Financially Limited
+    </label>
+
+            <label>
+        <input class="w3-radio" type="radio" name="qualification" value="other" ng-model="rc.customer.qualification" checked>
+        Other
+    </label>
+            <div ng-if="qualification == 'other'">
+                <textarea rows="4" cols="50"></textarea>
+            </div>
+        </div>
+        Scheduled Date:<input type="date"> Scheduled Time:<input type="time">
+        <div class="w3-container w3-padding">
+            <button class="btn-btn-primary" type="submit" ng-click="rc.addCustomer()">Submit</button>
+        </div>
+
+        <!--end of new person entry -->
+        <button ng-click="ac.ReduceRequest()">Close</button>
     </div>
 
     <div ng-show="ac.showAuths">
