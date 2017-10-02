@@ -27,7 +27,7 @@ myApp.config(function($routeProvider, $locationProvider) {
       }
     })
     .when('/mechanic', {
-      templateUrl: '/views/templates/mechanic.landing.html',
+      templateUrl: './views/templates/mechanic.landing.html',
       controller: 'MechanicController as mc',
       resolve: {
         getuser : function(AdminService){
