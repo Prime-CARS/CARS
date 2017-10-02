@@ -44,7 +44,7 @@ myApp.config(function($routeProvider, $locationProvider) {
         }
       }
     })
-    .when('/requestService', {
+    .when('/requestservice', {
       templateUrl: '/views/templates/request.service.html',
       controller: 'RequestController as rc'
     })
