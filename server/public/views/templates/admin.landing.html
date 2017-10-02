@@ -2,7 +2,7 @@
 <div class="container">
 
     <h1 id="welcome" class="lead">Hello {{ac.userObject.userName}}!</h1>
-    <button ng-click="ac.AdminService.logout()">Log Out</button>
+    <!-- <button ng-click="ac.AdminService.logout()">Log Out</button> -->
     <button ng-click="ac.makeRequestsVisible()">Service Requests</button>
     <button ng-click="ac.showSearch()">Service History</button>
     <button ng-click="ac.showAuth()">Pending Authorizations</button>
@@ -20,7 +20,7 @@
         <div class="nrqst" ng-click="ac.AddRequest()">New request </div>
     </div>
 
-    <div ng-hide="ac.showRequests">
+    <div ng-show="ac.showSearchs">
         <form><input type="text" id="search" ng-model="history_search"><button ng-click="ac.search_history(history_search)">submit</button></form>
     </div>
     <div class="nrqstform" ng-show="ac.nrqstneeded">
