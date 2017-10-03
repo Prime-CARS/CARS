@@ -9,7 +9,7 @@ myApp.controller('AdminController', function(AdminService) {
   vm.nrqstneeded = false;
   vm.showAuths = false;
   vm.showSearchs = false;
-
+  vm.Prints = AdminService.Prints;
   vm.RetrievedRequests = AdminService.Requests;
 
 
@@ -51,9 +51,9 @@ myApp.controller('AdminController', function(AdminService) {
     vm.nrqstneeded = false;
     vm.getRequests();
   }
-
   vm.search_history = function(z){
     console.log('search button hit, passed', z, 'as search stuff')
+    
   }
 
   vm.showAuth = function(){
@@ -67,7 +67,17 @@ myApp.controller('AdminController', function(AdminService) {
     vm.showAuths = false;
   }
 
-  vm.getRequests()
+  vm.getPrint = function () {
+    AdminService.getPrints()
+  }
+
+  vm.history_view= function(){
+    alert('You hit a button......good job......')
+  }
+
+
+  vm.getPrint();
+  vm.getRequests();
   console.log(vm.RetrievedRequests)
 
 });

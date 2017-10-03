@@ -11,9 +11,9 @@ router.get('/', function (req, res) {
                 console.log("Error connecting: ", err);
                 res.sendStatus(500);
             }
-            client.query("SELECT * FROM customer_info;",
+            client.query("SELECT * FROM customer_info WHERE service_status = 'requested' order by date_of_request asc;",
                 function (err, result) {
-                    client.end();
+                   done;
                     if (err) {
                         console.log("Error inserting data: ", err);
                         res.sendStatus(500);
@@ -30,4 +30,30 @@ router.get('/', function (req, res) {
     }
 });
 
+router.get('/printable', function (req, res) {
+    console.log('get requests route hit');
+    if (req.isAuthenticated()) {
+        pool.connect(function (err, client, done) {
+            if (err) {
+                console.log("Error connecting: ", err);
+                res.sendStatus(500);
+            }
+            client.query("SELECT * FROM customer_info WHERE service_status = 'scheduled' order by date_of_request asc;",
+                function (err, result) {
+                    done;
+                    if (err) {
+                        console.log("Error inserting data: ", err);
+                        res.sendStatus(500);
+                    } else {
+                        res.send(result.rows)
+                    }
+                });
+        })
+    } else {
+        // failure best handled on the server. do redirect here.
+        console.log('not logged in');
+        // should probably be res.sendStatus(403) and handled client-side, esp if this is an AJAX request (which is likely with AngularJS)
+        res.send(false);
+    }
+});
 module.exports = router;
