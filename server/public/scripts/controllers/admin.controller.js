@@ -1,4 +1,4 @@
-myApp.controller('AdminController', function(AdminService) {
+myApp.controller('AdminController', 'AuthService', function(AdminService, AuthService) {
   console.log('AdminController created');
   var vm = this;
   vm.AdminService = AdminService;
@@ -52,7 +52,7 @@ myApp.controller('AdminController', function(AdminService) {
     vm.getRequests();
   }
 
-  
+
   vm.search_history = function(z){
     console.log('search button hit, passed', z, 'as search stuff')
     
@@ -73,9 +73,12 @@ myApp.controller('AdminController', function(AdminService) {
     AdminService.getPrints()
   }
 
-  vm.history_view= function(){
-    alert('You hit a button......good job......')
-  }
+  vm.history_view= function(c){
+    AuthService.PrintPage = c;
+      console.log(c);
+      
+      
+    }
 
 
   vm.getPrint();
