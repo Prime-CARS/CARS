@@ -102,8 +102,6 @@
 
     <div ng-show="ac.showAuths">
         <h3>These authorizations have been created and need to be printed.</h3>
-        <div class="rqst">pending auth 1</div>
+        <div ng-repeat="data in ac.AdminService.Prints.list.data" ng-click="ac.history_view()" class="rqst">{{data.name}}</div>
     </div>
-
-
 </div>
