@@ -38,8 +38,8 @@ passport.deserializeUser(function (id, done) {
       } else {
         // user found
         console.log('User row ', user);
-        done(null, user);
         release();
+        done(null, user);
       }
     });
   });

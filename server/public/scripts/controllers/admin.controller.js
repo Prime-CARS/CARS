@@ -1,7 +1,9 @@
-myApp.controller('AdminController', function(AdminService) {
+myApp.controller('AdminController', function(AdminService, $location, $http) {
   console.log('AdminController created');
   var vm = this;
   vm.AdminService = AdminService;
+
+  //doing userobject check in another function
   vm.userObject = AdminService.userObject;
 
   vm.showRequests = true;
@@ -67,7 +69,19 @@ myApp.controller('AdminController', function(AdminService) {
     vm.showAuths = false;
   }
 
-  vm.getRequests()
-  console.log(vm.RetrievedRequests)
+  // Checks if current user is an admin, will kick to home page if not
+  // vm.userObject = {};
+  // vm.checkUser = function () {
+  //   $http.get('/user').then(function (response) {
+  //     if (response.data.role != 'admin') {
+  //       console.log('Current user is not an admin');
+  //       $location.path('/cars');
+  //     }
+  //   })
+  // }
+
+  //vm.checkUser();
+  vm.getRequests();
+  console.log(vm.RetrievedRequests);
 
 });
