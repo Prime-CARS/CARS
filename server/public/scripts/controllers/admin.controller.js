@@ -1,4 +1,4 @@
-myApp.controller('AdminController', 'AuthService', function(AdminService, AuthService) {
+myApp.controller('AdminController', function(AdminService, AuthService) {
   console.log('AdminController created');
   var vm = this;
   vm.AdminService = AdminService;
@@ -74,9 +74,8 @@ myApp.controller('AdminController', 'AuthService', function(AdminService, AuthSe
   }
 
   vm.history_view= function(c){
-    AuthService.PrintPage = c;
       console.log(c);
-      
+      AuthService.getAuth(c)
       
     }
 

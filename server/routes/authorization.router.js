@@ -11,13 +11,15 @@ router.get('/', function (req, res) {
                 console.log("Error connecting: ", err);
                 res.sendStatus(500);
             }
-            client.query("SELECT * FROM customer_info;",
+            client.query("SELECT * FROM customer_info WHERE service_status = 'scheduled' order by date_of_request asc;",
                 function (err, result) {
                     done;
                     if (err) {
                         console.log("Error inserting data: ", err);
                         res.sendStatus(500);
                     } else {
+                        console.log('result.rows', result.rows);
+                        
                         res.send(result.rows)
                     }
                 });

@@ -5,10 +5,12 @@ myApp.service('AuthService', function ($http, $location) {
    self.userObject = {};
    self.Requests = { list: [] }
 
-   self.getAuth = function () {
+   self.getAuth = function (c) {
       $http.get('/authorization').then(function (response) {
-         console.log('getAuth', response.data);
-         self.serviceObject = response.data;
+         self.serviceObject = response.data[c];
+         console.log('self.serviceObject is', self.serviceObject);
+         
+         $location.path('/authorization');
 
       })
    }
