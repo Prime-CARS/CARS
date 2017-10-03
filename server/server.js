@@ -34,7 +34,7 @@ app.use(passport.session());
 app.use('/register', registerRouter);
 app.use('/user', userRouter);
 app.use('/checklist', checklistRouter);
-app.use('/requestService',requestServiceRouter);
+app.use('/requestservice',requestServiceRouter);
 
 app.use('/RequestsForService', RequestsForService)
 

@@ -21,12 +21,12 @@ CREATE TABLE "customer_info" (
 	"alternative_phone" text,
 	"email_address" text,
     "qualify_input" text,
-    "service_status" text,
+    "service_status" text DEFAULT 'requested',
     "year" integer,
 	"make" text,
 	"model" text,
 	"vin" text NOT NULL,
-    "service_requested" text DEFAULT 'requested',
+    "service_requested" text,
     "date_of_request" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
