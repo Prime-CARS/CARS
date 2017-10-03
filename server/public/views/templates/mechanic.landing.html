@@ -3,27 +3,51 @@
   <h1 id="welcome" class="lead">Mechanic Landing Page</h1>
 
   <!-- Current mc:{{mc}} -->
+  <div>
+    <p>
+      <h3>Vehicles Pending Service:</h3>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Year</th>
+          <th>Make</th>
+          <th>Model</th>
+          <th>VIN</th>
+          <th>Checklist Status</th>
+        </tr>
 
-  <h3>Vehicles Pending Service:</h3>
-  <table>
-    <tr>
-      <th>Name</th>
-      <th>Year</th>
-      <th>Make</th>
-      <th>Model</th>
-      <th>VIN</th>
-      <th>Checklist Status</th>
-    </tr>
-    
-    <tr ng-repeat="vehicle in mc.carsStatus.list" ng-class="'{{vehicle.checklist_status}}'">
-      <td>{{vehicle.name}}</td>
-      <td>{{vehicle.year}}</td>
-      <td>{{vehicle.make}}</td>
-      <td>{{vehicle.model}}</td>
-      <td>{{vehicle.vin}}</td>
-      <td><a ng-href="#/checklist/{{vehicle.checklist_id}}">{{vehicle.checklist_status}}</a></td>
-    </tr>
-  </table>
+        <tr ng-repeat="vehicle in mc.carsStatus.list" ng-class="'{{vehicle.checklist_status}}'" ng-hide="vehicle.checklist_status === 'serviced'">
+          <td>{{vehicle.name}}</td>
+          <td>{{vehicle.year}}</td>
+          <td>{{vehicle.make}}</td>
+          <td>{{vehicle.model}}</td>
+          <td>{{vehicle.vin}}</td>
+          <td><a ng-href="#/checklist/{{vehicle.checklist_id}}">{{vehicle.checklist_status}}</a></td>
+        </tr>
+      </table>
+
+      <h3>Vehicles Ready for Check-out:</h3>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Year</th>
+          <th>Make</th>
+          <th>Model</th>
+          <th>VIN</th>
+          <th>Checklist Status</th>
+        </tr>
+
+        <tr ng-repeat="vehicle in mc.carsStatus.list" ng-class="'{{vehicle.checklist_status}}'" ng-hide="vehicle.checklist_status != 'serviced'">
+          <td>{{vehicle.name}}</td>
+          <td>{{vehicle.year}}</td>
+          <td>{{vehicle.make}}</td>
+          <td>{{vehicle.model}}</td>
+          <td>{{vehicle.vin}}</td>
+          <td><a ng-href="#/checklist/checkout/{{vehicle.checklist_id}}">{{vehicle.checklist_status}}</a></td>
+        </tr>
+      </table>
+    </p>
+  </div>
 
   <br>
   <button class="btn btn-default" ng-click="uc.AdminService.logout()">Log Out</button>
