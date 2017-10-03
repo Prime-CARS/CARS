@@ -55,7 +55,7 @@ myApp.controller('AdminController', 'AuthService', function(AdminService, AuthSe
 
   vm.search_history = function(z){
     console.log('search button hit, passed', z, 'as search stuff')
-    
+  
   }
 
   vm.showAuth = function(){
