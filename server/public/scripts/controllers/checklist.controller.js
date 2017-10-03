@@ -3,6 +3,8 @@ myApp.controller('ChecklistController', function(ChecklistService, $routeParams)
   var vm = this;
   vm.ChecklistService = ChecklistService;
 
+  vm.cars_checklist = {};
+
   // Call to populate Checklist 
   ChecklistService.getCarChecklist($routeParams.checklist_id);
   vm.carChecklist = ChecklistService.carChecklist;
