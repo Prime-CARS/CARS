@@ -36,7 +36,7 @@
       </tr>
       <tr>
          <td> {{ac.AuthService.serviceObject[0].address}}</td>
-         <td>alternate: {{ac.AuthService.serviceObject[0].alternative_phone}}</td>
+         <td>alternate: {{ac.AuthService.serviceObject[0].alternative_phone | bcTelephone:'format'}}</td>
       </tr>
       <tr>
          <td>{{ac.AuthService.serviceObject[0].city}}, {{ac.AuthService.serviceObject[0].state}} {{ac.AuthService.serviceObject[0].zip}}</td>
