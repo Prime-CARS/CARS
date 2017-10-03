@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', ['ngRoute', 'ngMaterial', 'ngAnimate']);
+var myApp = angular.module('myApp', ['ngRoute', 'ngMaterial', 'ngAnimate', 'bc.TelephoneFilter']);
 
 /// Routes ///
 myApp.config(function($routeProvider, $locationProvider) {
@@ -20,6 +20,15 @@ myApp.config(function($routeProvider, $locationProvider) {
     .when('/admin', {
       templateUrl: '/views/templates/admin.landing.html',
       controller: 'AdminController as ac',
+      resolve: {
+        getuser : function(AdminService){
+          return AdminService.getuser();
+        }
+      }
+    })    
+    .when('/authorization', {
+      templateUrl: '/views/templates/authorization.html',
+      controller: 'AuthController as ac',
       resolve: {
         getuser : function(AdminService){
           return AdminService.getuser();

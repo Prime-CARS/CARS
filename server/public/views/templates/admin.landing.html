@@ -18,10 +18,14 @@
         </div>
         <div class="nrqst" ng-click="ac.AddRequest()">New request </div>
     </div>
-
+<!--search bar-->
     <div ng-show="ac.showSearchs">
         <form><input type="text" id="search" ng-model="history_search"><button ng-click="ac.search_history(history_search)">submit</button></form>
+    response would need to populate here.
+    
     </div>
+ <!--search bar end-->
+ 
     <div class="nrqstform" ng-show="ac.nrqstneeded">
         <!--start of new person entry -->
         <form class="w3-container w3-row-padding w3-content" id="customerInfo">
@@ -100,10 +104,9 @@
         <button ng-click="ac.ReduceRequest()">Close</button>
     </div>
 
+<!--button to show pending authorizations-->
     <div ng-show="ac.showAuths">
         <h3>These authorizations have been created and need to be printed.</h3>
-        <div class="rqst">pending auth 1</div>
+        <div ng-repeat="data in ac.AdminService.Prints.list.data" ng-click="ac.history_view($index)" class="rqst">{{data.name}}</div>
     </div>
-
-
 </div>

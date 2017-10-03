@@ -1,0 +1,47 @@
+<div ng-include="'views/partials/nav.html'"></div>
+
+{{ac.AuthService.serviceObject[0]}}
+<div style="width: 88vw; margin:auto; margin-bottom:8vh;">
+   <H1>C.A.R.S.</H1>
+   <br>
+   <H2>Service Authorization</H2>
+
+   <p>I, {{ac.AuthService.serviceObject[0].name}} , hereby authorize C.A.R.S. to perform the following services and repairs
+      on the vehicle listed below:</p>
+   <p>{{ac.AuthService.serviceObject[0].service_request}}</p>
+
+   <p>I understand that the service will be peformed by volunteers who are not professional autmotive techicians. Should I encounter
+      any problems with the service performed by C.A.R.S. I will immediately cease driving the car and contact C.A.R.S. I
+      also agree that I will promptly return the car for examination if I am requested to do so. I understand that I am solely
+      responsible for the safe driving condition of my vehicle at all times. I agree that C.A.R.S. will not be responsible
+      for the failure or breakdown of any components that were not serviced by C.A.R.S. or it's volunteers and that C.A.R.S.
+      and it's colunteers assume no responsibility or liability for the failure or breakdown of any installed part. All part
+      warranties shall be the responsibility of the seller and/or manufacturer of the part if there is a warranty. I waive
+      any and all claims, demands, or lawsuits for myself, my assignees,. and my estate against C.A.R.S., it's volunteers,
+      and/or agents which may arise from vehicle inspection or service performed by the C.A.R.S. Ministry.</p>
+
+
+
+
+   <h2>Vehicle Information</h2>
+   {{ac.AuthService.serviceObject[0].year}} {{ac.AuthService.serviceObject[0].make}} {{ac.AuthService.serviceObject[0].model}}
+   <br>VIN: {{ac.AuthService.serviceObject[0].vin}}
+
+
+   <h2>Customer Information</h2>
+   <table style="width:88vw;">
+      <tr>
+         <td>{{ac.AuthService.serviceObject[0].name}}</td>
+         <td>cell: {{ac.AuthService.serviceObject[0].cellphone | bcTelephone:'format'}}</td>
+      </tr>
+      <tr>
+         <td> {{ac.AuthService.serviceObject[0].address}}</td>
+         <td>alternate: {{ac.AuthService.serviceObject[0].alternative_phone | bcTelephone:'format'}}</td>
+      </tr>
+      <tr>
+         <td>{{ac.AuthService.serviceObject[0].city}}, {{ac.AuthService.serviceObject[0].state}} {{ac.AuthService.serviceObject[0].zip}}</td>
+         <td>email: {{ac.AuthService.serviceObject[0].email_address}}</td>
+      </tr>
+   </table>
+   <textarea rows="6" cols="80">Sign and Date</textarea>
+</div>

@@ -2,8 +2,6 @@
 <h2>Request for Vehicle Reapir</h2>
 <h4>Please fill in all the fields below</h4>
 
-{{rc.customer}}
-{{rc.vehicle}}
 <form class="form-group" id="customerInfo">
     <div class="container"></div>
         <p><label>Name</label></p>
@@ -42,7 +40,7 @@
     
     <div class="container">
         <p><label>email address</label></p>
-        <input type="text" class="form-group" name="altPhone" ng-model="rc.customer.email">
+        <input type="email" class="form-group" name="altPhone" ng-model="rc.customer.email">
     </div>    
 </form>  
 
@@ -75,36 +73,36 @@
 <div class="-container">
 <h3>Please indicate why you qualify to use the services of C.A.R.S. Ministry</h3>
     <label>
-        <input class="w3-radio" type="radio" name="qualification" value="Single Mother" ng-model="rc.customer.qualification" checked>
+        <input type="radio" name="qualification" value="Single Mother" ng-model="rc.customer.qualification">
         Single Mother
     </label>
     <br/>
     
     <label>
-        <input class="w3-radio" type="radio" name="qualification" value="Single Woman" ng-model="rc.customer.qualification" checked>    
+        <input type="radio" name="qualification" value="Single Woman" ng-model="rc.customer.qualification">    
         Single Woman
     </label> 
     <br/>
     <label>
-        <input class="w3-radio" type="radio" name="qualification" value="Widow" ng-model="rc.customer.qualification" checked>
+        <input type="radio" name="qualification" value="Widow" ng-model="rc.customer.qualification">
         Widow
     </label>
     <br/>
     <label>
-        <input class="w3-radio" type="radio" name="qualification" value="Financially Limited"  ng-model="rc.customer.qualification" checked>
+        <input type="radio" name="qualification" value="Financially Limited"  ng-model="rc.customer.qualification" checked>
         Financially Limited
     </label>
     <br/>
    <label>
-        <input class="w3-radio" type="radio" name="qualification" value="other" ng-model="rc.customer.qualification" checked>
+        <input type="radio" name="qualification" value="other" ng-click="rc.openTextbox();">
         Other
-    </label>
-    <div ng-if="qualification == 'other'">
-        <textarea rows="4" cols="50"></textarea>
+    <div ng-show="rc.textboxShowing"> 
+        <textarea rows="4" cols="50"  ng-model="rc.customer.qualification" placeholder = "Please explain your circumstances:"></textarea>
     </div>
+    </label>
 </div>
 
-<div class="w3-container w3-padding">
+<div class="container">
 <button class="btn-btn-primary" type="submit" ng-click="rc.addCustomer()">Submit</button>
 </div>
 
