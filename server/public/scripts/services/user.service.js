@@ -19,7 +19,12 @@ myApp.service('AdminService', function($http, $location){
           if(response.data.username) {
               // user has a curret session on the server
               vm.userObject.userName = response.data.username;
-              console.log('AdminService -- getuser -- User Data: ', vm.userObject.userName);
+              vm.userObject.role = response.data.role;
+              console.log('AdminService -- getuser -- User Data: ', vm.userObject);
+
+              if (vm.userObject.role != 'admin') {
+                
+              }
           } else {
               console.log('AdminService -- getuser -- failure');
               // user has no session, bounce them back to the login page
