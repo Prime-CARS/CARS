@@ -5,7 +5,7 @@
 <form class="form-group" id="customerInfo">
     <div class="container"></div>
         <p><label>Name</label></p>
-        <input type="text" class="form control" name="first" ng-model="rc.customer.name">
+        <input type="text" class="form control" name="name" ng-model="rc.customer.name">
     </div>
 
     <div class="container">
@@ -30,7 +30,7 @@
     
     <div class="container">
         <p><label>Cell Phone</label></p>
-        <input type="text" class="form-control" name="cellPhone" ng-model="rc.customer.cellPhone">
+        <input type="tel" class="form-control" name="cellPhone" ng-model="rc.customer.cellPhone ">
     </div>   
 
     <div class="container">
@@ -103,7 +103,7 @@
 </div>
 
 <div class="container">
-<button class="btn-btn-primary" type="submit" ng-click="rc.addCustomer()">Submit</button>
+<button class="btn-btn-primary" type="submit" ng-click="rc.addCustomer(); rc.sendMail()">Submit</button>
 </div>
 
 
