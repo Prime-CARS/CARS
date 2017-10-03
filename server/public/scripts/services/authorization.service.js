@@ -7,8 +7,8 @@ myApp.service('AuthService', function ($http, $location) {
 
    self.getAuth = function () {
       $http.get('/authorization').then(function (response) {
-         console.log('getAuth', response);
-         self.serviceObject = response;
+         console.log('getAuth', response.data);
+         self.serviceObject = response.data;
 
       })
    }
