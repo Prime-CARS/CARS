@@ -4,12 +4,12 @@ myApp.service('AuthService', function ($http, $location) {
    self = this
    self.userObject = {};
    self.Requests = { list: [] }
-   self.PrintPage = {};
 
-   self.getAuth = function () {
+   self.getAuth = function (c) {
       $http.get('/authorization').then(function (response) {
-         console.log('getAuth', response.data);
-         self.serviceObject = response.data[self.PrintPage];
+         self.serviceObject = response.data[c];
+         console.log('self.serviceObject is', self.serviceObject);
+         
          $location.path('/authorization');
 
       })

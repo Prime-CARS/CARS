@@ -5,7 +5,7 @@ myApp.controller('AuthController', function (AuthService) {
    self.AuthService = AuthService;
    self.serviceObject = AuthService.serviceObject;
 
-   AuthService.getAuth(function() {console.log('self.serviceObject', self.serviceObject)})
+   AuthService.getAuth()
    
 
 

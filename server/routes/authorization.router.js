@@ -18,6 +18,8 @@ router.get('/', function (req, res) {
                         console.log("Error inserting data: ", err);
                         res.sendStatus(500);
                     } else {
+                        console.log('result.rows', result.rows);
+                        
                         res.send(result.rows)
                     }
                 });
