@@ -10,4 +10,5 @@ myApp.controller('MechanicController', function(AdminService, ChecklistService, 
     console.log('Checklist button clicked!');
   }
 
+  
 });

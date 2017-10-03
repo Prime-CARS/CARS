@@ -7,6 +7,7 @@ passport.serializeUser(function(user, done) {
     done(null, user.id);
 });
 
+// this keeps calling if youre logged in and idle and kicks me off ?? 
 passport.deserializeUser(function(id, done) {
   console.log('called deserializeUser - pg');
 
