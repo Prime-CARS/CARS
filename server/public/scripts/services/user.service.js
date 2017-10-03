@@ -44,6 +44,7 @@ myApp.service('AdminService', function ($http, $location) {
       console.log('AdminService -- logout');
       $http.get('/user/logout').then(function (response) {
         console.log('AdminService -- logout -- logged out');
+        vm.userObject = {};
         $location.path("/home");
       });
     }
