@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 myApp.controller('AdminController', function(AdminService, $location, $http) {
+=======
+myApp.controller('AdminController', 'AuthService', function(AdminService, AuthService) {
+>>>>>>> master
   console.log('AdminController created');
   var vm = this;
   vm.AdminService = AdminService;
@@ -11,7 +15,7 @@ myApp.controller('AdminController', function(AdminService, $location, $http) {
   vm.nrqstneeded = false;
   vm.showAuths = false;
   vm.showSearchs = false;
-
+  vm.Prints = AdminService.Prints;
   vm.RetrievedRequests = AdminService.Requests;
 
 
@@ -54,8 +58,10 @@ myApp.controller('AdminController', function(AdminService, $location, $http) {
     vm.getRequests();
   }
 
+
   vm.search_history = function(z){
     console.log('search button hit, passed', z, 'as search stuff')
+    
   }
 
   vm.showAuth = function(){
@@ -69,6 +75,7 @@ myApp.controller('AdminController', function(AdminService, $location, $http) {
     vm.showAuths = false;
   }
 
+
   // Checks if current user is an admin, will kick to home page if not
   // vm.userObject = {};
   // vm.checkUser = function () {
@@ -81,7 +88,23 @@ myApp.controller('AdminController', function(AdminService, $location, $http) {
   // }
 
   //vm.checkUser();
+
+
+  vm.getPrint = function () {
+    AdminService.getPrints()
+  }
+
+  vm.history_view= function(c){
+    AuthService.PrintPage = c;
+      console.log(c);
+      
+      
+    }
+
+
+  vm.getPrint();
   vm.getRequests();
-  console.log(vm.RetrievedRequests);
+  console.log(vm.RetrievedRequests)
+
 
 });

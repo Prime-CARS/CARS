@@ -4,12 +4,20 @@ myApp.service('AdminService', function ($http, $location) {
   vm = this
   vm.userObject = {};
   vm.Requests = { list: [] }
+  vm.Prints = { list: [] }
 
   vm.getRequests = function () {
     $http.get('/RequestsForService').then(function (response) {
       console.log('getRequests', response);
       vm.Requests.list = response;
 
+    })
+  }
+
+  vm.getPrints = function () {
+    $http.get('/RequestsForService/printable').then(function (response) {
+      console.log('PRINTS Requests', response);
+      vm.Prints.list = response;
     })
   }
 

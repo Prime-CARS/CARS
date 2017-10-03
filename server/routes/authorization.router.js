@@ -13,7 +13,7 @@ router.get('/', function (req, res) {
             }
             client.query("SELECT * FROM customer_info;",
                 function (err, result) {
-                    client.end();
+                    done;
                     if (err) {
                         console.log("Error inserting data: ", err);
                         res.sendStatus(500);
