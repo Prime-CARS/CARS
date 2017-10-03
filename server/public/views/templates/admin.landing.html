@@ -18,11 +18,13 @@
         </div>
         <div class="nrqst" ng-click="ac.AddRequest()">New request </div>
     </div>
-
+<!--search bar-->
     <div ng-show="ac.showSearchs">
-        <form><input type="text" id="search" ng-model="history_search"><button ng-click="ac.search_history()">submit</button></form>
+        <form><input type="text" id="search" ng-model="history_search"><button ng-click="ac.search_history(history_search)">submit</button></form>
+    response would need to populate here.
+    
     </div>
- 
+ <!--search bar end-->
  
     <div class="nrqstform" ng-show="ac.nrqstneeded">
         <!--start of new person entry -->
