@@ -13,7 +13,7 @@ router.get('/', function (req, res) {
             }
             client.query("SELECT * FROM customer_info WHERE service_status = 'requested' order by date_of_request asc;",
                 function (err, result) {
-                    client.end();
+                   done;
                     if (err) {
                         console.log("Error inserting data: ", err);
                         res.sendStatus(500);
@@ -40,7 +40,7 @@ router.get('/printable', function (req, res) {
             }
             client.query("SELECT * FROM customer_info WHERE service_status = 'scheduled' order by date_of_request asc;",
                 function (err, result) {
-                    client.end();
+                    done;
                     if (err) {
                         console.log("Error inserting data: ", err);
                         res.sendStatus(500);
