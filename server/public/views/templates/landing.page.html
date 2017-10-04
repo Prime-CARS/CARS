@@ -1,16 +1,37 @@
-<div ng-include="'views/partials/nav.html'"></div>
-<div class="container">
+<!-- Landing Page Navbar -->
+<div class="navbar">
+    <div class="container">
+        <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links" layout="row" layout-align="space-around center">
+            <md-nav-item md-nav-href="#/landingpage" name="homeTab">
+                Home
+            </md-nav-item>
 
-    <!-- <div class="landingpagelinks">
+            <md-nav-item md-nav-href="#/requestservice" name="serviceRequestTab">
+                Request for Service Form
+            </md-nav-item>
 
-        <a href="#!cars">Home</a>
-        <a href="#!">Request Service</a>
-        <a href="#!mechanic">Check In Vechile</a>
-        <a href="#!admin">Admin</a>
-    </div> -->
-
-
+            <!-- Only admin can navigate through all pages freely -->
+            <span ng-if="lpc.userObject.role==='admin'">
+                <md-nav-item md-nav-href="#/mechanic" name="mechanicTab">
+                    Mechanic
+                </md-nav-item>
     
+                <md-nav-item md-nav-href="#/admin" name="adminTab">
+                    Admin
+                </md-nav-item>
+            </span>
+
+            <!-- Hides Log-in if user is logged in -->
+            <md-nav-item md-nav-href="#/login" name="loginTab" ng-hide="lpc.userObject.role">
+                Login
+            </md-nav-item>
+
+        </md-nav-bar>
+    </div>
+</div>
+
+<!-- Page content -->
+<div class="container">
 
     <div layout="row" class="container">
 
