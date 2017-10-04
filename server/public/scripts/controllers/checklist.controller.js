@@ -9,7 +9,12 @@ myApp.controller('ChecklistController', function(ChecklistService, $routeParams)
   ChecklistService.getCarChecklist($routeParams.checklist_id);
   vm.carChecklist = ChecklistService.carChecklist;
 
-  
+  vm.IsVisible = false;
+
+
+  vm.showOilRequired = function (value) {
+    vm.IsVisible = value == 'Y';
+  };
 
 
   // might need to change that to check userservice.userobject for current log-in
