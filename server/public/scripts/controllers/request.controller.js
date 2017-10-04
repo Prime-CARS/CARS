@@ -14,12 +14,13 @@ myApp.controller('RequestController', function(RequestService, $http, $location)
       vm.textboxShowing = true;
     };
 
+    vm.closeTextbox = function() {
+      vm.textboxShowing = false;
+    };
+
   // Contact and activate nodemailer
   vm.sendMail = function() { //this function communicates with the server via $http.post request
-    console.log("sendMail function has been clicked in request.controller line 19");
-    $http.post('/mail').then(function(response){
-      console.log("This is the respose: ", response);
-    })
+    
   }; 
 });
 
