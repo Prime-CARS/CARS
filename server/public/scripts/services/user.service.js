@@ -1,10 +1,13 @@
 myApp.service('AdminService', function ($http, $location) {
   console.log('AdminService Loaded');
 
-  vm = this
+  vm = this;
   vm.userObject = {};
-  vm.Requests = { list: [] }
-  vm.Prints = { list: [] }
+  vm.Requests = { list: [] };
+  vm.Prints = { list: [] };
+
+  //console.log('current service userObject', vm.userObject);
+  
 
   vm.getRequests = function () {
     $http.get('/RequestsForService').then(function (response) {
@@ -27,15 +30,16 @@ myApp.service('AdminService', function ($http, $location) {
       if (response.data.username) {
         // user has a curret session on the server
         vm.userObject.userName = response.data.username;
-        console.log('AdminService -- getuser -- User Data: ', vm.userObject.userName);
+        vm.userObject.role = response.data.role;
+        console.log('AdminService -- getuser -- User Data: ', vm.userObject);
       } else {
         console.log('AdminService -- getuser -- failure');
         // user has no session, bounce them back to the login page
-        $location.path("/home");
+        $location.path("/cars");
       }
     }, function (response) {
       console.log('AdminService -- getuser -- failure: ', response);
-      $location.path("/home");
+      $location.path("/cars");
     });
 
 
@@ -43,6 +47,7 @@ myApp.service('AdminService', function ($http, $location) {
       console.log('AdminService -- logout');
       $http.get('/user/logout').then(function (response) {
         console.log('AdminService -- logout -- logged out');
+        vm.userObject = {};
         $location.path("/home");
       });
     }
