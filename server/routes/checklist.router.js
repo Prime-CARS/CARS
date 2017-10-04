@@ -47,4 +47,6 @@ router.get('/:checklist_id', function(req, res) {
     })
 });
 
+//Checklists are inserted when client has approved them for service
+
 module.exports = router;

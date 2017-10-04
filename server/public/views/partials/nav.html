@@ -1,11 +1,33 @@
 <div class="navbar">
   <div class="container">
-    <ul>
+
+    <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links" layout="row" layout-align="space-around center">
+      <md-nav-item md-nav-href="#/landingpage" name="home">
+        Home
+      </md-nav-item>
+      <md-nav-item md-nav-href="#/requestservice" name="currentneeds">
+        Request for Service Form
+      </md-nav-item>
+      <md-nav-item md-nav-href="#/mechanic" name="info">
+       Mechanic
+      </md-nav-item>
+      <md-nav-item md-nav-href="#/admin" name="currentneeds">
+        Admin
+      </md-nav-item>
+      <md-nav-item md-nav-href="#/login" name="updateneed">
+        Login
+      </md-nav-item>
+    </md-nav-bar>
+
+
+    <!-- <ul>
       <li><a ng-href="#/admin">admin Landing</a></li>
       <li><a ng-href="#/mechanic">mechanic Landing</a></li>
       <li><a ng-href="#/landingpage">main Landing page</a></li>
       <li><a ng-href="#/login">login page</a></li>
-      
-    </ul>
+
+    </ul> -->
+
+
   </div>
 </div>

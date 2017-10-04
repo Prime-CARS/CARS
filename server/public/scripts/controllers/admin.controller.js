@@ -1,4 +1,4 @@
-myApp.controller('AdminController', function(AdminService) {
+myApp.controller('AdminController', function(AdminService, AuthService) {
   console.log('AdminController created');
   var vm = this;
   vm.AdminService = AdminService;
@@ -9,7 +9,7 @@ myApp.controller('AdminController', function(AdminService) {
   vm.nrqstneeded = false;
   vm.showAuths = false;
   vm.showSearchs = false;
-
+  vm.Prints = AdminService.Prints;
   vm.RetrievedRequests = AdminService.Requests;
 
 
@@ -52,8 +52,10 @@ myApp.controller('AdminController', function(AdminService) {
     vm.getRequests();
   }
 
+
   vm.search_history = function(z){
     console.log('search button hit, passed', z, 'as search stuff')
+  
   }
 
   vm.showAuth = function(){
@@ -67,7 +69,19 @@ myApp.controller('AdminController', function(AdminService) {
     vm.showAuths = false;
   }
 
-  vm.getRequests()
+  vm.getPrint = function () {
+    AdminService.getPrints()
+  }
+
+  vm.history_view= function(c){
+      console.log(c);
+      AuthService.getAuth(c)
+      
+    }
+
+
+  vm.getPrint();
+  vm.getRequests();
   console.log(vm.RetrievedRequests)
 
 });

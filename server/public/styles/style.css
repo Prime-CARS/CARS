@@ -145,3 +145,7 @@ padding: 1em;
 .in_progress{
   background-color: lightcoral;
 }
+
+.serviced{
+  background-color: lightskyblue;
+}

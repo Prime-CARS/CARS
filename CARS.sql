@@ -21,18 +21,19 @@ CREATE TABLE "customer_info" (
 	"alternative_phone" text,
 	"email_address" text,
     "qualify_input" text,
-    "service_status" text,
+    "service_status" text DEFAULT 'requested',
     "year" integer,
 	"make" text,
 	"model" text,
 	"vin" text NOT NULL,
-    "service_request" text,
+    "service_requested" text,
     "date_of_request" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
 --Checklist joined to vehicle info
 CREATE TABLE "cars_checklist" (
     "checklist_id" serial PRIMARY KEY,
+    "customer_id" int REFERENCES "customer_info" ("customer_id"),
     "headlights_high" text,
     "headlights_low" text,
     "parkinglights_front" text,
@@ -94,13 +95,13 @@ CREATE TABLE "cars_checklist" (
 	"vehicle_observations" text,
 	"recommended_repairs" text,
 	"repairs_declined" text,
-	"date_timestamp" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+	"date_completed" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
 	"parts_installed" text,
 	"cost" money,
 	"checklist_status" text,
 	"mechanics" text,
 	"current_mileage" text,
-	"customer_id" int REFERENCES "customer_info" ("customer_id")
+    "checkout_completed" boolean
 );
 --End DB setup
 

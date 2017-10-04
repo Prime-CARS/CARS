@@ -12,6 +12,8 @@ var registerRouter = require('./routes/register.router');
 var checklistRouter = require('./routes/checklist.router');
 var requestServiceRouter = require('./routes/requestService.router');
 var RequestsForService = require('./routes/service_request.router');
+var authRouter = require('./routes/authorization.router');
+var mailRouter = require('./routes/mail.router');
 
 var port = process.env.PORT || 5000;
 
@@ -33,9 +35,14 @@ app.use(passport.session());
 app.use('/register', registerRouter);
 app.use('/user', userRouter);
 app.use('/checklist', checklistRouter);
-app.use('/requestService',requestServiceRouter);
+app.use('/requestservice',requestServiceRouter);
 
 app.use('/RequestsForService', RequestsForService)
+
+//for nodemailer
+app.use('/mail', mailRouter);
+
+app.use('/authorization', authRouter)
 
 // Catch all bucket, must be last!
 app.use('/', indexRouter);
