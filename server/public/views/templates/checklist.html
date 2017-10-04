@@ -395,8 +395,11 @@
             <input type="text">
           </md-input-container>
         </div>
-  
         <!--Vehicle Inspection Checklist Ends Here-->
+
+        
+        <!--Oil Change Checklist Begins here-->
+
         <h3 div ng-show="cc.IsVisible">Oil Change (If Required)</h3>
         
         <input type="radio" value = 'yes'ng-click = "cc.showOilRequired('Y')"/> Yes
@@ -511,7 +514,7 @@
             <md-radio-button value="true"> </md-radio-button>
           </md-radio-group>
         </div>
-        <!--Oil change checklist Ends here-->
+        <!--Oil Change Checklist Ends here-->
   
         <!--Finish Up Checklist begins here-->
         <h3 ng-model="cc.cars_checklist.finishup_checklist">Finish Up Checklist</h3>
@@ -624,30 +627,9 @@
         <p><strong> &#42; Require Rating Input</strong>: 1 - Good 2 - Fair 3 - Poor</p>
         <p><strong> &#42;&#42; Require Actual Reading</strong></p>
   
-
-        <!--Vehicle Inspection Checklist Ends Here-->
-
-        <div ng-show="cc.IsVisible">
-          <h4>Oil Change</h4>
-          <div>
-            <label for="text">1. Drain Oil</label>
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-          </div>
-
-          <div>
-            <label for="text">2. Remove Filter and old gasket/label>
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-        </div>
-
-        <p><strong> &#42; Require Rating Input</strong>: 1 - Good 2 - Fair 3 - Poor</p>
-        <p><strong> &#42;&#42; Require Actual Reading</strong></p>
+        <!--Vehicle Observations Comment Sections ends here-->
 
         <button>Submit</button>
-        <!--Vehicle Observations Comment Sections ends here-->
 
       </div>
       <!--/container -->
