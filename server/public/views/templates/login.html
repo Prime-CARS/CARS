@@ -1,20 +1,33 @@
-<div ng-include="'views/partials/nav.html'"></div>
+<!-- Login Page Navbar -->
+<div class="navbar">
+    <div class="container">
+        <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links" layout="row" layout-align="space-around center">
+            <md-nav-item md-nav-href="#/landingpage" name="homeTab">
+                Home
+            </md-nav-item>
+
+            <md-nav-item md-nav-href="#/requestservice" name="serviceRequestTab">
+                Request for Service Form
+            </md-nav-item>
+        </md-nav-bar>
+    </div>
+</div>
 
 <div class="container">
-  <h1 class="lead">Login</h1>
+    <h1 class="lead">Login</h1>
     <h1 class="lead alert alert-danger" role="alert" ng-if="lc.message != ''">{{lc.message}}</h2>
-    <form ng-submit="lc.login()">
-      <div>
-          <label for="username">Username:</label>
-          <input type="text" ng-model="lc.user.username" />
-      </div>
-      <div>
-          <label for="password">Password:</label>
-          <input type="password" ng-model="lc.user.password" />
-      </div>
-      <div>
-          <input class="btn btn-default" type="submit" name="submit" value="Log In" />
-          <a href="#register">Register</a>
-      </div>
-    </form>
+        <form ng-submit="lc.login()">
+            <div>
+                <label for="username">Username:</label>
+                <input type="text" ng-model="lc.user.username" />
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" ng-model="lc.user.password" />
+            </div>
+            <div>
+                <input class="btn btn-default" type="submit" name="submit" value="Log In" />
+                <a href="#register">Register</a>
+            </div>
+        </form>
 </div>
