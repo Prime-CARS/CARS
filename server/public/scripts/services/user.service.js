@@ -32,12 +32,6 @@ myApp.service('AdminService', function ($http, $location) {
         vm.userObject.userName = response.data.username;
         vm.userObject.role = response.data.role;
         console.log('AdminService -- getuser -- User Data: ', vm.userObject);
-        
-        if (vm.userObject.role != 'admin') {
-          // checks if user is logged in
-          console.log('Current role not allowed');
-          $location.path('/mechanic');
-        }
       } else {
         console.log('AdminService -- getuser -- failure');
         // user has no session, bounce them back to the login page
