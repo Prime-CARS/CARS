@@ -10,7 +10,7 @@
             </md-nav-item>
 
             <!-- Only admin can navigate through all pages freely -->
-            <span ng-if="lpc.userObject.role==='admin'">
+            <span ng-if="rc.userObject.role==='admin'">
                     <md-nav-item md-nav-href="#/mechanic" name="mechanicTab">
                         Mechanic
                     </md-nav-item>
@@ -21,7 +21,7 @@
                 </span>
 
             <!-- Hides Log-in if user is logged in -->
-            <md-nav-item md-nav-href="#/login" name="loginTab" ng-hide="lpc.userObject.role">
+            <md-nav-item md-nav-href="#/login" name="loginTab" ng-hide="rc.userObject.role">
                 Login
             </md-nav-item>
 

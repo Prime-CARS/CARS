@@ -6,7 +6,7 @@ myApp.service('AdminService', function ($http, $location) {
   vm.Requests = { list: [] };
   vm.Prints = { list: [] };
 
-  console.log('current service userObject', vm.userObject);
+  //console.log('current service userObject', vm.userObject);
   
 
   vm.getRequests = function () {
