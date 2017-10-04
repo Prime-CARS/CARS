@@ -1,55 +1,85 @@
+<div class="navbar">
+    <div class="container">
+        <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links" layout="row" layout-align="space-around center">
+            <md-nav-item md-nav-href="#/landingpage" name="homeTab">
+                Home
+            </md-nav-item>
+
+            <md-nav-item md-nav-href="#/requestservice" name="serviceRequestTab">
+                Request for Service Form
+            </md-nav-item>
+
+            <!-- Only admin can navigate through all pages freely -->
+            <span ng-if="rc.userObject.role==='admin'">
+                    <md-nav-item md-nav-href="#/mechanic" name="mechanicTab">
+                        Mechanic
+                    </md-nav-item>
+        
+                    <md-nav-item md-nav-href="#/admin" name="adminTab">
+                        Admin
+                    </md-nav-item>
+                </span>
+
+            <!-- Hides Log-in if user is logged in -->
+            <md-nav-item md-nav-href="#/login" name="loginTab" ng-hide="rc.userObject.role">
+                Login
+            </md-nav-item>
+
+        </md-nav-bar>
+    </div>
+</div>
 
 <h2>Request for Vehicle Reapir</h2>
 <h4>Please fill in all the fields below</h4>
 
 <form class="form-group" id="customerInfo">
     <div class="container"></div>
-        <p><label>Name</label></p>
-        <input type="text" class="form control" name="name" ng-model="rc.customer.name">
+    <p><label>Name</label></p>
+    <input type="text" class="form control" name="name" ng-model="rc.customer.name">
     </div>
 
     <div class="container">
         <p><label>Address</label></p>
         <input type="text" class="form-control" name="address" ng-model="rc.customer.address">
-    </div> 
+    </div>
 
     <div class="container">
         <p><label>City</label></p>
         <input type="text" class="form control" name="city" ng-model="rc.customer.city">
     </div>
-    
+
     <div class="container">
         <p><label>State</label></p>
         <input type="text" class="form-control" name="state" ng-model="rc.customer.state">
-    </div>   
+    </div>
 
     <div class="container">
         <p><label>Zip Code</label></p>
         <input type="text" class="form-control" name="zip" ng-model="rc.customer.zip">
     </div>
-    
+
     <div class="container">
         <p><label>Cell Phone</label></p>
         <input type="tel" class="form-control" name="cellPhone" ng-model="rc.customer.cellPhone ">
-    </div>   
+    </div>
 
     <div class="container">
         <p><label>Alternate Phone</label></p>
         <input type="text" class="form-group" name="altPhone" ng-model="rc.customer.altPhone">
-    </div> 
-    
+    </div>
+
     <div class="container">
         <p><label>email address</label></p>
         <input type="email" class="form-group" name="altPhone" ng-model="rc.customer.email">
-    </div>    
-</form>  
+    </div>
+</form>
 
 <form class="form-group" id="carInfo">
     <h2>Vehicle Information</h2>
     <div class="container">
         <p><label>Year</label></p>
         <input type="text" class="form-control" name="year" ng-model="rc.customer.year">
-    </div> 
+    </div>
 
     <div class="container">
         <p><label>Make</label></p>
@@ -59,8 +89,8 @@
     <div class="container">
         <p><label>model</label></p>
         <input type="text" class="form-control" name="model" ng-model="rc.customer.model">
-    </div>   
-    
+    </div>
+
     <div class="container">
         <p><label>VIN</label></p>
         <input type="text" class="form-control" name="VIN" ng-model="rc.customer.vin">
@@ -70,18 +100,20 @@
 <h3>Please describe the problems you are having with your vehicle</h3>
 <textarea rows="15" cols="250" ng-model="rc.customer.problem"></textarea>
 
-<div class="container">
-<h3>Please indicate why you qualify to use the services of C.A.R.S. Ministry</h3>
+
+<div class="-container">
+    <h3>Please indicate why you qualify to use the services of C.A.R.S. Ministry</h3>
+
     <label>
         <input type="radio" name="qualification" value="Single Mother" ng-click="rc.closeTextbox()" ng-model="rc.customer.qualification">
         Single Mother
     </label>
     <br/>
-    
+
     <label>
         <input type="radio" name="qualification" value="Single Woman" ng-click="rc.closeTextbox()" ng-model="rc.customer.qualification">    
         Single Woman
-    </label> 
+    </label>
     <br/>
     <label>
         <input type="radio" name="qualification" value="Widow" ng-click="rc.closeTextbox()" ng-model="rc.customer.qualification">
@@ -93,7 +125,7 @@
         Financially Limited
     </label>
     <br/>
-   <label>
+    <label>
         <input type="radio" name="qualification" value="other" ng-click="rc.openTextbox();">
         Other
     <div ng-show="rc.textboxShowing"> 
@@ -103,7 +135,7 @@
 </div>
 
 <div class="container">
-<button class="btn-btn-primary" type="submit" ng-click="rc.addCustomer();">Submit</button>
-</div>
 
+    <button class="btn-btn-primary" type="submit" ng-click="rc.addCustomer(); rc.sendMail()">Submit</button>
+</div>
 

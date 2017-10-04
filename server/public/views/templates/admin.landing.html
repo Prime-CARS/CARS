@@ -2,10 +2,11 @@
 <div class="container">
 
     <h1 id="welcome" class="lead">Hello {{ac.userObject.userName}}!</h1>
-    <!-- <button ng-click="ac.AdminService.logout()">Log Out</button> -->
+
     <button ng-click="ac.makeRequestsVisible()">Service Requests</button>
     <button ng-click="ac.showSearch()">Service History</button>
     <button ng-click="ac.showAuth()">Pending Authorizations</button>
+    <button ng-click="ac.AdminService.logout()">Log Out</button>
     <hr>
 
     <div ng-show="ac.showRequests">
