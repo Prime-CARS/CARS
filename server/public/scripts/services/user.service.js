@@ -1,10 +1,13 @@
 myApp.service('AdminService', function ($http, $location) {
   console.log('AdminService Loaded');
 
-  vm = this
+  vm = this;
   vm.userObject = {};
-  vm.Requests = { list: [] }
-  vm.Prints = { list: [] }
+  vm.Requests = { list: [] };
+  vm.Prints = { list: [] };
+
+  console.log('current service userObject', vm.userObject);
+  
 
   vm.getRequests = function () {
     $http.get('/RequestsForService').then(function (response) {

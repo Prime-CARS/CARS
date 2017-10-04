@@ -1,4 +1,5 @@
-<div ng-include="'views/partials/nav.html'"></div>
+<div ng-include="'views/partials/nav.html'" ng-if="mc.userObject.role === 'admin'"></div>
+
 <div class="container">
   <h1 id="welcome" class="lead">Mechanic Landing Page</h1>
 

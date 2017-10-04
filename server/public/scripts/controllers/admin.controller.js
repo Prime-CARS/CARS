@@ -3,9 +3,9 @@ myApp.controller('AdminController', function (AdminService, AuthService, $locati
   var vm = this;
   vm.AdminService = AdminService;
 
-  //doing userobject check in another function
-  //vm.userObject = AdminService.userObject;
-
+  // handles current user role in case of log in/log out
+  // sends users who aren't admins to the mechanic's page if they're logged in and attempting to hit the admin's page
+  vm.userObject = {};
   $http.get('/user').then(function (response) {
     console.log('Checking current user: ', response.data);
     vm.userObject = response.data;
