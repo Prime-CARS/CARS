@@ -1,4 +1,5 @@
-myApp.controller('AdminController', function (AdminService, AuthService, $location, $http) {
+myApp.controller('AdminController', function (AdminService, RequestService, AuthService, $location, $http) {
+
   console.log('AdminController created');
   var vm = this;
   vm.AdminService = AdminService;
@@ -24,6 +25,8 @@ myApp.controller('AdminController', function (AdminService, AuthService, $locati
   vm.showAuths = false;
   vm.showSearchs = false;
   vm.Prints = AdminService.Prints;
+  vm.customer = {};
+  vm.textboxShowing = false;
   vm.RetrievedRequests = AdminService.Requests;
 
 
@@ -77,10 +80,13 @@ myApp.controller('AdminController', function (AdminService, AuthService, $locati
     vm.showRequests = false;
     vm.nrqstneeded = false;
     vm.showSearchs = false;
+    console.log('meow');
+    
   }
 
   vm.hideAuth = function () {
     vm.showAuths = false;
+    console.log('woof')
   }
 
   vm.getPrint = function () {
@@ -91,6 +97,26 @@ myApp.controller('AdminController', function (AdminService, AuthService, $locati
     console.log(c);
     AuthService.getAuth(c)
 
+  }
+
+  /* this function is called when the submit form is clicked on the Request for Service form on the       website's requestService.html page. */
+  vm.addCustomer = function () {
+    vm.customer.service_status = "scheduled"; 
+    RequestService.addCustomerNoEmail(vm.customer);
+  }
+
+  vm.updateCustomer = function (z,x){
+    RequestService.updateCustomer(z,x)
+  }
+
+  vm.openTextbox = function () {
+    vm.textboxShowing = true;
+  };
+
+
+  vm.removeCustomer = function (){
+    console.log('remove button hit');
+    
   }
 
   vm.getPrint();
