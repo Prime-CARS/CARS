@@ -67,7 +67,11 @@ myApp.controller('AdminController', function (AdminService, AuthService, $locati
 
   vm.search_history = function (z) {
     console.log('search button hit, passed', z, 'as search stuff')
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> master
   }
 
   vm.showAuth = function () {
@@ -98,10 +102,18 @@ myApp.controller('AdminController', function (AdminService, AuthService, $locati
     AdminService.getPrints()
   }
 
+<<<<<<< HEAD
   vm.history_view = function (c) {
     AuthService.PrintPage = c;
     console.log(c);
   }
+=======
+  vm.history_view= function(c){
+      console.log(c);
+      AuthService.getAuth(c)
+      
+    }
+>>>>>>> master
 
 
   vm.getPrint();

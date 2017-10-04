@@ -1,271 +1,307 @@
-
-<h2>Christian Auto Repair Shop</h2>
+<h2>
+  Christian Auto Repair Shop</h2>
 <h4>Vehicle Inspection Checklist</h4>
 
 <!--Owner and vehicle information-->
 <label for="text">Vehicle Owner's Name:</label>
-  <input type="text" placeholder="Enter Owner's Name">
+<input type="text" placeholder="Enter Owner's Name">
 </br>
 
 <label for="text">VIN:</label>
-  <input type="text" placeholder="Enter VIN">
+<input type="text" placeholder="Enter VIN">
 
 <label for="text">Year:</label>
-  <input type="text" placeholder="Enter Year">
+<input type="text" placeholder="Enter Year">
 
 <label for="text">Make:</label>
-  <input type="text" placeholder="Enter Make">
+<input type="text" placeholder="Enter Make">
 
 <label for="text">Model:</label>
-  <input type="text" placeholder="Enter Model">
+<input type="text" placeholder="Enter Model">
 
 
 <!--Vehicle Inspection Checklist Begins Here-->
 <div class="">
-  <p> Rating: 1 - Good  2 - Fair  3 - Poor</p>
+  <p> Rating: 1 - Good 2 - Fair 3 - Poor</p>
 </div>
 
 <form class="">
   <div class="container">
     <div>
-      <label for="text">1. Vehicle Information &#42;&#42; </label>
+      <div class="radio-item">
+        <label for="text">1. Vehicle Information &#42;&#42; </label>
         <input type="radio">
         <input type="radio">
         <input type="radio">
-    </div>
+      </div>
 
-    <div>
-      <label for="text">2. Headlights - High, Low</label>
-        <input type="radio">
-        <input type="radio">
-        <input type="radio">
-    </div>
+      {{cc.cars_checklist}}
 
-    <div>
-      <label for="text">3. Parking Lights - Front</label>
-        <input type="radio">
-        <input type="radio">
-        <input type="radio">
-    </div>
+      <div>
+        <md-radio-group ng-model="cc.cars_checklist.headlights_high">
+          <label for="text">2. Headlights - High</label>
+          <md-radio-button class="md-primary" value="true"> Checked </md-radio-button>
+        </md-radio-group>
+      </div>
 
-    <div>
-      <label for="text">4. Turn Signals - Front</label>
-        <input type="radio">
-        <input type="radio">
-        <input type="radio">
-    </div>
 
-    <div>
-      <label for="text">5. Tail Lights</label>
-        <input type="radio">
-        <input type="radio">
-        <input type="radio">
-    </div>
+      <div>
+        <md-radio-group ng-model="cc.cars_checklist.headlights_low">
+          <label for="text">3. Headlights - Low</label>
+          <md-radio-button value="true"> Checked </md-radio-button>
+        </md-radio-group>
+      </div>
 
-    <div>
-      <label for="text">6. Turn Signals - Rear</label>
-        <input type="radio">
-        <input type="radio">
-        <input type="radio">
-    </div>
+      <div>
+        <md-radio-group ng-model="cc.cars_checklist.parkinglights_front">
+          <label for="text">4. Parking Lights - Front</label>
+          <md-radio-button value="true"> Checked </md-radio-button>
+        </md-radio-group>
+      </div>
 
-    <div>
-      <label for="text">7. Brake Lights</label>
-        <input type="radio">
-        <input type="radio">
-        <input type="radio">
-    </div>
+      <div>
+        <md-radio-group ng-model="cc.cars_checklist.turnsignals_front">
+          <label for="text">5. Turn Signals- Front</label>
+          <md-radio-button value="true"> Checked </md-radio-button>
+        </md-radio-group>
+      </div>
 
-    <div>
-      <label for="text">8. Back up Lights </label>
-        <input type="radio">
-        <input type="radio">
-        <input type="radio">
-    </div>
+      <div>
+        <md-radio-group ng-model="cc.cars_checklist.taillights">
+          <label for="text">6. Tail lights </label>
+          <md-radio-button value="true"> Checked </md-radio-button>
+        </md-radio-group>
+      </div>
 
-    <div>
-      <label for="text">9. License Tabs (Expiration Date) &#42;&#42;</label>
-        <input type="radio">
-        <input type="radio">
-        <input type="radio">
-    </div>
+      <div>
+        <md-radio-group ng-model="cc.cars_checklist.turnsignals_rear">
+          <label for="text">7. Turn Signals - Rear </label>
+          <md-radio-button value="true"> Checked </md-radio-button>
+        </md-radio-group>
+      </div>
 
-    <div>
-      <label for="text">10. Spare Tire Pressure &#42;&#42;</label>
-        <input type="radio">
-        <input type="radio">
-        <input type="radio">
-    </div>
+      <div>
+        <md-radio-group ng-model="cc.cars_checklist.brakelights">
+          <label for="text">8. Brake Lights </label>
+          <md-radio-button value="true"> Checked </md-radio-button>
+        </md-radio-group>
+      </div>
 
-    <div>
-      <label for="text">11. Current Tire Pressure LF, RF, LR, RR &#42;&#42;</label>
-        <input type="radio">
-        <input type="radio">
-        <input type="radio">
-    </div>
+      <div>
+        <md-radio-group ng-model="cc.cars_checklist.backup_lights">
+          <label for="text">9. Backup Lights </label>
+          <md-radio-button value="true"> Checked </md-radio-button>
+        </md-radio-group>
+      </div>
 
-    <div>
-      <label for="text">12. Final Tire Pressure LF, RF, LR, RR &#42;&#42;</label>
-        <input type="radio">
-        <input type="radio">
-        <input type="radio">
-    </div>
+      <div>
+        <label for="text"> 10. License Tabs Expiration : </label>
+        <input ng-model="cc.cars_checklist.licensetabs_expiration">
+      </div>
 
-    <div>
-      <label for="text">13. Tire Condition LF, RF, LR, RR &#42;&#42;</label>
-        <input type="radio">
-        <input type="radio">
-        <input type="radio">
-    </div>
+      <div>
+        <label for="text"> 11. Spare Tire Pressure : </label>
+        <input ng-model="cc.cars_checklist.sparetirepressure">
+      </div>
 
-    <div>
-      <label for="text">14. Wiper Condition &#42;</label>
-        <input type="radio">
-        <input type="radio">
-        <input type="radio">
-    </div>
+      <br>
 
-    <div>
-      <label for="text">15. Air Filter Condition &#42;</label>
-        <input type="radio">
-        <input type="radio">
-        <input type="radio">
-    </div>
+      <div>
+        <label for="text"> 12. Current Tire Pressure</label>
+        <br>
+        <br>
+        <label> Left Front Pressure: </label>
+        <input ng-model="cc.cars_checklist.currenttirepressure_lf">
+        <label> Right Front Pressure: </label>
+        <input ng-model="cc.cars_checklist.currenttirepressure_rf">
+        <br>
+        <label> Left Rear Pressure:</label>
+        <input ng-model="cc.cars_checklist.currenttirepressure_lr">
+        <label> Right Rear Pressure: </label>
+        <input ng-model="cc.cars_checklist.currenttirepressure_rr">
 
-    <div>
-      <label for="text">16. Brake Fluid</label>
-        <input type="radio">
-        <input type="radio">
-        <input type="radio">
-    </div>
+      </div>
 
-    <div>
-      <label for="text">17. Power Steering Fluid</label>
-        <input type="radio">
-        <input type="radio">
-        <input type="radio">
-    </div>
+      <br>
 
-    <div>
-      <label for="text">18. Transmission Fluid</label>
-        <input type="radio">
-        <input type="radio">
-        <input type="radio">
-    </div>
+      <div>
+        <label for="text"> 13. Final Tire Pressure</label>
+        <br>
+        <br>
+        <label> Left Front Pressure: </label>
+        <input ng-model="cc.cars_checklist.finaltirepressure_lf">
+        <label> Right Front Pressure: </label>
+        <input ng-model="cc.cars_checklist.finaltirepressure_rf">
+        <br>
+        <label> Left Rear Pressure:</label>
+        <input ng-model="cc.cars_checklist.finaltirepressure_lr">
+        <label> Right Rear Pressure: </label>
+        <input ng-model="cc.cars_checklist.finaltirepressure_rr">
 
-    <div>
-      <label for="text">19. Oil Level</label>
-        <input type="radio">
-        <input type="radio">
-        <input type="radio">
-    </div>
+      </div>
 
-    <div>
-      <label for="text">20. Washer Fluid</label>
-        <input type="radio">
-        <input type="radio">
-        <input type="radio">
-    </div>
+      <br>
 
-    <div>
-      <label for="text">21. Coolant Level Strength </label>
-      <input type="text">
-    </div>
+      <div>
+        <label for="text"> 14. Tire Condition</label>
+        <br>
+        <br>
+        <label> Left Front Tire Condition: </label>
+        <input ng-model="cc.cars_checklist.finaltirepressure_lf">
+        <label> Right Front Tire Condition: </label>
+        <input ng-model="cc.cars_checklist.finaltirepressure_rf">
+        <br>
+        <label> Left Rear Tire Condition:</label>
+        <input ng-model="cc.cars_checklist.finaltirepressure_lr">
+        <label> Right Rear Tire Condition </label>
+        <input ng-model="cc.cars_checklist.finaltirepressure_rr">
 
-    <div>
-      <label for="text">22. Radiator Hose Condition &#42;</label>
-        <input type="radio">
-        <input type="radio">
-        <input type="radio">
-    </div>
+      </div>
 
-    <div>
-      <label for="text">23. Battery Condition &#42;</label>
-        <input type="radio">
-        <input type="radio">
-        <input type="radio">
-    </div>
+        <br>
+      <div>
+        <md-radio-group ng-model="cc.cars_checklist.wipercondition">
+          <label for="text">15. Wiper Condition </label>
+          <md-radio-button value="good"> Good </md-radio-button>
+          <md-radio-button value="fair"> Fair </md-radio-button>
+          <md-radio-button value="poor"> Poor </md-radio-button>
+        </md-radio-group>
+      </div>
 
-    <div>
-      <label for="text">24. Serpentine Belt Condition &#42;</label>
-        <input type="radio">
-        <input type="radio">
-        <input type="radio">
-    </div>
+      <div>
+        <md-radio-group ng-model="cc.cars_checklist.airfiltercondition">
+          <label for="text">16. Air Filter Condition</label>
+          <md-radio-button value="good"> Good </md-radio-button>
+          <md-radio-button value="fair"> Fair </md-radio-button>
+          <md-radio-button value="poor"> Poor </md-radio-button>
+        </md-radio-group>
+      </div>
 
-    <div>
-      <label for="text">25. Other Belts Condition &#42;</label>
-        <input type="radio">
-        <input type="radio">
-        <input type="radio">
-    </div>
+      <div>
+        <md-radio-group ng-model="cc.cars_checklist.brakefluid">
+          <label for="text">17. Brake Fluid </label>
+          <md-radio-button value="true"> Checked </md-radio-button>
+        </md-radio-group>
+      </div>
 
-    <div>
-      <label for="text">26. Lube Hood Latch</label>
-        <input type="radio">
-        <input type="radio">
-        <input type="radio">
-    </div>
+      <div>
+        <md-radio-group ng-model="cc.cars_checklist.powersteeringfluid">
+          <label for="text">18. Power Steering Fluid </label>
+          <md-radio-button value="true"> Checked </md-radio-button>
+        </md-radio-group>
+      </div>
 
-    <div>
-      <label for="text">27. Shock/Strut Test</label>
-        <input type="radio">
-        <input type="radio">
-        <input type="radio">
-    </div>
+      <div>
+        <md-radio-group ng-model="cc.cars_checklist.transmissionfluid">
+          <label for="text">19. Transmission Fluid </label>
+          <md-radio-button value="true"> Checked </md-radio-button>
+        </md-radio-group>
+      </div>
 
-    <div>
-      <label for="text">28. Front Wheel Bearing Test</label>
-        <input type="radio">
-        <input type="radio">
-        <input type="radio">
-    </div>
+      <div>
+        <md-radio-group ng-model="cc.cars_checklist.oillevel">
+          <label for="text">20. Oil Level </label>
+          <md-radio-button value="true"> Checked </md-radio-button>
+        </md-radio-group>
+      </div>
 
-    <div>
-      <label for="text">29. Tie Rod Test</label>
-        <input type="radio">
-        <input type="radio">
-        <input type="radio">
-    </div>
+      <div>
+        <md-radio-group ng-model="cc.cars_checklist.washerfluid">
+          <label for="text">21. Washer Fluid </label>
+          <md-radio-button value="true"> Checked </md-radio-button>
+        </md-radio-group>
+      </div>
 
-    <div>
-      <label for="text">30. Ball Joint Test</label>
-        <input type="radio">
-        <input type="radio">
-        <input type="radio">
-    </div>
 
-    <div>
-      <label for="text">31. Control Arm Conditon</label>
-        <input type="radio">
-        <input type="radio">
-        <input type="radio">
-    </div>
+      <div>
+        <label> 22. Coolant Level :</label>
+        <input ng-model="cc.cars_checklist.coolantlevel">
+        <label> Coolant Strength :</label>
+        <input ng-model="cc.cars_checklist.coolantlevel_strength">
+      </div>
 
-    <div>
-      <label for="text">32. Stabilizer Bar Link Conditon</label>
-        <input type="radio">
-        <input type="radio">
-        <input type="radio">
-    </div>
+      <br>
 
-    <div>
-      <label for="text">33. CV Boot Conditon</label>
-        <input type="radio">
-        <input type="radio">
-        <input type="radio">
-    </div>
-    <!--Vehicle Inspection Checklist Ends Here-->
-<h3>Oil Change (If Required)</h3>
-        <div>
-          <label for="text">1. Drain Oil</label>
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-        </div>
+      <div>
+        <md-radio-group ng-model="cc.cars_checklist.radiatorhosecondition">
+          <label for="text">23. Radiator Hose Condition</label>
+          <md-radio-button value="good"> Good </md-radio-button>
+          <md-radio-button value="fair"> Fair </md-radio-button>
+          <md-radio-button value="poor"> Poor </md-radio-button>
+        </md-radio-group>
+      </div>
 
-        <div>
-          <label for="text">2. Remove Filter and old gasket/label>
+      <div>
+        <md-radio-group ng-model="cc.cars_checklist.batterycondition">
+          <label for="text">24. Battery Condition</label>
+          <md-radio-button value="good"> Good </md-radio-button>
+          <md-radio-button value="fair"> Fair </md-radio-button>
+          <md-radio-button value="poor"> Poor </md-radio-button>
+        </md-radio-group>
+      </div>
+
+      <div>
+        <md-radio-group ng-model="cc.cars_checklist.serpentinebeltcondition">
+          <label for="text">25. Serpentine Belt Condition</label>
+          <md-radio-button value="good"> Good </md-radio-button>
+          <md-radio-button value="fair"> Fair </md-radio-button>
+          <md-radio-button value="poor"> Poor </md-radio-button>
+        </md-radio-group>
+      </div>
+
+      <div>
+        <md-radio-group ng-model="cc.cars_checklist.otherbeltscondition">
+          <label for="text">26. Other Belt's Condition</label>
+          <md-radio-button value="good"> Good </md-radio-button>
+          <md-radio-button value="fair"> Fair </md-radio-button>
+          <md-radio-button value="poor"> Poor </md-radio-button>
+        </md-radio-group>
+      </div>
+
+
+      <div>
+        <md-radio-group ng-model="cc.cars_checklist.lubehoodlatch">
+          <label for="text">27. Lube Hood Latch </label>
+          <md-radio-button value="true"> Checked </md-radio-button>
+        </md-radio-group>
+      </div>
+
+      <div>
+        <md-radio-group ng-model="cc.cars_checklist.shockstruttest">
+          <label for="text">28. Shock/Strut Test </label>
+          <md-radio-button value="true"> Checked </md-radio-button>
+        </md-radio-group>
+      </div>
+
+      <div>
+        <md-radio-group ng-model="cc.cars_checklist.frontwheelbearingtest">
+          <label for="text">29. Front Wheel Bearing Test </label>
+          <md-radio-button value="true"> Checked </md-radio-button>
+        </md-radio-group>
+      </div>
+
+      <div>
+        <md-radio-group ng-model="cc.cars_checklist.tierodtest">
+          <label for="text">30. Tie Rod Test </label>
+          <md-radio-button value="true"> Checked </md-radio-button>
+        </md-radio-group>
+      </div>
+
+
+
+      
+      <!--Vehicle Inspection Checklist Ends Here-->
+
+      <h3>Oil Change (If Required)</h3>
+      <div>
+        <label for="text">1. Drain Oil</label>
+        <input type="radio">
+        <input type="radio">
+        <input type="radio">
+      </div>
+
+      <div>
+        <label for="text">2. Remove Filter and old gasket/label>
             <input type="radio">
             <input type="radio">
             <input type="radio">
@@ -273,176 +309,177 @@
 
         <div>
           <label for="text">3. Install and Tighten Drain Plug</label>
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-        </div>
+        <input type="radio">
+        <input type="radio">
+        <input type="radio">
+      </div>
 
-        <div>
-          <label for="text">4. Install and Tighten Filter</label>
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-        </div>
+      <div>
+        <label for="text">4. Install and Tighten Filter</label>
+        <input type="radio">
+        <input type="radio">
+        <input type="radio">
+      </div>
 
-        <div>
-          <label for="text">5. Add Oil. Amount &#42;&#42;</label>
-            <input type="input">
-            <label for="text"> Weight &#42;&#42;</label>
-            <input type="input">
-        </div>
+      <div>
+        <label for="text">5. Add Oil. Amount &#42;&#42;</label>
+        <input type="input">
+        <label for="text"> Weight &#42;&#42;</label>
+        <input type="input">
+      </div>
 
-        <div>
-          <label for="text">6. Check Oil Level</label>
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-        </div>
+      <div>
+        <label for="text">6. Check Oil Level</label>
+        <input type="radio">
+        <input type="radio">
+        <input type="radio">
+      </div>
 
-          <div>
-            <label for="text">7. Oil Cap Secure</label>
-              <input type="radio">
-              <input type="radio">
-              <input type="radio">
-          </div>
+      <div>
+        <label for="text">7. Oil Cap Secure</label>
+        <input type="radio">
+        <input type="radio">
+        <input type="radio">
+      </div>
 
-          <div>
-            <label for="text">8. Start and Idle (5 seconds)</label>
-              <input type="radio">
-              <input type="radio">
-              <input type="radio">
-          </div>
+      <div>
+        <label for="text">8. Start and Idle (5 seconds)</label>
+        <input type="radio">
+        <input type="radio">
+        <input type="radio">
+      </div>
 
-          <div>
-            <label for="text">9. Check Oil Plug for Leaks</label>
-              <input type="radio">
-              <input type="radio">
-              <input type="radio">
-          </div>
+      <div>
+        <label for="text">9. Check Oil Plug for Leaks</label>
+        <input type="radio">
+        <input type="radio">
+        <input type="radio">
+      </div>
 
-          <div>
-            <label for="text">10. Check Filter for Leaks</label>
-              <input type="radio">
-              <input type="radio">
-              <input type="radio">
-          </div>
+      <div>
+        <label for="text">10. Check Filter for Leaks</label>
+        <input type="radio">
+        <input type="radio">
+        <input type="radio">
+      </div>
 
-          <div>
-            <label for="text">11. Install Oil Change Sticker</label>
-              <input type="radio">
-              <input type="radio">
-              <input type="radio">
-          </div>
+      <div>
+        <label for="text">11. Install Oil Change Sticker</label>
+        <input type="radio">
+        <input type="radio">
+        <input type="radio">
+      </div>
 
-          <div>
-            <label for="text">10. Oil Filter Brand/Number &#42;&#42;</label>
-            <input type="input">
-          </div>
+      <div>
+        <label for="text">10. Oil Filter Brand/Number &#42;&#42;</label>
+        <input type="input">
+      </div>
 
-          <div>
-            <label for="text">11. Oil Type: </label>
-            <input type="input">
-          </div>
-  <!--Oil change checklist Ends here-->
+      <div>
+        <label for="text">11. Oil Type: </label>
+        <input type="input">
+      </div>
+      <!--Oil change checklist Ends here-->
 
-  <!--Finish Up Checklist begins here-->
-          <h3>Finish Up Checklist</h3>
-            <div>
-              <label for="text">1. Oil Cap Secure</label>
-              <input type="radio">
-            </div>
+      <!--Finish Up Checklist begins here-->
+      <h3>Finish Up Checklist</h3>
+      <div>
+        <label for="text">1. Oil Cap Secure</label>
+        <input type="radio">
+      </div>
 
-            <div>
-              <label for="text">2. Oil Stick Secure</label>
-              <input type="radio">
-            </div>
+      <div>
+        <label for="text">2. Oil Stick Secure</label>
+        <input type="radio">
+      </div>
 
-            <div>
-              <label for="text">3. Transmission Stick Secure</label>
-              <input type="radio">
-            </div>
+      <div>
+        <label for="text">3. Transmission Stick Secure</label>
+        <input type="radio">
+      </div>
 
-            <div>
-              <label for="text">4. Power Steering Reservoir Cap Secure</label>
-              <input type="radio">
-            </div>
+      <div>
+        <label for="text">4. Power Steering Reservoir Cap Secure</label>
+        <input type="radio">
+      </div>
 
-            <div>
-              <label for="text">5. Brake Reservoir Cap Secure</label>
-              <input type="radio">
-            </div>
+      <div>
+        <label for="text">5. Brake Reservoir Cap Secure</label>
+        <input type="radio">
+      </div>
 
-            <div>
-              <label for="text">6. Coolant Reservoir Cap Secure</label>
-              <input type="radio">
-            </div>
+      <div>
+        <label for="text">6. Coolant Reservoir Cap Secure</label>
+        <input type="radio">
+      </div>
 
-            <div>
-              <label for="text">7. Washer Fluid Reservoir Cap Secure</label>
-              <input type="radio">
-            </div>
+      <div>
+        <label for="text">7. Washer Fluid Reservoir Cap Secure</label>
+        <input type="radio">
+      </div>
 
-            <div>
-              <label for="text">8. Tool Check: Under Hood, Inside Care, Inside Trunk</label>
-              <input type="radio">
-            </div>
+      <div>
+        <label for="text">8. Tool Check: Under Hood, Inside Care, Inside Trunk</label>
+        <input type="radio">
+      </div>
 
-            <div>
-              <label for="text">9. Test Drive</label>
-              <input type="radio">
-            </div>
+      <div>
+        <label for="text">9. Test Drive</label>
+        <input type="radio">
+      </div>
 
-            <div>
-              <label for="text">10. Re-torque lug nuts</label>
-              <input type="radio">
-            </div>
+      <div>
+        <label for="text">10. Re-torque lug nuts</label>
+        <input type="radio">
+      </div>
 
-            <div>
-              <label for="text">11. Gift Packet Distributed</label>
-              <input type="radio">
-            </div>
+      <div>
+        <label for="text">11. Gift Packet Distributed</label>
+        <input type="radio">
+      </div>
 
-            <div>
-              <label for="text">12. Review Checklist with Guest</label>
-              <input type="radio">
-            </div>
+      <div>
+        <label for="text">12. Review Checklist with Guest</label>
+        <input type="radio">
+      </div>
 
-<!--Finish Up Checklist ends here-->
+      <!--Finish Up Checklist ends here-->
 
-<!--Vehicle Observations Comment Sections begins here-->
-          <div>
-            <h4>Vehicle Observations &#42;&#42;</h4>
-              <textarea name="textarea" cols="50" rows="10" placeholder="Enter text here"></textarea>
-          </div>
+      <!--Vehicle Observations Comment Sections begins here-->
+      <div>
+        <h4>Vehicle Observations &#42;&#42;</h4>
+        <textarea name="textarea" cols="50" rows="10" placeholder="Enter text here"></textarea>
+      </div>
 
-          <div>
-            <h4>Recommended Repairs &#42;&#42;</h4>
-              <textarea name="textarea" cols="50" rows="10" placeholder="Enter text here"></textarea>
-          </div>
+      <div>
+        <h4>Recommended Repairs &#42;&#42;</h4>
+        <textarea name="textarea" cols="50" rows="10" placeholder="Enter text here"></textarea>
+      </div>
 
-          <div>
-            <h4>Repairs Declined &#42;&#42;</h4>
-              <textarea name="textarea" cols="50" rows="10" placeholder="Enter text here"></textarea>
-          </div>
+      <div>
+        <h4>Repairs Declined &#42;&#42;</h4>
+        <textarea name="textarea" cols="50" rows="10" placeholder="Enter text here"></textarea>
+      </div>
 
-          <div>
-            <h4>Parts Installed &#42;&#42;</h4>
-              <textarea name="textarea" cols="50" rows="10" placeholder="Enter text here"></textarea>
-          </div>
+      <div>
+        <h4>Parts Installed &#42;&#42;</h4>
+        <textarea name="textarea" cols="50" rows="10" placeholder="Enter text here"></textarea>
+      </div>
 
-          <div>
-            <label for="text"><strong>Cost &#42;&#42;</strong></label>
-              <input type="input">
-          </div>
+      <div>
+        <label for="text"><strong>Cost &#42;&#42;</strong></label>
+        <input type="input">
+      </div>
 
-          <p><strong>Guest Signature/Date Time Stamp:&#42;&#42;</strong> </p>
+      <p><strong>Guest Signature/Date Time Stamp:&#42;&#42;</strong> </p>
 
-          <p><strong> &#42; Require Rating Input</strong>: 1 - Good  2 - Fair  3 - Poor</p>
-          <p><strong> &#42;&#42; Require Actual Reading</strong></p>
-          
-          <button>Submit</button>
-<!--Vehicle Observations Comment Sections ends here-->
+      <p><strong> &#42; Require Rating Input</strong>: 1 - Good 2 - Fair 3 - Poor</p>
+      <p><strong> &#42;&#42; Require Actual Reading</strong></p>
 
-       </div><!--/container -->
-     </form> <!--/form-->
+      <button>Submit</button>
+      <!--Vehicle Observations Comment Sections ends here-->
 
+    </div>
+    <!--/container -->
+</form>
+<!--/form-->
