@@ -5,16 +5,18 @@ myApp.controller('AdminController', function (AdminService, AuthService, $locati
 
   // handles current user role in case of log in/log out
   // sends users who aren't admins to the mechanic's page if they're logged in and attempting to hit the admin's page
-  vm.userObject = {};
-  $http.get('/user').then(function (response) {
-    console.log('Checking current user: ', response.data);
-    vm.userObject = response.data;
-    if (vm.userObject.role != 'admin') {
-      // checks if user is logged in
-      console.log('Current role not allowed');
-      $location.path('/mechanic');
-    }
-  });
+
+  // moved to service for resolve control
+  // vm.userObject = {};
+  // $http.get('/user').then(function (response) {
+  //   console.log('Checking current user: ', response.data);
+  //   vm.userObject = response.data;
+  //   if (vm.userObject.role != 'admin') {
+  //     // checks if user is logged in
+  //     console.log('Current role not allowed');
+  //     $location.path('/mechanic');
+  //   }
+  // });
 
   vm.showRequests = true;
   vm.InfoExpanded = false;
@@ -67,7 +69,7 @@ myApp.controller('AdminController', function (AdminService, AuthService, $locati
 
   vm.search_history = function (z) {
     console.log('search button hit, passed', z, 'as search stuff')
-  
+
   }
 
   vm.showAuth = function () {
@@ -81,33 +83,18 @@ myApp.controller('AdminController', function (AdminService, AuthService, $locati
     vm.showAuths = false;
   }
 
-
-  // Checks if current user is an admin, will kick to home page if not
-  // vm.userObject = {};
-  // vm.checkUser = function () {
-  //   $http.get('/user').then(function (response) {
-  //     if (response.data.role != 'admin') {
-  //       console.log('Current user is not an admin');
-  //       $location.path('/cars');
-  //     }
-  //   })
-  // }
-  //vm.checkUser();
-
   vm.getPrint = function () {
     AdminService.getPrints()
   }
 
-  vm.history_view= function(c){
-      console.log(c);
-      AuthService.getAuth(c)
-      
-    }
+  vm.history_view = function (c) {
+    console.log(c);
+    AuthService.getAuth(c)
 
+  }
 
   vm.getPrint();
   vm.getRequests();
   console.log(vm.RetrievedRequests)
-
 
 });
