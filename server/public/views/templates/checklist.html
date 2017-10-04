@@ -19,7 +19,7 @@
 <label for="text">Model:</label>
 <input type="text" placeholder="Enter Model"> -->
 
-
+{{cc.IsVisible}}
 <!--Vehicle Inspection Checklist Begins Here-->
 
 <form class="">
@@ -312,20 +312,26 @@
         </div>
 
 
-
+        <h3> Is an oil change needed ? </h3>
+        
+        <input type="radio" value = 'yes'ng-click = "cc.showOilRequired('Y')"/> Yes
+        <input type="radio" value = 'no' ng-click = "cc.showOilRequired('N')"/> No  
+        
+          
 
         <!--Vehicle Inspection Checklist Ends Here-->
 
-        <h3>Oil Change (If Required)</h3>
-        <div>
-          <label for="text">1. Drain Oil</label>
-          <input type="radio">
-          <input type="radio">
-          <input type="radio">
-        </div>
+        <div ng-show="cc.IsVisible">
+          <h4>Oil Change</h4>
+          <div>
+            <label for="text">1. Drain Oil</label>
+            <input type="radio">
+            <input type="radio">
+            <input type="radio">
+          </div>
 
-        <div>
-          <label for="text">2. Remove Filter and old gasket/label>
+          <div>
+            <label for="text">2. Remove Filter and old gasket/label>
             <input type="radio">
             <input type="radio">
             <input type="radio">
@@ -333,80 +339,82 @@
 
         <div>
           <label for="text">3. Install and Tighten Drain Plug</label>
-          <input type="radio">
-          <input type="radio">
-          <input type="radio">
-        </div>
+            <input type="radio">
+            <input type="radio">
+            <input type="radio">
+          </div>
 
-        <div>
-          <label for="text">4. Install and Tighten Filter</label>
-          <input type="radio">
-          <input type="radio">
-          <input type="radio">
-        </div>
+          <div>
+            <label for="text">4. Install and Tighten Filter</label>
+            <input type="radio">
+            <input type="radio">
+            <input type="radio">
+          </div>
 
-        <div>
-          <label for="text">5. Add Oil. Amount &#42;&#42;</label>
-          <input type="input">
-          <label for="text"> Weight &#42;&#42;</label>
-          <input type="input">
-        </div>
+          <div>
+            <label for="text">5. Add Oil. Amount &#42;&#42;</label>
+            <input type="input">
+            <label for="text"> Weight &#42;&#42;</label>
+            <input type="input">
+          </div>
 
-        <div>
-          <label for="text">6. Check Oil Level</label>
-          <input type="radio">
-          <input type="radio">
-          <input type="radio">
-        </div>
+          <div>
+            <label for="text">6. Check Oil Level</label>
+            <input type="radio">
+            <input type="radio">
+            <input type="radio">
+          </div>
 
-        <div>
-          <label for="text">7. Oil Cap Secure</label>
-          <input type="radio">
-          <input type="radio">
-          <input type="radio">
-        </div>
+          <div>
+            <label for="text">7. Oil Cap Secure</label>
+            <input type="radio">
+            <input type="radio">
+            <input type="radio">
+          </div>
 
-        <div>
-          <label for="text">8. Start and Idle (5 seconds)</label>
-          <input type="radio">
-          <input type="radio">
-          <input type="radio">
-        </div>
+          <div>
+            <label for="text">8. Start and Idle (5 seconds)</label>
+            <input type="radio">
+            <input type="radio">
+            <input type="radio">
+          </div>
 
-        <div>
-          <label for="text">9. Check Oil Plug for Leaks</label>
-          <input type="radio">
-          <input type="radio">
-          <input type="radio">
-        </div>
+          <div>
+            <label for="text">9. Check Oil Plug for Leaks</label>
+            <input type="radio">
+            <input type="radio">
+            <input type="radio">
+          </div>
 
-        <div>
-          <label for="text">10. Check Filter for Leaks</label>
-          <input type="radio">
-          <input type="radio">
-          <input type="radio">
-        </div>
+          <div>
+            <label for="text">10. Check Filter for Leaks</label>
+            <input type="radio">
+            <input type="radio">
+            <input type="radio">
+          </div>
 
-        <div>
-          <label for="text">11. Install Oil Change Sticker</label>
-          <input type="radio">
-          <input type="radio">
-          <input type="radio">
-        </div>
+          <div>
+            <label for="text">11. Install Oil Change Sticker</label>
+            <input type="radio">
+            <input type="radio">
+            <input type="radio">
+          </div>
 
-        <div>
-          <label for="text">10. Oil Filter Brand/Number &#42;&#42;</label>
-          <input type="input">
-        </div>
+          <div>
+            <label for="text">10. Oil Filter Brand/Number &#42;&#42;</label>
+            <input type="input">
+          </div>
 
-        <div>
-          <label for="text">11. Oil Type: </label>
-          <input type="input">
+          <div>
+            <label for="text">11. Oil Type: </label>
+            <input type="input">
+          </div>
+
         </div>
         <!--Oil change checklist Ends here-->
 
-        
-        
+
+
         <!--Finish Up Checklist begins here-->
         <h3>Finish Up Checklist</h3>
         <div>
