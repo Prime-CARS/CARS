@@ -56,7 +56,7 @@ router.get('/printable', function (req, res) {
         res.send(false);
     }
 });
-
+//route when Search History is clicked on Admin page. Will search by name and/or VIN.
 router.get('/search/:z', function (req, res) {
     console.log('search route hit');
     var search = req.params.z;
@@ -66,7 +66,7 @@ router.get('/search/:z', function (req, res) {
                 console.log("Error connecting: ", err);
                 res.sendStatus(500);
             }
-            client.query("SELECT * FROM customer_info WHERE name ILIKE '% $1 %' OR vin ILIKE '% $1 %';", [search],
+            client.query("SELECT * FROM customer_info WHERE name ILIKE $1 OR vin ILIKE $1;", ['%' + search + '%'],
                 function (err, result) {
                     done;
                     if (err) {
