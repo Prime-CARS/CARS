@@ -1,14 +1,16 @@
 <div ng-include="'views/partials/nav.html'"></div>
 <div class="container">
-
-    <h1 id="welcome" class="lead">Hello {{ac.userObject.userName}}!</h1>
+    <div id="admin_nav"></div>
+    <h1 id="welcome" class="lead">Hello {{ac.AdminService.userObject.userName}}!</h1>
+   
 
     <button ng-click="ac.makeRequestsVisible()">Service Requests</button>
     <button ng-click="ac.showSearch()">Service History</button>
     <button ng-click="ac.showAuth()">Pending Authorizations</button>
     <button ng-click="ac.AdminService.logout()">Log Out</button>
     <hr>
-
+    </div>
+<!---requests for service page-->
     <div ng-show="ac.showRequests">
         <h3>These requests are pending review and scheduling</h3>
         <div ng-repeat="data in ac.RetrievedRequests.list.data" class="rqst" ng-click="ac.expandInfo()" ng-hide=ac.InfoExpanded>{{data.name}} {{data.year}} {{data.make}} {{data.model}}</div>
@@ -17,19 +19,11 @@
             <button class="btn-btn-primary" type="submit" ng-click="ac.updateCustomer(data.customer_id, 'scheduled')">Scheduled!</button>
 
             <button class="btn-btn-warn" type="submit" ng-click="ac.updateCustomer(data.customer_id, 'denied')">not eligable!</button>
-            
+
             <button ng-click="ac.shrinkInfo()">close</button>
         </div>
         <div class="nrqst" ng-click="ac.AddRequest()">New request </div>
     </div>
-    <!--search bar-->
-    <div ng-show="ac.showSearchs">
-        <form><input type="text" id="search" ng-model="history_search"><button ng-click="ac.search_history(history_search)">submit</button></form>
-       <div class="rqst" ng-repeat="customer in ac.searchResults">
-          </div>
-          {{ac}} 
-    </div>
-    <!--search bar end-->
 
     <div class="nrqstform" ng-show="ac.nrqstneeded">
         <!--start of new person entry -->
@@ -76,14 +70,10 @@
         <input type="radio" name="qualification" value="singleMother" ng-model="ac.customer.qualification" checked>
         Single Mother
     </label>
-
-
                 <label>
         <input type="radio" name="qualification" value="singleWoman" ng-model="ac.customer.qualification" checked>    
         Single Woman
     </label>
-
-
                 <label>
         <input type="radio" name="qualification" value="widow" ng-model="ac.customer.qualification" checked>
         Widow
@@ -111,7 +101,18 @@
                 <button class="btn-btn-primary" ng-click="ac.ReduceRequest()">Close</button>
             </div>
     </div>
-    ac.showAuths: {{ac.showAuths}}
+
+<!--end of requests for service view-->
+
+    <!--search bar-->
+    <div ng-show="ac.showSearchs">
+        <form><input type="text" id="search" ng-model="history_search"><button ng-click="ac.search_history(history_search)">submit</button></form>
+        <div class="rqst" ng-repeat="customer in ac.AdminService.searchResults.list.data" ng-click="ac.getChecklist()"> {{customer.name}} {{customer.year}} {{customer.make}} {{customer.model}} {{customer.vin}}
+        </div>
+    </div>
+    <!--search bar end-->
+
+   
     <!--button to show pending authorizations-->
     <div ng-show="ac.showAuths">
 
