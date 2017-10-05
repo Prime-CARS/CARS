@@ -151,3 +151,7 @@ header, footer {
 .serviced{
   background-color: lightskyblue;
 }
+
+@media print { 
+  .noPrint { display: none !important; } 
+ }
