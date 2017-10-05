@@ -35,6 +35,32 @@ router.post('/', function (req, res) {
 router.put('/updateService', function (req, res) {
     service_status = req.body.service_status;
     index = req.body.index;
+
+    console.log("The put route for customers in requestService.router.js was hit to update status");
+    //connecting to db
+
+    pool.connect(function (errorConnectingToDatabase, client, done) {
+        //checking the status of the connection
+        if (errorConnectingToDatabase) { //if the connection failed
+            console.log("error connecting to customer_info table in db: ", errorConnectingToDatabase);
+            res.sendStatus(500);
+        } else { //the connection is successful
+            client.query('UPDATE customer_info SET service_status = $1 WHERE customer_id = $2;', [service_status, index], function (errorMakingQuery, result) {
+                if (errorMakingQuery) {
+                    console.log("Error making db query in customer_info table in requestService.router.js: ", errorMakingQuery);
+                    res.sendStatus(500);
+                    done();
+                } else {
+                    done();
+                    res.sendStatus(200);
+                }
+            });
+        }
+    });
+});
+
+router.post('/updateService/addChecklist', function (req, res) {
+    index = req.body.index;
     console.log("The put route for customers in requestService.router.js was hit to update status");
     //connecting to db
     pool.connect(function (errorConnectingToDatabase, client, done) {
@@ -43,28 +69,19 @@ router.put('/updateService', function (req, res) {
             console.log("error connecting to customer_info table in db: ", errorConnectingToDatabase);
             res.sendStatus(500);
         } else { //the connection is successful
-            client.query('UPDATE customer_info SET service_status = $1 WHERE customer_id = $2;', [index, service_status], function (errorMakingQuery, result) {
-                done();
-                if (errorMakingQuery) {
-                    console.log("Error making db query in customer_info table in requestService.router.js: ", errorMakingQuery);
-                    res.sendStatus(500);
+            client.query('INSERT INTO cars_checklist (customer_id, checklist_status) VALUES ((SELECT "customer_id" FROM "customer_info" WHERE "customer_id"=$1), \'ready\');',
+                [index],
+                function (err, result) {
                     done();
-                } else {
-                    client.query('INSERT INTO cars_checklist (customer_id, checklist_status) VALUES ((SELECT "customer_id" FROM "customer_info" WHERE "customer_id"=$1), ready);',
-                        [index],
-                        function (err, result) {
-                            done();
-                            if (err) {
-                                console.log('Error saving new checklist ', err);
-                                res.sendStatus(500);
-                                done();
-                            } else {
-                                res.sendStatus(200);
-                                done();
-                            }
-                        });
-                }
-            });
+                    if (err) {
+                        console.log('Error saving new checklist: ', err);
+                        res.sendStatus(500);
+                        done();
+                    } else {
+                        res.sendStatus(200);
+                        done();
+                    }
+                });
         }
     });
 });
