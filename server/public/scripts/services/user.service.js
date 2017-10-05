@@ -24,6 +24,12 @@ myApp.service('AdminService', function ($http, $location) {
     })
   }
 
+  vm.searchHistory = function(z) {
+    $http.get('/RequestsForService/search/' + z).then(function(response){
+      console.log(response);
+    })
+  }
+
   vm.getuser = function () {
     console.log('AdminService -- getuser');
     $http.get('/user').then(function (response) {
