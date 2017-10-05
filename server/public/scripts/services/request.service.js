@@ -38,8 +38,8 @@ myApp.service('RequestService', function($http, $location) {
     }
 
     vm.updateCustomer = function (z,x){
-       vm.data = {service_status: z, 
-        index: x}
+       vm.data = {index: z, 
+        service_status: x}
         $http({
             method: 'PUT',
             url: '/requestservice/updateService',
