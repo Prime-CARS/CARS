@@ -87,7 +87,7 @@
     </div>
 
     <div class="container">
-        <p><label>model</label></p>
+        <p><label>Model</label></p>
         <input type="text" class="form-control" name="model" ng-model="rc.customer.model">
     </div>
 
@@ -100,26 +100,28 @@
 <h3>Please describe the problems you are having with your vehicle</h3>
 <textarea rows="15" cols="250" ng-model="rc.customer.problem"></textarea>
 
+
 <div class="-container">
     <h3>Please indicate why you qualify to use the services of C.A.R.S. Ministry</h3>
+
     <label>
-        <input type="radio" name="qualification" value="Single Mother" ng-model="rc.customer.qualification">
+        <input type="radio" name="qualification" value="Single Mother" ng-click="rc.closeTextbox()" ng-model="rc.customer.qualification">
         Single Mother
     </label>
     <br/>
 
     <label>
-        <input type="radio" name="qualification" value="Single Woman" ng-model="rc.customer.qualification">    
+        <input type="radio" name="qualification" value="Single Woman" ng-click="rc.closeTextbox()" ng-model="rc.customer.qualification">    
         Single Woman
     </label>
     <br/>
     <label>
-        <input type="radio" name="qualification" value="Widow" ng-model="rc.customer.qualification">
+        <input type="radio" name="qualification" value="Widow" ng-click="rc.closeTextbox()" ng-model="rc.customer.qualification">
         Widow
     </label>
     <br/>
     <label>
-        <input type="radio" name="qualification" value="Financially Limited"  ng-model="rc.customer.qualification" checked>
+        <input type="radio" name="qualification" value="Financially Limited" ng-click="rc.closeTextbox()" ng-model="rc.customer.qualification" checked>
         Financially Limited
     </label>
     <br/>
@@ -133,5 +135,7 @@
 </div>
 
 <div class="container">
+
     <button class="btn-btn-primary" type="submit" ng-click="rc.addCustomer(); rc.sendMail()">Submit</button>
 </div>
+
