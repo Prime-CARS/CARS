@@ -8,13 +8,13 @@ router.post('/', function (req, res, next) {//this contacts the modemailer servi
     var transporter = nodemailer.createTransport({
         service: 'Gmail', 
         auth: {
-            user: 'newrequestcarsministrysystem@gmail.com',
-            pass: 'RequestForService'
+            user: process.env.SENDER,
+            pass: process.env.GMAIL
         }
     });
 
     var mailOptions = {
-        from: 'newrequestcarsministrysystem@gmail.com',
+        from: process.env.SENDER,
         to: 'julie.berthiaume@gmail.com', /* this will be Mitch's email account, whatever he chooses to use to receive theses notifications */
         subject: 'New request for service form',
         text: 'A new Request for Services form has just been created and submitted.' 
