@@ -42,6 +42,7 @@ myApp.service('RequestService', function ($http, $location) {
             index: z,
             service_status: x
         }
+        console.log('Update Customer hit on service');
         
         $http({
             method: 'PUT',
@@ -49,13 +50,13 @@ myApp.service('RequestService', function ($http, $location) {
             data: vm.data
         }).then(function (response) {
             console.log('Customer service update: ', response.data);
-            // $http({
-            //     method: 'POST',
-            //     url: '/requestservice/updateService/addChecklist',
-            //     data: vm.data
-            // }).then(function (response) {
-            //     console.log('Customer checklist added: ', response.data);
-            // })
+            $http({
+                method: 'POST',
+                url: '/requestservice/updateService/addChecklist',
+                data: vm.data
+            }).then(function (response) {
+                console.log('Customer checklist added: ', response.data);
+            })
         })//end of .then 
     } //end of http POST request
 }); // end of myApp.service module
