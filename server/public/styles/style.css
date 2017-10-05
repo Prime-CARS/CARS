@@ -80,7 +80,7 @@ li a:hover {
 }
 
 header, footer {
-    padding: 1em;
+    padding: 8px;
     color: white;
     background-color: maroon;
     clear: left;
@@ -89,24 +89,28 @@ header, footer {
 }
 
 .landingpagelinks {
-padding: 1em;
+    padding: 8px;
     color: white;
     background-color: white;
     clear: left;
     text-align: center;
-
 }
 
 .infocontainer {
     background-color: maroon;
     color: white;
-    margin: 20px 0 20px 0;
-    padding: 20px;
-   width: 40
-
+    font-size: 15px;
+    margin: 8px 8px 8px 8px;
+    padding: 15px;
 }
 
+.listPush {
+  padding: 0 0 0 20px;
+}
 
+.listPushEnd {
+  padding: 0 0 0 20px;
+}
 
 .rqst{
  position: relative;

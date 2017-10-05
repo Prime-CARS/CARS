@@ -5,6 +5,7 @@ myApp.controller('RequestController', function (AdminService, RequestService, $h
   vm.AdminService = AdminService;
   vm.customer = RequestService.customer;
   vm.textboxShowing = false;
+  vm.customer = { service_status: 'requested' };
 
   // handles current user role in case of log in/log out
   // checking if current user is a mechanic or admin
