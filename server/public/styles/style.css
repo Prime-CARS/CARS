@@ -156,6 +156,7 @@ padding: 1em;
   background-color: lightskyblue;
 }
 
+<<<<<<< HEAD
 .lead{
   margin-top: -20px;
   font-size: 36px;
@@ -177,3 +178,7 @@ padding: 1em;
 .NavLink{
   color: whitesmoke;
 }
+
+@media print { 
+  .noPrint { display: none !important; } 
+ }
