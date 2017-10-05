@@ -15,7 +15,9 @@
         <div ng-repeat="data in ac.RetrievedRequests.list.data" ng-show="ac.InfoExpanded" class="expanded_request"> Pending request #1 Name:{{data.name}} Phone:{{data.cellphone}} Alt Phone:{{data.alternative_phone}} Year/Make/Model/VIN:
             {{data.year}}/{{data.make}}/{{data.model}}/{{data.vin}} Qualifier:{{data.qualify_input}} Vehicle Issue:{{data.service_request}}
             <button class="btn-btn-primary" type="submit" ng-click="ac.updateCustomer(data.customer_id, 'scheduled')">Scheduled!</button>
+
             <button class="btn-btn-warn" type="submit" ng-click="ac.updateCustomer(data.customer_id, 'denied')">not eligable!</button>
+            
             <button ng-click="ac.shrinkInfo()">close</button>
         </div>
         <div class="nrqst" ng-click="ac.AddRequest()">New request </div>
@@ -30,87 +32,83 @@
 
     <div class="nrqstform" ng-show="ac.nrqstneeded">
         <!--start of new person entry -->
-        <form class="w3-container w3-row-padding w3-content" id="customerInfo">
+        <form id="customerInfo">
             <label>Name</label>
-            <input type="text" class="w3-input w3-border w3-round" name="first" ng-model="ac.customer.name">
+            <input type="text" name="first" ng-model="ac.customer.name" required>
 
             <label>Address</label>
-            <input type="text" class="w3-input w3-border w3-round" name="address" ng-model="ac.customer.address">
-        </form>
+            <input type="text" name="address" ng-model="ac.customer.address" required>
 
-        <form class="w3-container w3-row-padding" id="customerInfo">
-            <div class="w3-row-padding">
+            <div>
                 <label>City</label>
-                <input type="text" class="w3-input w3-border w3-round" name="city" ng-model="ac.customer.city">
+                <input type="text" name="city" ng-model="ac.customer.city" required>
                 <label>State</label>
-                <input type="text" class="w3-input w3-border w3-round" name="state" ng-model="ac.customer.state">
+                <input type="text" name="state" ng-model="ac.customer.state" required>
                 <label>Zip Code</label>
-                <input type="number" class="w3-input w3-border w3-round" name="zip" ng-model="ac.customer.zip">
+                <input type="number" name="zip" ng-model="ac.customer.zip" required>
                 <label>Cell Phone</label>
-                <input type="tel" class="form-control" name="cellPhone" ng-model="ac.customer.cellPhone ">
+                <input type="tel" class="form-control" name="cellPhone" ng-model="ac.customer.cellPhone " required>
                 <label>Alternate Phone</label>
                 <input type="text" class="form-group" name="altPhone" ng-model="ac.customer.altPhone">
                 <label>email address</label>
-                <input type="email" class="form-group" name="altPhone" ng-model="ac.customer.email">
+                <input type="email" class="form-group" name="altPhone" ng-model="ac.customer.email" required>
             </div>
-        </form>
 
-        <form class="w3-container" id="carInfo">
             <h2>Vehicle Information</h2>
-            <div class="w3-container w3-row">
+            <div>
                 <label>VIN</label>
-                <input type="text" class="w3-input w3-border w3-round" name="VIN" ng-model="ac.customer.vin">
+                <input type="text" name="VIN" ng-model="ac.customer.vin">
                 <label>Year</label>
-                <input type="number" class="w3-input w3-border w3-round" name="year" ng-model="ac.customer.year">
+                <input type="number" name="year" ng-model="ac.customer.year" required>
                 <label>Make</label>
-                <input type="text" class="w3-input w3-border w3-round" name="make" ng-model="ac.customer.make">
+                <input type="text" name="make" ng-model="ac.customer.make" required>
                 <label>model</label>
-                <input type="text" class="w3-input w3-border w3-round" name="model" ng-model="ac.customer.model">
+                <input type="text" name="model" ng-model="ac.customer.model" required>
             </div>
-        </form>
-        <h3>Please describe the problems you are having with the vehicle</h3>
-        <textarea rows="15" cols="100" ng-model="ac.customer.problem"></textarea>
 
-        <div class="w3-container">
-            <h3>Please indicate why you qualify to use the services of C.A.R.S. Ministry</h3>
-            <label>
-        <input class="w3-radio" type="radio" name="qualification" value="singleMother" ng-model="ac.customer.qualification" checked>
+            <h3>Please describe the problems you are having with the vehicle</h3>
+            <textarea rows="15" cols="100" ng-model="ac.customer.problem"></textarea>
+
+            <div>
+                <h3>Please indicate why you qualify to use the services of C.A.R.S. Ministry</h3>
+                <label>
+        <input type="radio" name="qualification" value="singleMother" ng-model="ac.customer.qualification" checked>
         Single Mother
     </label>
 
 
-            <label>
-        <input class="w3-radio" type="radio" name="qualification" value="singleWoman" ng-model="ac.customer.qualification" checked>    
+                <label>
+        <input type="radio" name="qualification" value="singleWoman" ng-model="ac.customer.qualification" checked>    
         Single Woman
     </label>
 
 
-            <label>
-        <input class="w3-radio" type="radio" name="qualification" value="widow" ng-model="ac.customer.qualification" checked>
+                <label>
+        <input type="radio" name="qualification" value="widow" ng-model="ac.customer.qualification" checked>
         Widow
     </label>
 
-            <label>
-        <input class="w3-radio" type="radio" name="qualification" value="financiallyLimited"   ng-model="ac.customer.qualification" checked>
+                <label>
+        <input type="radio" name="qualification" value="financiallyLimited"   ng-model="ac.customer.qualification" checked>
         Financially Limited
     </label>
 
-            <label>
+                <label>
         <input type="radio" name="qualification" value="other" ng-click="ac.openTextbox();">
         Other
     </label>
 
-            <div ng-show="ac.textboxShowing">
-                <textarea rows="4" cols="50" ng-model="ac.customer.qualification" placeholder="Please explain your circumstances:"></textarea>
-            </div>
+                <div ng-show="ac.textboxShowing">
+                    <textarea rows="4" cols="50" ng-model="ac.customer.qualification" placeholder="Please explain your circumstances:"></textarea>
+                </div>
 
-            <div class="w3-container w3-padding">
-                <button class="btn-btn-primary" type="submit" ng-click="ac.addCustomer()">Schedule!</button>
-            </div>
+                <div>
+                    <button class="btn-btn-primary" type="submit" ng-click="ac.addCustomer()">Schedule!</button>
+                </div>
 
-            <!--end of new person entry -->
-            <button class="btn-btn-primary" ng-click="ac.ReduceRequest()">Close</button>
-        </div>
+                <!--end of new person entry -->
+                <button class="btn-btn-primary" ng-click="ac.ReduceRequest()">Close</button>
+            </div>
     </div>
     ac.showAuths: {{ac.showAuths}}
     <!--button to show pending authorizations-->
@@ -119,5 +117,6 @@
         <h3>These authorizations have been created and need to be printed.</h3>
         <div ng-repeat="data in ac.AdminService.Prints.list.data" ng-click="ac.history_view($index)" class="rqst">{{data.name}}</div>
     </div>
+    </form>
 </div>
 </div>

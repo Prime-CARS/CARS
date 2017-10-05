@@ -71,8 +71,12 @@ myApp.controller('AdminController', function (AdminService, RequestService, Auth
 
 //******************************************************
   vm.search_history = function (z) {
+
     console.log('search button hit, passed', z, 'as search stuff')
     AdminService.searchHistory(z);
+
+    console.log('search button hit, passed', z, 'as search stuff');
+
 
   }
 
@@ -107,18 +111,21 @@ myApp.controller('AdminController', function (AdminService, RequestService, Auth
   }
 
   vm.updateCustomer = function (z,x){
-    RequestService.updateCustomer(z,x)
+    console.log('Update Customer button hit on controller');
+    RequestService.updateCustomer(z,x);
+    vm.getRequests();
   }
+    
 
   vm.openTextbox = function () {
     vm.textboxShowing = true;
   };
 
 
-  vm.removeCustomer = function (){
-    console.log('remove button hit');
+  // vm.removeCustomer = function (){
+  //   console.log('remove button hit');
     
-  }
+  // }
 
   vm.getPrint();
   vm.getRequests();

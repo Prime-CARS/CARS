@@ -3,7 +3,8 @@ myApp.controller('LoginController', function ($http, $location, AdminService) {
   var vm = this;
   vm.user = {
     username: '',
-    password: ''
+    password: '',
+    role: 'admin'
   };
   vm.message = '';
 
