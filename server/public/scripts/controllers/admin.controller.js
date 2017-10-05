@@ -107,9 +107,10 @@ myApp.controller('AdminController', function (AdminService, RequestService, Auth
 
   vm.updateCustomer = function (z,x){
     console.log('Update Customer button hit on controller');
-    
     RequestService.updateCustomer(z,x);
+    vm.getRequests();
   }
+    
 
   vm.openTextbox = function () {
     vm.textboxShowing = true;
