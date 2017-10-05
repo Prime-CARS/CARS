@@ -19,11 +19,11 @@ router.get('/', function (req, res) {
                         res.sendStatus(500);
                     } else {
                         console.log('result.rows', result.rows);
-                        
+
                         res.send(result.rows)
                     }
                 });
-    })
+        })
     } else {
         // failure best handled on the server. do redirect here.
         console.log('not logged in');

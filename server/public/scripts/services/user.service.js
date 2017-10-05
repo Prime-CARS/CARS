@@ -5,7 +5,7 @@ myApp.service('AdminService', function ($http, $location) {
   vm.userObject = {};
   vm.Requests = { list: [] };
   vm.Prints = { list: [] };
-
+  vm.searchResults = { list:[] };
   //console.log('current service userObject', vm.userObject);
   
 
@@ -21,6 +21,21 @@ myApp.service('AdminService', function ($http, $location) {
     $http.get('/RequestsForService/printable').then(function (response) {
       console.log('PRINTS Requests', response);
       vm.Prints.list = response;
+    })
+  }
+
+  vm.searchHistory = function(z) {
+    $http.get('/RequestsForService/search/' + z).then(function(response){
+      console.log(response);
+      if (response === 500) {
+        swal({
+          title: "No results",
+          text: "Entry did not match current names or VINs",
+          type: "Error"
+        })
+      } else {
+        vm.searchResults.list = response; 
+      }
     })
   }
 

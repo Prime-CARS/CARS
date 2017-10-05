@@ -28,7 +28,7 @@ myApp.controller('AdminController', function (AdminService, RequestService, Auth
   vm.customer = {};
   vm.textboxShowing = false;
   vm.RetrievedRequests = AdminService.Requests;
-
+  vm.searchResults = AdminService.searchResults.list;
 
   vm.makeRequestsVisible = function () {
     vm.showRequests = true;
@@ -69,11 +69,16 @@ myApp.controller('AdminController', function (AdminService, RequestService, Auth
     vm.getRequests();
   }
 
-
+//******************************************************
   vm.search_history = function (z) {
-    console.log('search button hit, passed', z, 'as search stuff');
 
+    console.log('search button hit, passed', z, 'as search stuff')
+    AdminService.searchHistory(z);
+
+    console.log('search button hit, passed', z, 'as search stuff');
   }
+
+  
 
   vm.showAuth = function () {
     vm.showAuths = true;
@@ -106,18 +111,21 @@ myApp.controller('AdminController', function (AdminService, RequestService, Auth
   }
 
   vm.updateCustomer = function (z,x){
-    RequestService.updateCustomer(z,x)
+    console.log('Update Customer button hit on controller');
+    RequestService.updateCustomer(z,x);
+    vm.getRequests();
   }
+    
 
   vm.openTextbox = function () {
     vm.textboxShowing = true;
   };
 
 
-  vm.removeCustomer = function (){
-    console.log('remove button hit');
+  // vm.removeCustomer = function (){
+  //   console.log('remove button hit');
     
-  }
+  // }
 
   vm.getPrint();
   vm.getRequests();
