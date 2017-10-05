@@ -147,3 +147,7 @@ padding: 1em;
 .serviced{
   background-color: lightskyblue;
 }
+
+@media print { 
+  .noPrint { display: none !important; } 
+ }
