@@ -1,8 +1,14 @@
-body, html {
+body{
   margin: 0;
   padding: 0;
   font-family: sans-serif;
   font-size: 14px;
+  background-color: #726F6F;
+  background-attachment: fixed;
+}
+main{
+   background-color: #726F6F;
+  background-attachment: fixed; 
 }
 
 .instructions .container h1 {
@@ -11,7 +17,7 @@ body, html {
 }
 
 .instructions {
- 
+ padding-top: 20px;
   color: #DDDDDD;
   padding: 15px;
 }
@@ -52,6 +58,7 @@ body, html {
   background-color: #333333;
   width: 100%;
   border-radius: 0px;
+  color: #FFFFFF;
 }
 
 ul {
@@ -80,7 +87,11 @@ li a:hover {
 }
 
 header, footer {
+
+    /* padding: 1em; */
+
     padding: 8px;
+
     color: white;
     background-color: maroon;
     clear: left;
@@ -98,10 +109,18 @@ header, footer {
 
 .infocontainer {
     background-color: maroon;
+    background: linear-gradient(maroon,maroon,maroon, #726F6F);
     color: white;
+
+    margin: 20px 0 20px 0;
+    padding: 20px;
+    border-radius: 5px;
+
+
     font-size: 15px;
     margin: 8px 8px 8px 8px;
     padding: 15px;
+
 }
 
 .listPush {
@@ -150,6 +169,29 @@ header, footer {
 
 .serviced{
   background-color: lightskyblue;
+}
+
+
+.lead{
+  margin-top: -20px;
+  font-size: 36px;
+  color: whitesmoke;
+}
+
+#logo img{
+  border-width: 2px;
+  border-color: white;
+  height: 100px;
+  width: auto;
+  object-fit: contain;
+}
+
+#title{
+  padding-top: 20px;
+}
+
+.NavLink{
+  color: whitesmoke;
 }
 
 @media print { 
