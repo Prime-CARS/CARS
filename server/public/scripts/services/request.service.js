@@ -42,28 +42,34 @@ myApp.service('RequestService', function ($http, $location) {
     }
 
     vm.updateCustomer = function (z, x) {
-        vm.data = {
-            index: z,
-            service_status: x
-        }
-        console.log('Update Customer hit on service');
-        
-        $http({
-            method: 'PUT',
-            url: '/requestservice/updateService',
-            data: vm.data
-        }).then(function (response) {
-            console.log('Customer service update: ', response.data);
+        if (x === 'scheduled') {
+            vm.data = {
+                index: z,
+                service_status: x
+            }
+            console.log('Update Customer hit on service');
             $http({
-                method: 'POST',
-                url: '/checklist/addChecklist',
+                method: 'PUT',
+                url: '/requestservice/updateService',
                 data: vm.data
             }).then(function (response) {
-                console.log('Customer checklist added: ', response.data);
+                console.log('Customer service update: ', response.data);
+                $http({
+                    method: 'POST',
+                    url: '/checklist/addChecklist',
+                    data: vm.data
+                }).then(function (response) {
+                    console.log('Customer checklist added: ', response.data);
+                })
+            })//end of .then 
+        } else {
+            $http({
+                method: 'PUT',
+                url: '/requestservice/updateService',
+                data: vm.data
+            }).then(function (response) {
+                console.log('Customer service is declined: ', response.data);
             })
-        })//end of .then 
-    } //end of http POST request
-}); // end of myApp.service module
-
-
-
+        }
+    } // end of myApp.service module
+});
