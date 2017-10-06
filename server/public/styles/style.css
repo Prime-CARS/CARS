@@ -6,10 +6,9 @@ body {
     background-color: #726F6F;
     background-attachment: fixed;
 }
-
-main {
-    background-color: #726F6F;
-    background-attachment: fixed;
+main{
+   background-color: #F5F5F5;
+  background-attachment: fixed; 
 }
 
 .carsImg {
@@ -20,14 +19,15 @@ main {
 }
 
 .instructions .container h1 {
-    font-size: 32px;
-    font-weight: 600;
+  font-size: 32px;
+  font-weight: 800
 }
 
 .instructions {
-    padding-top: 20px;
-    color: #DDDDDD;
-    padding: 15px;
+ padding-top: 20px;
+  color: #131313;
+  padding: 15px;
+  background-color: #F5F5F5
 }
 
 #entryForm {
@@ -63,10 +63,9 @@ main {
 }
 
 .navbar {
-    background-color: #333333;
-    width: 100%;
-    border-radius: 0px;
-    color: #FFFFFF;
+  background-color: maroon;
+  width: 100%;
+  border-radius: 5px;
 }
 
 ul {
@@ -100,7 +99,8 @@ header,
 footer {
     /* padding: 1em; */
     padding: 8px;
-    color: white;
+
+    color: #131313;
     background-color: maroon;
     clear: left;
     text-align: center;
@@ -115,9 +115,10 @@ footer {
 }
 
 .infocontainer {
-    background-color: maroon;
-    background: linear-gradient(maroon, maroon, maroon, #726F6F);
-    color: white;
+    background-color:#F5F5F5;
+    background: linear-gradient(maroon,maroon,maroon, #726F6F);
+    color: #131313;
+
     margin: 20px 0 20px 0;
     padding: 20px;
     border-radius: 5px;
@@ -179,10 +180,11 @@ footer {
     background-color: lightskyblue;
 }
 
-.lead {
-    margin-top: -20px;
-    font-size: 36px;
-    color: whitesmoke;
+.lead{
+  margin-top: -20px;
+  font-size: 48px;
+  text-decoration-style: bold;
+  color: #131313;
 }
 
 #logo img {
@@ -212,9 +214,17 @@ footer {
     }
 }
 
-#admin_nav {
-    position: relative;
-    margin-top: 30px;
-    color: white;
-    text-align: center;
-}
+ #admin_nav{
+   position: relative;
+   margin-top: 30px;
+   color: white;
+   text-align: center;
+ }
+
+ .login_button{
+margin-right: 15px;
+ }
+
+ .removebutton{
+   align-content: right;
+ }

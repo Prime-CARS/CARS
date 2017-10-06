@@ -39,6 +39,8 @@ myApp.service('AdminService', function ($http, $location) {
     })
   }
 
+
+  
   vm.getuser = function () {
     console.log('AdminService -- getuser');
     $http.get('/user').then(function (response) {

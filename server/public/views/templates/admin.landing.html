@@ -157,21 +157,18 @@
 
 <!--end of requests for service view-->
 
-<!--search bar-->
-<div ng-show="ac.showSearchs">
-    <form><input type="text" id="search" ng-model="history_search"><button ng-click="ac.search_history(history_search)">submit</button></form>
-    <div class="rqst" ng-repeat="customer in ac.AdminService.searchResults.list.data" ng-click="ac.getChecklist()"> {{customer.name}} {{customer.year}} {{customer.make}} {{customer.model}} {{customer.vin}}
+    <!-- search bar-->
+    <div ng-show="ac.showSearchs">
+        <form><input type="text" id="search" ng-model="history_search"><button ng-click="ac.search_history(history_search)">submit</button></form>
+        <div class="rqst" ng-repeat="customer in ac.AdminService.searchResults.list.data" ng-click="ac.getChecklist()"> {{customer.name}} {{customer.year}} {{customer.make}} {{customer.model}} {{customer.vin}}
+        </div>
     </div>
-</div>
-<!--search bar end-->
+    <!--search bar end -->
 
 
-<!--button to show pending authorizations-->
-<div ng-show="ac.showAuths">
-
-    <h3>These authorizations have been created and need to be printed.</h3>
-    <div ng-repeat="data in ac.AdminService.Prints.list.data" ng-click="ac.history_view($index)" class="rqst">{{data.name}}</div>
-</div>
-</form>
+        <h3>These authorizations have been created and need to be printed.</h3>
+        <div ng-repeat="data in ac.AdminService.Prints.list.data" ng-click="ac.history_view($index)" class="rqst">{{data.name}}{{data.vin}}</div>
+    </div>
+    </form>
 </div>
 </div>
