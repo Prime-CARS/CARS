@@ -7,8 +7,10 @@ myApp.controller('AuthController', function (AuthService) {
 
    AuthService.getAuth()
    
-
-
-
+   self.printDiv = function() {
+      window.print();
+   }
 
 });
+   
+

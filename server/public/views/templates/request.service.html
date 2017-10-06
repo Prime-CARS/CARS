@@ -10,15 +10,15 @@
             </md-nav-item>
 
             <!-- Only admin can navigate through all pages freely -->
-            <span ng-if="rc.userObject.role==='admin'">
-                    <md-nav-item md-nav-href="#/mechanic" name="mechanicTab">
-                        Mechanic
-                    </md-nav-item>
-        
-                    <md-nav-item md-nav-href="#/admin" name="adminTab">
-                        Admin
-                    </md-nav-item>
-                </span>
+            <span ng-if="rc.userObject.role === 'admin'">
+                <md-nav-item md-nav-href="#/mechanic" name="mechanicTab">
+                    Mechanic
+                </md-nav-item>
+
+                <md-nav-item md-nav-href="#/admin" name="adminTab">
+                    Admin
+                </md-nav-item>
+            </span>
 
             <!-- Hides Log-in if user is logged in -->
             <md-nav-item md-nav-href="#/login" name="loginTab" ng-hide="rc.userObject.role">
@@ -29,109 +29,135 @@
     </div>
 </div>
 
+
 <h2>Request for Vehicle Reapir</h2>
 <h4>Please fill in all the fields below</h4>
 
 <form class="form-group" id="customerInfo">
     <div class="container"></div>
-    <p><label>Name</label></p>
-    <input type="text" class="form control" name="name" ng-model="rc.customer.name">
+    <p>
+        <label>Name</label>
+    </p>
+    <input type="text" class="form control" name="name" ng-model="rc.customer.name" required>
     </div>
 
     <div class="container">
-        <p><label>Address</label></p>
-        <input type="text" class="form-control" name="address" ng-model="rc.customer.address">
+        <p>
+            <label>Address</label>
+        </p>
+        <input type="text" class="form-control" name="address" ng-model="rc.customer.address" required>
     </div>
 
     <div class="container">
-        <p><label>City</label></p>
-        <input type="text" class="form control" name="city" ng-model="rc.customer.city">
+        <p>
+            <label>City</label>
+        </p>
+        <input type="text" class="form control" name="city" ng-model="rc.customer.city" required>
     </div>
 
     <div class="container">
-        <p><label>State</label></p>
-        <input type="text" class="form-control" name="state" ng-model="rc.customer.state">
+        <p>
+            <label>State</label>
+        </p>
+        <input type="text" class="form-control" name="state" ng-model="rc.customer.state" required>
     </div>
 
     <div class="container">
-        <p><label>Zip Code</label></p>
-        <input type="text" class="form-control" name="zip" ng-model="rc.customer.zip">
+        <p>
+            <label>Zip Code</label>
+        </p>
+        <input type="text" class="form-control" name="zip" ng-model="rc.customer.zip" title="5 or 5-4 digit zip code" pattern="\b\d{5}[-]\d{4}\b|\b\d{5}\b"
+            required>
     </div>
 
     <div class="container">
-        <p><label>Cell Phone</label></p>
-        <input type="tel" class="form-control" name="cellPhone" ng-model="rc.customer.cellPhone ">
+        <p>
+            <label>Cell Phone</label>
+        </p>
+        <input type="tel" class="maskPhone" name="cellPhone" ng-model="rc.customer.cellPhone" required>
     </div>
 
     <div class="container">
-        <p><label>Alternate Phone</label></p>
-        <input type="text" class="form-group" name="altPhone" ng-model="rc.customer.altPhone">
+        <p>
+            <label>Alternate Phone</label>
+        </p>
+        <input type="text" class="maskPhone" name="altPhone" ng-model="rc.customer.altPhone">
     </div>
 
     <div class="container">
-        <p><label>email address</label></p>
-        <input type="email" class="form-group" name="altPhone" ng-model="rc.customer.email">
+        <p>
+            <label>email address</label>
+        </p>
+        <input type="email" class="form-group" name="altPhone" ng-model="rc.customer.email" required>
     </div>
-</form>
+    <!-- </form> -->
 
-<form class="form-group" id="carInfo">
+    <!-- <form class="form-group" id="carInfo"> -->
     <h2>Vehicle Information</h2>
     <div class="container">
-        <p><label>Year</label></p>
-        <input type="text" class="form-control" name="year" ng-model="rc.customer.year">
+        <p>
+            <label>Year</label>
+        </p>
+        <input type="text" class="form-control" name="year" ng-model="rc.customer.year" required>
     </div>
 
     <div class="container">
-        <p><label>Make</label></p>
-        <input type="text" class="form-control" name="make" ng-model="rc.customer.make">
+        <p>
+            <label>Make</label>
+        </p>
+        <input type="text" class="form-control" name="make" ng-model="rc.customer.make" required>
     </div>
 
     <div class="container">
-        <p><label>model</label></p>
-        <input type="text" class="form-control" name="model" ng-model="rc.customer.model">
+        <p>
+            <label>Model</label>
+        </p>
+        <input type="text" class="form-control" name="model" ng-model="rc.customer.model" required>
     </div>
 
     <div class="container">
-        <p><label>VIN</label></p>
-        <input type="text" class="form-control" name="VIN" ng-model="rc.customer.vin">
+        <p>
+            <label>VIN</label>
+        </p>
+        <input type="text" class="form-control" title="VIN must be 17 digits long" pattern="\w{17}" name="VIN" ng-model="rc.customer.vin" required>
     </div>
-</form>
+    <!-- </form> -->
 
-<h3>Please describe the problems you are having with your vehicle</h3>
-<textarea rows="15" cols="250" ng-model="rc.customer.problem"></textarea>
+    <h3>Please describe the problems you are having with your vehicle</h3>
+    <textarea rows="15" cols="250" ng-model="rc.customer.problem" required></textarea>
 
-<div class="-container">
-    <h3>Please indicate why you qualify to use the services of C.A.R.S. Ministry</h3>
-    <label>
-        <input type="radio" name="qualification" value="Single Mother" ng-model="rc.customer.qualification">
-        Single Mother
-    </label>
-    <br/>
 
-    <label>
-        <input type="radio" name="qualification" value="Single Woman" ng-model="rc.customer.qualification">    
-        Single Woman
-    </label>
-    <br/>
-    <label>
-        <input type="radio" name="qualification" value="Widow" ng-model="rc.customer.qualification">
-        Widow
-    </label>
-    <br/>
-    <label>
-        <input type="radio" name="qualification" value="Financially Limited"  ng-model="rc.customer.qualification" checked>
-        Financially Limited
-    </label>
-    <br/>
-    <label>
-        <input type="radio" name="qualification" value="other" ng-click="rc.openTextbox();">
-        Other
-    <div ng-show="rc.textboxShowing"> 
-        <textarea rows="4" cols="50"  ng-model="rc.customer.qualification" placeholder = "Please explain your circumstances:"></textarea>
+    <div class="-container">
+        <h3>Please indicate why you qualify to use the services of C.A.R.S. Ministry</h3>
+
+        <label>
+            <input type="radio" name="qualification" value="Single Mother" ng-click="rc.closeTextbox()" ng-model="rc.customer.qualification"> Single Mother
+        </label>
+        <br/>
+
+        <label>
+            <input type="radio" name="qualification" value="Single Woman" ng-click="rc.closeTextbox()" ng-model="rc.customer.qualification"> Single Woman
+        </label>
+        <br/>
+        <label>
+            <input type="radio" name="qualification" value="Widow" ng-click="rc.closeTextbox()" ng-model="rc.customer.qualification"> Widow
+        </label>
+        <br/>
+        <label>
+            <input type="radio" name="qualification" value="Financially Limited" ng-click="rc.closeTextbox()" ng-model="rc.customer.qualification"
+                checked> Financially Limited
+        </label>
+        <br/>
+        <label>
+            <input type="radio" name="qualification" value="other" ng-click="rc.openTextbox();"> Other
+            <div ng-show="rc.textboxShowing">
+                <textarea rows="4" cols="50" ng-model="rc.customer.qualification" placeholder="Please explain your circumstances:"></textarea>
+            </div>
+        </label>
     </div>
-    </label>
-</div>
 
-<div class="container">
-    <button class="btn-btn-primary" type="submit" ng-click="rc.addCustomer(); rc.sendMail()">Submit</button>
+    <div class="container">
+
+        <button class="btn-btn-primary" type="submit" ng-click="rc.addCustomer(); rc.sendMail()">Submit</button>
+    </form>
 </div>

@@ -1,8 +1,9 @@
 <div ng-include="'views/partials/nav.html'"></div>
 
+<button class="noPrint" ng-click="ac.printDiv()">Presto Printo</button>
+<div id="printMe" style="width: 75vw; margin:auto; margin-bottom:8vh;">
 
-<div style="width: 88vw; margin:auto; margin-bottom:8vh;">
-   <H1>C.A.R.S.</H1>
+      <H1>C.A.R.S.</H1>
    <br>
    <H2>Service Authorization</H2>
 
@@ -21,8 +22,6 @@
       and/or agents which may arise from vehicle inspection or service performed by the C.A.R.S. Ministry.</p>
 
 
-
-
    <h2>Vehicle Information</h2>
    {{ac.serviceObject.year}} {{ac.serviceObject.make}} {{ac.serviceObject.model}}
    <br>VIN: {{ac.serviceObject.vin}}
@@ -32,11 +31,11 @@
    <table style="width:88vw;">
       <tr>
          <td>{{ac.serviceObject.name}}</td>
-         <td>cell: {{ac.serviceObject.cellphone | bcTelephone:'format'}}</td>
+         <td>cell: {{ac.serviceObject.cellphone}}</td>
       </tr>
       <tr>
          <td> {{ac.serviceObject.address}}</td>
-         <td>alternate: {{ac.serviceObject.alternative_phone | bcTelephone:'format'}}</td>
+         <td>alternate: {{ac.serviceObject.alternative_phone}}</td>
       </tr>
       <tr>
          <td>{{ac.serviceObject.city}}, {{ac.serviceObject.state}} {{ac.serviceObject.zip}}</td>

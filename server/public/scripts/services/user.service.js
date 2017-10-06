@@ -5,7 +5,7 @@ myApp.service('AdminService', function ($http, $location) {
   vm.userObject = {};
   vm.Requests = { list: [] };
   vm.Prints = { list: [] };
-
+  vm.searchResults = { list:[] };
   //console.log('current service userObject', vm.userObject);
   
 
@@ -24,6 +24,21 @@ myApp.service('AdminService', function ($http, $location) {
     })
   }
 
+  vm.searchHistory = function(z) {
+    $http.get('/RequestsForService/search/' + z).then(function(response){
+      console.log(response);
+      if (response.data.length == 0) {
+        swal({
+          title: "No results",
+          text: "Entry did not match current names or VINs",
+          type: "error"
+        })
+      } else {
+        vm.searchResults.list = response; 
+      }
+    })
+  }
+
   vm.getuser = function () {
     console.log('AdminService -- getuser');
     $http.get('/user').then(function (response) {
@@ -32,12 +47,6 @@ myApp.service('AdminService', function ($http, $location) {
         vm.userObject.userName = response.data.username;
         vm.userObject.role = response.data.role;
         console.log('AdminService -- getuser -- User Data: ', vm.userObject);
-        
-        if (vm.userObject.role != 'admin') {
-          // checks if user is logged in
-          console.log('Current role not allowed');
-          $location.path('/mechanic');
-        }
       } else {
         console.log('AdminService -- getuser -- failure');
         // user has no session, bounce them back to the login page
