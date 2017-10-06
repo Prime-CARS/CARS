@@ -56,7 +56,7 @@ myApp.service('RequestService', function ($http, $location) {
             console.log('Customer service update: ', response.data);
             $http({
                 method: 'POST',
-                url: '/requestservice/updateService/addChecklist',
+                url: '/checklist/addChecklist',
                 data: vm.data
             }).then(function (response) {
                 console.log('Customer checklist added: ', response.data);
