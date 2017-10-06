@@ -76,8 +76,6 @@ myApp.controller('AdminController', function (AdminService, RequestService, Auth
 
     console.log('search button hit, passed', z, 'as search stuff')
     AdminService.searchHistory(z);
-
-    console.log('search button hit, passed', z, 'as search stuff');
   }
 
   
@@ -111,23 +109,24 @@ myApp.controller('AdminController', function (AdminService, RequestService, Auth
     vm.customer.service_status = "scheduled"; 
     RequestService.addCustomerNoEmail(vm.customer);
   }
-
+// clled when a customers request is scheduled or denied
   vm.updateCustomer = function (z,x){
     console.log('Update Customer button hit on controller');
     RequestService.updateCustomer(z,x);
     vm.getRequests();
   }
-    
-
+  
   vm.openTextbox = function () {
     vm.textboxShowing = true;
   };
 
-
-  // vm.removeCustomer = function (){
-  //   console.log('remove button hit');
-    
-  // }
+  vm.getChecklist = function (){
+    swal({
+      title:"you hit the history button",
+      text: "now just to link it",
+      type: "success"
+    })
+  };
 
   vm.getPrint();
   vm.getRequests();
