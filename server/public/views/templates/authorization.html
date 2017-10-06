@@ -1,11 +1,10 @@
 <div ng-include="'views/partials/nav.html'"></div>
 
-<button class="noPrint" ng-click="ac.printDiv()">Presto Printo</button>
-<md-button flex class="md-raised md-warn removebutton" ng-click="ac.updateCustomer(data.customer_id, 'printed')">remove</md-button>
+
 
 <div id="printMe" style="width: 75vw; margin:auto; margin-bottom:8vh;">
       <button class="noPrint" ng-click="ac.printDiv()">Presto Printo</button>
-
+      <md-button flex class="md-raised md-warn removebutton" ng-click="ac.updateCustomer(data.customer_id, 'printed')">remove</md-button>
 
       <H1>C.A.R.S.</H1>
       <br>
@@ -14,7 +13,11 @@
       <p>I, {{ac.serviceObject.name}}, hereby authorize C.A.R.S. to perform the following services and repairs on the vehicle
             listed below:</p>
       <p>{{ac.serviceObject.service_requested}}</p>
-      <br><br><br><br><br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
 
       <p>I understand that the service(s) will be performed by volunteers who are not professional automotive technicians. Should
             I encounter any problems with the service(s) performed by C.A.R.S. I will immediately cease driving the car and
