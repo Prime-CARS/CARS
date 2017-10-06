@@ -1,4 +1,4 @@
-myApp.controller('AdminController', function (AdminService, RequestService, AuthService, $location, $http) {
+myApp.controller('AdminController', function (AdminService, RequestService, AuthService, $location) {
 
   $('.maskPhone').mask('(000) 000-0000')
   

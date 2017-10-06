@@ -1,4 +1,4 @@
-myApp.controller('RequestController', function (AdminService, RequestService, $http, $location) {
+myApp.controller('RequestController', function (AdminService, RequestService, $location) {
   console.log('RequestController created');
   
   //jquery mask pulg in for phone number validation

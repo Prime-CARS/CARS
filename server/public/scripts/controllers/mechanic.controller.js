@@ -1,4 +1,4 @@
-myApp.controller('MechanicController', function (AdminService, ChecklistService, $location, $http) {
+myApp.controller('MechanicController', function (AdminService, ChecklistService, $location) {
   console.log('MechanicController created');
   var vm = this;
   vm.AdminService = AdminService;

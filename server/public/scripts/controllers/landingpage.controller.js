@@ -1,4 +1,4 @@
-myApp.controller('LandingPageController', function(AdminService, $http) {
+myApp.controller('LandingPageController', function(AdminService) {
   console.log('LandingPageController created');
   
   var vm = this;
