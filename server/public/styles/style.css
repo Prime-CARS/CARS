@@ -120,18 +120,21 @@ header, footer {
 }
 
 .rqst{
- position: relative;
+ /* position: relative; */
  margin: 10px 10px 10px 10px;
- border: 2px dashed black;
- height: 30px;
- width: 250px;
+ /* border: 2px dashed black; */
+ padding: 8px 8px 8px 8px;
+ height: 30%;
+ width: 50%;
  background-color: lightgray;
 }
+
 .expanded_request{
- margin: 10px 10px 10px 10px;
- border: 2px dashed black;
- width: 700px;
-  background-color: lightgray;
+ /* margin: 10px 10px 10px 10px; */
+ padding: 8px 8px 0px 8px;
+ /* border: 2px solid black; */
+ width: 50%;
+ background-color: lightgray;
 }
 .nrqst{
   margin: 10px 10px 10px 10px;

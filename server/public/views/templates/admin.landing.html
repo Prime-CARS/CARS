@@ -11,14 +11,27 @@
 
     <div ng-show="ac.showRequests">
         <h3>These requests are pending review and scheduling</h3>
-        <div ng-repeat="data in ac.RetrievedRequests.list.data" class="rqst" ng-click="ac.expandInfo()" ng-hide=ac.InfoExpanded>{{data.name}} {{data.year}} {{data.make}} {{data.model}}</div>
-        <div ng-repeat="data in ac.RetrievedRequests.list.data" ng-show="ac.InfoExpanded" class="expanded_request"> Pending request #1 Name:{{data.name}} Phone:{{data.cellphone}} Alt Phone:{{data.alternative_phone}} Year/Make/Model/VIN:
-            {{data.year}}/{{data.make}}/{{data.model}}/{{data.vin}} Qualifier:{{data.qualify_input}} Vehicle Issue:{{data.service_request}}
-            <button class="btn-btn-primary" type="submit" ng-click="ac.updateCustomer(data.customer_id, 'scheduled')">Scheduled!</button>
 
-            <button class="btn-btn-warn" type="submit" ng-click="ac.updateCustomer(data.customer_id, 'denied')">not eligable!</button>
-            
-            <button ng-click="ac.shrinkInfo()">close</button>
+        <div ng-repeat="data in ac.RetrievedRequests.list.data" class="rqst" ng-click="expandInfo = !expandInfo">
+            <b>{{data.name}}
+            <br>{{data.year}}
+            <br>{{data.make}}
+            <br>{{data.model}}</b>
+            <div ng-show="expandInfo" class="expanded_request">
+                <b>Phone:</b> {{data.cellphone}}
+                <br><b>Alt Phone:</b> {{data.alternative_phone}}
+                <br><b>VIN:</b> {{data.vin}}
+                <br><b>Qualifier:</b> {{data.qualify_input}}
+                <br><b>Vehicle Issue:</b> {{data.service_request}}
+                <br>
+                <p>
+                    <button class="btn-btn-primary" type="submit" ng-click="ac.updateCustomer(data.customer_id, 'scheduled')">Scheduled!</button>
+
+                    <button class="btn-btn-warn" type="submit" ng-click="ac.updateCustomer(data.customer_id, 'denied')">not eligable!</button>
+                </p>
+
+                <!-- <button ng-click="ac.shrinkInfo()">close</button> -->
+            </div>
         </div>
         <div class="nrqst" ng-click="ac.AddRequest()">New request </div>
     </div>
@@ -67,7 +80,7 @@
             </div>
 
             <h3>Please describe the problems you are having with the vehicle</h3>
-            <textarea rows="15" cols="100" ng-model="ac.customer.problem"></textarea>
+            <textarea rows="5" cols="70" ng-model="ac.customer.problem"></textarea>
 
             <div>
                 <h3>Please indicate why you qualify to use the services of C.A.R.S. Ministry</h3>
