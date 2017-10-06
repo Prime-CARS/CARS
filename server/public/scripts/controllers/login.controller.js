@@ -43,7 +43,7 @@ myApp.controller('LoginController', function ($http, $location, AdminService) {
       console.log('LoginController -- registerUser -- sending to server...', vm.user);
       $http.post('/register', vm.user).then(function (response) {
         console.log('LoginController -- registerUser -- success');
-        $location.path('/home');
+        $location.path('/login');
       }).catch(function (response) {
         console.log('LoginController -- registerUser -- error');
         vm.message = "Please try again."

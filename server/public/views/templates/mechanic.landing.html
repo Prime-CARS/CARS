@@ -1,54 +1,42 @@
-<div ng-include="'views/partials/nav.html'" ng-if="mc.userObject.role === 'admin'"></div>
+<div ng-include="'views/partials/nav.html'"></div>
 
-<div class="container">
-  <h1 id="welcome" class="lead">Mechanic Landing Page</h1>
 
-  <button class="btn btn-default" ng-click="mc.AdminService.logout()">Log Out</button>
+<h1 style="color: white; margin: 10px;">Mechanic Landing Page</h1>
 
-  <!-- Current mc:{{mc}} -->
-  <div>
-    <p>
-      <h3>Vehicles Pending Service:</h3>
-      <table>
-        <tr>
-          <th>Name</th>
-          <th>Year</th>
-          <th>Make</th>
-          <th>Model</th>
-          <th>VIN</th>
-          <th>Checklist Status</th>
-        </tr>
+<button class="md-warn" style="padding: 10px; margin: 10px;" ng-click="mc.AdminService.logout()">Log Out</button>
 
-        <tr ng-repeat="vehicle in mc.carsStatus.list" ng-class="'{{vehicle.checklist_status}}'" ng-hide="vehicle.checklist_status === 'serviced'">
-          <td>{{vehicle.name}}</td>
-          <td>{{vehicle.year}}</td>
-          <td>{{vehicle.make}}</td>
-          <td>{{vehicle.model}}</td>
-          <td>{{vehicle.vin}}</td>
-          <td><a ng-href="#/checklist/{{vehicle.checklist_id}}">{{vehicle.checklist_status}}</a></td>
-        </tr>
-      </table>
+<!-- Current mc:{{mc}} -->
 
-      <h3>Vehicles Ready for Check-out:</h3>
-      <table>
-        <tr>
-          <th>Name</th>
-          <th>Year</th>
-          <th>Make</th>
-          <th>Model</th>
-          <th>VIN</th>
-          <th>Checklist Status</th>
-        </tr>
+<div layout="row">
+  <div layout="column" layout-wrap flex="45">
+    <h2 style="color: white; padding: 10px;">Vehicles Pending Service:</h2>
+    <md-card ng-repeat="vehicle in mc.carsStatus.list" ng-class="'{{vehicle.checklist_status}}'" ng-hide="vehicle.checklist_status === 'serviced'">
+      <md-card-content>
+        <p>
+          <b>Name:</b> {{vehicle.name}}
+          <br><b>Year:</b> {{vehicle.year}} 
+          <br><b>Make:</b> {{vehicle.make}} 
+          <br><b>Model:</b> {{vehicle.model}}
+          <br><b>Vin:</b> {{vehicle.vin}}
+          <br>
+          <br><b>Checklist status:</b> <a ng-href="#/checklist/{{vehicle.checklist_id}}">{{vehicle.checklist_status}}</a>
+        </p>
+    </md-card>
+  </div>
 
-        <tr ng-repeat="vehicle in mc.carsStatus.list" ng-class="'{{vehicle.checklist_status}}'" ng-hide="vehicle.checklist_status != 'serviced'">
-          <td>{{vehicle.name}}</td>
-          <td>{{vehicle.year}}</td>
-          <td>{{vehicle.make}}</td>
-          <td>{{vehicle.model}}</td>
-          <td>{{vehicle.vin}}</td>
-          <td><a ng-href="#/checklist/{{vehicle.checklist_id}}">{{vehicle.checklist_status}}</a></td>
-        </tr>
-      </table>
-    </p>
+  <div layout="column" layout-wrap flex="50">
+    <h2 style="color: white; padding: 10px;">Vehicles Ready For Checkout:</h2>
+    <md-card ng-repeat="vehicle in mc.carsStatus.list" ng-class="'{{vehicle.checklist_status}}'" ng-hide="vehicle.checklist_status != 'serviced'">
+      <md-card-content>
+        <p>
+          <b>Name:</b> {{vehicle.name}}
+          <br><b>Year:</b> {{vehicle.year}} 
+          <br><b>Make:</b> {{vehicle.make}} 
+          <br><b>Model:</b> {{vehicle.model}}
+          <br><b>Vin:</b> {{vehicle.vin}}
+          <br>
+          <br><b>Checklist status:</b> <a ng-href="#/checklist/{{vehicle.checklist_id}}">{{vehicle.checklist_status}}</a>
+        </p>
+    </md-card>
   </div>
 </div>
