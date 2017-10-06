@@ -7,7 +7,7 @@ body{
   background-attachment: fixed;
 }
 main{
-   background-color: #726F6F;
+   background-color: #F5F5F5;
   background-attachment: fixed; 
 }
 
@@ -20,13 +20,14 @@ main{
 
 .instructions .container h1 {
   font-size: 32px;
-  font-weight: 600;
+  font-weight: 800
 }
 
 .instructions {
  padding-top: 20px;
-  color: #DDDDDD;
+  color: #131313;
   padding: 15px;
+  background-color: #F5F5F5
 }
 
 #entryForm {
@@ -62,10 +63,9 @@ main{
 }
 
 .navbar {
-  background-color: #333333;
+  background-color: maroon;
   width: 100%;
-  border-radius: 0px;
-  color: #FFFFFF;
+  border-radius: 5px;
 }
 
 ul {
@@ -99,7 +99,7 @@ header, footer {
 
     padding: 8px;
 
-    color: white;
+    color: #131313;
     background-color: maroon;
     clear: left;
     text-align: center;
@@ -115,9 +115,9 @@ header, footer {
 }
 
 .infocontainer {
-    background-color: maroon;
+    background-color:#F5F5F5;
     background: linear-gradient(maroon,maroon,maroon, #726F6F);
-    color: white;
+    color: #131313;
 
     margin: 20px 0 20px 0;
     padding: 20px;
@@ -184,8 +184,9 @@ header, footer {
 
 .lead{
   margin-top: -20px;
-  font-size: 36px;
-  color: whitesmoke;
+  font-size: 48px;
+  text-decoration-style: bold;
+  color: #131313;
 }
 
 #logo img{
@@ -213,4 +214,8 @@ header, footer {
    margin-top: 30px;
    color: white;
    text-align: center;
+ }
+
+ .login_button{
+margin-right: 15px;
  }
