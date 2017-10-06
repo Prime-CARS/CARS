@@ -1,6 +1,6 @@
 myApp.controller('AdminController', function (AdminService, RequestService, AuthService, $location, $http) {
 
-  $('.maskPhone').mask('(000) 000-0000')
+  $('.maskPhone').mask('(000) 000-0000', {placeholder: "(     )      -     "})
   
   console.log('AdminController created');
   var vm = this;
