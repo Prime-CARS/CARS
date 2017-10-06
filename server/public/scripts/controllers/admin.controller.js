@@ -27,7 +27,7 @@ myApp.controller('AdminController', function (AdminService, RequestService, Auth
   vm.showAuths = false;
   vm.showSearchs = false;
   vm.Prints = AdminService.Prints;
-  vm.customer = {};
+  vm.customer= {};
   vm.textboxShowing = false;
   vm.RetrievedRequests = AdminService.Requests;
   vm.searchResults = AdminService.searchResults.list;
@@ -71,7 +71,6 @@ myApp.controller('AdminController', function (AdminService, RequestService, Auth
     vm.getRequests();
   }
 
-//******************************************************
   vm.search_history = function (z) {
 
     console.log('search button hit, passed', z, 'as search stuff')

@@ -25,6 +25,7 @@ myApp.controller('RequestController', function (AdminService, RequestService, $h
     console.log("Inside addCustomer function in request.controller.js line 25: ", vm.customer);
     vm.RequestService.addCustomer(vm.customer);
   }
+  
   vm.openTextbox = function () {
     vm.textboxShowing = true;
   };

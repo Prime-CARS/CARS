@@ -38,17 +38,6 @@
         <div class="nrqst" ng-click="ac.AddRequest()">New request </div>
     </div>
 
-    <!--search bar-->
-    <!-- <div ng-show="ac.showSearchs">
-        <form>
-            <input type="text" id="search" ng-model="history_search">
-            <button ng-click="ac.search_history(history_search)">submit</button>
-        </form>
-        <div class="rqst" ng-repeat="customer in ac.searchResults">
-        </div>
-    </div> -->
-    <!--search bar end-->
-
     <div class="nrqstform" ng-show="ac.nrqstneeded">
         <!--start of new person entry -->
         <form id="customerInfo">
@@ -142,7 +131,7 @@
     <div ng-show="ac.showAuths">
 
         <h3>These authorizations have been created and need to be printed.</h3>
-        <div ng-repeat="data in ac.AdminService.Prints.list.data" ng-click="ac.history_view($index)" class="rqst">{{data.name}}</div>
+        <div ng-repeat="data in ac.AdminService.Prints.list.data" ng-click="ac.history_view($index)" class="rqst">{{data.name}}{{data.vin}}</div>
     </div>
     </form>
 </div>

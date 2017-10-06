@@ -219,3 +219,7 @@ header, footer {
  .login_button{
 margin-right: 15px;
  }
+
+ .removebutton{
+   align-content: right;
+ }
