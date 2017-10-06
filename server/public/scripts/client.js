@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', ['ngRoute', 'ngMaterial', 'ngAnimate', 'bc.TelephoneFilter']);
+var myApp = angular.module('myApp', ['ngRoute', 'ngMaterial', 'ngAnimate']);
 
 /// Routes ///
 myApp.config(function($routeProvider, $locationProvider) {

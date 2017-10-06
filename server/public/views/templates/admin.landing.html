@@ -38,6 +38,18 @@
         <div class="nrqst" ng-click="ac.AddRequest()">New request </div>
     </div>
 
+    <!--search bar-->
+    <div ng-show="ac.showSearchs">
+        <form>
+            <input type="text" id="search" ng-model="history_search">
+            <button ng-click="ac.search_history(history_search)">submit</button>
+        </form>
+        <div class="rqst" ng-repeat="customer in ac.searchResults">
+        </div>
+        {{ac}}
+    </div>
+    <!--search bar end-->
+
     <div class="nrqstform" ng-show="ac.nrqstneeded">
         <!--start of new person entry -->
         <form id="customerInfo">
@@ -53,11 +65,12 @@
                 <label>State</label>
                 <input type="text" name="state" ng-model="ac.customer.state" required>
                 <label>Zip Code</label>
-                <input type="number" name="zip" ng-model="ac.customer.zip" required>
+                <input type="text" name="zip" ng-model="ac.customer.zip" title="5 or 5-4 digit zip code" pattern="\b\d{5}[-]\d{4}\b|\b\d{5}\b"
+                    required>
                 <label>Cell Phone</label>
-                <input type="tel" class="form-control" name="cellPhone" ng-model="ac.customer.cellPhone " required>
+                <input type="tel" class="form-control maskPhone" name="cellPhone" ng-model="ac.customer.cellPhone " required>
                 <label>Alternate Phone</label>
-                <input type="text" class="form-group" name="altPhone" ng-model="ac.customer.altPhone">
+                <input type="text" class="form-group maskPhone" name="altPhone" ng-model="ac.customer.altPhone">
                 <label>email address</label>
                 <input type="email" class="form-group" name="altPhone" ng-model="ac.customer.email" required>
             </div>
@@ -65,7 +78,7 @@
             <h2>Vehicle Information</h2>
             <div>
                 <label>VIN</label>
-                <input type="text" name="VIN" ng-model="ac.customer.vin">
+                <input type="text" name="VIN" title="VIN must be 17 digits long" pattern="\w{17}" ng-model="ac.customer.vin">
                 <label>Year</label>
                 <input type="number" name="year" ng-model="ac.customer.year" required>
                 <label>Make</label>
@@ -80,27 +93,27 @@
             <div>
                 <h3>Please indicate why you qualify to use the services of C.A.R.S. Ministry</h3>
                 <label>
-        <input type="radio" name="qualification" value="singleMother" ng-model="ac.customer.qualification" checked>
-        Single Mother
-    </label>
-                <label>
-        <input type="radio" name="qualification" value="singleWoman" ng-model="ac.customer.qualification" checked>    
-        Single Woman
-    </label>
-                <label>
-        <input type="radio" name="qualification" value="widow" ng-model="ac.customer.qualification" checked>
-        Widow
-    </label>
+
+                    <input type="radio" name="qualification" value="singleMother" ng-model="ac.customer.qualification" checked> Single Mother
+                </label>
+
 
                 <label>
-        <input type="radio" name="qualification" value="financiallyLimited"   ng-model="ac.customer.qualification" checked>
-        Financially Limited
-    </label>
+                    <input type="radio" name="qualification" value="singleWoman" ng-model="ac.customer.qualification" checked> Single Woman
+                </label>
+
 
                 <label>
-        <input type="radio" name="qualification" value="other" ng-click="ac.openTextbox();">
-        Other
-    </label>
+                    <input type="radio" name="qualification" value="widow" ng-model="ac.customer.qualification" checked> Widow
+                </label>
+
+                <label>
+                    <input type="radio" name="qualification" value="financiallyLimited" ng-model="ac.customer.qualification" checked> Financially Limited
+                </label>
+
+                <label>
+                    <input type="radio" name="qualification" value="other" ng-click="ac.openTextbox();"> Other
+                </label>
 
                 <div ng-show="ac.textboxShowing">
                     <textarea rows="4" cols="50" ng-model="ac.customer.qualification" placeholder="Please explain your circumstances:"></textarea>
