@@ -46,7 +46,7 @@
                 <label>State</label>
                 <input type="text" name="state" ng-model="ac.customer.state" required>
                 <label>Zip Code</label>
-                <input type="number" name="zip" ng-model="ac.customer.zip" required>
+                <input type="text" name="zip" ng-model="ac.customer.zip" title="5 or 5+4 digit zip code" pattern="\b\d{5}[-]\d{4}\b|\b\d{5}\b" required>
                 <label>Cell Phone</label>
                 <input type="tel" class="form-control maskPhone" name="cellPhone" ng-model="ac.customer.cellPhone " required>
                 <label>Alternate Phone</label>
@@ -58,7 +58,7 @@
             <h2>Vehicle Information</h2>
             <div>
                 <label>VIN</label>
-                <input type="text" name="VIN" ng-model="ac.customer.vin">
+                <input type="text" name="VIN" title="VIN must be 17 digits long" pattern="\w{17}" ng-model="ac.customer.vin">
                 <label>Year</label>
                 <input type="number" name="year" ng-model="ac.customer.year" required>
                 <label>Make</label>
