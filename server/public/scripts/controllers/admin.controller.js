@@ -34,6 +34,7 @@ myApp.controller('AdminController', function (AdminService, RequestService, Auth
     vm.showRequests = true;
     vm.showAuths = false;
     vm.showSearchs = false;
+    vm.getRequests();
     console.log(vm.showRequests);
   }
 
@@ -42,7 +43,7 @@ myApp.controller('AdminController', function (AdminService, RequestService, Auth
     vm.showSearchs = true;
     vm.nrqstneeded = false;
     vm.showAuths = false;
-
+    vm.getRequests();
     console.log(vm.showRequests);
   }
 
@@ -57,21 +58,19 @@ myApp.controller('AdminController', function (AdminService, RequestService, Auth
 
   vm.getRequests = function () {
     vm.Requests = AdminService.getRequests();
-
   }
 
   vm.AddRequest = function () {
     vm.nrqstneeded = true;
+    vm.getRequests();
   }
 
   vm.ReduceRequest = function () {
     vm.nrqstneeded = false;
-    vm.getRequests();
   }
 
 //******************************************************
   vm.search_history = function (z) {
-
     console.log('search button hit, passed', z, 'as search stuff')
     AdminService.searchHistory(z);
   }
@@ -84,7 +83,6 @@ myApp.controller('AdminController', function (AdminService, RequestService, Auth
     vm.nrqstneeded = false;
     vm.showSearchs = false;
     console.log('meow');
-    
   }
 
   vm.hideAuth = function () {
@@ -99,7 +97,6 @@ myApp.controller('AdminController', function (AdminService, RequestService, Auth
   vm.history_view = function (c) {
     console.log(c);
     AuthService.getAuth(c)
-
   }
 
   /* this function is called when the submit form is clicked on the Request for Service form on the       website's requestService.html page. */
