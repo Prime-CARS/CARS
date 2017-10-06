@@ -17,17 +17,20 @@
             <button class="btn-btn-primary" type="submit" ng-click="ac.updateCustomer(data.customer_id, 'scheduled')">Scheduled!</button>
 
             <button class="btn-btn-warn" type="submit" ng-click="ac.updateCustomer(data.customer_id, 'denied')">not eligable!</button>
-            
+
             <button ng-click="ac.shrinkInfo()">close</button>
         </div>
         <div class="nrqst" ng-click="ac.AddRequest()">New request </div>
     </div>
     <!--search bar-->
     <div ng-show="ac.showSearchs">
-        <form><input type="text" id="search" ng-model="history_search"><button ng-click="ac.search_history(history_search)">submit</button></form>
-       <div class="rqst" ng-repeat="customer in ac.searchResults">
-          </div>
-          {{ac}} 
+        <form>
+            <input type="text" id="search" ng-model="history_search">
+            <button ng-click="ac.search_history(history_search)">submit</button>
+        </form>
+        <div class="rqst" ng-repeat="customer in ac.searchResults">
+        </div>
+        {{ac}}
     </div>
     <!--search bar end-->
 
@@ -46,7 +49,8 @@
                 <label>State</label>
                 <input type="text" name="state" ng-model="ac.customer.state" required>
                 <label>Zip Code</label>
-                <input type="text" name="zip" ng-model="ac.customer.zip" title="5 or 5+4 digit zip code" pattern="\b\d{5}[-]\d{4}\b|\b\d{5}\b" required>
+                <input type="text" name="zip" ng-model="ac.customer.zip" title="5 or 5-4 digit zip code" pattern="\b\d{5}[-]\d{4}\b|\b\d{5}\b"
+                    required>
                 <label>Cell Phone</label>
                 <input type="tel" class="form-control maskPhone" name="cellPhone" ng-model="ac.customer.cellPhone " required>
                 <label>Alternate Phone</label>
@@ -73,31 +77,26 @@
             <div>
                 <h3>Please indicate why you qualify to use the services of C.A.R.S. Ministry</h3>
                 <label>
-        <input type="radio" name="qualification" value="singleMother" ng-model="ac.customer.qualification" checked>
-        Single Mother
-    </label>
+                    <input type="radio" name="qualification" value="singleMother" ng-model="ac.customer.qualification" checked> Single Mother
+                </label>
 
 
                 <label>
-        <input type="radio" name="qualification" value="singleWoman" ng-model="ac.customer.qualification" checked>    
-        Single Woman
-    </label>
+                    <input type="radio" name="qualification" value="singleWoman" ng-model="ac.customer.qualification" checked> Single Woman
+                </label>
 
 
                 <label>
-        <input type="radio" name="qualification" value="widow" ng-model="ac.customer.qualification" checked>
-        Widow
-    </label>
+                    <input type="radio" name="qualification" value="widow" ng-model="ac.customer.qualification" checked> Widow
+                </label>
 
                 <label>
-        <input type="radio" name="qualification" value="financiallyLimited"   ng-model="ac.customer.qualification" checked>
-        Financially Limited
-    </label>
+                    <input type="radio" name="qualification" value="financiallyLimited" ng-model="ac.customer.qualification" checked> Financially Limited
+                </label>
 
                 <label>
-        <input type="radio" name="qualification" value="other" ng-click="ac.openTextbox();">
-        Other
-    </label>
+                    <input type="radio" name="qualification" value="other" ng-click="ac.openTextbox();"> Other
+                </label>
 
                 <div ng-show="ac.textboxShowing">
                     <textarea rows="4" cols="50" ng-model="ac.customer.qualification" placeholder="Please explain your circumstances:"></textarea>
