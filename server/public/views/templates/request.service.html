@@ -10,15 +10,13 @@
             </md-nav-item>
 
             <!-- Only admin can navigate through all pages freely -->
-            <span ng-if="rc.userObject.role === 'admin'">
-                <md-nav-item md-nav-href="#/mechanic" name="mechanicTab">
-                    Mechanic
-                </md-nav-item>
+            <md-nav-item md-nav-href="#/mechanic" name="mechanicTab" ng-if="rc.userObject.role">
+                Mechanic
+            </md-nav-item>
 
-                <md-nav-item md-nav-href="#/admin" name="adminTab">
-                    Admin
-                </md-nav-item>
-            </span>
+            <md-nav-item md-nav-href="#/admin" name="adminTab" ng-hide="rc.userObject.role != 'admin'">
+                Admin
+            </md-nav-item>
 
             <!-- Hides Log-in if user is logged in -->
             <md-nav-item md-nav-href="#/login" name="loginTab" ng-hide="rc.userObject.role">
@@ -119,7 +117,8 @@
         <p>
             <label>VIN</label>
         </p>
-        <input type="text" class="form-control" title="VIN must be 17 digits long" pattern="\w{17}" name="VIN" ng-model="rc.customer.vin" required>
+        <input type="text" class="form-control" title="VIN must be 17 digits long" pattern="\w{17}" name="VIN" ng-model="rc.customer.vin"
+            required>
     </div>
     <!-- </form> -->
 
@@ -159,5 +158,5 @@
     <div class="container">
 
         <button class="btn-btn-primary" type="submit" ng-click="rc.addCustomer(); rc.sendMail()">Submit</button>
-    </form>
+</form>
 </div>
