@@ -10,4 +10,6 @@ myApp.controller('LandingPageController', function(AdminService, $http) {
     console.log('Checking current user: ', response.data);
     vm.userObject = response.data;
   });
+
+
 });

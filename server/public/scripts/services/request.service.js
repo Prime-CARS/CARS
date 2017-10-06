@@ -33,7 +33,11 @@ myApp.service('RequestService', function ($http, $location) {
             data: customer
         }).then(function (response) {
             console.log("http service has made a POST request for customers in request.service.js line 13: ", response.data);
-            $location.path('/cars');
+            swal({
+                title: 'request has been added',
+                type: 'success'
+            })
+            $location.path('/admin');
         })//end of addCustomer http POST request
     }
 
