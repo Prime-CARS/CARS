@@ -11,15 +11,7 @@ myApp.controller('AdminController', function (AdminService, RequestService, Auth
 
   // moved to service for resolve control
   AdminService.getuser();
-  // $http.get('/user').then(function (response) {
-  //   console.log('Checking current user: ', response.data);
-  //   vm.userObject = response.data;
-  //   if (vm.userObject.role != 'admin') {
-  //     // checks if user is logged in
-  //     console.log('Current role not allowed');
-  //     $location.path('/mechanic');
-  //   }
-  // });
+
 
   vm.showRequests = true;
   vm.InfoExpanded = false;
