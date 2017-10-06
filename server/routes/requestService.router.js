@@ -58,6 +58,7 @@ router.put('/updateService', function (req, res) {
     });
 });
 
+
 router.post('/updateService/addChecklist', function (req, res) {
     index = req.body.index;
     console.log("The put route for customers in requestService.router.js was hit to update status");
@@ -82,5 +83,6 @@ router.post('/updateService/addChecklist', function (req, res) {
         }
     });
 });
+
 
 module.exports = router;

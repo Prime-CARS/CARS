@@ -11,13 +11,17 @@
             </md-nav-item>
 
             <!-- Only admin can navigate through all pages freely -->
-            <span ng-if="lpc.userObject.role==='admin'">
+            <span ng-if="lpc.AdminService.userObject.role">
                 <md-nav-item md-nav-href="#/mechanic" name="mechanicTab">
                     Mechanic
                 </md-nav-item>
     
-                <md-nav-item class="NavLink" md-nav-href="#/admin" name="adminTab">
+                <md-nav-item class="NavLink" md-nav-href="#/admin" name="adminTab" ng-if="lpc.AdminService.userObject.role === 'admin'">
                     Admin
+                </md-nav-item>
+
+                <md-nav-item md-nav-click="lpc.AdminService.logout()" name="logOutTab">
+                        Log Out
                 </md-nav-item>
             </span>
 
