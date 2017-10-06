@@ -14,7 +14,7 @@ myApp.controller('RequestController', function (AdminService, RequestService, $l
 
   // handles current user role in case of log in/log out
   // checking if current user is a mechanic or admin
-  AdminService.getuser();
+  // AdminService.getuser();
 
   /* this function is called when "submit" is clicked on the Request for Service form */
   vm.addCustomer = function () {

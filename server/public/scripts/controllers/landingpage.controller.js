@@ -5,7 +5,4 @@ myApp.controller('LandingPageController', function(AdminService) {
   vm.AdminService = AdminService;
   vm.userObject = {};
 
-  //login check
-  AdminService.getuser();
-
 });
