@@ -16,7 +16,4 @@ myApp.controller('ChecklistController', function(ChecklistService, $routeParams)
     vm.IsVisible = value == 'Y';
   };
 
-
-  // might need to change that to check userservice.userobject for current log-in
-  // vm.userObject = ChecklistService.userObject;
 });

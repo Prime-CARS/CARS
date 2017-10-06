@@ -1,4 +1,4 @@
-myApp.controller('AdminController', function (AdminService, RequestService, AuthService, $location, $http) {
+myApp.controller('AdminController', function (AdminService, RequestService, AuthService, $location) {
 
   $('.maskPhone').mask('(000) 000-0000')
   
@@ -10,16 +10,8 @@ myApp.controller('AdminController', function (AdminService, RequestService, Auth
   // sends users who aren't admins to the mechanic's page if they're logged in and attempting to hit the admin's page
 
   // moved to service for resolve control
-  vm.userObject = {};
-  $http.get('/user').then(function (response) {
-    console.log('Checking current user: ', response.data);
-    vm.userObject = response.data;
-    if (vm.userObject.role != 'admin') {
-      // checks if user is logged in
-      console.log('Current role not allowed');
-      $location.path('/mechanic');
-    }
-  });
+  AdminService.getuser();
+
 
   vm.showRequests = true;
   vm.InfoExpanded = false;
@@ -36,6 +28,7 @@ myApp.controller('AdminController', function (AdminService, RequestService, Auth
     vm.showRequests = true;
     vm.showAuths = false;
     vm.showSearchs = false;
+    vm.getRequests();
     console.log(vm.showRequests);
   }
 
@@ -44,7 +37,7 @@ myApp.controller('AdminController', function (AdminService, RequestService, Auth
     vm.showSearchs = true;
     vm.nrqstneeded = false;
     vm.showAuths = false;
-
+    vm.getRequests();
     console.log(vm.showRequests);
   }
 
@@ -59,21 +52,19 @@ myApp.controller('AdminController', function (AdminService, RequestService, Auth
 
   vm.getRequests = function () {
     vm.Requests = AdminService.getRequests();
-
   }
 
   vm.AddRequest = function () {
     vm.nrqstneeded = true;
+    vm.getRequests();
   }
 
   vm.ReduceRequest = function () {
     vm.nrqstneeded = false;
-    vm.getRequests();
   }
 
 //******************************************************
   vm.search_history = function (z) {
-
     console.log('search button hit, passed', z, 'as search stuff')
     AdminService.searchHistory(z);
   }
@@ -86,7 +77,6 @@ myApp.controller('AdminController', function (AdminService, RequestService, Auth
     vm.nrqstneeded = false;
     vm.showSearchs = false;
     console.log('meow');
-    
   }
 
   vm.hideAuth = function () {
@@ -101,7 +91,6 @@ myApp.controller('AdminController', function (AdminService, RequestService, Auth
   vm.history_view = function (c) {
     console.log(c);
     AuthService.getAuth(c)
-
   }
 
   /* this function is called when the submit form is clicked on the Request for Service form on the       website's requestService.html page. */
