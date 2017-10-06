@@ -27,11 +27,11 @@ myApp.service('AdminService', function ($http, $location) {
   vm.searchHistory = function(z) {
     $http.get('/RequestsForService/search/' + z).then(function(response){
       console.log(response);
-      if (response === 500) {
+      if (response.data.length == 0) {
         swal({
           title: "No results",
           text: "Entry did not match current names or VINs",
-          type: "Error"
+          type: "error"
         })
       } else {
         vm.searchResults.list = response; 
