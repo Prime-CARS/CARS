@@ -11,16 +11,6 @@
 
     <div ng-show="ac.showRequests">
         <h3>These requests are pending review and scheduling</h3>
-<<<<<<< HEAD
-        <div ng-repeat="data in ac.RetrievedRequests.list.data" class="rqst" ng-click="ac.expandInfo()" ng-hide=ac.InfoExpanded>{{data.name}} {{data.year}} {{data.make}} {{data.model}}</div>
-        <div ng-repeat="data in ac.RetrievedRequests.list.data" ng-show="ac.InfoExpanded" class="expanded_request"> Pending request #1 Name:{{data.name}} Phone:{{data.cellphone}} Alt Phone:{{data.alternative_phone}} Year/Make/Model/VIN:
-            {{data.year}}/{{data.make}}/{{data.model}}/{{data.vin}} Qualifier:{{data.qualify_input}} Vehicle Issue:{{data.service_request}}
-            <button class="btn-btn-primary" type="submit" ng-click="ac.updateCustomer(data.customer_id, 'scheduled')">Scheduled!</button>
-
-            <button class="btn-btn-warn" type="submit" ng-click="ac.updateCustomer(data.customer_id, 'denied')">not eligable!</button>
-
-            <button ng-click="ac.shrinkInfo()">close</button>
-=======
 
         <div ng-repeat="data in ac.RetrievedRequests.list.data" class="rqst" ng-click="expandInfo = !expandInfo">
             <b>{{data.name}}
@@ -42,7 +32,6 @@
 
                 <!-- <button ng-click="ac.shrinkInfo()">close</button> -->
             </div>
->>>>>>> 5013565d5a293e4e9f15a4aefd8a445bcc97b36f
         </div>
         <div class="nrqst" ng-click="ac.AddRequest()">New request </div>
     </div>
