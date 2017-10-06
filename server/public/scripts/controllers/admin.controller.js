@@ -46,9 +46,9 @@ myApp.controller('AdminController', function (AdminService, RequestService, Auth
     console.log(vm.showRequests);
   }
 
-  vm.expandInfo = function () {
-    vm.InfoExpanded = true;
-  }
+  // vm.expandInfo = function () {
+  //   vm.InfoExpanded = true;
+  // }
 
   vm.shrinkInfo = function () {
     vm.InfoExpanded = false;
