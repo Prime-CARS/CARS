@@ -1,6 +1,8 @@
 <div ng-include="'views/partials/nav.html'"></div>
 
 <button class="noPrint" ng-click="ac.printDiv()">Presto Printo</button>
+<md-button flex class="md-raised md-warn removebutton" ng-click="ac.updateCustomer(data.customer_id, 'printed')">remove</md-button>
+
 <div id="printMe" style="width: 75vw; margin:auto; margin-bottom:8vh;">
 
       <H1>C.A.R.S.</H1>
