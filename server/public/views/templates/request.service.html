@@ -10,17 +10,21 @@
             </md-nav-item>
 
             <!-- Only admin can navigate through all pages freely -->
-            <md-nav-item md-nav-href="#/mechanic" name="mechanicTab" ng-if="rc.userObject.role">
+            <md-nav-item md-nav-href="#/mechanic" name="mechanicTab" ng-if="rc.AdminService.userObject.role">
                 Mechanic
             </md-nav-item>
 
-            <md-nav-item md-nav-href="#/admin" name="adminTab" ng-hide="rc.userObject.role != 'admin'">
+            <md-nav-item md-nav-href="#/admin" name="adminTab" ng-if="rc.AdminService.userObject.role === 'admin'">
                 Admin
             </md-nav-item>
 
             <!-- Hides Log-in if user is logged in -->
-            <md-nav-item md-nav-href="#/login" name="loginTab" ng-hide="rc.userObject.role">
+            <md-nav-item md-nav-href="#/login" name="loginTab" ng-hide="rc.AdminService.userObject.role">
                 Login
+            </md-nav-item>
+
+            <md-nav-item md-nav-click="rc.AdminService.logout()" name="logOutTab" ng-hide="!rc.AdminService.userObject.role">
+                Log Out
             </md-nav-item>
 
         </md-nav-bar>

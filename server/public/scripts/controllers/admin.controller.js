@@ -10,16 +10,16 @@ myApp.controller('AdminController', function (AdminService, RequestService, Auth
   // sends users who aren't admins to the mechanic's page if they're logged in and attempting to hit the admin's page
 
   // moved to service for resolve control
-  vm.userObject = {};
-  $http.get('/user').then(function (response) {
-    console.log('Checking current user: ', response.data);
-    vm.userObject = response.data;
-    if (vm.userObject.role != 'admin') {
-      // checks if user is logged in
-      console.log('Current role not allowed');
-      $location.path('/mechanic');
-    }
-  });
+  AdminService.getuser();
+  // $http.get('/user').then(function (response) {
+  //   console.log('Checking current user: ', response.data);
+  //   vm.userObject = response.data;
+  //   if (vm.userObject.role != 'admin') {
+  //     // checks if user is logged in
+  //     console.log('Current role not allowed');
+  //     $location.path('/mechanic');
+  //   }
+  // });
 
   vm.showRequests = true;
   vm.InfoExpanded = false;

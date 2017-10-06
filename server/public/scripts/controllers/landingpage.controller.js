@@ -6,10 +6,6 @@ myApp.controller('LandingPageController', function(AdminService, $http) {
   vm.userObject = {};
 
   //login check
-  $http.get('/user').then(function (response) {
-    console.log('Checking current user: ', response.data);
-    vm.userObject = response.data;
-  });
-
+  AdminService.getuser();
 
 });

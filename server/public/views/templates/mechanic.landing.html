@@ -15,16 +15,18 @@
         Mechanic
       </md-nav-item>
 
-      <md-nav-item md-nav-href="#/admin" name="adminTab" ng-if="mc.userObject.role === 'admin'">
+      <md-nav-item md-nav-href="#/admin" name="adminTab" ng-if="mc.AdminService.userObject.role === 'admin'">
         Admin
+      </md-nav-item>
+
+      <md-nav-item md-nav-click="mc.AdminService.logout()" name="logOutTab">
+        Log Out
       </md-nav-item>
     </md-nav-bar>
   </div>
 </div>
 
 <h1 style="color: white; margin: 10px;">Mechanic Landing Page</h1>
-
-<button class="md-warn" style="padding: 10px; margin: 10px;" ng-click="mc.AdminService.logout()">Log Out</button>
 
 <!-- Current mc:{{mc}} -->
 

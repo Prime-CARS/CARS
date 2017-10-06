@@ -11,18 +11,22 @@
             </md-nav-item>
 
             <!-- Only admin can navigate through all pages freely -->
-            <span ng-if="lpc.userObject.role==='admin'">
+            <span ng-if="lpc.AdminService.userObject.role">
                 <md-nav-item md-nav-href="#/mechanic" name="mechanicTab">
                     Mechanic
                 </md-nav-item>
     
-                <md-nav-item class="NavLink" md-nav-href="#/admin" name="adminTab">
+                <md-nav-item class="NavLink" md-nav-href="#/admin" name="adminTab" ng-if="lpc.AdminService.userObject.role === 'admin'">
                     Admin
+                </md-nav-item>
+
+                <md-nav-item md-nav-click="lpc.AdminService.logout()" name="logOutTab">
+                        Log Out
                 </md-nav-item>
             </span>
 
             <!-- Hides Log-in if user is logged in -->
-            <md-nav-item md-nav-href="#/login" name="loginTab" ng-hide="lpc.userObject.role">
+            <md-nav-item md-nav-href="#/login" name="loginTab" ng-hide="lpc.AdminService.userObject.role">
                 Login
             </md-nav-item>
 
@@ -32,7 +36,7 @@
 
 <!-- Page content -->
 <div>
-    <div layout="column" >
+    <div layout="column">
         <section class="infocontainer">
             <h2>Who are we? </h2>
             <h3>
@@ -77,13 +81,13 @@
                 West Burnsville, MN 55306 All donations to the CARS ministry are tax deductible and are used to cover the
                 cost of garage supplies, tools, online manuals, insurance, and to fund the cost of automotive parts for financially
                 limited individuals.
-                </h3>
+            </h3>
         </section>
         <section flex class="infocontainer">
             <h2>When do we work on cars? </h2>
             <p>We usually work on cars the 1st Saturday of each month unless it conflicts with a major holiday weekend.</p>
         </section>
-        
+
         <section flex="45" class="infocontainer">
             <h2> What type of repairs can we do? </h2>
             <ul>
@@ -188,17 +192,17 @@
 
 
 
-        </section>
+</section>
 
-    </div>
-    <section flex class="infocontainer">
-        <h2> Where do we meet? </h2>
-        <h3>20685 Lynn Drive Prior Lake, MN 55372</h3>
-    </section>
-    <section flex class="infocontainer">
-        <h2> Contact us for repair work </h2>
-        <h3> Contact Mitch Hagen at: 612-382-6828 </h3>
-        <h3> Or Email: cars@youthimpactracing.org </h3>
-    </section>
+</div>
+<section flex class="infocontainer">
+    <h2> Where do we meet? </h2>
+    <h3>20685 Lynn Drive Prior Lake, MN 55372</h3>
+</section>
+<section flex class="infocontainer">
+    <h2> Contact us for repair work </h2>
+    <h3> Contact Mitch Hagen at: 612-382-6828 </h3>
+    <h3> Or Email: cars@youthimpactracing.org </h3>
+</section>
 
 </div>
