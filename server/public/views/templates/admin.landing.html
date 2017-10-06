@@ -39,15 +39,14 @@
     </div>
 
     <!--search bar-->
-    <div ng-show="ac.showSearchs">
+    <!-- <div ng-show="ac.showSearchs">
         <form>
             <input type="text" id="search" ng-model="history_search">
             <button ng-click="ac.search_history(history_search)">submit</button>
         </form>
         <div class="rqst" ng-repeat="customer in ac.searchResults">
         </div>
-        {{ac}}
-    </div>
+    </div> -->
     <!--search bar end-->
 
     <div class="nrqstform" ng-show="ac.nrqstneeded">
@@ -130,13 +129,13 @@
 
 <!--end of requests for service view-->
 
-    <!--search bar-->
+    <!-- search bar-->
     <div ng-show="ac.showSearchs">
         <form><input type="text" id="search" ng-model="history_search"><button ng-click="ac.search_history(history_search)">submit</button></form>
         <div class="rqst" ng-repeat="customer in ac.AdminService.searchResults.list.data" ng-click="ac.getChecklist()"> {{customer.name}} {{customer.year}} {{customer.make}} {{customer.model}} {{customer.vin}}
         </div>
     </div>
-    <!--search bar end-->
+    <!--search bar end -->
 
    
     <!--button to show pending authorizations-->
