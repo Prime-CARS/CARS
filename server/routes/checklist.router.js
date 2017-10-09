@@ -98,7 +98,8 @@ router.put('/submit', function (req, res) {
                     res.sendStatus(500);
                 } else {
                     client.query('UPDATE cars_checklist SET cars_checklist.headlights_high=$1, cars_checklist.headlights_low=$2, cars_checklist.parkinglights_front=$3, cars_checklist.turnsignals_front=$4, cars_checklist.taillights=$5, cars_checklist.turnsignals_rear=$6, cars_checklist.brakelights=$7, cars_checklist.backup_lights=$8, cars_checklist.licensetabs_expiration=$9, cars_checklist.sparetirepressure=$10, cars_checklist.currenttirepressure_lf=$11, cars_checklist.currenttirepressure_rf=$12, cars_checklist.currenttirepressure_lr=$13, cars_checklist.currenttirepressure_rr=$14, cars_checklist.finaltirepressure_lf=$15, cars_checklist.finaltirepressure_rf=$16, cars_checklist.finaltirepressure_lr=$17, cars_checklist.finaltirepressure_rr=$18, cars_checklist.tirecondition_lf=$19, cars_checklist.tirecondition_rf=$20, cars_checklist.tirecondition_lr=$21, cars_checklist.tirecondition_rr=$22, cars_checklist.wipercondition=$23, cars_checklist.airfiltercondition=$24, cars_checklist.brakefluid=$25, cars_checklist.powersteeringfluid=$26, cars_checklist.transmissionfluid=$27, cars_checklist.oillevel=$28, cars_checklist.washerfluid=$29, cars_checklist.coolantlevel=$30, cars_checklist.coolantlevel_strength=$31, cars_checklist.radiatorhosecondition=$32, cars_checklist.batterycondition=$33, cars_checklist.serpentinebeltcondition=$34, cars_checklist.otherbeltscondition=$35, cars_checklist.lubehoodlatch=$36, cars_checklist.shockstruttest=$37, cars_checklist.frontwheelbearingtest=$38, cars_checklist.tierodtest=$39, cars_checklist.balljointtest=$40, cars_checklist.controlarmcondition=$41, cars_checklist.stabilizerbarlinkcondition=$42, cars_checklist.cvbootcondition=$43, cars_checklist.frontbrakecondition=$44, cars_checklist.frontbrakecalipers=$45, cars_checklist.reardiscbrakecondition=$46, cars_checklist.rearbrakecalipers=$47, cars_checklist.rearstabilizerbarlinkcondition=$48, cars_checklist.torqueallwheelsremoved=$49, cars_checklist.exhaustsystem=$50, cars_checklist.enginescancodes=$51, cars_checklist.oilchange=$52, cars_checklist.addoil_amount=$53, cars_checklist.addoil_weight=$54, cars_checklist.oilfilter_brand=$55, cars_checklist.oilfilter_number=$56, cars_checklist.oiltype=$57, cars_checklist.finishup_checklist=$58, cars_checklist.vehicle_observations=$59, cars_checklist.recommended_repairs=$60, cars_checklist.repairs_declined=$61, cars_checklist.date_timestamp=now(), cars_checklist.parts_installed=$62, cars_checklist.cost=$63, cars_checklist.checklist_status=$64, cars_checklist.mechanics=$65, cars_checklist.current_mileage=$66 WHERE cars_checklist.checklist_id=$67;'),
-                    [checklist.headlights_high, 
+                    [
+                        checklist.headlights_high, 
                         checklist.headlights_low, 
                         checklist.parkinglights_front, 
                         checklist.turnsignals_front, 
@@ -164,7 +165,8 @@ router.put('/submit', function (req, res) {
                         checklist.cost,  
                         checklist.mechanics, 
                         checklist.current_mileage,
-                        checklist.checklist_id],
+                        checklist.checklist_id
+                    ],
                     function (err, result) {
                         done();
                         if (err) {
