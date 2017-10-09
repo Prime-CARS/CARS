@@ -397,11 +397,12 @@
 
       <!--Oil Change Checklist Begins here-->
       <h3> Oil Change Required? </h3>
+      <md-radio-group>
+        <md-radio-button value='yes' ng-click="cc.showOilRequired('Y')"> Yes </md-radio-button>
+        <md-radio-button value='no' ng-click="cc.showOilRequired('N')"> No </md-radio-button>
+      </md-radio-group>
 
-      <input type="radio" value='yes' ng-click="cc.showOilRequired('Y')" /> Yes
-      <input type="radio" value='no' ng-click="cc.showOilRequired('N')" /> No
-
-      <div ng-show="cc.IsVisible">
+      <div ng-show="cc.oilCheckListVisible">
 
         <div>
           <md-radio-group ng-model="cc.cars_checklist.info.drain_oil">
@@ -504,90 +505,92 @@
       </div>
 
       <!--Finish Up Checklist begins here-->
-      <h3 ng-model="cc.cars_checklist.finishup_checklist">Finish Up Checklist</h3>
-      <div>
-        <md-radio-group ng-model="cc.cars_checklist.info.oilcapsecure">
-          <label for="text">1. Oil Cap Secure</label>
-          <md-radio-button value="true"></md-radio-button>
-        </md-radio-group>
-      </div>
+      <div ng-if="cc.cars_checklist.info.checklist_status === 'serviced'">
+        <h3>Finish Up Checklist</h3>
+        <div>
+          <md-radio-group ng-model="cc.cars_checklist.info.oilcapsecure">
+            <label for="text">1. Oil Cap Secure</label>
+            <md-radio-button value="true"></md-radio-button>
+          </md-radio-group>
+        </div>
 
-      <div>
-        <md-radio-group ng-model="cc.cars_checklist.info.oilsticksecure">
-          <label for="text">2. Oil Stick Secure</label>
-          <md-radio-button value="true"></md-radio-button>
-        </md-radio-group>
-      </div>
+        <div>
+          <md-radio-group ng-model="cc.cars_checklist.info.oilsticksecure">
+            <label for="text">2. Oil Stick Secure</label>
+            <md-radio-button value="true"></md-radio-button>
+          </md-radio-group>
+        </div>
 
-      <div>
-        <md-radio-group ng-model="cc.cars_checklist.info.transmissionsticksecure">
-          <label for="text">3. Transmission Stick Secure</label>
-          <md-radio-button value="true"></md-radio-button>
-        </md-radio-group>
-      </div>
+        <div>
+          <md-radio-group ng-model="cc.cars_checklist.info.transmissionsticksecure">
+            <label for="text">3. Transmission Stick Secure</label>
+            <md-radio-button value="true"></md-radio-button>
+          </md-radio-group>
+        </div>
 
-      <div>
-        <md-radio-group ng-model="cc.cars_checklist.info.powersteeringcapsecure">
-          <label for="text">4. Power Steering Reservoir Cap Secure</label>
-          <md-radio-button value="true"></md-radio-button>
-        </md-radio-group>
-      </div>
+        <div>
+          <md-radio-group ng-model="cc.cars_checklist.info.powersteeringcapsecure">
+            <label for="text">4. Power Steering Reservoir Cap Secure</label>
+            <md-radio-button value="true"></md-radio-button>
+          </md-radio-group>
+        </div>
 
-      <div>
-        <md-radio-group ng-model="cc.cars_checklist.info.brakereservoircap">
-          <label for="text">5. Brake Reservoir Cap Secure</label>
-          <md-radio-button value="true"></md-radio-button>
-        </md-radio-group>
-      </div>
+        <div>
+          <md-radio-group ng-model="cc.cars_checklist.info.brakereservoircap">
+            <label for="text">5. Brake Reservoir Cap Secure</label>
+            <md-radio-button value="true"></md-radio-button>
+          </md-radio-group>
+        </div>
 
-      <div>
-        <md-radio-group ng-model="cc.cars_checklist.info.coolantcapsecure">
-          <label for="text">6. Coolant Reservoir Cap Secure</label>
-          <md-radio-button value="true"></md-radio-button>
-        </md-radio-group>
-        <input type="radio">
-      </div>
+        <div>
+          <md-radio-group ng-model="cc.cars_checklist.info.coolantcapsecure">
+            <label for="text">6. Coolant Reservoir Cap Secure</label>
+            <md-radio-button value="true"></md-radio-button>
+          </md-radio-group>
+          <input type="radio">
+        </div>
 
-      <div>
-        <md-radio-group ng-model="cc.cars_checklist.info.washerfluidcapsecure">
-          <label for="text">7. Washer Fluid Reservoir Cap Secure</label>
-          <md-radio-button value="true"></md-radio-button>
-        </md-radio-group>
-      </div>
+        <div>
+          <md-radio-group ng-model="cc.cars_checklist.info.washerfluidcapsecure">
+            <label for="text">7. Washer Fluid Reservoir Cap Secure</label>
+            <md-radio-button value="true"></md-radio-button>
+          </md-radio-group>
+        </div>
 
-      <div>
-        <md-radio-group ng-model="cc.cars_checklist.info.toolcheck">
-          <label for="text">8. Tool Check: Under Hood, Inside Care, Inside Trunk</label>
-          <md-radio-button value="true"></md-radio-button>
-        </md-radio-group>
-      </div>
+        <div>
+          <md-radio-group ng-model="cc.cars_checklist.info.toolcheck">
+            <label for="text">8. Tool Check: Under Hood, Inside Care, Inside Trunk</label>
+            <md-radio-button value="true"></md-radio-button>
+          </md-radio-group>
+        </div>
 
-      <div>
-        <md-radio-group ng-model="cc.cars_checklist.info.testdrive">
-          <label for="text">9. Test Drive</label>
-          <md-radio-button value="true"></md-radio-button>
-        </md-radio-group>
-      </div>
+        <div>
+          <md-radio-group ng-model="cc.cars_checklist.info.testdrive">
+            <label for="text">9. Test Drive</label>
+            <md-radio-button value="true"></md-radio-button>
+          </md-radio-group>
+        </div>
 
-      <div>
-        <md-radio-group ng-model="cc.cars_checklist.info.retorquelugnuts">
-          <label for="text">10. Re-torque Lug Nuts</label>
-          <md-radio-button value="true"></md-radio-button>
-        </md-radio-group>
-      </div>
+        <div>
+          <md-radio-group ng-model="cc.cars_checklist.info.retorquelugnuts">
+            <label for="text">10. Re-torque Lug Nuts</label>
+            <md-radio-button value="true"></md-radio-button>
+          </md-radio-group>
+        </div>
 
-      <div>
-        <md-radio-group ng-model="cc.cars_checklist.info.giftpack">
-          <label for="text">11. Gift Packet Distributed</label>
-          <md-radio-button value="true"></md-radio-button>
-        </md-radio-group>
-      </div>
+        <div>
+          <md-radio-group ng-model="cc.cars_checklist.info.giftpack">
+            <label for="text">11. Gift Packet Distributed</label>
+            <md-radio-button value="true"></md-radio-button>
+          </md-radio-group>
+        </div>
 
-      <div>
-        <md-radio-group ng-model="cc.cars_checklist.info.reviewchecklist">
-          <label for="text">12. Review Checklist with Guest</label>
-          <md-radio-button value="true"></md-radio-button>
-        </md-radio-group>
+        <div>
+          <md-radio-group ng-model="cc.cars_checklist.info.reviewchecklist">
+            <label for="text">12. Review Checklist with Guest</label>
+            <md-radio-button value="true"></md-radio-button>
+          </md-radio-group>
+        </div>
       </div>
       <!--Finish Up Checklist ends here-->
 
@@ -612,16 +615,14 @@
         <h4>Parts Installed &#42;&#42;</h4>
         <textarea ng-model="cc.cars_checklist.info.parts_installed" name="textarea" cols="50" rows="10" placeholder="Enter text here"></textarea>
       </div>
-
+      <br>
       <div>
         <label for="text" ng-model="cc.cars_checklist.info.cost"><strong>Cost &#42;&#42;</strong></label>
         <input type="input">
       </div>
 
-      <p><strong>Guest Signature/Date Time Stamp: {{cc.cars_checklist.info.date_completed | date: "dd.MM.y"}}&#42;&#42;</strong> </p>
+      <p><strong>Guest Signature/Date Time Stamp: {{cc.cars_checklist.info.date_completed | date: "dd.MM.y"}}</strong> </p>
 
-
-      <p><strong> &#42; Require Rating Input</strong>: 1 - Good 2 - Fair 3 - Poor</p>
       <p><strong> &#42;&#42; Require Actual Reading</strong></p>
 
       <!--Vehicle Observations Comment Sections ends here-->

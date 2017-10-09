@@ -20,8 +20,10 @@ myApp.controller('ChecklistController', function (ChecklistService, AdminService
   vm.showOilRequired = function (show) {
     if ( show == 'Y') {
       vm.cars_checklist.oilchange = true;
+      vm.oilCheckListVisible = true;
     } else {
       vm.cars_checklist.oilchange = false;
+      vm.oilCheckListVisible = false;
     }
 
   };
@@ -29,8 +31,10 @@ myApp.controller('ChecklistController', function (ChecklistService, AdminService
   vm.showFinishChecklist = function (show) {
     if( show == 'Y') {
       vm.cars_checklist.finishup_checklist = true;
+      vm.finishCheckListVisible = true;
     } else {
       vm.cars_checklist.finishup_checklist = false;
+      vm.finishCheckListVisible = false;
     }
   };
 
