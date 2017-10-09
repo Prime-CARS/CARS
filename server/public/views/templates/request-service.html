@@ -88,13 +88,12 @@
 
     <div class="container">
         <p>
-            <label>email address</label>
+            <label>Email Address</label>
         </p>
-        <input type="email" class="form-group" name="altPhone" ng-model="rc.customer.email" required>
+        <input type="email" class="form-group" name="email" ng-model="rc.customer.email" required>
     </div>
-    <!-- </form> -->
 
-    <!-- <form class="form-group" id="carInfo"> -->
+
     <h2>Vehicle Information</h2>
     <div class="container">
         <p>
@@ -118,15 +117,21 @@
     </div>
 
     <div class="container">
+            <p>
+                <label>Mileage</label>
+            </p>
+            <input type="number" class="form-control" name="mileage" ng-model="rc.customer.mileage" required>
+        </div>
+
+    <div class="container">
         <p>
             <label>VIN</label>
         </p>
         <input type="text" class="form-control" title="VIN must be 17 digits long" pattern="\w{17}" name="VIN" ng-model="rc.customer.vin"
             required>
     </div>
-    <!-- </form> -->
 
-    <h3>Please describe the problems you are having with your vehicle</h3>
+    <h3>Please describe the problem(s) you are having with your vehicle</h3>
     <textarea rows="15" cols="250" ng-model="rc.customer.problem" required></textarea>
 
 

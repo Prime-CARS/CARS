@@ -10,7 +10,9 @@ myApp.controller('ChecklistController', function (ChecklistService, AdminService
   vm.cars_checklist = { checklist_id: $routeParams.checklist_id };
   vm.carChecklist = ChecklistService.carChecklist;
 
-  vm.IsVisible = false;
+  vm.oilCheckListVisible = false;
+
+  vm.finishCheckListVisible = false; 
 
   vm.goto = function (page) {
     console.log("Goto " + "'" + page + "'");
@@ -18,7 +20,20 @@ myApp.controller('ChecklistController', function (ChecklistService, AdminService
   }
 
   vm.showOilRequired = function (value) {
-    vm.IsVisible = value == 'Y';
+    if (vm.oilCheckListVisible = value == 'Y') {
+      vm.cars_checklist.oilchange = true;
+    } else {
+      vm.cars_checklist.oilchange = false;
+    }
+
+  };
+
+  vm.showFinishChecklist = function (value) {
+    if(vm.finishCheckListVisible = value == 'Y') {
+      vm.cars_checklist.finishup_checklist = true;
+    } else {
+      vm.cars_checklist.finishup_checklist = false;
+    }
   };
 
 
