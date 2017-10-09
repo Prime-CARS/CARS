@@ -6,9 +6,10 @@ body {
     background-color: #726F6F;
     background-attachment: fixed;
 }
-main{
-   background-color: #F5F5F5;
-  background-attachment: fixed; 
+
+main {
+    background-color: #F5F5F5;
+    background-attachment: fixed;
 }
 
 .carsImg {
@@ -19,15 +20,15 @@ main{
 }
 
 .instructions .container h1 {
-  font-size: 32px;
-  font-weight: 800
+    font-size: 32px;
+    font-weight: 800
 }
 
 .instructions {
- padding-top: 20px;
-  color: #131313;
-  padding: 15px;
-  background-color: #F5F5F5
+    padding-top: 20px;
+    color: #131313;
+    padding: 15px;
+    background-color: #F5F5F5
 }
 
 #entryForm {
@@ -63,9 +64,9 @@ main{
 }
 
 .navbar {
-  background-color: maroon;
-  width: 100%;
-  border-radius: 5px;
+    background-color: maroon;
+    width: 100%;
+    border-radius: 5px;
 }
 
 ul {
@@ -99,7 +100,6 @@ header,
 footer {
     /* padding: 1em; */
     padding: 8px;
-
     color: #131313;
     background-color: maroon;
     clear: left;
@@ -115,10 +115,9 @@ footer {
 }
 
 .infocontainer {
-    background-color:#F5F5F5;
-    background: linear-gradient(maroon,maroon,maroon, #726F6F);
+    background-color: #F5F5F5;
+    background: linear-gradient(maroon, maroon, maroon, #726F6F);
     color: #131313;
-
     margin: 20px 0 20px 0;
     padding: 20px;
     border-radius: 5px;
@@ -180,11 +179,11 @@ footer {
     background-color: lightskyblue;
 }
 
-.lead{
-  margin-top: -20px;
-  font-size: 48px;
-  text-decoration-style: bold;
-  color: #131313;
+.lead {
+    margin-top: -20px;
+    font-size: 48px;
+    text-decoration-style: bold;
+    color: #131313;
 }
 
 #logo img {
@@ -211,20 +210,38 @@ footer {
     #printMe {
         max-width: 670pt !important;
         max-height: 300pt !important;
+        margin: auto;
     }
+    #authCarsLogo {
+      float: right;
+      width: 40%;
+      margin: 40px 30px 5px 5px;
+  }
 }
 
- #admin_nav{
-   position: relative;
-   margin-top: 30px;
-   color: white;
-   text-align: center;
- }
+#authCarsLogo {
+    float: right;
+    width: 40%;
+    margin: 40px 30px 5px 5px;
+}
 
- .login_button{
-margin-right: 15px;
- }
+#printMe {
+    width: 75vw;
+    margin: auto;
+    margin-bottom: 8vh;
+}
 
- .removebutton{
-   align-content: right;
- }
+#admin_nav {
+    position: relative;
+    margin-top: 30px;
+    color: white;
+    text-align: center;
+}
+
+.login_button {
+    margin-right: 15px;
+}
+
+.removebutton {
+    align-content: right;
+}

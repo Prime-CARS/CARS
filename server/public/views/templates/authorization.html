@@ -2,18 +2,19 @@
 
 
 
-<div id="printMe" style="width: 75vw; margin:auto; margin-bottom:8vh;">
-      <button class="noPrint" ng-click="ac.printDiv()">Presto Printo</button>
-      <md-button flex class="md-raised md-warn removebutton" ng-click="ac.updateCustomer(data.customer_id, 'printed')">remove</md-button>
-
-      <H1>C.A.R.S.</H1>
+<div id="printMe">
+      <md-button flex class="md-raised md-primary noPrint" ng-click="ac.printDiv()">Print</md-button>
+      <md-button flex class="md-raised md-warn removebutton noPrint" ng-click="ac.updateCustomer(data.customer_id, 'printed')">remove</md-button>
       <br>
+      <img src="../views/images/cars-logo-transparent.png" id="authCarsLogo" />
+      
+      <H1>C.A.R.S.</H1>
       <H2>Service Authorization</H2>
+      <!-- <img src="../views/images/cars-logo-transparent.png" id="authCarsLogo" /> -->
 
       <p>I, {{ac.serviceObject.name}}, hereby authorize C.A.R.S. to perform the following services and repairs on the vehicle
             listed below:</p>
       <p>{{ac.serviceObject.service_requested}}</p>
-      <br>
       <br>
       <br>
       <br>
