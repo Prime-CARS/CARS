@@ -7,13 +7,14 @@ body {
     background-attachment: fixed;
 }
 
-main {
-    background-color: #999696;
-    /* background-image: url("../views/images/motor-background.jpeg"); */
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    opacity: 1
+main{
+   background-color: #999696;
+   background-image: url("../views/images/car-repair-background.jpg");
+  background-attachment: fixed; 
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  opacity: 1;
+    height: 100vh;
 }
 
 .carsImg {
@@ -378,18 +379,6 @@ footer {
     border: 2px dashed black;
     width: 700px;
     background-color: lightblue;
-}
-
-.ready {
-    background-color: greenyellow;
-}
-
-.in_progress {
-    background-color: lightcoral;
-}
-
-.serviced {
-    background-color: lightskyblue;
 }
 
 .lead {
@@ -460,4 +449,22 @@ footer {
 
 .removebutton {
     align-content: right;
+}
+
+.base{
+    background-color: #DBD7D7;
+    overflow-y: scroll;
+    height: 90vh;
+}
+
+.ready {
+    background-color: greenyellow;
+}
+
+.in_progress {
+    background-color: lightcoral;
+}
+
+.serviced {
+    background-color: lightskyblue;
 }

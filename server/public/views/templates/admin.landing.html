@@ -1,3 +1,6 @@
+<md-card flex="90" flex-offset="5" md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+   
+
 <div class="navbar noPrint">
     <div class="container">
 
@@ -49,18 +52,20 @@
                 Log Out
             </md-nav-item>
         </md-nav-bar> -->
-    <div id="admin_nav">
-    <h1 id="welcome" class="lead">Hello {{ac.AdminService.userObject.userName}}!</h1> -->
-
-
-    <button ng-click="ac.makeRequestsVisible()">Service Requests</button>
-    <button ng-click="ac.showSearch()">Service History</button>
-    <button ng-click="ac.showAuth()">Pending Authorizations</button>
-    <button ng-click="ac.AdminService.logout()">Log Out</button>
+<md-card-title>
+    <md-card-title-text><h1 id="welcome" class="lead">Hello {{ac.AdminService.userObject.userName}}!</h1>
+</md-card-title-text>
+</md-card-title>
+<md-card-actions layout="row" layout-align="end center">
+    <md-button ng-click="ac.makeRequestsVisible()">Service Requests</md-button>
+    <md-button ng-click="ac.showSearch()">Service History</md-button>
+    <md-button ng-click="ac.showAuth()">Pending Authorizations</md-button>
+    <md-button ng-click="ac.AdminService.logout()">Log Out</md-button>
     </div>
-    <hr>
+    </md-card-actions>
 </div>
 <!---requests for service page-->
+<md-card-content>
 <div ng-show="ac.showRequests">
     <h3>These requests are pending review and scheduling</h3>
     <div ng-repeat="data in ac.RetrievedRequests.list.data" class="rqst" ng-click="expandInfo = !expandInfo">
@@ -194,3 +199,5 @@
 </form>
 </div>
 </div>
+</md-card-content>
+</md-card>
