@@ -1,166 +1,135 @@
-<div class="navbar">
-    <div class="container">
-        <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links" layout="row" layout-align="space-around center">
-            <md-nav-item md-nav-href="#/landingpage" name="homeTab">
-                Home
-            </md-nav-item>
+<md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links" layout="row" layout-align="space-around center">
+    <md-nav-item md-nav-href="#/landingpage" name="homeTab">
+        Home
+    </md-nav-item>
 
-            <md-nav-item md-nav-href="#/requestservice" name="serviceRequestTab">
-                Request for Service Form
-            </md-nav-item>
+    <md-nav-item md-nav-href="#/requestservice" name="serviceRequestTab">
+        Request for Service Form
+    </md-nav-item>
 
-            <!-- Only admin can navigate through all pages freely -->
-            <md-nav-item md-nav-href="#/mechanic" name="mechanicTab" ng-if="rc.AdminService.userObject.role">
-                Mechanic
-            </md-nav-item>
+    <!-- Only admin can navigate through all pages freely -->
+    <md-nav-item md-nav-href="#/mechanic" name="mechanicTab" ng-if="rc.AdminService.userObject.role">
+        Mechanic
+    </md-nav-item>
 
-            <md-nav-item md-nav-href="#/admin" name="adminTab" ng-if="rc.AdminService.userObject.role === 'admin'">
-                Admin
-            </md-nav-item>
+    <md-nav-item md-nav-href="#/admin" name="adminTab" ng-if="rc.AdminService.userObject.role === 'admin'">
+        Admin
+    </md-nav-item>
 
-            <!-- Hides Log-in if user is logged in -->
-            <md-nav-item md-nav-href="#/login" name="loginTab" ng-hide="rc.AdminService.userObject.role">
-                Login
-            </md-nav-item>
+    <!-- Hides Log-in if user is logged in -->
+    <md-nav-item md-nav-href="#/login" name="loginTab" ng-hide="rc.AdminService.userObject.role">
+        Login
+    </md-nav-item>
 
-            <md-nav-item md-nav-click="rc.AdminService.logout()" name="logOutTab" ng-hide="!rc.AdminService.userObject.role">
-                Log Out
-            </md-nav-item>
+    <md-nav-item md-nav-click="rc.AdminService.logout()" name="logOutTab" ng-hide="!rc.AdminService.userObject.role">
+        Log Out
+    </md-nav-item>
 
-        </md-nav-bar>
-    </div>
-</div>
+</md-nav-bar>
+<div class="base" flex="90" flex-offset="5">
 
 
-<h2>Request for Vehicle Reapir</h2>
-<h4>Please fill in all the fields below</h4>
+    <h2>Request for Vehicle Reapir</h2>
+    <h4>Please fill in all the fields below</h4>
 
-<form class="form-group" id="customerInfo">
-    <div class="container"></div>
-    <p>
+    <md-input-container>
         <label>Name</label>
-    </p>
-    <input type="text" class="form control" name="name" ng-model="rc.customer.name" required>
-    </div>
-
-    <div class="container">
-        <p>
-            <label>Address</label>
-        </p>
-        <input type="text" class="form-control" name="address" ng-model="rc.customer.address" required>
-    </div>
-
-    <div class="container">
-        <p>
-            <label>City</label>
-        </p>
-        <input type="text" class="form control" name="city" ng-model="rc.customer.city" required>
-    </div>
-
-    <div class="container">
-        <p>
-            <label>State</label>
-        </p>
-        <input type="text" class="form-control" name="state" ng-model="rc.customer.state" required>
-    </div>
-
-    <div class="container">
-        <p>
-            <label>Zip Code</label>
-        </p>
-        <input type="text" class="form-control" name="zip" ng-model="rc.customer.zip" title="5 or 5-4 digit zip code" pattern="\b\d{5}[-]\d{4}\b|\b\d{5}\b"
-            required>
-    </div>
-
-    <div class="container">
-        <p>
-            <label>Cell Phone</label>
-        </p>
-        <input type="tel" class="maskPhone" name="cellPhone" ng-model="rc.customer.cellPhone" required>
-    </div>
-
-    <div class="container">
-        <p>
-            <label>Alternate Phone</label>
-        </p>
-        <input type="text" class="maskPhone" name="altPhone" ng-model="rc.customer.altPhone">
-    </div>
-
-    <div class="container">
-        <p>
-            <label>email address</label>
-        </p>
-        <input type="email" class="form-group" name="altPhone" ng-model="rc.customer.email" required>
-    </div>
-    <!-- </form> -->
-
-    <!-- <form class="form-group" id="carInfo"> -->
+        <input ng-model="rc.customer.name" required>
+    </md-input-container><br>
+    <md-input-container>
+        <label>Address</label>
+        <input ng-model="rc.customer.address" required>
+    </md-input-container><br>
+    <md-input-container>
+        <label>City</label>
+        <input ng-model="rc.customer.city" required>
+    </md-input-container>
+    <md-input-container>
+        <label>State</label>
+        <input ng-model="rc.customer.state" required>
+    </md-input-container>
+    <md-input-container>
+        <label>Zip</label>
+        <input ng-model="rc.customer.zip" required>
+    </md-input-container><br>
+    <md-input-container>
+        <label>Cell Phone</label>
+        <input ng-model="rc.customer.cellPhone" required>
+    </md-input-container>
+    <md-input-container>
+        <label>Alternate Phone</label>
+        <input ng-model="rc.customer.altPhont" required>
+    </md-input-container><br>
+    <md-input-container class="md-block">
+        <label>Email</label>
+        <input ng-model="rc.customer.email" required>
+    </md-input-container>
     <h2>Vehicle Information</h2>
-    <div class="container">
-        <p>
-            <label>Year</label>
-        </p>
-        <input type="text" class="form-control" name="year" ng-model="rc.customer.year" required>
-    </div>
 
-    <div class="container">
-        <p>
-            <label>Make</label>
-        </p>
-        <input type="text" class="form-control" name="make" ng-model="rc.customer.make" required>
-    </div>
+    <md-input-container>
+            <div class="container">
+                    <label>VIN</label>
+                    <input type="text" class="form-control" title="VIN must be 17 digits long" pattern="\w{17}" name="VIN" ng-model="rc.customer.vin"
+                    required>
+                    <h4>Where do I find the VIN?</h4>
+                    <img src="./views/images/question_mark.png" alt="question mark" ng-mouseover="openCard = true" ng-mouseleave="openCard = false"> 
+                    
+            <md-card ng-show="openCard">
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">How to find your vehicle's VIN</span>
+                        <span class="md-subhead"> If facing the vehicle, the VIN will be on the dashboard in the lower right-hand corner.  The VIN should also be found on the driver's side door between the door panel and the door frame.</span>
+                    </md-card-title-text>
+                    <md-card-title-media>
+                        <div class="md-media-md card-media"></div>
+                    </md-card-title-media>
+                </md-card-title>
+                    <md-card-content layout="row" layout-align="space-between">
+                        <div class="md-media-md card-media"> 
+                            <img src="./views/images/VIN_Graphic.png" alt="graphic for VIN location description">
+                        </div>
+                    </md-card-content>
+                </md-card>
+                </div>
+            
+        <label>VIN</label>
+        <input pattern="\w{17}" name="VIN" ng-model="rc.customer.vin" required>
+    </md-input-container>
+    <md-input-container>
+        <label>Mileage</label>
+        <input ng-model="rc.customer.mileage" required>
+    </md-input-container><br>
+    <md-input-container>
+        <label>Year</label>
+        <input ng-model="rc.customer.year" required>
+    </md-input-container>
+    <md-input-container>
+        <label>Make</label>
+        <input ng-model="rc.customer.make" required>
+    </md-input-container>
+    <md-input-container>
+        <label>Model</label>
+        <input ng-model="rc.customer.model" required>
+    </md-input-container><br>
+    <md-input-container class="md-block">
+        <label>Please describe the problems you are having with your vehicle</label>
+        <textarea md-maxlength="600" rows="5" ng-model="rc.customer.problem" required>
+    </md-input-container>
+    <md-input-container class="md-block">
+        <label>Please indicate why you qualify to use the services of C.A.R.S. Ministry</label>
 
-    <div class="container">
-        <p>
-            <label>Model</label>
-        </p>
-        <input type="text" class="form-control" name="model" ng-model="rc.customer.model" required>
-    </div>
+            <md-radio-group ng-model="rc.customer.qualification">
+             <md-radio-button value="Single Mother" ng-click="rc.closeTextbox()">Single Mother</md-radio-button>
+             <md-radio-button value="Single Woman" ng-click="rc.closeTextbox()"> Single Woman</md-radio-button>
+             <md-radio-button value="Widow" ng-click="rc.closeTextbox()">Widow</md-radio-button>
+             <md-radio-button value="Financially Limited" ng-click="rc.closeTextbox()">Financially Limited</md-radio-button>
+             <md-radio-button value="Other" ng-click="rc.openTextbox()">Other</md-radio-button>
+             <div ng-show="rc.textboxShowing">
+               <textarea md-maxlength="600" rows="5" ng-model="rc.customer.qualification" placeholder="Please explain your circumstances:"></textarea>
+               </div>
+            </md-radio-group>
+    </md-input-container>
 
-    <div class="container">
-        <p>
-            <label>VIN</label>
-        </p>
-        <input type="text" class="form-control" title="VIN must be 17 digits long" pattern="\w{17}" name="VIN" ng-model="rc.customer.vin"
-            required>
-    </div>
-    <!-- </form> -->
-
-    <h3>Please describe the problems you are having with your vehicle</h3>
-    <textarea rows="15" cols="250" ng-model="rc.customer.problem" required></textarea>
-
-
-    <div class="-container">
-        <h3>Please indicate why you qualify to use the services of C.A.R.S. Ministry</h3>
-
-        <label>
-            <input type="radio" name="qualification" value="Single Mother" ng-click="rc.closeTextbox()" ng-model="rc.customer.qualification"> Single Mother
-        </label>
-        <br/>
-
-        <label>
-            <input type="radio" name="qualification" value="Single Woman" ng-click="rc.closeTextbox()" ng-model="rc.customer.qualification"> Single Woman
-        </label>
-        <br/>
-        <label>
-            <input type="radio" name="qualification" value="Widow" ng-click="rc.closeTextbox()" ng-model="rc.customer.qualification"> Widow
-        </label>
-        <br/>
-        <label>
-            <input type="radio" name="qualification" value="Financially Limited" ng-click="rc.closeTextbox()" ng-model="rc.customer.qualification"
-                checked> Financially Limited
-        </label>
-        <br/>
-        <label>
-            <input type="radio" name="qualification" value="other" ng-click="rc.openTextbox();"> Other
-            <div ng-show="rc.textboxShowing">
-                <textarea rows="4" cols="50" ng-model="rc.customer.qualification" placeholder="Please explain your circumstances:"></textarea>
-            </div>
-        </label>
-    </div>
-
-    <div class="container">
-
-        <button class="btn-btn-primary" type="submit" ng-click="rc.addCustomer()">Submit</button>
-    </form>
+    <md-button class="md-button primary" class="btn-btn-primary" type="submit" ng-click="rc.addCustomer()">Submit Request</md-button>
+>>>>>>> master
 </div>
