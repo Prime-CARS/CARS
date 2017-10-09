@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', ['ngRoute', 'ngMaterial', 'ngAnimate']);
+var myApp = angular.module('myApp', ['ngRoute', 'ngMaterial', 'ngAnimate', /*'angular-carousel'*/]);
 
 /// Routes ///
 myApp.config(function($routeProvider, $locationProvider) {
@@ -54,7 +54,7 @@ myApp.config(function($routeProvider, $locationProvider) {
       }
     })
     .when('/requestservice', {
-      templateUrl: '/views/templates/request.service.html',
+      templateUrl: '/views/templates/request-service.html',
       controller: 'RequestController as rc'
     })
     .otherwise({

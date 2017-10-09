@@ -12,15 +12,12 @@ myApp.controller('RequestController', function (AdminService, RequestService, $l
   //will always set "service status" to requested when form is submitted by customer 
   vm.customer = { service_status: 'requested' };
 
-  // handles current user role in case of log in/log out
-  // checking if current user is a mechanic or admin
-  AdminService.getuser();
-
   /* this function is called when "submit" is clicked on the Request for Service form */
   vm.addCustomer = function () {
     console.log("Inside addCustomer function in request.controller.js line 25: ", vm.customer);
     vm.RequestService.addCustomer(vm.customer);
   }
+  
   vm.openTextbox = function () {
     vm.textboxShowing = true;
   };

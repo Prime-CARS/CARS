@@ -1,5 +1,18 @@
-<h2>
-  Christian Auto Repair Shop</h2>
+<md-nav-bar layout-align="space-around center" md-no-ink-bar="disableInkBar" md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
+
+  <span ng-if="cc.AdminService.userObject.role == 'mechanic'">
+      <md-nav-item flex md-nav-href="#/mechanic" name="mechanic view">Mechanic View</md-nav-item>
+      <md-button flex class="md-raised md-warn" ng-click="lpc.AdminService.logout()" name="logOutTab"> Log Out</md-button>
+    </span>
+
+  <span ng-if="cc.AdminService.userObject.role == 'admin'">
+      <md-nav-item flex md-nav-href="#/mechanic" name="mechanic view">Mechanic View</md-nav-item>
+      <md-nav-item  flex md-nav-href="#/admin" name="admin view">Admin View</md-nav-item>
+      <md-button flex class="md-raised md-warn" ng-click="lpc.AdminService.logout()" name="logOutTab"> Log Out</md-button>
+    </span>
+</md-nav-bar>
+
+
 <h4>Vehicle Inspection Checklist</h4>
 
 <form class="">
@@ -24,10 +37,6 @@
           <input type='text'> </md-input-container>
         <md-input-container>
           <label for="text">Make &#42;&#42; </label>
-          <input type='text'>
-        </md-input-container>
-        <md-input-container>
-          <label for="text">License &#42;&#42; </label>
           <input type='text'>
         </md-input-container>
         <md-input-container>
@@ -368,8 +377,28 @@
         </div>
 
         <div>
+          <md-radio-group ng-model="cc.cars_checklist.checkoil_level">
+            <label for="text">42. Check Oil Level </label>
+            <input type="text">
+            <md-radio-button value="true"> Checked </md-radio-button>
+          </md-radio-group>
+        </div>
+        <div>
+          <md-radio-group ng-model="cc.cars_checklist.oilcap_secure">
+            <label for="text">43. Oil Cap Secure</label>
+            <md-radio-button value="true"> Checked </md-radio-button>
+          </md-radio-group>
+        </div>
+
+        <div>
+          <md-radio-group ng-model="cc.cars_checklist.start_idle">
+            <label for="text">44. Start and Idle (5 seconds) </label>
+            <md-radio-button value="true"> Checked </md-radio-button>
+          </md-radio-group>
+        </div>
+        <div>
           <md-input-container ng-model="cc.cars_checklist.enginescancodes">
-            <label for="text">42. Engine Scan Codes &#42;</label>
+            <label for="text">45. Engine Scan Codes &#42;</label>
             <input type="text">
           </md-input-container>
         </div>
@@ -432,10 +461,9 @@
           <div>
             <md-radio-group ng-model="cc.cars_checklist.checkoil_level">
               <label for="text">7. Check Oil Level </label>
-              <input type="text">
               <md-radio-button value="true"> Checked </md-radio-button>
             </md-radio-group>
-          </div>
+          </div> 
 
           <div>
             <md-radio-group ng-model="cc.cars_checklist.oilcap_secure">
@@ -453,7 +481,7 @@
 
           <div>
             <md-radio-group ng-model="cc.cars_checklist.checkoil_plug">
-              <label for="text">10. Check Oil Plug for Leaks </label>
+              <label for="text">10 . Check Oil Plug for Leaks </label>
               <md-radio-button value="true"> Checked </md-radio-button>
             </md-radio-group>
           </div>
@@ -488,7 +516,6 @@
           <div>
             <md-radio-group ng-model="cc.cars_checklist.oiltype">
               <label for="text">15. Oil Type</label>
-              <input type="text">
               <md-radio-button value="true"> Checked </md-radio-button>
             </md-radio-group>
           </div>

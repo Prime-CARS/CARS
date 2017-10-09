@@ -1,6 +1,7 @@
 myApp.controller('ChecklistController', function (ChecklistService, $routeParams) {
   console.log('ChecklistController created');
   var vm = this;
+  vm.AdminService = AdminService;
   vm.ChecklistService = ChecklistService;
 
   vm.cars_checklist = {};
@@ -13,6 +14,10 @@ myApp.controller('ChecklistController', function (ChecklistService, $routeParams
 
   vm.finishCheckListVisible = false; 
 
+  vm.goto = function (page) {
+    console.log("Goto " + "'" + page + "'");
+    $location.path("'" + page + "'")
+  }
 
   vm.showOilRequired = function (value) {
     if (vm.oilCheckListVisible = value == 'Y') {

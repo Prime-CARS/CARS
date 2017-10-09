@@ -19,7 +19,7 @@ myApp.controller('AdminController', function (AdminService, RequestService, Auth
   vm.showAuths = false;
   vm.showSearchs = false;
   vm.Prints = AdminService.Prints;
-  vm.customer = {};
+  vm.customer= {};
   vm.textboxShowing = false;
   vm.RetrievedRequests = AdminService.Requests;
   vm.searchResults = AdminService.searchResults.list;
@@ -37,7 +37,7 @@ myApp.controller('AdminController', function (AdminService, RequestService, Auth
     vm.showSearchs = true;
     vm.nrqstneeded = false;
     vm.showAuths = false;
-    vm.getRequests();
+    // vm.getRequests();
     console.log(vm.showRequests);
   }
 
@@ -63,9 +63,7 @@ myApp.controller('AdminController', function (AdminService, RequestService, Auth
     vm.nrqstneeded = false;
   }
 
-//******************************************************
   vm.search_history = function (z) {
-    console.log('search button hit, passed', z, 'as search stuff')
     AdminService.searchHistory(z);
   }
 
