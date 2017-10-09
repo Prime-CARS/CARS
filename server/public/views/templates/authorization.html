@@ -8,7 +8,7 @@
       <br>
       
       
-      <h2 id="authDate">{{ac.date | date:MMM/dd/yyyy}}</h2>
+      <h2 class="authClickToEdit" id="authDate">{{ac.date | date:MMM/dd/yyyy}}</h2>
       <H1>C.A.R.S.</H1>
       <H2>Service Authorization</H2><img src="../views/images/cars-logo-transparent.png" id="authCarsLogo" />
       <!-- <img src="../views/images/cars-logo-transparent.png" id="authCarsLogo" /> -->
@@ -35,6 +35,7 @@
 
       <h2>Vehicle Information</h2>
       {{ac.serviceObject.year}} {{ac.serviceObject.make}} {{ac.serviceObject.model}}
+      <br> {miles here} miles
       <br>VIN: {{ac.serviceObject.vin}}
 
 
