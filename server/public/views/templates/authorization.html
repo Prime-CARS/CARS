@@ -6,10 +6,11 @@
       <md-button flex class="md-raised md-primary noPrint" ng-click="ac.printDiv()">Print</md-button>
       <md-button flex class="md-raised md-warn removebutton noPrint" ng-click="ac.updateCustomer(data.customer_id, 'printed')">remove</md-button>
       <br>
-      <img src="../views/images/cars-logo-transparent.png" id="authCarsLogo" />
       
+      
+      <h2 id="authDate">{{ac.date | date:MMM/dd/yyyy}}</h2>
       <H1>C.A.R.S.</H1>
-      <H2>Service Authorization</H2>
+      <H2>Service Authorization</H2><img src="../views/images/cars-logo-transparent.png" id="authCarsLogo" />
       <!-- <img src="../views/images/cars-logo-transparent.png" id="authCarsLogo" /> -->
 
       <p>I, {{ac.serviceObject.name}}, hereby authorize C.A.R.S. to perform the following services and repairs on the vehicle
@@ -52,5 +53,8 @@
                   <td>email: {{ac.serviceObject.email_address}}</td>
             </tr>
       </table>
+      <br>
+      <H3>I have read, understand, and agree to the above and authorise C.A.R.S. to inspect and repair my vehicle.</H3>
+      <br>
       <textarea rows="6" cols="80">Sign and Date</textarea>
 </div>
