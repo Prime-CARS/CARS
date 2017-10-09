@@ -1,14 +1,12 @@
-myApp.controller('ChecklistController', function (ChecklistService, $routeParams) {
+myApp.controller('ChecklistController', function (ChecklistService, AdminService, $routeParams) {
   console.log('ChecklistController created');
   var vm = this;
   vm.AdminService = AdminService;
   vm.ChecklistService = ChecklistService;
 
-  vm.cars_checklist = {};
-
   // Call to populate Checklist 
-  ChecklistService.getCarChecklist($routeParams.checklist_id);
-  vm.carChecklist = ChecklistService.carChecklist;
+  ChecklistService.getVehicleInfo($routeParams.checklist_id);
+  vm.cars_checklist = ChecklistService.vehicleInfo;
 
   vm.oilCheckListVisible = false;
 
@@ -19,8 +17,8 @@ myApp.controller('ChecklistController', function (ChecklistService, $routeParams
     $location.path("'" + page + "'")
   }
 
-  vm.showOilRequired = function (value) {
-    if (vm.oilCheckListVisible = value == 'Y') {
+  vm.showOilRequired = function (show) {
+    if ( show == 'Y') {
       vm.cars_checklist.oilchange = true;
     } else {
       vm.cars_checklist.oilchange = false;
@@ -28,8 +26,8 @@ myApp.controller('ChecklistController', function (ChecklistService, $routeParams
 
   };
 
-  vm.showFinishChecklist = function (value) {
-    if(vm.finishCheckListVisible = value == 'Y') {
+  vm.showFinishChecklist = function (show) {
+    if( show == 'Y') {
       vm.cars_checklist.finishup_checklist = true;
     } else {
       vm.cars_checklist.finishup_checklist = false;
@@ -37,7 +35,10 @@ myApp.controller('ChecklistController', function (ChecklistService, $routeParams
   };
 
   vm.submitChecklist = function (checklist) {
-    console.log('submit checklist in checklistcontroller', checklist)
+    console.log('submit checklist in checklistcontroller', checklist.info);
+    checklist.info.checklist_id = $routeParams.checklist_id;
+    checklist.info.checklist_status = 'in_progress';
+    ChecklistService.submitChecklist(checklist.info);
   }
 
 
