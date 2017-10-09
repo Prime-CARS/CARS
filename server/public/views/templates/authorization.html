@@ -2,19 +2,19 @@
 
 
 
-<div id="printMe">
-      <md-button flex class="md-raised md-primary noPrint" ng-click="ac.printDiv()">Print</md-button>
+<md-card id="printMe">
+      <md-action><md-button flex class="md-raised md-primary noPrint" ng-click="ac.printDiv()">Print</md-button>
       <md-button flex class="md-raised md-warn removebutton noPrint" ng-click="ac.updateCustomer(data.customer_id, 'printed')">remove</md-button>
-      <br>
-      
-      
+      <br></md-action>
+
+<md-card-content>
       <h2 class="authClickToEdit" id="authDate">{{ac.date | date:MMM/dd/yyyy}}</h2>
       <H1>C.A.R.S.</H1>
-      <H2>Service Authorization</H2><img src="../views/images/cars-logo-transparent.png" id="authCarsLogo" />
+      <H2>Service Authorization</H2>
+      <img src="../views/images/cars-logo-transparent.png" id="authCarsLogo" />
       <!-- <img src="../views/images/cars-logo-transparent.png" id="authCarsLogo" /> -->
-
-      <p>I, {{ac.serviceObject.name}}, hereby authorize C.A.R.S. to perform the following services and repairs on the vehicle
-            listed below:</p>
+      <p>I, <span contenteditable ng-model="ac.serviceObject.name">{{ac.serviceObject.name}}</span> hereby authorize C.A.R.S. to perform the following services and repairs on the vehicle
+      listed below:</p>
       <p>{{ac.serviceObject.service_requested}}</p>
       <br>
       <br>
@@ -58,4 +58,5 @@
       <H3>I have read, understand, and agree to the above and authorise C.A.R.S. to inspect and repair my vehicle.</H3>
       <br>
       <textarea rows="6" cols="80">Sign and Date</textarea>
-</div>
+</md-card-content>
+</md-card>
