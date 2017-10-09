@@ -18,7 +18,7 @@ router.post('/', function (req, res) {
             console.log("error connecting to customer_info table in db: ", errorConnectingToDatabase);
             res.sendStatus(500);
         } else { //the connection is successful
-            client.query('INSERT INTO customer_info (name, address, city, state, zip, cellphone, alternative_phone, email_address, qualify_input, year, make, model, vin, service_requested) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14);', [req.body.name, req.body.address, req.body.city, req.body.state, req.body.zip, req.body.cellPhone, req.body.altPhone, req.body.email, req.body.qualification, req.body.year, req.body.make, req.body.model, req.body.vin, req.body.problem], function (errorMakingQuery, result) {
+            client.query('INSERT INTO customer_info (name, address, city, state, zip, cellphone, alternative_phone, email_address, qualify_input, year, make, model, mileage vin, service_requested) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14,$15);', [req.body.name, req.body.address, req.body.city, req.body.state, req.body.zip, req.body.cellPhone, req.body.altPhone, req.body.email, req.body.qualification, req.body.year, req.body.make, req.body.model, req.body.mileage, req.body.vin, req.body.problem], function (errorMakingQuery, result) {
                 done;
                 if (errorMakingQuery) {
                     console.log("Error making db query in customer_info table in requestService.router.js: ", errorMakingQuery);
