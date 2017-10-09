@@ -26,15 +26,38 @@
     </div>
 </div>
 
-<div class="container">
-    <div id="admin_nav"></div>
-    <h1 id="welcome" class="lead">Hello {{ac.AdminService.userObject.userName}}!</h1>
+<!-- <div class="container noPrint">
+        <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links" layout="row" layout-align="space-around center">
+
+            <md-nav-item md-nav-tab="ac.makeRequestsVisible()" name="serviceRequestTab">
+             Service Requests
+            </md-nav-item>
+
+            <md-nav-item md-nav-href="ac.showSearch()" name="serviceRequestTab">
+                 Service History
+            </md-nav-item>
+
+            <md-nav-item md-nav-href="#/mechanic" name="mechanicTab">
+                Mechanic
+            </md-nav-item>
+
+            <md-nav-item md-nav-href="#/admin" name="adminTab" ng-if="ac.AdminService.userObject.role === 'admin'">
+                Admin
+            </md-nav-item>
+
+            <md-nav-item md-nav-click="ac.AdminService.logout()" name="logOutTab">
+                Log Out
+            </md-nav-item>
+        </md-nav-bar> -->
+    <div id="admin_nav">
+    <h1 id="welcome" class="lead">Hello {{ac.AdminService.userObject.userName}}!</h1> -->
 
 
     <button ng-click="ac.makeRequestsVisible()">Service Requests</button>
     <button ng-click="ac.showSearch()">Service History</button>
     <button ng-click="ac.showAuth()">Pending Authorizations</button>
     <button ng-click="ac.AdminService.logout()">Log Out</button>
+    </div>
     <hr>
 </div>
 <!---requests for service page-->
@@ -66,15 +89,14 @@
 </div>
 
 <!--search bar-->
-<div ng-show="ac.showSearchs">
+<!-- <div ng-show="ac.showSearchs">
     <form>
         <input type="text" id="search" ng-model="history_search">
         <button ng-click="ac.search_history(history_search)">submit</button>
     </form>
     <div class="rqst" ng-repeat="customer in ac.searchResults">
     </div>
-    {{ac}}
-</div>
+</div> -->
 <!--search bar end-->
 
 <div class="nrqstform" ng-show="ac.nrqstneeded">
@@ -157,18 +179,18 @@
 
 <!--end of requests for service view-->
 
-    <!-- search bar-->
-    <div ng-show="ac.showSearchs">
-        <form><input type="text" id="search" ng-model="history_search"><button ng-click="ac.search_history(history_search)">submit</button></form>
-        <div class="rqst" ng-repeat="customer in ac.AdminService.searchResults.list.data" ng-click="ac.getChecklist()"> {{customer.name}} {{customer.year}} {{customer.make}} {{customer.model}} {{customer.vin}}
-        </div>
+<!-- search bar-->
+<div ng-show="ac.showSearchs">
+    <form><input type="text" id="search" ng-model="history_search"><button ng-click="ac.search_history(history_search)">submit</button></form>
+    <div class="rqst" ng-repeat="customer in ac.AdminService.searchResults.list.data" ng-click="ac.getChecklist()"> {{customer.name}} {{customer.year}} {{customer.make}} {{customer.model}} {{customer.vin}}
     </div>
-    <!--search bar end -->
+</div>
+<!--search bar end -->
 
-
-        <h3>These authorizations have been created and need to be printed.</h3>
-        <div ng-repeat="data in ac.AdminService.Prints.list.data" ng-click="ac.history_view($index)" class="rqst">{{data.name}}{{data.vin}}</div>
-    </div>
-    </form>
+<div ng-show="ac.showAuths">
+    <h3>These authorizations have been created and need to be printed.</h3>
+    <div ng-repeat="data in ac.AdminService.Prints.list.data" ng-click="ac.history_view($index)" class="rqst">{{data.name}}{{data.vin}}</div>
+</div>
+</form>
 </div>
 </div>

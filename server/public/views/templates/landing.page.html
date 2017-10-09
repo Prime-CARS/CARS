@@ -1,160 +1,163 @@
 <!-- Landing Page Navbar -->
-<div class="navbar">
-    <div class="container">
-        <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links" layout="row" layout-align="space-around center">
-            <!-- <md-nav-item class="NavLink" md-nav-href="#/landingpage" name="homeTab">
-                Home
-            </md-nav-item> -->
 
-            <md-nav-item class="NavLink" md-nav-href="#/requestservice" name="serviceRequestTab">
-                Request for Service Form
-            </md-nav-item>
+<md-nav-bar class="NavBar" layout-align="space-around center" md-no-ink-bar="disableInkBar" md-selected-nav-item="currentNavItem"
+    nav-bar-aria-label="navigation links">
 
-            <!-- Only admin can navigate through all pages freely -->
-            <span ng-if="lpc.AdminService.userObject.role">
-                <md-nav-item md-nav-href="#/mechanic" name="mechanicTab">
-                    Mechanic
-                </md-nav-item>
-    
-                <md-nav-item class="NavLink" md-nav-href="#/admin" name="adminTab" ng-if="lpc.AdminService.userObject.role === 'admin'">
-                    Admin
-                </md-nav-item>
-
-                <md-nav-item md-nav-click="lpc.AdminService.logout()" name="logOutTab">
-                        Log Out
-                </md-nav-item>
-            </span>
-
-            <!-- Hides Log-in if user is logged in -->
-
-        </md-nav-bar>
-    </div>
-</div>
+    <md-nav-item flex md-nav-href="#/requestservice" name="request service">Request for Service</md-nav-item>
+    <span ng-if="lpc.AdminService.userObject.role">
+      <md-nav-item flex md-nav-href="#/mechanic" name="mechanic view">Mechanic View</md-nav-item>
+      <md-nav-item  flex md-nav-href="#/admin" name="admin view">Admin View</md-nav-item>
+      <md-button flex class="md-raised md-warn" ng-click="lpc.AdminService.logout()" name="logOutTab"> Log Out</md-button>
+    </span>
+</md-nav-bar>
 
 <!-- Page content -->
 <div>
+    <!-- <ul rn-carousel class="image">
+        <li>slide #1</li>
+        <li>slide #2</li>
+        <li>slide #3</li>
+    </ul> -->
     <div layout="column">
         <div layout="row" layout-align="space-around center">
-            <section flex="30" class="infocontainer">
-                <h2>Who are we? </h2>
-                <h3>
-                    CARS is a part of the nonprofit ministry of Youth Impact Racing (YIR).
-                    <br>At YIR, youth have an opportunity to learn about racing through RC cars and Go Karts while at the
-                    same time building relationships with other youth and learning life skills in a Gospel centered, Christian
-                    environment.
-                    <br>As the youth reach their Senior High School years, they have a further opportunity to work on actual
-                    cars alongside of older mentors in the CARS ministry.
-                    <br>The mentors in the CARS ministry are individuals who enjoy automobile repair and helping others who
-                    are in need.
-                    <br>Some are experienced mechanics while others just enjoy maintaining their car and the camaraderie
-                    of fellow car repair enthusiasts.
-                </h3>
-            </section>
-
-            <section flex="30" class="infocontainer">
-                <h2> Who do we serve? </h2>
-                <h3>
-                    Our mission is to serve single moms, single women, widows, financially limited individuals, and others who may need assistance
+            <md-card flex="30" md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">Who are we?</span>
+                        <span class="md-subhead"><h3>
+                                CARS is a part of the nonprofit ministry of Youth Impact Racing (YIR).
+                                <br>At YIR, youth have an opportunity to learn about racing through RC cars and Go Karts
+                                while at the same time building relationships with other youth and learning life skills in
+                                a Gospel centered, Christian environment.
+                                <br>As the youth reach their Senior High School years, they have a further opportunity to
+                                work on actual cars alongside of older mentors in the CARS ministry.
+                                <br>The mentors in the CARS ministry are individuals who enjoy automobile repair and helping
+                                others who are in need.
+                                <br>Some are experienced mechanics while others just enjoy maintaining their car and the
+                                camaraderie of fellow car repair enthusiasts.
+                            </h3></span>
+                    </md-card-title-text>
+                </md-card-title>
+            </md-card>
+            <md-card flex="30" md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">Who do we serve?</span>
+                        <span class="md-subhead"><h3>
+                     Our mission is to serve single moms, single women, widows, financially limited individuals, and others who may need assistance
                     as our schedule permits.
-                </h3>
-            </section>
-
-            <section flex="30" class="infocontainer">
-                <h2> What does it cost? </h2>
-                <h3>
-
-                    We charge only for the cost of the parts required for repair. These part costs are substantially less than any auto repair
-                    shop saving an individual as much as 50% on just the part cost alone. Our goal is to be able to provide
-                    totally free repair to those in need when funds are available to cover the cost.
-                </h3>
-            </section>
+                            </h3></span>
+                    </md-card-title-text>
+                </md-card-title>
+            </md-card>
+            <md-card flex="30" md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">What does it cost?</span>
+                        <span class="md-subhead"><h3> We charge only for the cost of the parts required for repair. These part costs are substantially less than any auto repair
+                                            shop saving an individual as much as 50% on just the part cost alone. Our goal
+                                            is to be able to provide totally free repair to those in need when funds are
+                                            available to cover the cost.
+                                            </h3></span>
+                    </md-card-title-text>
+                </md-card-title>
+            </md-card>
         </div>
         <div layout="row" layout-align="space-around center">
-            <section flex="30" class="infocontainer">
-                <h2> How can you be involved </h2>
-                <h3>
-                    We are looking for other individuals who would like to help in the repair shop. Although previous car repair experience is
-                    helpful, we can help train you in various car repair skills. Also, we need individuals who are willing
-                    to help with food preparation for the mechanics and those we serve. If you are interested in helping
-                    serve others who are in need, please contact Mitch at the phone number or email address listed above.
-                    You can support us financially by a donation to the CARS ministry. Donations can be mailed to: CARS 1613
-                    Southcross Drive West Burnsville, MN 55306 All donations to the CARS ministry are tax deductible and
-                    are used to cover the cost of garage supplies, tools, online manuals, insurance, and to fund the cost
-                    of automotive parts for financially limited individuals.
-                </h3>
-            </section>
-            <section flex="30" class="infocontainer">
-                <h2>When do we work on cars? </h2>
-                <p>We usually work on cars the 1st Saturday of each month unless it conflicts with a major holiday weekend.</p>
-            </section>
-
-            <section flex="30" class="infocontainer">
-                <h2> What type of repairs can we do? </h2>
-                <ul>
-                    <li>Oil and oil filter change</li>
-                    <br>
-                    <li>Check Engine light diagnosis</li>
-                    <br>
-                    <li>Brake repair including:</li>
-                    <br>
-                    <li class="listPush"> Disc Pads, Shoes, Rotors, Drums, Calipers</li>
-                    <br>
-                    <li>Minor tune ups including:</li>
-                    <br>
-                    <li class="listPush">Spark Plugs, Wires, Coil Replacement</li>
-                    <br>
-                    <li>Replacement of:</li>
-                    <br>
-                    <li class="listPush">Serpentine belts</li>
-                    <br>
-                    <li class="listPush">Battery</li>
-                    <br>
-                    <li class="listPush">Headlights</li>
-                    <br>
-                    <li class="listPush">Tail and brake lights</li>
-                    <br>
-                    <li class="listPush">Air Filter</li>
-                    <br>
-                    <li class="listPush">Windshield Wiper Blades</li>
-                    <br>
-                    <li class="listPush">Struts and Shocks</li>
-                    <br>
-                    <li class="listPush">Tie rods</li>
-                    <br>
-                    <li class="listPush">Stabilizer bar links </li>
-                    <br>
-                    <li class="listPush">Some drive shafts </li>
-                    <br>
-                    <li class="listPush"> Wheel bearings </li>
-                    <br>
-                </ul>
-            </section>
+            <md-card flex="30" md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">How can you be involved?</span>
+                        <span class="md-subhead">
+        <h3>
+            We are looking for other individuals who would like to help in the repair shop. Although previous car repair experience is
+            helpful, we can help train you in various car repair skills. Also, we need individuals who are willing to help
+            with food preparation for the mechanics and those we serve. If you are interested in helping serve others who
+            are in need, please contact Mitch at the phone number or email address listed above. You can support us financially
+            by a donation to the CARS ministry. Donations can be mailed to: CARS 1613 Southcross Drive West Burnsville, MN
+            55306 All donations to the CARS ministry are tax deductible and are used to cover the cost of garage supplies,
+            tools, online manuals, insurance, and to fund the cost of automotive parts for financially limited individuals.
+        </h3>
+                            </span>
+                    </md-card-title-text>
+                </md-card-title>
+            </md-card>
+            <md-card flex="30" md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">When do we work on cars?</span>
+                        <span class="md-subhead"><h3>
+                                    We usually work on cars the 1st Saturday of each month unless it conflicts with a major holiday weekend.
+                            </h3></span>
+                    </md-card-title-text>
+                </md-card-title>
+            </md-card>
+            <md-card flex="30" md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">What type of repairs can we do?</span>
+                        <span class="md-subhead"><h3> <ul>
+                            <li>Oil and oil filter change</li>
+                            <li>Check Engine light diagnosis</li>
+                            <li>Brake repair including:</li>
+                            <li class="listPush"> Disc Pads, Shoes, Rotors, Drums, Calipers</li>
+                            <li>Minor tune ups including:</li>
+                            <li class="listPush">Spark Plugs, Wires, Coil Replacement</li>
+                            <li>Replacement of:</li>
+                            <li class="listPush">Serpentine belts</li>
+                            <li class="listPush">Battery</li>
+                            <li class="listPush">Headlights</li>
+                            <li class="listPush">Tail and brake lights</li>
+                            <li class="listPush">Air Filter</li>
+                            <li class="listPush">Windshield Wiper Blades</li>
+                            <li class="listPush">Struts and Shocks</li>
+                            <li class="listPush">Tie rods</li>
+                            <li class="listPush">Stabilizer bar links </li>
+                            <li class="listPush">Some drive shafts </li>
+                            <li class="listPush"> Wheel bearings </li>
+                        </ul>
+                         </h3></span>
+                    </md-card-title-text>
+                </md-card-title>
+            </md-card>
         </div>
         <div layout="row" layout-align="space-around center">
-            <section flex="30" class="infocontainer">
-                <h2> What don't we do? </h2>
-                Timing Belts
-                <br> Water pumps
-                <br> Transmission repair or flushes
-                <br> Exhaust repair
-                <br> Major engine repair
-                <br> Body repair
-            </section>
-
-            <section flex="30" class="infocontainer">
-                <h3> Contact us for repair work </h3>
-                <p> Contact Mitch Hagen at: 612-382-6828 </p>
-                <p> Or Email: cars@youthimpactracing.org </p>
-            </section>
-
-            <section flex="30" class="infocontainer">
-                <h3> When do we meet? </h3>
-                <p>
-                    20685 Lynn Drive Prior Lake, MN 55372
-
-                </p>
-            </section>
+            <md-card flex="30" md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">What don't we do?</span>
+                        <span class="md-subhead"><h3>
+            <ul>
+                <li>Timing Belts</li>
+                <li> Water pumps</li>
+                <li> Transmission repair or flushes</li>
+                <li> Exhaust repair</li>
+                <li> Major engine repair</li>
+                <li> Body repair</li>
+            </ul>
+                            </h3></span>
+                    </md-card-title-text>
+                </md-card-title>
+            </md-card>
+            <md-card flex="30" md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">When do we meet?</span>
+                        <span class="md-subhead"><h3> 20685 Lynn Drive Prior Lake, MN 55372
+                            </h3></span>
+                    </md-card-title-text>
+                </md-card-title>
+            </md-card>
+            <md-card flex="30" md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">Contact us for repair work.</span>
+                        <span class="md-subhead"><h3> <p> Contact Mitch Hagen at: 612-382-6828 </p>
+                            <p> Or Email: cars@youthimpactracing.org </p>
+                                            </h3></span>
+                    </md-card-title-text>
+                </md-card-title>
+            </md-card>
         </div>
-
     </div>
 </div>
