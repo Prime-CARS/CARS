@@ -17,16 +17,7 @@ myApp.controller('ChecklistController', function (ChecklistService, AdminService
     $location.path("'" + page + "'")
   }
 
-  vm.showOilRequired = function (show) {
-    if (show == 'Y') {
-      vm.cars_checklist.oilchange = true;
-      vm.oilCheckListVisible = true;
-    } else {
-      vm.cars_checklist.oilchange = false;
-      vm.oilCheckListVisible = false;
-    }
 
-  };
 
   vm.showFinishChecklist = function (show) {
     if (show == 'Y') {
@@ -38,13 +29,27 @@ myApp.controller('ChecklistController', function (ChecklistService, AdminService
     }
   };
 
+  vm.submitChecklist = function (checklistItem) {
+    // console.log('Checklist Save', checklistItem);
+    // console.log('Overall Checklist ', vm.cars_checklist.info);
 
-  vm.submitChecklist = function (checklist) {
-    // console.log('Checklist Save', checklist);
-    
-    checklist.info.checklist_id = $routeParams.checklist_id;
-    checklist.info.checklist_status = 'in_progress';
-    ChecklistService.submitChecklist(checklist.info);
+    //If statement throws up red-flag input box if item fails inspection
+    if (checklistItem == 'fail') {
+      vm.redFlag(checklistItem);
+      vm.cars_checklist.info.checklist_id = $routeParams.checklist_id;
+      vm.cars_checklist.info.checklist_status = 'in_progress';
+      ChecklistService.submitChecklist(vm.cars_checklist.info);
+    } else {
+      vm.cars_checklist.info.checklist_id = $routeParams.checklist_id;
+      vm.cars_checklist.info.checklist_status = 'in_progress';
+      ChecklistService.submitChecklist(vm.cars_checklist.info);
+    }
+  }
+
+  vm.submitChecklistForService = function (checklist) {
+    checklist.checklist_id = $routeParams.checklist_id;
+    checklist.checklist_status = 'in_progress';
+    console.log('Checklist to save: ', checklist);
   }
 
   vm.redFlag = function (failedItem) {
@@ -54,7 +59,7 @@ myApp.controller('ChecklistController', function (ChecklistService, AdminService
       templateUrl: '/views/partials/vehicleobservations.html',
       parent: angular.element(document.body),
       targetEvent: failedItem,
-      clickOutsideToClose:true
+      clickOutsideToClose: true
     })
   }
 
