@@ -57,8 +57,8 @@
       <div>
         <md-radio-group ng-model="cc.cars_checklist.info.headlights_low" ng-change="cc.submitChecklist(cc.cars_checklist)">
           <label for="text">3. Headlights - Low</label>
-          <md-radio-button class="md-primary" ng-value="pass"> Pass </md-radio-button>
-          <md-radio-button class="md-primary" ng-value="fail" ng-click="cc.redFlag()"> Fail </md-radio-button>
+          <md-radio-button class="md-primary" value="pass"> Pass </md-radio-button>
+          <md-radio-button class="md-primary" value="fail" ng-click="cc.redFlag()"> Fail </md-radio-button>
         </md-radio-group>
       </div>
 
@@ -413,7 +413,6 @@
       <div>
         <md-radio-group ng-model="cc.cars_checklist.info.checkoil_level" ng-change="cc.submitChecklist(cc.cars_checklist)">
           <label for="text">42. Check Oil Level </label>
-          <input type="text">
           <md-radio-button class="md-primary" value="pass"> Pass </md-radio-button>
           <md-radio-button class="md-primary" value="fail" ng-click="cc.redFlag()"> Fail </md-radio-button>
         </md-radio-group>
@@ -435,9 +434,9 @@
         </md-radio-group>
       </div>
       <div>
-        <md-input-container ng-model="cc.cars_checklist.info.enginescancodes" ng-change="cc.submitChecklist(cc.cars_checklist)">
+        <md-input-container>
           <label for="text">45. Engine Scan Codes &#42;</label>
-          <input type="text">
+          <input type="text" ng-model="cc.cars_checklist.info.enginescancodes" ng-change="cc.submitChecklist(cc.cars_checklist)">
         </md-input-container>
       </div>
       <!--Vehicle Inspection Checklist Ends Here-->
@@ -594,7 +593,6 @@
             <label for="text">6. Coolant Reservoir Cap Secure</label>
             <md-radio-button value="true"></md-radio-button>
           </md-radio-group>
-          <input type="radio">
         </div>
 
         <div>

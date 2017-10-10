@@ -92,6 +92,7 @@ router.put('/submit', function (req, res) {
     if (req.isAuthenticated()) {
         if (req.user.role) {
             var checklist = req.body;
+            console.log('checklist in router', checklist)
             //connecting to db
             pool.connect(function (errorConnectingToDatabase, client, done) {
                 //checking the status of the connection

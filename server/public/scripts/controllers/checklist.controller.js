@@ -19,10 +19,10 @@ myApp.controller('ChecklistController', function (ChecklistService, AdminService
 
   vm.showOilRequired = function (show) {
     if (show == 'Y') {
-      vm.cars_checklist.oilchange = true;
+      vm.cars_checklist.info.oilchange = true;
       vm.oilCheckListVisible = true;
     } else {
-      vm.cars_checklist.oilchange = false;
+      vm.cars_checklist.info.oilchange = false;
       vm.oilCheckListVisible = false;
     }
 
@@ -30,18 +30,17 @@ myApp.controller('ChecklistController', function (ChecklistService, AdminService
 
   vm.showFinishChecklist = function (show) {
     if (show == 'Y') {
-      vm.cars_checklist.finishup_checklist = true;
+      vm.cars_checklist.info.finishup_checklist = true;
       vm.finishCheckListVisible = true;
     } else {
-      vm.cars_checklist.finishup_checklist = false;
+      vm.cars_checklist.info.finishup_checklist = false;
       vm.finishCheckListVisible = false;
     }
   };
 
 
   vm.submitChecklist = function (checklist) {
-    // console.log('Checklist Save', checklist);
-    
+    console.log('Checklist Save', checklist);
     checklist.info.checklist_id = $routeParams.checklist_id;
     checklist.info.checklist_status = 'in_progress';
     ChecklistService.submitChecklist(checklist.info);
@@ -60,5 +59,6 @@ myApp.controller('ChecklistController', function (ChecklistService, AdminService
 
   vm.vehicleObservationPopUp = function () {
     $mdDialog.hide();
+    
   }
 });
