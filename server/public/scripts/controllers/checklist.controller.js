@@ -32,7 +32,7 @@ myApp.controller('ChecklistController', function (ChecklistService, AdminService
   vm.saveChecklistItem = function (checklistItem) {
     // console.log('Checklist Save', checklistItem);
     // console.log('Overall Checklist ', vm.cars_checklist.info);
-    console.log('Value to pass: ', checklistItem);
+    // console.log('Value to pass: ', checklistItem);
     
     vm.cars_checklist.info.checklist_id = $routeParams.checklist_id;
     vm.cars_checklist.info.checklist_status = 'in_progress';
@@ -44,6 +44,21 @@ myApp.controller('ChecklistController', function (ChecklistService, AdminService
     }
     if (checklistItem == 'poor') {
       vm.redFlag(checklistItem);
+      ChecklistService.submitChecklist(vm.cars_checklist.info);
+    }
+    if (vm.cars_checklist.info.oilchange === false) {
+      vm.cars_checklist.info.drain_oil = false;
+      vm.cars_checklist.info.remove_filter_gasket = false;
+      vm.cars_checklist.info.install_drain_plug = false;
+      vm.cars_checklist.info.install_tighten_filter = false;
+      vm.cars_checklist.info.addoil_amount = undefined;
+      vm.cars_checklist.info.addoil_weight = undefined;
+      vm.cars_checklist.info.checkoil_plug = false;
+      vm.cars_checklist.info.check_filter = false;
+      vm.cars_checklist.info.oilchange_sticker = false;
+      vm.cars_checklist.info.oilfilter_brand = undefined;
+      vm.cars_checklist.info.oilfilter_number = undefined;
+      vm.cars_checklist.info.oiltype = undefined;
       ChecklistService.submitChecklist(vm.cars_checklist.info);
     }
     else {
