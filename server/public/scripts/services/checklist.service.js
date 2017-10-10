@@ -14,7 +14,7 @@ myApp.service('ChecklistService', ['$http', function($http){
     vm.getVehicleInfo = function(checklist_id) {
         $http.get('/checklist/' + checklist_id).then(function (response) {
             vm.vehicleInfo.info = response.data;
-            console.log('Vehicles Info: ', vm.vehicleInfo);
+            // console.log('Vehicles Info: ', vm.vehicleInfo);
         })
     }
 
@@ -27,7 +27,7 @@ myApp.service('ChecklistService', ['$http', function($http){
 
     vm.submitChecklist = function (checklist) {
         $http.put('/checklist/submit', checklist).then(function (response) {
-            console.log('Checklist sent status: ', response.data);
+            // console.log('Checklist sent status: ', response.data);
         })
     }
 }]);
