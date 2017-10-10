@@ -10,7 +10,7 @@ body {
 main{
    background-color: #999696;
    background-image: 
-   linear-gradient(rgba(0,0,0,0.9), rgba(255,255,255,0.6)),
+     radial-gradient(rgba(226, 185, 51, 0.71), rgba(24, 22, 22, 1)),
     url("../views/images/car-repair-background.jpg");
   background-attachment: fixed; 
   background-repeat: no-repeat;
@@ -195,6 +195,7 @@ footer {
     margin-top: -20px;
     font-size: 48px;
     text-decoration-style: bold;
+    align-content: center;
     color: #131313;
 }
 
@@ -457,6 +458,13 @@ footer {
     background-color: #E9E9E9;
     overflow-y: scroll;
     height: 90vh;
+    background: rgba(255, 255, 255, .6);
+    border-radius: 5px;
+}
+
+.input{
+    opacity: 1;
+    z-index: 20;
 }
 
 .ready {
@@ -478,7 +486,7 @@ footer {
 }
 
 #vinSearch{
-    height: 65%;
+    height: 175px;
     width: auto;
     padding-top: 8%;
 }
@@ -487,4 +495,42 @@ footer {
     width: 40%;
     height: 250px;
     }
+#card{
+    height: 70%;
+    margin-top: 5%;
+}
+.RqstForm{
+    padding-left: 5%;
+}
 
+/* tabs */
+
+.tabsdemoStaticTabs md-content md-tabs {
+  border: 1px solid #e1e1e1; }
+  .tabsdemoStaticTabs md-content md-tabs md-tab-content {
+    padding: 25px; }
+    .tabsdemoStaticTabs md-content md-tabs md-tab-content:nth-child(1) {
+      background-color: #cfd8dc; }
+    .tabsdemoStaticTabs md-content md-tabs md-tab-content:nth-child(2) {
+      background-color: #ffb74d; }
+    .tabsdemoStaticTabs md-content md-tabs md-tab-content:nth-child(3) {
+      background-color: #ffd54f; }
+    .tabsdemoStaticTabs md-content md-tabs md-tab-content:nth-child(4) {
+      background-color: #aed581; }
+    .tabsdemoStaticTabs md-content md-tabs md-tab-content:nth-child(5) {
+      background-color: #00897b; }
+
+.tabsdemoStaticTabs .after-tabs-area > span {
+  margin-top: 25px;
+  padding-right: 15px;
+  vertical-align: middle;
+  line-height: 30px;
+  height: 35px; }
+
+.tabsdemoStaticTabs .after-tabs-area > md-checkbox {
+  margin-top: 26px;
+  margin-left: 0; }
+ITEM ONE
+ITEM TWO
+ITEM THREE
+/* tabs */

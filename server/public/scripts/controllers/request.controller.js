@@ -31,7 +31,7 @@ myApp.controller('RequestController', function (AdminService, RequestService, $l
 
 
   vm.card = function() {
-    vm.openCard = true;
+    vm.openCard = true
   };
 
   vm.cardClose = function () {
