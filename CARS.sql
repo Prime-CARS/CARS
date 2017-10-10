@@ -27,6 +27,7 @@ CREATE TABLE "customer_info" (
 	"model" text,
 	"vin" text NOT NULL,
     "service_requested" text,
+    "current_mileage" text,
     "date_of_request" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -89,17 +90,17 @@ CREATE TABLE "cars_checklist" (
     "start_idle" text,
     "enginescancodes" text,
     "oilchange" boolean,
-    "drain_oil" text,
-    "remove_filter_gasket" text,
-    "install_drain_plug" text,
-    "install_tighten_filter" text,
-    "addoil_amount" integer,
-    "addoil_weight" integer,
-    "checkoil_plug" text,
-    "check_filter" text,
-    "oilchange_sticker" text,
+    "drain_oil" boolean,
+    "remove_filter_gasket" boolean,
+    "install_drain_plug" boolean,
+    "install_tighten_filter" boolean,
+    "addoil_amount" text,
+    "addoil_weight" text,
+    "checkoil_plug" boolean,
+    "check_filter" boolean,
+    "oilchange_sticker" boolean,
     "oilfilter_brand" text,
-    "oilfilter_number" integer,
+    "oilfilter_number" text,
     "oiltype" text,
     "finishup_checklist" boolean,
     "oilcapsecure" text,
@@ -123,7 +124,6 @@ CREATE TABLE "cars_checklist" (
     "cost" money,
     "checklist_status" text,
     "mechanics" text,
-    "current_mileage" text,
     "checkout_completed" boolean
 );
 --End DB setup
