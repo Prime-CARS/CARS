@@ -32,16 +32,23 @@ myApp.controller('ChecklistController', function (ChecklistService, AdminService
   vm.saveChecklistItem = function (checklistItem) {
     // console.log('Checklist Save', checklistItem);
     // console.log('Overall Checklist ', vm.cars_checklist.info);
+    vm.cars_checklist.info.checklist_id = $routeParams.checklist_id;
+    vm.cars_checklist.info.checklist_status = 'in_progress';
 
     //If statement throws up red-flag input box if item fails inspection
     if (checklistItem == 'fail') {
       vm.redFlag(checklistItem);
-      vm.cars_checklist.info.checklist_id = $routeParams.checklist_id;
-      vm.cars_checklist.info.checklist_status = 'in_progress';
       ChecklistService.submitChecklist(vm.cars_checklist.info);
-    } else {
-      vm.cars_checklist.info.checklist_id = $routeParams.checklist_id;
-      vm.cars_checklist.info.checklist_status = 'in_progress';
+    }
+    if (checklistItem == 'poor') {
+      vm.redFlag(checklistItem);
+      ChecklistService.submitChecklist(vm.cars_checklist.info);
+    }
+    if (checklistItem == false) {
+      vm.redFlag(checklistItem);
+      ChecklistService.submitChecklist(vm.cars_checklist.info);
+    }
+    else {
       ChecklistService.submitChecklist(vm.cars_checklist.info);
     }
   };
