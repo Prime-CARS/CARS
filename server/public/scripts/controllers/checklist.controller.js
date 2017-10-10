@@ -32,6 +32,8 @@ myApp.controller('ChecklistController', function (ChecklistService, AdminService
   vm.saveChecklistItem = function (checklistItem) {
     // console.log('Checklist Save', checklistItem);
     // console.log('Overall Checklist ', vm.cars_checklist.info);
+    console.log('Value to pass: ', checklistItem);
+    
     vm.cars_checklist.info.checklist_id = $routeParams.checklist_id;
     vm.cars_checklist.info.checklist_status = 'in_progress';
 
@@ -41,10 +43,6 @@ myApp.controller('ChecklistController', function (ChecklistService, AdminService
       ChecklistService.submitChecklist(vm.cars_checklist.info);
     }
     if (checklistItem == 'poor') {
-      vm.redFlag(checklistItem);
-      ChecklistService.submitChecklist(vm.cars_checklist.info);
-    }
-    if (checklistItem == false) {
       vm.redFlag(checklistItem);
       ChecklistService.submitChecklist(vm.cars_checklist.info);
     }
