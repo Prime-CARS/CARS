@@ -13,11 +13,11 @@ myApp.controller('AdminController', function (AdminService, RequestService, Auth
   AdminService.getuser();
 
 
-  vm.showRequests = true;
-  vm.InfoExpanded = false;
-  vm.nrqstneeded = false;
-  vm.showAuths = false;
-  vm.showSearchs = false;
+  // vm.showRequests = true;
+  // vm.InfoExpanded = false;
+  // vm.nrqstneeded = false;
+  // vm.showAuths = false;
+  // vm.showSearchs = false;
   vm.Prints = AdminService.Prints;
   vm.customer= {};
   vm.textboxShowing = false;
@@ -29,7 +29,7 @@ myApp.controller('AdminController', function (AdminService, RequestService, Auth
     vm.showAuths = false;
     vm.showSearchs = false;
     vm.getRequests();
-    console.log(vm.showRequests);
+
   }
 
   vm.showSearch = function () {
@@ -114,9 +114,27 @@ myApp.controller('AdminController', function (AdminService, RequestService, Auth
       type: "success"
     })
   };
+  /*putting in tabs*/
+
+
+   vm.tabs = function () {
+      vm.data = {
+        selectedIndex: 0,
+        secondLocked: true,
+        secondLabel: "Item Two",
+        bottom: false
+      };
+      vm.next = function () {
+        vm.data.selectedIndex = Math.min(vm.data.selectedIndex + 1, 2);
+      };
+      vm.previous = function () {
+        vm.data.selectedIndex = Math.max(vm.data.selectedIndex - 1, 0);
+      };
+    }
+ /*putting in tabs*/
 
   vm.getPrint();
   vm.getRequests();
-  console.log(vm.RetrievedRequests)
+
 
 });

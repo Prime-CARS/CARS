@@ -9,14 +9,22 @@ body {
 
 main{
    background-color: #999696;
-   background-image: url("../views/images/motor-background.jpeg");
+   background-image: 
+     radial-gradient(rgba(199, 195, 195, 0.71), rgba(24, 22, 22, 1)),
+    url("../views/images/car-repair-background.jpg");
   background-attachment: fixed; 
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  opacity: 1
-
+  height: 100vh;
 }
 
+._md-nav-button-text {
+   color: rgb(126, 3, 13);
+    font-size: 15px;
+    font-weight: 800;
+    background-color:white;
+}
+    
 .carsImg {
     width: 300px;
     height: 240px;
@@ -68,13 +76,13 @@ main{
     margin-left: 10px;
 }
 
-
-.NavBar{
-  background-color: maroon;
-  width: 100%;
-  opacity: 1;
-
-}
+.NavBar {
+    background-color: white; 
+    width: 100%;
+    opacity: 1;
+    color: white
+   
+} 
 
 ul {
     list-style-type: none;
@@ -85,6 +93,7 @@ ul {
 
 li {
     float: left;
+    color: maroon;
 }
 
 li a {
@@ -94,7 +103,6 @@ li a {
     padding: 14px 16px;
     text-decoration: none;
 }
-
 
 /* Change the link color to #111 (black) on hover */
 
@@ -115,20 +123,19 @@ footer {
 
 .landingpagelinks {
     padding: 8px;
+    
     color: white;
-    background-color: white;
+    background-color: white; 
     clear: left;
     text-align: center;
 }
 
 .infocontainer {
-
-    background-color:#F5F5F5;
+    background-color: #F5F5F5;
     /* background: linear-gradient(maroon,maroon,maroon, #726F6F); */
     color: #131313;
     /* margin: 20px 0 20px 0; */
     /* padding: 5px; */
-
     border-radius: 5px;
     border-style: inset;
     border-width: 3px;
@@ -149,13 +156,12 @@ footer {
 }
 
 .rqst {
-    /* position: relative; */
-    margin: 10px 10px 10px 10px;
+    /* position: relative;
+    margin: 10px 10px 10px 10px; */
     /* border: 2px dashed black; */
     padding: 8px 8px 8px 8px;
-    height: 30%;
-    width: 50%;
     background-color: lightgray;
+    opacity: 1;
 }
 
 .expanded_request {
@@ -193,8 +199,7 @@ footer {
     background-color: lightskyblue;
 }
 
-.lead {
-    margin-top: -20px;
+.AdminHello {
     font-size: 48px;
     text-decoration-style: bold;
     color: #131313;
@@ -212,8 +217,34 @@ footer {
     padding-top: 20px;
 }
 
+
 .NavLink {
     color: whitesmoke;
+}
+
+main {
+    background-color: #999696;
+    /* background-image: url("../views/images/motor-background.jpeg"); */
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    opacity: 1
+}
+
+#authCarsLogo {
+    float: right;
+    width: 35%;
+    margin: 4vh -5vw 0vh 0vw;
+}
+
+#authDate {
+    float: right;
+}
+
+#printMe {
+    width: 75vw;
+    margin: auto;
+    margin-bottom: 8vh;
 }
 
 @media print {
@@ -227,23 +258,17 @@ footer {
         margin: auto;
     }
     #authCarsLogo {
-      float: right;
-      width: 40%;
-      margin: 40px 30px 5px 5px;
-  }
+        float: right;
+        margin-top: -20pt;
+    }
 }
 
-#authCarsLogo {
-    float: right;
-    width: 40%;
-    margin: 40px 30px 5px 5px;
-}
-
-#printMe {
-    width: 75vw;
-    margin: auto;
-    margin-bottom: 8vh;
-}
+/* #authInput {
+    min-width: 90px!important;
+    max-width: 99.99%!important;
+    transition: width 0.25s;
+    text-align: center;
+} */
 
 #admin_nav {
     position: relative;
@@ -259,3 +284,84 @@ footer {
 .removebutton {
     align-content: right;
 }
+
+.base{
+    background-color: #E9E9E9;
+    overflow-y: scroll;
+    height: 90vh;
+    background: rgba(255, 255, 255, .6);
+    border-radius: 5px;
+}
+
+.input{
+    opacity: 1;
+    z-index: 20;
+}
+
+.ready {
+    background-color: greenyellow;
+}
+
+.in_progress {
+    background-color: lightcoral;
+}
+
+.serviced {
+    background-color: lightskyblue;
+}
+
+.questionMark{
+    font-size: 24px;
+    padding-bottom: 12px;
+    display: inline;
+}
+
+#vinSearch{
+    height: 175px;
+    width: auto;
+    padding-top: 8%;
+}
+
+#vinPopUp{
+    width: 40%;
+    height: 250px;
+    }
+#card{
+    height: 70%;
+    margin-top: 5%;
+}
+.RqstForm{
+    padding-left: 5%;
+}
+
+/* tabs */
+
+.tabsdemoStaticTabs md-content md-tabs {
+  border: 1px solid #e1e1e1; }
+  .tabsdemoStaticTabs md-content md-tabs md-tab-content {
+    padding: 25px; }
+    .tabsdemoStaticTabs md-content md-tabs md-tab-content:nth-child(1) {
+      background-color: #cfd8dc; }
+    .tabsdemoStaticTabs md-content md-tabs md-tab-content:nth-child(2) {
+      background-color: #ffb74d; }
+    .tabsdemoStaticTabs md-content md-tabs md-tab-content:nth-child(3) {
+      background-color: #ffd54f; }
+    .tabsdemoStaticTabs md-content md-tabs md-tab-content:nth-child(4) {
+      background-color: #aed581; }
+    .tabsdemoStaticTabs md-content md-tabs md-tab-content:nth-child(5) {
+      background-color: #00897b; }
+
+.tabsdemoStaticTabs .after-tabs-area > span {
+  margin-top: 25px;
+  padding-right: 15px;
+  vertical-align: middle;
+  line-height: 30px;
+  height: 35px; }
+
+.tabsdemoStaticTabs .after-tabs-area > md-checkbox {
+  margin-top: 26px;
+  margin-left: 0; }
+ 
+  .monkey{
+      height:60vh;
+  }
