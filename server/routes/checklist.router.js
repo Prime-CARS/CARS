@@ -102,7 +102,7 @@ router.put('/submit', function (req, res) {
                     res.sendStatus(500);
                 } else {
                     //the connection is successful
-                    client.query('UPDATE cars_checklist SET headlights_high = $1, headlights_low = $2, parkinglights_front = $3, turnsignals_front = $4, taillights = $5, turnsignals_rear = $6, brakelights = $7, backup_lights = $8, licensetabs_expiration = $9, sparetirepressure = $10, currenttirepressure_lf = $11, currenttirepressure_rf = $12, currenttirepressure_lr = $13, currenttirepressure_rr = $14, finaltirepressure_lf = $15, finaltirepressure_rf = $16, finaltirepressure_lr = $17, finaltirepressure_rr = $18, tirecondition_lf = $19, tirecondition_rf = $20, tirecondition_lr = $21, tirecondition_rr = $22, wipercondition = $23, airfiltercondition = $24, brakefluid = $25, powersteeringfluid = $26, transmissionfluid = $27, oillevel = $28, washerfluid = $29, coolantlevel = $30, coolantlevel_strength = $31, radiatorhosecondition = $32, batterycondition = $33, serpentinebeltcondition = $34, otherbeltscondition = $35, lubehoodlatch = $36, shockstruttest = $37, frontwheelbearingtest = $38, tierodtest = $39, balljointtest = $40, controlarmcondition = $41, stabilizerbarlinkcondition = $42, cvbootcondition = $43, frontbrakecondition = $44, frontbrakecalipers = $45, reardiscbrakecondition = $46, rearbrakecalipers = $47, rearstabilizerbarlinkcondition = $48, torqueallwheelsremoved = $49, exhaustsystem = $50, enginescancodes = $51, oilchange = $52, addoil_amount = $53, addoil_weight = $54, oilfilter_brand = $55, oilfilter_number = $56, oiltype = $57, finishup_checklist = $58, vehicle_observations = $59, recommended_repairs = $60, repairs_declined = $61, parts_installed = $62, cost = $63, mechanics = $64, current_mileage = $65, date_completed=now(), checklist_status=$67 WHERE checklist_id = $66;',
+                    client.query('UPDATE cars_checklist SET headlights_high = $1, headlights_low = $2, parkinglights_front = $3, turnsignals_front = $4, taillights = $5, turnsignals_rear = $6, brakelights = $7, backup_lights = $8, licensetabs_expiration = $9, sparetirepressure = $10, currenttirepressure_lf = $11, currenttirepressure_rf = $12, currenttirepressure_lr = $13, currenttirepressure_rr = $14, finaltirepressure_lf = $15, finaltirepressure_rf = $16, finaltirepressure_lr = $17, finaltirepressure_rr = $18, tirecondition_lf = $19, tirecondition_rf = $20, tirecondition_lr = $21, tirecondition_rr = $22, wipercondition = $23, airfiltercondition = $24, brakefluid = $25, powersteeringfluid = $26, transmissionfluid = $27, oillevel = $28, washerfluid = $29, coolantlevel = $30, coolantlevel_strength = $31, radiatorhosecondition = $32, batterycondition = $33, serpentinebeltcondition = $34, otherbeltscondition = $35, lubehoodlatch = $36, shockstruttest = $37, frontwheelbearingtest = $38, tierodtest = $39, balljointtest = $40, controlarmcondition = $41, stabilizerbarlinkcondition = $42, cvbootcondition = $43, frontbrakecondition = $44, frontbrakecalipers = $45, reardiscbrakecondition = $46, rearbrakecalipers = $47, rearstabilizerbarlinkcondition = $48, torqueallwheelsremoved = $49, exhaustsystem = $50, enginescancodes = $51, oilchange = $52, addoil_amount = $53, addoil_weight = $54, oilfilter_brand = $55, oilfilter_number = $56, oiltype = $57, finishup_checklist = $58, vehicle_observations = $59, recommended_repairs = $60, repairs_declined = $61, parts_installed = $62, cost = $63, mechanics = $64, current_mileage = $65, date_completed=now(), checklist_status=$67 , checkoil_level = $68 , oilcap_secure = $69, start_idle = $70 WHERE checklist_id = $66;',
                         [
                             checklist.headlights_high,
                             checklist.headlights_low,
@@ -169,8 +169,12 @@ router.put('/submit', function (req, res) {
                             checklist.cost,
                             checklist.mechanics,
                             checklist.current_mileage,
-                            checklist.checklist_id, 
-                            checklist.checklist_status
+                            checklist.checklist_id,
+                            checklist.checklist_status,
+                            checklist.checklist_status,
+                            checklist.checkoil_level,
+                            checklist.oilcap_secure,
+                            checklist.start_idle
                         ],
                         function (err, result) {
                             done();
