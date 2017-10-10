@@ -136,18 +136,207 @@ checklist.finishup_checklist,
 checklist.vehicle_observations, 
 checklist.recommended_repairs, 
 checklist.repairs_declined, 
-<<<<<<< HEAD
-checklist.date_timestamp, 
-checklist.parts_installed, 
-checklist.cost, 
-checklist.checklist_status, 
-checklist.mechanics, 
-checklist.current_mileage
-=======
 checklist.parts_installed, 
 checklist.cost, 
 checklist.mechanics, 
 checklist.current_mileage
+
+--If Function to check checklist
+if (checklist.headlights_high) {
+    
+}
+if (checklist.headlights_low) {
+    
+}
+if (checklist.parkinglights_front) {
+    
+}
+if (checklist.turnsignals_front) {
+    
+}
+if (checklist.taillights) {
+    
+}
+if (checklist.turnsignals_rear) {
+    
+}
+if (checklist.brakelights) {
+    
+}
+if (checklist.backup_lights) {
+    
+}
+if (checklist.licensetabs_expiration) {
+    
+}
+if (checklist.sparetirepressure) {
+    
+}
+if (checklist.currenttirepressure_lf) {
+    
+}
+if (checklist.currenttirepressure_rf) {
+    
+}
+if (checklist.currenttirepressure_lr) {
+    
+}
+if (checklist.currenttirepressure_rr) {
+    
+}
+if (checklist.finaltirepressure_lf) {
+    
+}
+if (checklist.finaltirepressure_rf) {
+    
+}
+if (checklist.finaltirepressure_lr) {
+    
+}
+if (checklist.finaltirepressure_rr) {
+    
+}
+if (checklist.tirecondition_lf) {
+    
+}
+if (checklist.tirecondition_rf) {
+    
+}
+if (checklist.tirecondition_lr) {
+    
+}
+if (checklist.tirecondition_rr) {
+    
+}
+if (checklist.wipercondition) {
+    
+}
+if (checklist.airfiltercondition) {
+    
+}
+if (checklist.brakefluid) {
+    
+}
+if (checklist.powersteeringfluid) {
+    
+}
+if (checklist.transmissionfluid) {
+    
+}
+if (checklist.oillevel) {
+    
+}
+if (checklist.washerfluid) {
+    
+}
+if (checklist.coolantlevel) {
+    
+}
+if (checklist.coolantlevel_strength) {
+    
+}
+if (checklist.radiatorhosecondition) {
+    
+}
+if (checklist.batterycondition) {
+    
+}
+if (checklist.serpentinebeltcondition) {
+    
+}
+if (checklist.otherbeltscondition) {
+    
+}
+if (checklist.lubehoodlatch) {
+    
+}
+if (checklist.shockstruttest) {
+    
+}
+if (checklist.frontwheelbearingtest) {
+    
+}
+if (checklist.tierodtest) {
+    
+}
+if (checklist.balljointtest) {
+    
+}
+if (checklist.controlarmcondition) {
+    
+}
+if (checklist.stabilizerbarlinkcondition) {
+    
+}
+if (checklist.cvbootcondition) {
+    
+}
+if (checklist.frontbrakecondition) {
+    
+}
+if (checklist.frontbrakecalipers) {
+    
+}
+if (checklist.reardiscbrakecondition) {
+    
+}
+if (checklist.rearbrakecalipers) {
+    
+}
+if (checklist.rearstabilizerbarlinkcondition) {
+    
+}
+if (checklist.torqueallwheelsremoved) {
+    
+}
+if (checklist.exhaustsystem) {
+    
+}
+if (checklist.enginescancodes) {
+    
+}
+if (checklist.oilchange) {
+    
+}
+if (checklist.addoil_amount) {
+    
+}
+if (checklist.addoil_weight) {
+    
+}
+if (checklist.oilfilter_brand) {
+    
+}
+if (checklist.oilfilter_number) {
+    
+}
+if (checklist.oiltype) {
+    
+}
+if (checklist.finishup_checklist) {
+    
+}
+if (checklist.vehicle_observations) {
+    
+}
+if (checklist.recommended_repairs) {
+    
+}
+if (checklist.repairs_declined) {
+    
+}
+if (checklist.parts_installed) {
+    
+}
+if (checklist.cost) {
+    
+}
+if (checklist.mechanics) {
+    
+}
+if (checklist.current_mileage) {
+    
+}
 
 --UPDATE
     checklist.headlights_high = $1,

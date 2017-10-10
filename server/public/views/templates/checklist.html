@@ -22,26 +22,29 @@
         <br>
         <md-input-container>
           <label for="text"> Vehicle Owner's Name &#42;&#42; </label>
-          <input type='text' ng-model="cc.cars_checklist.info.name">
+          <input type='text' ng-model="cc.cars_checklist.info.name" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.name)">
         </md-input-container>
         <md-input-container> <label for="text"> VIN &#42;&#42; </label>
-          <input type='text' ng-model="cc.cars_checklist.info.vin">
+          <input type='text' ng-model="cc.cars_checklist.info.vin" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.vin)">
         </md-input-container>
         <md-input-container>
           <label for="text">Year &#42;&#42; </label>
-          <input type='text' ng-model="cc.cars_checklist.info.year"> </md-input-container>
+          <input type='text' ng-model="cc.cars_checklist.info.year" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.year)">          </md-input-container>
+
         <md-input-container> <label for="text"> Engine Size &#42;&#42; </label>
           <input type='text'> </md-input-container>
+
         <md-input-container>
-          <label for="text" ng-model="cc.cars_checklist.info.make">Make &#42;&#42; </label>
-          <input type='text'>
+          <label for="text">Make &#42;&#42; </label>
+          <input type='text' ng-model="cc.cars_checklist.info.make" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.make)">
         </md-input-container>
+
         <md-input-container>
-          <label for="text" ng-model="cc.cars_checklist.info.model">Model &#42;&#42; </label>
-          <input type='text'> </md-input-container>
+          <label for="text">Model &#42;&#42; </label>
+          <input type='text' ng-model="cc.cars_checklist.info.model" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.model)">          </md-input-container>
         <md-input-container>
           <label for="text">Miles &#42;&#42; </label>
-          <input type='text'>
+          <input type='text' ng-model="cc.cars_checklist.info.current_mileage" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.current_mileage)">
         </md-input-container>
       </div>
 
@@ -66,7 +69,7 @@
         <md-radio-group ng-model="cc.cars_checklist.info.parkinglights_front" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.parkinglights_front)">
           <label for="text">4. Parking Lights - Front</label>
           <md-radio-button class="md-primary" value="pass"> Pass </md-radio-button>
-          <md-radio-button class="md-primary" value="fail" > Fail </md-radio-button>
+          <md-radio-button class="md-primary" value="fail"> Fail </md-radio-button>
         </md-radio-group>
       </div>
 
@@ -74,7 +77,7 @@
         <md-radio-group ng-model="cc.cars_checklist.info.turnsignals_front" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.turnsignals_front)">
           <label for="text">5. Turn Signals- Front</label>
           <md-radio-button class="md-primary" value="pass"> Pass </md-radio-button>
-          <md-radio-button class="md-primary" value="fail" > Fail </md-radio-button>
+          <md-radio-button class="md-primary" value="fail"> Fail </md-radio-button>
         </md-radio-group>
       </div>
 
@@ -82,7 +85,7 @@
         <md-radio-group ng-model="cc.cars_checklist.info.taillights" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.taillights)">
           <label for="text">6. Tail lights </label>
           <md-radio-button class="md-primary" value="pass"> Pass </md-radio-button>
-          <md-radio-button class="md-primary" value="fail" > Fail </md-radio-button>
+          <md-radio-button class="md-primary" value="fail"> Fail </md-radio-button>
         </md-radio-group>
       </div>
 
@@ -90,7 +93,7 @@
         <md-radio-group ng-model="cc.cars_checklist.info.turnsignals_rear" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.turnsignals_rear)">
           <label for="text">7. Turn Signals - Rear </label>
           <md-radio-button class="md-primary" value="pass"> Pass </md-radio-button>
-          <md-radio-button class="md-primary" value="fail" > Fail </md-radio-button>
+          <md-radio-button class="md-primary" value="fail"> Fail </md-radio-button>
         </md-radio-group>
       </div>
 
@@ -98,7 +101,7 @@
         <md-radio-group ng-model="cc.cars_checklist.info.brakelights" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.brakelights)">
           <label for="text">8. Brake Lights </label>
           <md-radio-button class="md-primary" value="pass"> Pass </md-radio-button>
-          <md-radio-button class="md-primary" value="fail" > Fail </md-radio-button>
+          <md-radio-button class="md-primary" value="fail"> Fail </md-radio-button>
         </md-radio-group>
       </div>
 
@@ -106,47 +109,67 @@
         <md-radio-group ng-model="cc.cars_checklist.info.backup_lights" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.backup_lights)">
           <label for="text">9. Backup Lights </label>
           <md-radio-button class="md-primary" value="pass"> Pass </md-radio-button>
-          <md-radio-button class="md-primary" value="fail" > Fail </md-radio-button>
+          <md-radio-button class="md-primary" value="fail"> Fail </md-radio-button>
         </md-radio-group>
       </div>
 
-      <div>
-        <label for="text"> 10. License Tabs Expiration : </label>
+      <md-input-container>
+        10. License Tabs Expiration
+        <label for="text"></label>
         <input type="text" ng-model="cc.cars_checklist.info.licensetabs_expiration" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.licensetabs_expiration)">
-      </div>
-
-      <div>
-        <label for="text"> 11. Spare Tire Pressure : </label>
+      </md-input-container>
+      <br>
+      <md-input-container>
+        11. Spare Tire Pressure
+        <label for="text"></label>
         <input type='number' ng-model="cc.cars_checklist.info.sparetirepressure" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.sparetirepressure)">
-      </div>
+      </md-input-container>
 
       <div>
         <label for="text"> 12. Current Tire Pressure</label>
         <br>
+        <md-input-container>
+          <label> Left Front Pressure </label>
+          <input type="number" ng-model="cc.cars_checklist.info.currenttirepressure_lf" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.currenttirepressure_lf)">
+        </md-input-container>
+        <md-input-container>
+          <label> Right Front Pressure </label>
+          <input type="number" ng-model="cc.cars_checklist.info.currenttirepressure_rf" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.currenttirepressure_rf)">
+        </md-input-container>
         <br>
-        <label> Left Front Pressure: </label>
-        <input type="number" ng-model="cc.cars_checklist.info.currenttirepressure_lf" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.currenttirepressure_lf)">
-        <label> Right Front Pressure: </label>
-        <input type="number" ng-model="cc.cars_checklist.info.currenttirepressure_rf" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.currenttirepressure_rf)">
-        <br>
-        <label> Left Rear Pressure:</label>
-        <input type="number" ng-model="cc.cars_checklist.info.currenttirepressure_lr" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.currenttirepressure_lr)">
-        <label> Right Rear Pressure: </label>
-        <input type="number" ng-model="cc.cars_checklist.info.currenttirepressure_rr" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.currenttirepressure_rr)">
+
+        <md-input-container>
+          <label> Left Rear Pressure</label>
+          <input type="number" ng-model="cc.cars_checklist.info.currenttirepressure_lr" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.currenttirepressure_lr)">
+        </md-input-container>
+
+        <md-input-container>
+          <label> Right Rear Pressure</label>
+          <input type="number" ng-model="cc.cars_checklist.info.currenttirepressure_rr" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.currenttirepressure_rr)">
+        </md-input-container>
       </div>
 
       <br>
       <div>
         <label for="text"> 13. Final Tire Pressure</label>
-        <label> Left Front Pressure: </label>
-        <input type="number" ng-model="cc.cars_checklist.info.finaltirepressure_lf" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.finaltirepressure_lf)">
-        <label> Right Front Pressure: </label>
-        <input type="number" ng-model="cc.cars_checklist.info.finaltirepressure_rf" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.finaltirepressure_rf)">
         <br>
-        <label> Left Rear Pressure:</label>
-        <input type="number" ng-model="cc.cars_checklist.info.finaltirepressure_lr" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.finaltirepressure_lr)">
-        <label> Right Rear Pressure: </label>
-        <input type="number" ng-model="cc.cars_checklist.info.finaltirepressure_rr" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.finaltirepressure_rr)">
+        <md-input-container>
+          <label> Left Front Pressure </label>
+          <input type="number" ng-model="cc.cars_checklist.info.finaltirepressure_lf" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.finaltirepressure_lf)">
+        </md-input-container>
+        <md-input-container>
+          <label> Right Front Pressure</label>
+          <input type="number" ng-model="cc.cars_checklist.info.finaltirepressure_rf" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.finaltirepressure_rf)">
+        </md-input-container>
+        <br>
+        <md-input-container>
+          <label> Left Rear Pressure</label>
+          <input type="number" ng-model="cc.cars_checklist.info.finaltirepressure_lr" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.finaltirepressure_lr)">
+        </md-input-container>
+        <md-input-container>
+          <label> Right Rear Pressure</label>
+          <input type="number" ng-model="cc.cars_checklist.info.finaltirepressure_rr" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.finaltirepressure_rr)">
+        </md-input-container>
       </div>
 
       <div>
@@ -175,7 +198,7 @@
 
         <label> Right Rear Tire Condition </label>
         <md-radio-group ng-model="cc.cars_checklist.info.tirecondition_rr" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.tirecondition_rr)">
-           <md-radio-button value="good"> Good </md-radio-button>
+          <md-radio-button value="good"> Good </md-radio-button>
           <md-radio-button value="fair"> Fair </md-radio-button>
           <md-radio-button value="poor"> Poor </md-radio-button>
         </md-radio-group>
@@ -205,7 +228,7 @@
         <md-radio-group ng-model="cc.cars_checklist.info.brakefluid" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.brakefluid)">
           <label for="text">17. Brake Fluid </label>
           <md-radio-button class="md-primary" value="pass"> Pass </md-radio-button>
-          <md-radio-button class="md-primary" value="fail" > Fail </md-radio-button>
+          <md-radio-button class="md-primary" value="fail"> Fail </md-radio-button>
         </md-radio-group>
       </div>
 
@@ -213,7 +236,7 @@
         <md-radio-group ng-model="cc.cars_checklist.info.powersteeringfluid" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.powersteeringfluid)">
           <label for="text">18. Power Steering Fluid </label>
           <md-radio-button class="md-primary" value="pass"> Pass </md-radio-button>
-          <md-radio-button class="md-primary" value="fail" > Fail </md-radio-button>
+          <md-radio-button class="md-primary" value="fail"> Fail </md-radio-button>
         </md-radio-group>
       </div>
 
@@ -221,7 +244,7 @@
         <md-radio-group ng-model="cc.cars_checklist.info.transmissionfluid" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.transmissionfluid)">
           <label for="text">19. Transmission Fluid </label>
           <md-radio-button class="md-primary" value="pass"> Pass </md-radio-button>
-          <md-radio-button class="md-primary" value="fail" > Fail </md-radio-button>
+          <md-radio-button class="md-primary" value="fail"> Fail </md-radio-button>
         </md-radio-group>
       </div>
 
@@ -229,7 +252,7 @@
         <md-radio-group ng-model="cc.cars_checklist.info.oillevel" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.oillevel)">
           <label for="text">20. Oil Level </label>
           <md-radio-button class="md-primary" value="pass"> Pass </md-radio-button>
-          <md-radio-button class="md-primary" value="fail" > Fail </md-radio-button>
+          <md-radio-button class="md-primary" value="fail"> Fail </md-radio-button>
         </md-radio-group>
       </div>
 
@@ -237,7 +260,7 @@
         <md-radio-group ng-model="cc.cars_checklist.info.washerfluid" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.washerfluid)">
           <label for="text">21. Washer Fluid </label>
           <md-radio-button class="md-primary" value="pass"> Pass </md-radio-button>
-          <md-radio-button class="md-primary" value="fail" > Fail </md-radio-button>
+          <md-radio-button class="md-primary" value="fail"> Fail </md-radio-button>
         </md-radio-group>
       </div>
 
@@ -292,7 +315,7 @@
         <md-radio-group ng-model="cc.cars_checklist.info.lubehoodlatch" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.lubehoodlatch)">
           <label for="text">27. Lube Hood Latch </label>
           <md-radio-button class="md-primary" value="pass"> Pass </md-radio-button>
-          <md-radio-button class="md-primary" value="fail" > Fail </md-radio-button>
+          <md-radio-button class="md-primary" value="fail"> Fail </md-radio-button>
         </md-radio-group>
       </div>
 
@@ -300,7 +323,7 @@
         <md-radio-group ng-model="cc.cars_checklist.info.shockstruttest" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.shockstruttest)">
           <label for="text">28. Shock/Strut Test </label>
           <md-radio-button class="md-primary" value="pass"> Pass </md-radio-button>
-          <md-radio-button class="md-primary" value="fail" > Fail </md-radio-button>
+          <md-radio-button class="md-primary" value="fail"> Fail </md-radio-button>
         </md-radio-group>
       </div>
 
@@ -308,7 +331,7 @@
         <md-radio-group ng-model="cc.cars_checklist.info.frontwheelbearingtest" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.frontwheelbearingtest)">
           <label for="text">29. Front Wheel Bearing Test </label>
           <md-radio-button class="md-primary" value="pass"> Pass </md-radio-button>
-          <md-radio-button class="md-primary" value="fail" > Fail </md-radio-button>
+          <md-radio-button class="md-primary" value="fail"> Fail </md-radio-button>
         </md-radio-group>
       </div>
 
@@ -316,7 +339,7 @@
         <md-radio-group ng-model="cc.cars_checklist.info.tierodtest" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.tierodtest)">
           <label for="text">30. Tie Rod Test </label>
           <md-radio-button class="md-primary" value="pass"> Pass </md-radio-button>
-          <md-radio-button class="md-primary" value="fail" > Fail </md-radio-button>
+          <md-radio-button class="md-primary" value="fail"> Fail </md-radio-button>
         </md-radio-group>
       </div>
 
@@ -324,7 +347,7 @@
         <md-radio-group ng-model="cc.cars_checklist.info.balljointtest" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.balljointtest)">
           <label for="text">31. Ball Joint Test </label>
           <md-radio-button class="md-primary" value="pass"> Pass </md-radio-button>
-          <md-radio-button class="md-primary" value="fail" > Fail </md-radio-button>
+          <md-radio-button class="md-primary" value="fail"> Fail </md-radio-button>
         </md-radio-group>
       </div>
 
@@ -332,7 +355,7 @@
         <md-radio-group ng-model="cc.cars_checklist.info.controlarmcondition" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.controlarmcondition)">
           <label for="text">32. Control Arm Condition </label>
           <md-radio-button class="md-primary" value="pass"> Pass </md-radio-button>
-          <md-radio-button class="md-primary" value="fail" > Fail </md-radio-button>
+          <md-radio-button class="md-primary" value="fail"> Fail </md-radio-button>
         </md-radio-group>
       </div>
 
@@ -340,7 +363,7 @@
         <md-radio-group ng-model="cc.cars_checklist.info.stabilizerbarlinkcondition" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.stabilizerbarlinkcondition)">
           <label for="text">33. Stabilizer Link Condition </label>
           <md-radio-button class="md-primary" value="pass"> Pass </md-radio-button>
-          <md-radio-button class="md-primary" value="fail" > Fail </md-radio-button>
+          <md-radio-button class="md-primary" value="fail"> Fail </md-radio-button>
         </md-radio-group>
       </div>
 
@@ -348,7 +371,7 @@
         <md-radio-group ng-model="cc.cars_checklist.info.cvbootcondition" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.cvbootcondition)">
           <label for="text">34. CV Boot Condition </label>
           <md-radio-button class="md-primary" value="pass"> Pass </md-radio-button>
-          <md-radio-button class="md-primary" value="fail" > Fail </md-radio-button>
+          <md-radio-button class="md-primary" value="fail"> Fail </md-radio-button>
         </md-radio-group>
       </div>
 
@@ -365,7 +388,7 @@
         <md-radio-group ng-model="cc.cars_checklist.info.frontbrakecalipers" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.frontbrakecalipers)">
           <label for="text">36. Front Brake Calipers</label>
           <md-radio-button class="md-primary" value="pass"> Pass </md-radio-button>
-          <md-radio-button class="md-primary" value="fail" > Fail </md-radio-button>
+          <md-radio-button class="md-primary" value="fail"> Fail </md-radio-button>
         </md-radio-group>
       </div>
 
@@ -382,7 +405,7 @@
         <md-radio-group ng-model="cc.cars_checklist.info.rearbrakecalipers" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.rearbrakecalipers)">
           <label for="text">38. Rear Brake Calipers</label>
           <md-radio-button class="md-primary" value="pass"> Pass </md-radio-button>
-          <md-radio-button class="md-primary" value="fail" > Fail </md-radio-button>
+          <md-radio-button class="md-primary" value="fail"> Fail </md-radio-button>
         </md-radio-group>
       </div>
 
@@ -390,7 +413,7 @@
         <md-radio-group ng-model="cc.cars_checklist.info.rearstabilizerbarlinkcondition" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.rearstabilizerbarlinkcondition)">
           <label for="text">39. Rear Stabililzer Bar Link Condition</label>
           <md-radio-button class="md-primary" value="pass"> Pass </md-radio-button>
-          <md-radio-button class="md-primary" value="fail" > Fail </md-radio-button>
+          <md-radio-button class="md-primary" value="fail"> Fail </md-radio-button>
         </md-radio-group>
       </div>
 
@@ -398,7 +421,7 @@
         <md-radio-group ng-model="cc.cars_checklist.info.torqueallwheelsremoved" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.torqueallwheelsremoved)">
           <label for="text">40. Torque All Wheels Removed</label>
           <md-radio-button class="md-primary" value="pass"> Pass </md-radio-button>
-          <md-radio-button class="md-primary" value="fail" > Fail </md-radio-button>
+          <md-radio-button class="md-primary" value="fail"> Fail </md-radio-button>
         </md-radio-group>
       </div>
 
@@ -406,7 +429,7 @@
         <md-radio-group ng-model="cc.cars_checklist.info.exhaustsystem" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.exhaustsystem)">
           <label for="text">41. Exhaust System</label>
           <md-radio-button class="md-primary" value="pass"> Pass </md-radio-button>
-          <md-radio-button class="md-primary" value="fail" > Fail </md-radio-button>
+          <md-radio-button class="md-primary" value="fail"> Fail </md-radio-button>
         </md-radio-group>
       </div>
 
@@ -414,7 +437,7 @@
         <md-radio-group ng-model="cc.cars_checklist.info.checkoil_level" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.checkoil_level)">
           <label for="text">42. Check Oil Level </label>
           <md-radio-button class="md-primary" value="pass"> Pass </md-radio-button>
-          <md-radio-button class="md-primary" value="fail" > Fail </md-radio-button>
+          <md-radio-button class="md-primary" value="fail"> Fail </md-radio-button>
         </md-radio-group>
       </div>
 
@@ -422,7 +445,7 @@
         <md-radio-group ng-model="cc.cars_checklist.info.oilcap_secure" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.oilcap_secure)">
           <label for="text">43. Oil Cap Secure</label>
           <md-radio-button class="md-primary" value="pass"> Pass </md-radio-button>
-          <md-radio-button class="md-primary" value="fail" > Fail </md-radio-button>
+          <md-radio-button class="md-primary" value="fail"> Fail </md-radio-button>
         </md-radio-group>
       </div>
 
@@ -430,7 +453,7 @@
         <md-radio-group ng-model="cc.cars_checklist.info.start_idle" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.start_idle)">
           <label for="text">44. Start and Idle (5 seconds) </label>
           <md-radio-button class="md-primary" value="pass"> Pass </md-radio-button>
-          <md-radio-button class="md-primary" value="fail" > Fail </md-radio-button>
+          <md-radio-button class="md-primary" value="fail"> Fail </md-radio-button>
         </md-radio-group>
       </div>
       <div>
@@ -447,84 +470,73 @@
         <md-radio-button ng-value='true'> Yes </md-radio-button>
         <md-radio-button ng-value='false'> No </md-radio-button>
       </md-radio-group>
-      
+
       <div ng-show="cc.cars_checklist.info.oilchange">
-        <h3>Oil Checklist</h3>
-        <div>
-          <md-radio-group ng-model="cc.cars_checklist.info.drain_oil">
-            <label for="text">1. Drain Oil </label>
-            <md-radio-button value="true"> Checked </md-radio-button>
-          </md-radio-group>
-        </div>
+        <h3>Oil Checklist:</h3>
 
-        <div>
-          <md-radio-group ng-model="cc.cars_checklist.info.remove_filter_gasket">
-            <label for="text">2. Remove Filter and Old Gasket </label>
-            <md-radio-button value="true"> Checked </md-radio-button>
-          </md-radio-group>
-        </div>
+        <md-checkbox ng-model="cc.cars_checklist.info.drain_oil" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.drain_oil)"
+          ng-checked="cc.cars_checklist.info.drain_oil">
+          1. Drain Oil
+        </md-checkbox>
 
-        <div>
-          <md-radio-group ng-model="cc.cars_checklist.info.install_drain_plug">
-            <label for="text">3. Install and Tighten Drain Plug</label>
-            <md-radio-button value="true"> Checked </md-radio-button>
-          </md-radio-group>
-        </div>
+        <md-checkbox ng-model="cc.cars_checklist.info.remove_filter_gasket" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.remove_filter_gasket)"
+          ng-checked="cc.cars_checklist.info.remove_filter_gasket">
+          2. Remove Oil Filter and Old Gasket
+        </md-checkbox>
 
-        <div>
-          <md-radio-group ng-model="cc.cars_checklist.info.install_tighten_filter ">
-            <label for="text">4. Install and Tighten Filter</label>
-            <md-radio-button value="true"> Checked </md-radio-button>
-          </md-radio-group>
-        </div>
+        <md-checkbox ng-model="cc.cars_checklist.info.install_drain_plug" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.install_drain_plug)"
+          ng-checked="cc.cars_checklist.info.install_drain_plug">
+          3. Install and Tighten Drain Plug
+        </md-checkbox>
 
-        <div>
+        <md-checkbox ng-model="cc.cars_checklist.info.install_tighten_filter" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.install_tighten_filter)"
+          ng-checked="cc.cars_checklist.info.install_tighten_filter">
+          4. Install and Tighten Filter
+        </md-checkbox>
 
+        <md-input-container>
           <label for="text">5. Add Oil Amount</label>
-          <input type="number" ng-model="cc.cars_checklist.info.addoil_amount">
+          <input type="text" ng-model="cc.cars_checklist.info.addoil_amount" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.addoil_amount)">
+        </md-input-container>
 
-        </div>
-
-        <div>
+        <md-input-container>
           <label for="text">6. Add Oil Weight</label>
-          <input type="number" ng-model="cc.cars_checklist.info.addoil_weight">
-        </div>
+          <input type="text" ng-model="cc.cars_checklist.info.addoil_weight" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.addoil_weight)">
+        </md-input-container>
 
-        <div>
-          <md-radio-group ng-model="cc.cars_checklist.info.checkoil_plug">
-            <label for="text">7. Check Oil Plug for Leaks </label>
-            <md-radio-button value="true"> Checked </md-radio-button>
-          </md-radio-group>
-        </div>
+        <br>
 
-        <div>
-          <md-radio-group ng-model="cc.cars_checklist.info.check_filter">
-            <label for="text">8. Check Filter for Leaks</label>
-            <md-radio-button value="true"> Checked </md-radio-button>
-          </md-radio-group>
-        </div>
+        <md-checkbox ng-model="cc.cars_checklist.info.checkoil_plug" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.checkoil_plug)"
+          ng-checked="cc.cars_checklist.info.checkoil_plug">
+          7.Check Oil Plug for Leaks
+        </md-checkbox>
 
-        <div>
-          <md-radio-group ng-model="cc.cars_checklist.info.oilchange_sticker">
-            <label for="text">9. Install Oil Change Sticker</label>
-            <md-radio-button value="true"> Checked </md-radio-button>
-          </md-radio-group>
-        </div>
+        <md-checkbox ng-model="cc.cars_checklist.info.check_filter" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.check_filter)"
+          ng-checked="cc.cars_checklist.info.check_filter">
+          8. Check Filter for Leaks
+        </md-checkbox>
 
-        <div>
+        <md-checkbox ng-model="cc.cars_checklist.info.oilchange_sticker" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.oilchange_sticker)"
+          ng-checked="cc.cars_checklist.info.oilchange_sticker">
+          9. Install Oil Change Sticker
+        </md-checkbox>
+
+        <br>
+
+        <md-input-container>
           <label for="text">10. Oil Filter Brand </label>
-          <input type="text" ng-model="cc.cars_checklist.info.oilfilter_brand">
-        </div>
-        <div>
+          <input type="text" ng-model="cc.cars_checklist.info.oilfilter_brand" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.oilfilter_brand)">
+        </md-input-container>
+
+        <md-input-container>
           <label for="text">11. Oil Filter Number</label>
-          <input type="number" ng-model="cc.cars_checklist.info.oilfilter_number">
-        </div>
-        <div>
-          <md-radio-group ng-model="cc.cars_checklist.info.oiltype">
-            <label for="text">12. Oil Type</label>
-            <md-radio-button value="true"> Checked </md-radio-button>
-          </md-radio-group>
-        </div>
+          <input type="text" ng-model="cc.cars_checklist.info.oilfilter_number" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.oilfilter_number)">
+        </md-input-container>
+
+        <md-input-container>
+          <label for="text">12. Oil Type</label>
+          <input type="text" ng-model="cc.cars_checklist.info.oiltype" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.oiltype)">
+        </md-input-container>
       </div>
 
       <!--Finish Up Checklist begins here-->
@@ -620,14 +632,14 @@
       <!--Vehicle Observations Comment Sections begins here-->
       <div>
         <h4>Vehicle Observations &#42;&#42;</h4>
-        <textarea ng-model="cc.cars_checklist.info.vehicle_observations" ng-change="cc.saveChecklistItem(cc.cars_checklist.info)" name="textarea"
-          cols="50" rows="10" placeholder="Enter text here"></textarea>
+        <textarea ng-model="cc.cars_checklist.info.vehicle_observations" ng-change="cc.saveChecklistItem(cc.cars_checklist.info)"
+          name="textarea" cols="50" rows="10" placeholder="Enter text here"></textarea>
       </div>
 
       <div>
         <h4>Recommended Repairs &#42;&#42;</h4>
-        <textarea ng-model="cc.cars_checklist.info.recommended_repairs" ng-change="cc.saveChecklistItem(cc.cars_checklist.info)" name="textarea"
-          cols="50" rows="10" placeholder="Enter text here"></textarea>
+        <textarea ng-model="cc.cars_checklist.info.recommended_repairs" ng-change="cc.saveChecklistItem(cc.cars_checklist.info)"
+          name="textarea" cols="50" rows="10" placeholder="Enter text here"></textarea>
       </div>
 
       <div>
@@ -642,10 +654,11 @@
           cols="50" rows="10" placeholder="Enter text here"></textarea>
       </div>
       <br>
-      <div>
-        <label for="text" ><strong>Cost &#42;&#42;</strong></label>
+      <md-input-container>
+        <strong>Cost &#42;&#42;</strong>
+        <label for="text"></label>
         <input type="input" ng-model="cc.cars_checklist.info.cost" ng-change="cc.saveChecklistItem(cc.cars_checklist.info)">
-      </div>
+      </md-input-container>
 
       <p><strong>Guest Signature/Date Time Stamp: {{cc.cars_checklist.info.date_completed | date: "MM.dd.y"}}</strong> </p>
 
