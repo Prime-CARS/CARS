@@ -57,7 +57,7 @@ myApp.controller('ChecklistController', function (ChecklistService, AdminService
     })
   }
 
-  vm.vehicleObservationPopUp = function (value) {
+  vm.vehicleObservationPopUp = function () {
     $mdDialog.hide();
     
   }
