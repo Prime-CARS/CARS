@@ -10,7 +10,7 @@ body {
 main{
    background-color: #999696;
    background-image: 
-     radial-gradient(rgba(226, 185, 51, 0.71), rgba(24, 22, 22, 1)),
+     radial-gradient(rgba(199, 195, 195, 0.71), rgba(24, 22, 22, 1)),
     url("../views/images/car-repair-background.jpg");
   background-attachment: fixed; 
   background-repeat: no-repeat;
@@ -147,13 +147,12 @@ footer {
 }
 
 .rqst {
-    /* position: relative; */
-    margin: 10px 10px 10px 10px;
+    /* position: relative;
+    margin: 10px 10px 10px 10px; */
     /* border: 2px dashed black; */
     padding: 8px 8px 8px 8px;
-    height: 30%;
-    width: 50%;
     background-color: lightgray;
+    opacity: 1;
 }
 
 .expanded_request {
@@ -191,11 +190,9 @@ footer {
     background-color: lightskyblue;
 }
 
-.lead {
-    margin-top: -20px;
+.AdminHello {
     font-size: 48px;
     text-decoration-style: bold;
-    align-content: center;
     color: #131313;
 }
 
@@ -210,6 +207,7 @@ footer {
 #title {
     padding-top: 20px;
 }
+
 
 .NavLink {
     color: whitesmoke;
@@ -530,7 +528,7 @@ footer {
 .tabsdemoStaticTabs .after-tabs-area > md-checkbox {
   margin-top: 26px;
   margin-left: 0; }
-ITEM ONE
-ITEM TWO
-ITEM THREE
-/* tabs */
+ 
+  .monkey{
+      height:60vh;
+  }

@@ -1,51 +1,36 @@
-<md-card flex="90" id="card" flex-offset="5" md-theme='default' md-theme-watch>
-
-
+<div flex="90" class="base" flex-offset="5" md-theme='default' md-theme-watch>
     <div class="navbar noPrint">
         <div class="container">
 
             <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links" layout="row" layout-align="space-around center">
-
-                <md-nav-item md-nav-href="#/landingpage" name="homeTab">
-                    Home
-                </md-nav-item>
-
-                <md-nav-item md-nav-href="#/requestservice" name="serviceRequestTab">
-                    Request for Service Form
-                </md-nav-item>
-
-                <md-nav-item md-nav-href="#/mechanic" name="mechanicTab">
-                    Mechanic
-                </md-nav-item>
-
-                <md-nav-item md-nav-href="#register" name="Register" ng-if="ac.AdminService.userObject.role === 'admin'">
-                    Register User
-                    </md-nav-itme>
-
-                    <md-nav-item md-nav-click="ac.AdminService.logout()" name="logOutTab">
-                        Log Out
-                    </md-nav-item>
+                <md-nav-item md-nav-href="#/landingpage" name="homeTab">Home</md-nav-item>
+                <md-nav-item md-nav-href="#/requestservice" name="serviceRequestTab">Request for Service Form</md-nav-item>
+                <md-nav-item md-nav-href="#/mechanic" name="mechanicTab">Mechanic</md-nav-item>
+                <md-nav-item md-nav-href="#register" name="Register" ng-if="ac.AdminService.userObject.role === 'admin'">Register User</md-nav-item>
+                <md-nav-item md-nav-click="ac.AdminService.logout()" name="logOutTab">Log Out </md-nav-item>
             </md-nav-bar>
         </div>
     </div>
     <md-card-title>
         <md-card-title-text>
-            <div class="lead">Hello {{ac.AdminService.userObject.userName}}!</div>
+            <div flex="20" flex-offset="40" class="AdminHello">Hello {{ac.AdminService.userObject.userName}}!</div>
         </md-card-title-text>
     </md-card-title>
 
-    <md-content>
-        <md-tabs md-selected="data.selectedIndex" md-align-tabs="top">
+    <md-content flex-offset="10" flex="80">
+        <md-tabs md-selected="data.selectedIndex" class="monkey" md-align-tabs="top">
             <md-tab id="tab1">
                 <md-tab-label>Service Requests</md-tab-label>
+
                 <md-tab-body>
-                    <h3>These requests are pending review and scheduling</h3>
-                    <div ng-repeat="data in ac.RetrievedRequests.list.data" class="rqst" ng-click="expandInfo = !expandInfo">
+                    <div flex="40" flex-offset="30">
+                    <h3 class="title">These requests are pending review and scheduling</h3>
+                    </div>
+                    <div flex="100" flex-offset="" ng-repeat="data in ac.RetrievedRequests.list.data" class="rqst" ng-click="expandInfo = !expandInfo">
                         <b>{{data.name}}
-            <br>{{data.year}} {{data.make}} {{data.model}}</b>
-                        <div ng-show="expandInfo" class="expanded_request">
-                            <b>Phone:</b> {{data.cellphone}}
-                            <br><b>Alt Phone:</b> {{data.alternative_phone}}
+                        <br>{{data.year}} {{data.make}} {{data.model}}</b>
+                        <div ng-show="expandInfo" class="rqst">
+                            <b>Phone:</b> {{data.cellphone}} <b>Alt Phone:</b> {{data.alternative_phone}}
                             <br><b>VIN:</b> {{data.vin}}
                             <br><b>Qualifier:</b> {{data.qualify_input}}
                             <br><b>Vehicle Issue:</b> {{data.service_request}}

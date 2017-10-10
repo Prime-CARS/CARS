@@ -112,18 +112,28 @@
     </md-input-container><br>
     <md-input-container flex="100" class="RqstForm md-block">
         <label>Please describe the problems you are having with your vehicle</label>
-        <textarea md-maxlength="600" rows="5" ng-model="rc.customer.problem" required></textarea>
+        <textarea md-maxlength="600" ng-model="rc.customer.problem" required></textarea>
     </md-input-container>
      
     
     <label>Please indicate why you qualify to use the services of C.A.R.S. Ministry</label>
 
-            <md-radio-group ng-model="rc.customer.qualification">
+            <md-radio-group layout="row" ng-model="rc.customer.qualification">
+               <div flex="10">
                 <md-radio-button value="Single Mother" ng-click="rc.closeTextbox()">Single Mother</md-radio-button> 
+                </div>
+                <div flex="10">
                 <md-radio-button value="Single Woman" ng-click="rc.closeTextbox()"> Single Woman</md-radio-button>    
+                </div>
+                <div flex="10">
                 <md-radio-button value="Widow" ng-click="rc.closeTextbox()">Widow</md-radio-button>
+                </div>
+                <div flex="10">
                 <md-radio-button value="Financially Limited" ng-click="rc.closeTextbox()">Financially Limited</md-radio-button>
-                <md-radio-button value="Other" ng-click="rc.openTextbox()">Other</md-radio-button>
+                </div>
+                <div flex="10">
+                <md-radio-button ng-click="rc.openTextbox()">Other</md-radio-button>
+                </div>
                 <md-input-container ng-show="rc.textboxShowing">
                 <textarea md-maxlength="600" rows="3" ng-model="rc.customer.qualification" placeholder="Please explain your circumstances:"></textarea>
                 </md-input-container>
