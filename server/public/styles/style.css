@@ -7,13 +7,13 @@ body {
     background-attachment: fixed;
 }
 
-main{
-   background-color: #999696;
-   background-image: url("../views/images/car-repair-background.jpg");
-  background-attachment: fixed; 
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  opacity: 1;
+main {
+    background-color: #999696;
+    background-image: url("../views/images/car-repair-background.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    opacity: 1;
     height: 100vh;
 }
 
@@ -436,6 +436,13 @@ footer {
     }
 }
 
+/* #authInput {
+    min-width: 90px!important;
+    max-width: 99.99%!important;
+    transition: width 0.25s;
+    text-align: center;
+} */
+
 #admin_nav {
     position: relative;
     margin-top: 30px;
@@ -451,7 +458,7 @@ footer {
     align-content: right;
 }
 
-.base{
+.base {
     background-color: #DBD7D7;
     overflow-y: scroll;
     height: 90vh;
