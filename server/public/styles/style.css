@@ -20,15 +20,11 @@ main{
 
 ._md-nav-button-text {
    color: rgb(126, 3, 13);
-   /* color: white; */
-   /* color: black; */
     font-size: 15px;
     font-weight: 800;
     background-color:white;
 }
     
-
-
 .carsImg {
     width: 300px;
     height: 240px;
