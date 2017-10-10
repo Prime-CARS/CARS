@@ -26,105 +26,121 @@
     </md-nav-item>
 
 </md-nav-bar>
-<div class="base" flex="90" flex-offset="5">
+<div class="base" flex="60" flex-offset="20">
 
 
-    <h2>Request for Vehicle Repair</h2>
-    <h4>Please fill in all fields below</h4>
 
-    <md-input-container>
+    <h2 class="RqstForm">Request for Vehicle Reapir</h2>
+    <h4 class="RqstForm">Please fill in all the fields below</h4>
+
+    <md-input-container class="RqstForm">
         <label>Name</label>
         <input ng-model="rc.customer.name" required>
     </md-input-container><br>
-    <md-input-container>
+    <md-input-container class="RqstForm">
         <label>Address</label>
         <input ng-model="rc.customer.address" required>
     </md-input-container><br>
-    <md-input-container>
+    <md-input-container class="RqstForm">
         <label>City</label>
         <input ng-model="rc.customer.city" required>
     </md-input-container>
-    <md-input-container>
+    <md-input-container class="RqstForm">
         <label>State</label>
         <input ng-model="rc.customer.state" required>
     </md-input-container>
-    <md-input-container>
+    <md-input-container class="RqstForm">
         <label>Zip</label>
         <input ng-model="rc.customer.zip" required>
     </md-input-container><br>
-    <md-input-container>
+    <md-input-container class="RqstForm">
         <label>Cell Phone</label>
         <input ng-model="rc.customer.cellPhone" required>
     </md-input-container>
-    <md-input-container>
+    <md-input-container class="RqstForm">
         <label>Alternate Phone</label>
         <input ng-model="rc.customer.altPhone" required>
     </md-input-container><br>
-    <md-input-container class="md-block">
+    <md-input-container class="RqstForm" class="md-block">
         <label>Email</label>
         <input ng-model="rc.customer.email" required>
     </md-input-container>
-    <h2>Vehicle Information</h2>
+    <h2 class="RqstForm">Vehicle Information</h2>
 
-    <md-input-container>
-        <div class="container">
-            <label>VIN</label>
-            <input type="text" title="VIN must be 17 digits long" pattern="\w{17}" name="VIN" ng-model="rc.customer.vin" required>
-            <div ng-mouseover="openCard = true" ng-mouseleave="openCard = false"> <h3>Where do I find the VIN?</h3>
-            </div>
-                    
-            <md-card ng-show="openCard">
+    <md-input-container class="RqstForm">
+        <label>VIN</label>
+        <input pattern="\w{17}" name="VIN" ng-model="rc.customer.vin" ng-click="rc.cardClose()" required>
+    </md-input-container>
+
+
+    <md-input-container class="RqstForm">
+        <label>Mileage</label>
+        <input ng-model="rc.customer.mileage" ng-click="rc.cardClose()" required>
+    </md-input-container><br>
+
+    <div layout="row" layout-align="start center" ng-cloak>
+        <md-button class="md-raised md-primary" class="questionMark" ng-click="rc.card()">Where do I find the VIN?</md-button><br>
+        <md-card ng-click="rc.cardClose()" flex="80" layout="row" id="vinPopUp" ng-show="rc.openCard" ng-cloak>
+            <div flex="50">
+
                 <md-card-title>
-                    <md-card-title-text>
+                    <md-card-title-text class="md-block">
                         <span class="md-headline">How to find your vehicle's VIN</span>
                         <span class="md-subhead"> If facing the vehicle, the VIN will be on the dashboard in the lower right-hand corner.  The VIN can also be found on the driver's side door between the door panel and the door frame.</span>
                     </md-card-title-text>
-                    <md-card-title-media>
-                        <div class="md-media-md card-media"></div>
-                    </md-card-title-media>
                 </md-card-title>
-                    <md-card-content layout="row" layout-align="space-between">
-                        <div class="md-media-md card-media"> 
-                            <img src="./views/images/VIN_Graphic.png" alt="graphic for VIN location description">
-                        </div>
-                    </md-card-content>
-                </md-card>
+
             </div>
-    </md-input-container>
-    <md-input-container>
-        <label>Mileage</label>
-        <input ng-model="rc.customer.mileage" required>
-    </md-input-container><br>
-    <md-input-container>
+            <div flex="50">
+                <md-card-content flex="50" layout-align="space-between">
+                    <div class="md-media-md card-media">
+                        <img id="vinSearch" src="./views/images/VIN_Graphic.png" alt="graphic for VIN location description">
+                    </div>
+                </md-card-content>
+            </div>
+        </md-card>
+    </div>
+
+    <md-input-container class="RqstForm">
         <label>Year</label>
         <input ng-model="rc.customer.year" required>
     </md-input-container>
-    <md-input-container>
+    <md-input-container class="RqstForm">
         <label>Make</label>
         <input ng-model="rc.customer.make" required>
     </md-input-container>
-    <md-input-container>
+    <md-input-container class="RqstForm">
         <label>Model</label>
         <input ng-model="rc.customer.model" required>
     </md-input-container><br>
-    <md-input-container class="md-block">
+    <md-input-container flex="100" class="RqstForm md-block">
         <label>Please describe the problems you are having with your vehicle</label>
-        <textarea md-maxlength="600" rows="5" ng-model="rc.customer.problem" required>
+        <textarea md-maxlength="600" ng-model="rc.customer.problem" required></textarea>
     </md-input-container>
-    <md-input-container class="md-block">
-        <label>Please indicate why you qualify to use the services of C.A.R.S. Ministry</label>
+     
+    
+    <label>Please indicate why you qualify to use the services of C.A.R.S. Ministry</label>
 
-            <md-radio-group ng-model="rc.customer.qualification">
-             <md-radio-button value="Single Mother" ng-click="rc.closeTextbox()">Single Mother</md-radio-button>
-             <md-radio-button value="Single Woman" ng-click="rc.closeTextbox()"> Single Woman</md-radio-button>
-             <md-radio-button value="Widow" ng-click="rc.closeTextbox()">Widow</md-radio-button>
-             <md-radio-button value="Financially Limited" ng-click="rc.closeTextbox()">Financially Limited</md-radio-button>
-             <md-radio-button value="Other" ng-click="rc.openTextbox()">Other</md-radio-button>
-             <div ng-show="rc.textboxShowing">
-               <textarea md-maxlength="600" rows="5" ng-model="rc.customer.qualification" placeholder="Please explain your circumstances:"></textarea>
-               </div>
-            </md-radio-group>
-    </md-input-container>
-
-    <md-button class="md-button primary" class="btn-btn-primary" type="submit" ng-click="rc.addCustomer()">Submit Request</md-button>
+            <md-radio-group layout="row" ng-model="rc.customer.qualification">
+               <div flex="10">
+                <md-radio-button value="Single Mother" ng-click="rc.closeTextbox()">Single Mother</md-radio-button> 
+                </div>
+                <div flex="10">
+                <md-radio-button value="Single Woman" ng-click="rc.closeTextbox()"> Single Woman</md-radio-button>    
+                </div>
+                <div flex="10">
+                <md-radio-button value="Widow" ng-click="rc.closeTextbox()">Widow</md-radio-button>
+                </div>
+                <div flex="10">
+                <md-radio-button value="Financially Limited" ng-click="rc.closeTextbox()">Financially Limited</md-radio-button>
+                </div>
+                <div flex="10">
+                <md-radio-button ng-click="rc.openTextbox()">Other</md-radio-button>
+                </div>
+                <md-input-container ng-show="rc.textboxShowing">
+                <textarea md-maxlength="600" rows="3" ng-model="rc.customer.qualification" placeholder="Please explain your circumstances:"></textarea>
+                </md-input-container>
+            </md-radio-group><br>
+     
+        <md-button class="md-raised md-primary" class="btn-btn-primary" type="submit" ng-click="rc.addCustomer()">Submit Request</md-button>
 </div>

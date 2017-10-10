@@ -1,203 +1,149 @@
-<md-card flex="90" flex-offset="5" md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
-   
+<div flex="90" class="base" flex-offset="5" md-theme='default' md-theme-watch>
+    <div class="navbar noPrint">
+        <div class="container">
 
-<div class="navbar noPrint">
-    <div class="container">
-
-        <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links" layout="row" layout-align="space-around center">
-
-            <md-nav-item md-nav-href="#/landingpage" name="homeTab">
-                Home
-            </md-nav-item>
-
-            <md-nav-item md-nav-href="#/requestservice" name="serviceRequestTab">
-                Request for Service Form
-            </md-nav-item>
-
-            <md-nav-item md-nav-href="#/mechanic" name="mechanicTab">
-                Mechanic
-            </md-nav-item>
-
-            <md-nav-item md-nav-href="#/admin" name="adminTab" ng-if="ac.AdminService.userObject.role === 'admin'">
-                Admin
-            </md-nav-item>
-
-            <md-nav-item md-nav-click="ac.AdminService.logout()" name="logOutTab">
-                Log Out
-            </md-nav-item>
-        </md-nav-bar>
-    </div>
-</div>
-
-<!-- <div class="container noPrint">
-        <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links" layout="row" layout-align="space-around center">
-
-            <md-nav-item md-nav-tab="ac.makeRequestsVisible()" name="serviceRequestTab">
-             Service Requests
-            </md-nav-item>
-
-            <md-nav-item md-nav-href="ac.showSearch()" name="serviceRequestTab">
-                 Service History
-            </md-nav-item>
-
-            <md-nav-item md-nav-href="#/mechanic" name="mechanicTab">
-                Mechanic
-            </md-nav-item>
-
-            <md-nav-item md-nav-href="#/admin" name="adminTab" ng-if="ac.AdminService.userObject.role === 'admin'">
-                Admin
-            </md-nav-item>
-
-            <md-nav-item md-nav-click="ac.AdminService.logout()" name="logOutTab">
-                Log Out
-            </md-nav-item>
-        </md-nav-bar> -->
-<md-card-title>
-    <md-card-title-text><h1 id="welcome" class="lead">Hello {{ac.AdminService.userObject.userName}}!</h1>
-</md-card-title-text>
-</md-card-title>
-<md-card-actions layout="row" layout-align="end center">
-    <md-button ng-click="ac.makeRequestsVisible()">Service Requests</md-button>
-    <md-button ng-click="ac.showSearch()">Service History</md-button>
-    <md-button ng-click="ac.showAuth()">Pending Authorizations</md-button>
-    <md-button ng-click="ac.AdminService.logout()">Log Out</md-button>
-    </div>
-    </md-card-actions>
-</div>
-<!---requests for service page-->
-<md-card-content>
-<div ng-show="ac.showRequests">
-    <h3>These requests are pending review and scheduling</h3>
-    <div ng-repeat="data in ac.RetrievedRequests.list.data" class="rqst" ng-click="expandInfo = !expandInfo">
-        <b>{{data.name}}
-            <br>{{data.year}}
-            <br>{{data.make}}
-            <br>{{data.model}}</b>
-        <div ng-show="expandInfo" class="expanded_request">
-            <b>Phone:</b> {{data.cellphone}}
-            <br><b>Alt Phone:</b> {{data.alternative_phone}}
-            <br><b>VIN:</b> {{data.vin}}
-            <br><b>Qualifier:</b> {{data.qualify_input}}
-            <br><b>Vehicle Issue:</b> {{data.service_request}}
-            <br>
-            <p>
-                <button class="btn-btn-primary" type="submit" ng-click="ac.updateCustomer(data.customer_id, 'scheduled')">Scheduled!</button>
-
-                <button class="btn-btn-warn" type="submit" ng-click="ac.updateCustomer(data.customer_id, 'denied')">not eligable!</button>
-            </p>
-
-            <!-- <button ng-click="ac.shrinkInfo()">close</button> -->
+            <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links" layout="row" layout-align="space-around center">
+                <md-nav-item md-nav-href="#/landingpage" name="homeTab">Home</md-nav-item>
+                <md-nav-item md-nav-href="#/requestservice" name="serviceRequestTab">Request for Service Form</md-nav-item>
+                <md-nav-item md-nav-href="#/mechanic" name="mechanicTab">Mechanic</md-nav-item>
+                <md-nav-item md-nav-href="#register" name="Register" ng-if="ac.AdminService.userObject.role === 'admin'">Register User</md-nav-item>
+                <md-nav-item md-nav-click="ac.AdminService.logout()" name="logOutTab">Log Out </md-nav-item>
+            </md-nav-bar>
         </div>
-
     </div>
-    <div class="nrqst" ng-click="ac.AddRequest()">New request </div>
-</div>
+    <md-card-title>
+        <md-card-title-text>
+            <div flex="20" flex-offset="40" class="AdminHello">Hello {{ac.AdminService.userObject.userName}}!</div>
+        </md-card-title-text>
+    </md-card-title>
 
-<!--search bar-->
-<!-- <div ng-show="ac.showSearchs">
-    <form>
-        <input type="text" id="search" ng-model="history_search">
-        <button ng-click="ac.search_history(history_search)">submit</button>
-    </form>
-    <div class="rqst" ng-repeat="customer in ac.searchResults">
-    </div>
-</div> -->
-<!--search bar end-->
+    <md-content flex-offset="10" flex="80">
+        <md-tabs md-selected="data.selectedIndex" class="monkey" md-align-tabs="top">
+            <md-tab id="tab1">
+                <md-tab-label>Service Requests</md-tab-label>
 
-<div class="nrqstform" ng-show="ac.nrqstneeded">
-    <!--start of new person entry -->
-    <form id="customerInfo">
-        <label>Name</label>
-        <input type="text" name="first" ng-model="ac.customer.name" required>
+                <md-tab-body>
+                    <div flex="40" flex-offset="30">
+                    <h3 class="title">These requests are pending review and scheduling</h3>
+                    </div>
+                    <div flex="100" flex-offset="" ng-repeat="data in ac.RetrievedRequests.list.data" class="rqst" ng-click="expandInfo = !expandInfo">
+                        <b>{{data.name}}
+                        <br>{{data.year}} {{data.make}} {{data.model}}</b>
+                        <div ng-show="expandInfo" class="rqst">
+                            <b>Phone:</b> {{data.cellphone}} <b>Alt Phone:</b> {{data.alternative_phone}}
+                            <br><b>VIN:</b> {{data.vin}}
+                            <br><b>Qualifier:</b> {{data.qualify_input}}
+                            <br><b>Vehicle Issue:</b> {{data.service_request}}
+                            <br>
+                            <p>
+                                <button class="btn-btn-primary" type="submit" ng-click="ac.updateCustomer(data.customer_id, 'scheduled')">Scheduled!</button>
+                                <button class="btn-btn-warn" type="submit" ng-click="ac.updateCustomer(data.customer_id, 'denied')">not eligable!</button>
+                            </p>
 
-        <label>Address</label>
-        <input type="text" name="address" ng-model="ac.customer.address" required>
+                            <!-- <button ng-click="ac.shrinkInfo()">close</button> -->
+                        </div>
 
-        <div>
-            <label>City</label>
-            <input type="text" name="city" ng-model="ac.customer.city" required>
-            <label>State</label>
-            <input type="text" name="state" ng-model="ac.customer.state" required>
-            <label>Zip Code</label>
-            <input type="text" name="zip" ng-model="ac.customer.zip" title="5 or 5-4 digit zip code" pattern="\b\d{5}[-]\d{4}\b|\b\d{5}\b"
-                required>
-            <label>Cell Phone</label>
-            <input type="tel" class="form-control maskPhone" name="cellPhone" ng-model="ac.customer.cellPhone " required>
-            <label>Alternate Phone</label>
-            <input type="text" class="form-group maskPhone" name="altPhone" ng-model="ac.customer.altPhone">
-            <label>email address</label>
-            <input type="email" class="form-group" name="altPhone" ng-model="ac.customer.email" required>
-        </div>
+                    </div>
+                    <div class="nrqst" ng-click="ac.AddRequest()">New request </div>
 
-        <h2>Vehicle Information</h2>
-        <div>
-            <label>VIN</label>
-            <input type="text" name="VIN" title="VIN must be 17 digits long" pattern="\w{17}" ng-model="ac.customer.vin">
-            <label>Year</label>
-            <input type="number" name="year" ng-model="ac.customer.year" required>
-            <label>Make</label>
-            <input type="text" name="make" ng-model="ac.customer.make" required>
-            <label>model</label>
-            <input type="text" name="model" ng-model="ac.customer.model" required>
-        </div>
+                    <div class="nrqstform" ng-show="ac.nrqstneeded">
+                        <!--start of new person entry -->
+                        <form id="customerInfo">
+                            <label>Name</label>
+                            <input type="text" name="first" ng-model="ac.customer.name" required>
 
-        <h3>Please describe the problems you are having with the vehicle</h3>
-        <textarea rows="5" cols="70" ng-model="ac.customer.problem"></textarea>
+                            <label>Address</label>
+                            <input type="text" name="address" ng-model="ac.customer.address" required>
 
-        <div>
-            <h3>Please indicate why you qualify to use the services of C.A.R.S. Ministry</h3>
-            <label>
+                            <div>
+                                <label>City</label>
+                                <input type="text" name="city" ng-model="ac.customer.city" required>
+                                <label>State</label>
+                                <input type="text" name="state" ng-model="ac.customer.state" required>
+                                <label>Zip Code</label>
+                                <input type="text" name="zip" ng-model="ac.customer.zip" title="5 or 5-4 digit zip code" pattern="\b\d{5}[-]\d{4}\b|\b\d{5}\b"
+                                    required>
+                                <label>Cell Phone</label>
+                                <input type="tel" class="form-control maskPhone" name="cellPhone" ng-model="ac.customer.cellPhone " required>
+                                <label>Alternate Phone</label>
+                                <input type="text" class="form-group maskPhone" name="altPhone" ng-model="ac.customer.altPhone">
+                                <label>email address</label>
+                                <input type="email" class="form-group" name="altPhone" ng-model="ac.customer.email" required>
+                            </div>
+
+                            <h2>Vehicle Information</h2>
+                            <div>
+                                <label>VIN</label>
+                                <input type="text" name="VIN" title="VIN must be 17 digits long" pattern="\w{17}" ng-model="ac.customer.vin">
+                                <label>Year</label>
+                                <input type="number" name="year" ng-model="ac.customer.year" required>
+                                <label>Make</label>
+                                <input type="text" name="make" ng-model="ac.customer.make" required>
+                                <label>model</label>
+                                <input type="text" name="model" ng-model="ac.customer.model" required>
+                            </div>
+
+                            <h3>Please describe the problems you are having with the vehicle</h3>
+                            <textarea rows="5" cols="70" ng-model="ac.customer.problem"></textarea>
+
+                            <div>
+                                <h3>Please indicate why you qualify to use the services of C.A.R.S. Ministry</h3>
+                                <label>
 
                     <input type="radio" name="qualification" value="singleMother" ng-model="ac.customer.qualification" checked> Single Mother
                 </label>
-
-
-            <label>
+                                <label>
                     <input type="radio" name="qualification" value="singleWoman" ng-model="ac.customer.qualification" checked> Single Woman
                 </label>
-
-
-            <label>
+                                <label>
                     <input type="radio" name="qualification" value="widow" ng-model="ac.customer.qualification" checked> Widow
                 </label>
-
-            <label>
+                                <label>
                     <input type="radio" name="qualification" value="financiallyLimited" ng-model="ac.customer.qualification" checked> Financially Limited
                 </label>
-
-            <label>
+                                <label>
                     <input type="radio" name="qualification" value="other" ng-click="ac.openTextbox();"> Other
                 </label>
 
-            <div ng-show="ac.textboxShowing">
-                <textarea rows="4" cols="50" ng-model="ac.customer.qualification" placeholder="Please explain your circumstances:"></textarea>
-            </div>
+                                <div ng-show="ac.textboxShowing">
+                                    <textarea rows="4" cols="50" ng-model="ac.customer.qualification" placeholder="Please explain your circumstances:"></textarea>
+                                </div>
 
-            <div>
-                <button class="btn-btn-primary" type="submit" ng-click="ac.addCustomer()">Schedule!</button>
-            </div>
+                                <div>
+                                    <button class="btn-btn-primary" type="submit" ng-click="ac.addCustomer()">Schedule!</button>
+                                </div>
 
-            <!--end of new person entry -->
-            <button class="btn-btn-primary" ng-click="ac.ReduceRequest()">Close</button>
-        </div>
-</div>
+                                <!--end of new person entry -->
+                                <button class="btn-btn-primary" ng-click="ac.ReduceRequest()">Close</button>
+                            </div>
+                    </div>
+                </md-tab-body>
+            </md-tab>
 
-<!--end of requests for service view-->
+            <md-tab id="tab2">
+                <md-tab-label>Pending Authorizations</md-tab-label>
+                <md-tab-body>
+                    <div>
+                        <!-- ng-show="ac.showAuths" -->
+                        <h3>These authorizations have been created and need to be printed.</h3>
+                        <div ng-repeat="data in ac.AdminService.Prints.list.data" ng-click="ac.history_view($index)" class="rqst">{{data.name}}{{data.vin}}</div>
+                    </div>
+                </md-tab-body>
+            </md-tab>
 
-<!-- search bar-->
-<div ng-show="ac.showSearchs">
-    <form><input type="text" id="search" ng-model="history_search"><button ng-click="ac.search_history(history_search)">submit</button></form>
-    <div class="rqst" ng-repeat="customer in ac.AdminService.searchResults.list.data" ng-click="ac.getChecklist()"> {{customer.name}} {{customer.year}} {{customer.make}} {{customer.model}} {{customer.vin}}
+            <md-tab id="tab3">
+                <md-tab-label>Service History</md-tab-label>
+                <md-tab-body>
+                    <div>
+                        <!-- ng-show="ac.showSearchs" -->
+                        <form><input type="text" id="search" ng-model="history_search"><button ng-click="ac.search_history(history_search)">submit</button></form>
+                        <div class="rqst" ng-repeat="customer in ac.AdminService.searchResults.list.data" ng-click="ac.getChecklist()"> {{customer.name}} {{customer.year}} {{customer.make}} {{customer.model}} {{customer.vin}}
+                        </div>
+                    </div>
+                </md-tab-body>
+            </md-tab>
+        </md-tabs>
+    </md-content>
     </div>
-</div>
-<!--search bar end -->
-
-<div ng-show="ac.showAuths">
-    <h3>These authorizations have been created and need to be printed.</h3>
-    <div ng-repeat="data in ac.AdminService.Prints.list.data" ng-click="ac.history_view($index)" class="rqst">{{data.name}}{{data.vin}}</div>
-</div>
-</form>
-</div>
-</div>
-</md-card-content>
+    </md-card-content>
 </md-card>

@@ -8,14 +8,16 @@ body {
 }
 
 main{
-    background-color: #999696; 
-    background-image: url("../views/images/car-repair-background.jpg");
-    background-attachment: fixed; 
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    opacity: .1;
-    height: 100vh;
+   background-color: #999696;
+   background-image: 
+     radial-gradient(rgba(199, 195, 195, 0.71), rgba(24, 22, 22, 1)),
+    url("../views/images/car-repair-background.jpg");
+  background-attachment: fixed; 
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  height: 100vh;
 }
+
 ._md-nav-button-text {
    color: rgb(126, 3, 13);
    /* color: white; */
@@ -25,6 +27,7 @@ main{
     background-color:white;
 }
     
+
 
 .carsImg {
     width: 300px;
@@ -157,13 +160,12 @@ footer {
 }
 
 .rqst {
-    /* position: relative; */
-    margin: 10px 10px 10px 10px;
+    /* position: relative;
+    margin: 10px 10px 10px 10px; */
     /* border: 2px dashed black; */
     padding: 8px 8px 8px 8px;
-    height: 30%;
-    width: 50%;
     background-color: lightgray;
+    opacity: 1;
 }
 
 .expanded_request {
@@ -201,8 +203,7 @@ footer {
     background-color: lightskyblue;
 }
 
-.lead {
-    margin-top: -20px;
+.AdminHello {
     font-size: 48px;
     text-decoration-style: bold;
     color: #131313;
@@ -219,6 +220,7 @@ footer {
 #title {
     padding-top: 20px;
 }
+
 
 .NavLink {
     color: whitesmoke;
@@ -281,7 +283,82 @@ main {
 }
 
 .base{
-    background-color: #DBD7D7;
+    background-color: #E9E9E9;
     overflow-y: scroll;
     height: 90vh;
+    background: rgba(255, 255, 255, .6);
+    border-radius: 5px;
 }
+
+.input{
+    opacity: 1;
+    z-index: 20;
+}
+
+.ready {
+    background-color: greenyellow;
+}
+
+.in_progress {
+    background-color: lightcoral;
+}
+
+.serviced {
+    background-color: lightskyblue;
+}
+
+.questionMark{
+    font-size: 24px;
+    padding-bottom: 12px;
+    display: inline;
+}
+
+#vinSearch{
+    height: 175px;
+    width: auto;
+    padding-top: 8%;
+}
+
+#vinPopUp{
+    width: 40%;
+    height: 250px;
+    }
+#card{
+    height: 70%;
+    margin-top: 5%;
+}
+.RqstForm{
+    padding-left: 5%;
+}
+
+/* tabs */
+
+.tabsdemoStaticTabs md-content md-tabs {
+  border: 1px solid #e1e1e1; }
+  .tabsdemoStaticTabs md-content md-tabs md-tab-content {
+    padding: 25px; }
+    .tabsdemoStaticTabs md-content md-tabs md-tab-content:nth-child(1) {
+      background-color: #cfd8dc; }
+    .tabsdemoStaticTabs md-content md-tabs md-tab-content:nth-child(2) {
+      background-color: #ffb74d; }
+    .tabsdemoStaticTabs md-content md-tabs md-tab-content:nth-child(3) {
+      background-color: #ffd54f; }
+    .tabsdemoStaticTabs md-content md-tabs md-tab-content:nth-child(4) {
+      background-color: #aed581; }
+    .tabsdemoStaticTabs md-content md-tabs md-tab-content:nth-child(5) {
+      background-color: #00897b; }
+
+.tabsdemoStaticTabs .after-tabs-area > span {
+  margin-top: 25px;
+  padding-right: 15px;
+  vertical-align: middle;
+  line-height: 30px;
+  height: 35px; }
+
+.tabsdemoStaticTabs .after-tabs-area > md-checkbox {
+  margin-top: 26px;
+  margin-left: 0; }
+ 
+  .monkey{
+      height:60vh;
+  }
