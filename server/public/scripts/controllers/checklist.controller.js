@@ -21,15 +21,15 @@ myApp.controller('ChecklistController', function (ChecklistService, AdminService
 
   vm.showFinishChecklist = function (show) {
     if (show == 'Y') {
-      vm.cars_checklist.finishup_checklist = true;
+      vm.cars_checklist.info.finishup_checklist = true;
       vm.finishCheckListVisible = true;
     } else {
-      vm.cars_checklist.finishup_checklist = false;
+      vm.cars_checklist.info.finishup_checklist = false;
       vm.finishCheckListVisible = false;
     }
   };
 
-  vm.submitChecklist = function (checklistItem) {
+  vm.saveChecklistItem = function (checklistItem) {
     // console.log('Checklist Save', checklistItem);
     // console.log('Overall Checklist ', vm.cars_checklist.info);
 
@@ -47,9 +47,10 @@ myApp.controller('ChecklistController', function (ChecklistService, AdminService
   }
 
   vm.submitChecklistForService = function (checklist) {
+    //will handle all the if statements for checking if checklist is completed and will also change status to serviced if checklist is done
     checklist.checklist_id = $routeParams.checklist_id;
-    checklist.checklist_status = 'in_progress';
-    console.log('Checklist to save: ', checklist);
+    checklist.checklist_status = 'serviced';
+    // console.log('Checklist to save: ', checklist);
   }
 
   vm.redFlag = function (failedItem) {
@@ -65,5 +66,6 @@ myApp.controller('ChecklistController', function (ChecklistService, AdminService
 
   vm.vehicleObservationPopUp = function () {
     $mdDialog.hide();
+    
   }
 });
