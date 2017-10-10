@@ -1,5 +1,5 @@
-myApp.controller('ChecklistController', function (ChecklistService, AdminService, $routeParams) {
-  console.log('ChecklistController created');
+myApp.controller('ChecklistController', function (ChecklistService, AdminService, $routeParams, $mdDialog) {
+  // console.log('ChecklistController created');
   var vm = this;
   vm.AdminService = AdminService;
   vm.ChecklistService = ChecklistService;
@@ -10,7 +10,7 @@ myApp.controller('ChecklistController', function (ChecklistService, AdminService
 
   vm.oilCheckListVisible = false;
 
-  vm.finishCheckListVisible = false; 
+  vm.finishCheckListVisible = false;
 
   vm.goto = function (page) {
     console.log("Goto " + "'" + page + "'");
@@ -18,7 +18,7 @@ myApp.controller('ChecklistController', function (ChecklistService, AdminService
   }
 
   vm.showOilRequired = function (show) {
-    if ( show == 'Y') {
+    if (show == 'Y') {
       vm.cars_checklist.oilchange = true;
       vm.oilCheckListVisible = true;
     } else {
@@ -29,7 +29,7 @@ myApp.controller('ChecklistController', function (ChecklistService, AdminService
   };
 
   vm.showFinishChecklist = function (show) {
-    if( show == 'Y') {
+    if (show == 'Y') {
       vm.cars_checklist.finishup_checklist = true;
       vm.finishCheckListVisible = true;
     } else {
@@ -40,9 +40,25 @@ myApp.controller('ChecklistController', function (ChecklistService, AdminService
 
 
   vm.submitChecklist = function (checklist) {
-    console.log('submit checklist in checklistcontroller', checklist.info);
+    // console.log('Checklist Save', checklist);
+    
     checklist.info.checklist_id = $routeParams.checklist_id;
     checklist.info.checklist_status = 'in_progress';
     ChecklistService.submitChecklist(checklist.info);
+  }
+
+  vm.redFlag = function (failedItem) {
+    // console.log('Item Failed');
+    $mdDialog.show({
+      controller: 'ChecklistController as cc',
+      templateUrl: '/views/partials/vehicleobservations.html',
+      parent: angular.element(document.body),
+      targetEvent: failedItem,
+      clickOutsideToClose:true
+    })
+  }
+
+  vm.vehicleObservationPopUp = function () {
+    $mdDialog.hide();
   }
 });

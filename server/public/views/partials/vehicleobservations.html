@@ -1,0 +1,28 @@
+<md-dialog>
+    <form ng-cloak>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Vehicle Observations</h2>
+                <span flex></span>
+
+            </div>
+        </md-toolbar>
+
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <div>
+                    <h4>Vehicle Observations &#42;&#42;</h4>
+                    Type in vehicle observations: 
+                    <textarea ng-model="cc.cars_checklist.info.vehicle_observations" ng-change="cc.submitChecklist(cc.cars_checklist)" name="textarea"
+                        cols="100" rows="20"></textarea>
+                </div>
+            </div>
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row">
+            <md-button ng-click="cc.vehicleObservationPopUp()">
+                SAVE
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>
