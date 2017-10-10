@@ -1,4 +1,7 @@
-<md-nav-bar layout-align="space-around center" md-no-ink-bar="disableInkBar" md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
+<md-nav-bar class="navBarStyle" 
+ md-selected-nav-item="currentNavItem" layout="row"
+ layout-align="space-around center" 
+ md-no-ink-bar="disableInkBar"  nav-bar-aria-label="navigation links">
 
   <span ng-if="cc.AdminService.userObject.role == 'mechanic'">
       <md-nav-item flex md-nav-href="#/mechanic" name="mechanic view">Mechanic View</md-nav-item>
