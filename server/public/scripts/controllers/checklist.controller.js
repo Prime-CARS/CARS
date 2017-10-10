@@ -44,10 +44,10 @@ myApp.controller('ChecklistController', function (ChecklistService, AdminService
       vm.redFlag(checklistItem);
       ChecklistService.submitChecklist(vm.cars_checklist.info);
     }
-    if (checklistItem == false) {
-      vm.redFlag(checklistItem);
-      ChecklistService.submitChecklist(vm.cars_checklist.info);
-    }
+    // if (checklistItem == false) {
+    //   vm.redFlag(checklistItem);
+    //   ChecklistService.submitChecklist(vm.cars_checklist.info);
+    // }
     else {
       ChecklistService.submitChecklist(vm.cars_checklist.info);
     }
