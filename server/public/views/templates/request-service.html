@@ -65,7 +65,33 @@
         <input ng-model="rc.customer.email" required>
     </md-input-container>
     <h2>Vehicle Information</h2>
+
     <md-input-container>
+            <div class="container">
+                    <label>VIN</label>
+                    <input type="text" class="form-control" title="VIN must be 17 digits long" pattern="\w{17}" name="VIN" ng-model="rc.customer.vin"
+                    required>
+                    <h4>Where do I find the VIN?</h4>
+                    <img src="./views/images/question_mark.png" alt="question mark" ng-mouseover="openCard = true" ng-mouseleave="openCard = false"> 
+                    
+            <md-card ng-show="openCard">
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">How to find your vehicle's VIN</span>
+                        <span class="md-subhead"> If facing the vehicle, the VIN will be on the dashboard in the lower right-hand corner.  The VIN should also be found on the driver's side door between the door panel and the door frame.</span>
+                    </md-card-title-text>
+                    <md-card-title-media>
+                        <div class="md-media-md card-media"></div>
+                    </md-card-title-media>
+                </md-card-title>
+                    <md-card-content layout="row" layout-align="space-between">
+                        <div class="md-media-md card-media"> 
+                            <img src="./views/images/VIN_Graphic.png" alt="graphic for VIN location description">
+                        </div>
+                    </md-card-content>
+                </md-card>
+                </div>
+            
         <label>VIN</label>
         <input pattern="\w{17}" name="VIN" ng-model="rc.customer.vin" required>
     </md-input-container>
@@ -105,4 +131,5 @@
     </md-input-container>
 
     <md-button class="md-button primary" class="btn-btn-primary" type="submit" ng-click="rc.addCustomer()">Submit Request</md-button>
+>>>>>>> master
 </div>
