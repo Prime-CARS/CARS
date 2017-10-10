@@ -33,7 +33,7 @@ router.get('/:checklist_id', function (req, res) {
             console.log('Error connecting to database', err);
             res.sendStatus(500);
         } else {
-            client.query('SELECT customer_info.name, customer_info.year, customer_info.make, customer_info.model, customer_info.vin, customer_info.service_requested, cars_checklist.* FROM cars_checklist JOIN customer_info ON customer_info.customer_id=cars_checklist.customer_id WHERE cars_checklist.checklist_id=$1;',
+            client.query('SELECT customer_info.name, customer_info.year, customer_info.make, customer_info.model, customer_info.vin, customer_info.service_requested, customer_info.customer_id, cars_checklist.* FROM cars_checklist JOIN customer_info ON customer_info.customer_id=cars_checklist.customer_id WHERE cars_checklist.checklist_id=$1;',
                 [req.params.checklist_id],
                 function (err, result) {
                     if (err) {
@@ -53,7 +53,7 @@ router.post('/addChecklist', function (req, res) {
     // only logged in users with admin roles can approve for service.
     if (req.isAuthenticated()) {
         if (req.user.role === 'admin') {
-            index = req.body.index;
+            var index = req.body.index;
             console.log("The put route for customers in requestService.router.js was hit to update status");
             //connecting to db
             pool.connect(function (errorConnectingToDatabase, client, done) {
@@ -87,6 +87,7 @@ router.post('/addChecklist', function (req, res) {
     }
 });
 
+//NG-Change saves all information we pass automatically
 router.put('/submit', function (req, res) {
     // only logged in users with admin roles can approve for service.
     if (req.isAuthenticated()) {
@@ -102,7 +103,7 @@ router.put('/submit', function (req, res) {
                     res.sendStatus(500);
                 } else {
                     //the connection is successful
-                    client.query('UPDATE cars_checklist SET headlights_high = $1, headlights_low = $2, parkinglights_front = $3, turnsignals_front = $4, taillights = $5, turnsignals_rear = $6, brakelights = $7, backup_lights = $8, licensetabs_expiration = $9, sparetirepressure = $10, currenttirepressure_lf = $11, currenttirepressure_rf = $12, currenttirepressure_lr = $13, currenttirepressure_rr = $14, finaltirepressure_lf = $15, finaltirepressure_rf = $16, finaltirepressure_lr = $17, finaltirepressure_rr = $18, tirecondition_lf = $19, tirecondition_rf = $20, tirecondition_lr = $21, tirecondition_rr = $22, wipercondition = $23, airfiltercondition = $24, brakefluid = $25, powersteeringfluid = $26, transmissionfluid = $27, oillevel = $28, washerfluid = $29, coolantlevel = $30, coolantlevel_strength = $31, radiatorhosecondition = $32, batterycondition = $33, serpentinebeltcondition = $34, otherbeltscondition = $35, lubehoodlatch = $36, shockstruttest = $37, frontwheelbearingtest = $38, tierodtest = $39, balljointtest = $40, controlarmcondition = $41, stabilizerbarlinkcondition = $42, cvbootcondition = $43, frontbrakecondition = $44, frontbrakecalipers = $45, reardiscbrakecondition = $46, rearbrakecalipers = $47, rearstabilizerbarlinkcondition = $48, torqueallwheelsremoved = $49, exhaustsystem = $50, enginescancodes = $51, oilchange = $52, addoil_amount = $53, addoil_weight = $54, oilfilter_brand = $55, oilfilter_number = $56, oiltype = $57, finishup_checklist = $58, vehicle_observations = $59, recommended_repairs = $60, repairs_declined = $61, parts_installed = $62, cost = $63, mechanics = $64, current_mileage = $65, date_completed=now(), checklist_status=$67 WHERE checklist_id = $66;',
+                    client.query('UPDATE cars_checklist SET headlights_high = $1, headlights_low = $2, parkinglights_front = $3, turnsignals_front = $4, taillights = $5, turnsignals_rear = $6, brakelights = $7, backup_lights = $8, licensetabs_expiration = $9, sparetirepressure = $10, currenttirepressure_lf = $11, currenttirepressure_rf = $12, currenttirepressure_lr = $13, currenttirepressure_rr = $14, finaltirepressure_lf = $15, finaltirepressure_rf = $16, finaltirepressure_lr = $17, finaltirepressure_rr = $18, tirecondition_lf = $19, tirecondition_rf = $20, tirecondition_lr = $21, tirecondition_rr = $22, wipercondition = $23, airfiltercondition = $24, brakefluid = $25, powersteeringfluid = $26, transmissionfluid = $27, oillevel = $28, washerfluid = $29, coolantlevel = $30, coolantlevel_strength = $31, radiatorhosecondition = $32, batterycondition = $33, serpentinebeltcondition = $34, otherbeltscondition = $35, lubehoodlatch = $36, shockstruttest = $37, frontwheelbearingtest = $38, tierodtest = $39, balljointtest = $40, controlarmcondition = $41, stabilizerbarlinkcondition = $42, cvbootcondition = $43, frontbrakecondition = $44, frontbrakecalipers = $45, reardiscbrakecondition = $46, rearbrakecalipers = $47, rearstabilizerbarlinkcondition = $48, torqueallwheelsremoved = $49, exhaustsystem = $50, enginescancodes = $51, oilchange = $52, addoil_amount = $53, addoil_weight = $54, oilfilter_brand = $55, oilfilter_number = $56, oiltype = $57, finishup_checklist = $58, vehicle_observations = $59, recommended_repairs = $60, repairs_declined = $61, parts_installed = $62, cost = $63, mechanics = $64, current_mileage = $65, date_completed=now(), checklist_status=$67, drain_oil=$68, remove_filter_gasket=$69, install_drain_plug=$70, install_tighten_filter=$71, checkoil_plug=$72, check_filter=$73, oilchange_sticker=$74 WHERE checklist_id = $66;',
                         [
                             checklist.headlights_high,
                             checklist.headlights_low,
@@ -169,8 +170,15 @@ router.put('/submit', function (req, res) {
                             checklist.cost,
                             checklist.mechanics,
                             checklist.current_mileage,
-                            checklist.checklist_id, 
-                            checklist.checklist_status
+                            checklist.checklist_id,
+                            checklist.checklist_status,
+                            checklist.drain_oil,
+                            checklist.remove_filter_gasket,
+                            checklist.install_drain_plug,
+                            checklist.install_tighten_filter,
+                            checklist.checkoil_plug,
+                            checklist.check_filter,
+                            checklist.oilchange_sticker
                         ],
                         function (err, result) {
                             done();
@@ -178,7 +186,16 @@ router.put('/submit', function (req, res) {
                                 console.log('Error saving new checklist: ', err);
                                 res.sendStatus(500);
                             } else {
-                                res.sendStatus(200);
+                                client.query('UPDATE customer_info SET name = $1, vin = $2, year = $3, make = $4, model = $5 WHERE customer_id = $6;',
+                                    [checklist.name, checklist.vin, checklist.year, checklist.make, checklist.model, checklist.customer_id],
+                                    function (err, result) {
+                                        if (err) {
+                                            console.log('Error saving new checklist: ', err);
+                                            res.sendStatus(500);
+                                        } else {
+                                            res.sendStatus(200);
+                                        }
+                                    });
                             }
                         });
                 }
