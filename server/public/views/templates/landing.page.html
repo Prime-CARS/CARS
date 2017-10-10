@@ -2,8 +2,11 @@
     <md-nav-bar class="NavBar" layout-align="space-around center" md-no-ink-bar="disableInkBar" md-selected-nav-item="currentNavItem"
         nav-bar-aria-label="navigation links">
 
-        <md-nav-item flex md-nav-href="#/requestservice" name="request service">Request for Service</md-nav-item>
-        <span ng-if="lpc.AdminService.userObject.role">
+<md-nav-bar  class="NavBar" layout-align="space-around center" md-no-ink-bar="disableInkBar"        md-selected-nav-item="currentNavItem"
+    nav-bar-aria-label="navigation links">
+
+    <md-nav-item flex md-nav-href="#/requestservice" name="request service">Request for Service</md-nav-item>
+    <span ng-if="lpc.AdminService.userObject.role">
       <md-nav-item flex md-nav-href="#/mechanic" name="mechanic view">Mechanic View</md-nav-item>
       <md-nav-item  flex md-nav-href="#/admin" name="admin view">Admin View</md-nav-item>
       <md-button flex class="md-raised md-warn" ng-click="lpc.AdminService.logout()" name="logOutTab"> Log Out</md-button>

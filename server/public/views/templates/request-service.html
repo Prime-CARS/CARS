@@ -29,6 +29,7 @@
 <div class="base" flex="60" flex-offset="20">
 
 
+
     <h2 class="RqstForm">Request for Vehicle Reapir</h2>
     <h4 class="RqstForm">Please fill in all the fields below</h4>
 
@@ -58,7 +59,7 @@
     </md-input-container>
     <md-input-container class="RqstForm">
         <label>Alternate Phone</label>
-        <input ng-model="rc.customer.altPhont" required>
+        <input ng-model="rc.customer.altPhone" required>
     </md-input-container><br>
     <md-input-container class="RqstForm" class="md-block">
         <label>Email</label>
@@ -81,12 +82,14 @@
         <md-button class="md-raised md-primary" class="questionMark" ng-click="rc.card()">Where do I find the VIN?</md-button><br>
         <md-card ng-click="rc.cardClose()" flex="80" layout="row" id="vinPopUp" ng-show="rc.openCard" ng-cloak>
             <div flex="50">
+
                 <md-card-title>
                     <md-card-title-text class="md-block">
                         <span class="md-headline">How to find your vehicle's VIN</span>
-                        <span class="md-subhead"> If facing the vehicle, the VIN will be on the dashboard in the lower right-hand corner.  The VIN should also be found on the driver's side door between the door panel and the door frame.</span>
+                        <span class="md-subhead"> If facing the vehicle, the VIN will be on the dashboard in the lower right-hand corner.  The VIN can also be found on the driver's side door between the door panel and the door frame.</span>
                     </md-card-title-text>
                 </md-card-title>
+
             </div>
             <div flex="50">
                 <md-card-content flex="50" layout-align="space-between">
