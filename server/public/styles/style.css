@@ -290,9 +290,7 @@ main {
 .RqstForm{
     padding-left: 5%;
 }
-
 /* tabs */
-
 .tabsdemoStaticTabs md-content md-tabs {
   border: 1px solid #e1e1e1; }
   .tabsdemoStaticTabs md-content md-tabs md-tab-content {
@@ -313,26 +311,23 @@ main {
   padding-right: 15px;
   vertical-align: middle;
   line-height: 30px;
-  height: 35px; }
-
+  height: 35px; 
+}
 .tabsdemoStaticTabs .after-tabs-area > md-checkbox {
   margin-top: 26px;
-  margin-left: 0; }
- 
+  margin-left: 0; 
+}
   .monkey{
       height:60vh;
   }
-
   .landingCard{
       background: rgba(255, 255, 255, .8);
       border-radius: 650px;
   }
-
   ._md-card{
       background: rgba(255, 255, 255, .8);
       border-radius: 650px;
   }
-
   .md-tab{
       border-right-style: solid;
       border-width: 1px;
@@ -349,3 +344,10 @@ main {
     opacity: 1;
     color: white;
 } */
+
+
+.landingImg{
+    height: 50vh;
+    width: auto;
+
+}
