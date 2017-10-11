@@ -72,43 +72,22 @@ router.put('/', function (req, res) {
             res.sendStatus(500);
         } else {
             //the connection is successful
-            client.query('UPDATE customer_info SET address=$1, alternative_phone=$2, cellphone=$3, city=$4, email_address=$5, make=$6, model=$7, name=$8, service_requested=$9, state=$10, vin=$11, year=$12, zip=$13  WHERE customer_id=$14;',
-                [req.body.address, req.body.alternative_phone, req.body.cellphone, req.body.city, req.body.email_address, req.body.make, req.body.model, req.body.name, req.body.service_requested, req.body.state, req.body.vin, req.body.year, req.body.zip, req.body.customer_id],
+            client.query('UPDATE customer_info SET address=$1, alternative_phone=$2, cellphone=$3, city=$4, email_address=$5, make=$6, model=$7, name=$8, service_requested=$9, state=$10, vin=$11, year=$12, zip=$13, current_mileage=$14 WHERE customer_id=$15;',
+                [req.body.address, req.body.alternative_phone, req.body.cellphone, req.body.city, req.body.email_address, req.body.make, req.body.model, req.body.name, req.body.service_requested, req.body.state, req.body.vin, req.body.year, req.body.zip, req.body.current_mileage, req.body.customer_id],
                 function (err, result) {
                     done();
                     if (err) {
                         console.log('Error updating customer info: ', err);
                         res.sendStatus(500);
                     } else {
-                        client.query('UPDATE cars_checklist SET current_mileage=$1 WHERE customer_id=$2;',
-                        [req.body.current_mileage, req.body.customer_id],
-                        function (err, result) {
-                            done();
-                            if (err) {
-                                console.log('Error updating customer info: ', err);
-                                res.sendStatus(500);
-                            } else {
-                                res.sendStatus(200);
-                            }
-                        }
-                    );
+                        res.sendStatus(200);
                     }
                 }
             );
         }
     });
-    // pool.connect(function (errorConnectingToDatabase, client, done) {
-    //     //checking the status of the connection
-    //     if (errorConnectingToDatabase) {
-    //         //if the connection failed
-    //         console.log("error connecting to customer_info table in db: ", errorConnectingToDatabase);
-    //         res.sendStatus(500);
-    //     } else {
-    //         //the connection is successful
 
-            
-    //     }
-    // });
+
 });
 
 module.exports = router;

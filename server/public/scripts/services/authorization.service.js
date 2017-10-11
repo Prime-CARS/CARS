@@ -9,16 +9,12 @@ myApp.service('AuthService', function ($http, $location) {
       $http.get('/authorization').then(function (response) {
          self.serviceObject = response.data[c];
          console.log('self.serviceObject is', self.serviceObject);
-
-         $http.get('/authorization/' + self.serviceObject.customer_id).then(function (response) {
-            self.checklistObject = response.data
-            console.log('self.checklistObject is', self.checklistObject);
-            $location.path('/authorization');
-         })
-
+         $location.path('/authorization');
       })
-
+      
+      
    }
+
 
 
    self.saveObject = function (serviceObject) {
