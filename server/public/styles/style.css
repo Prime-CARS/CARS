@@ -18,11 +18,15 @@ main{
   height: 100vh;
 }
 
+.navBarStyle {
+   background: maroon;
+}
+
 ._md-nav-button-text {
-   color: rgb(126, 3, 13);
-    font-size: 15px;
-    font-weight: 800;
-    background-color:white;
+   color: rgb(240, 226, 227);
+    font-size: 14px;
+    font-weight: 700;
+    padding: 5px;
 }
     
 .carsImg {
@@ -30,6 +34,11 @@ main{
     height: 240px;
     padding: 0;
     float: left;
+}
+
+.container {
+    font: 32px;
+    color: black;
 }
 
 .instructions .container h1 {
@@ -56,33 +65,10 @@ main{
     margin-top: 14px;
 }
 
-.message {
-    padding: 10px 0;
-}
-
-.message p {
-    margin-left: 10px;
-}
-
-.message:nth-child(odd) {
-    background-color: #eeeeee;
-}
-
-.message:nth-child(even) {
-    background-color: #f8f8f8;
-}
 
 .btn-danger {
     margin-left: 10px;
 }
-
-.NavBar {
-    background-color: white; 
-    width: 100%;
-    opacity: 1;
-    color: white
-   
-} 
 
 ul {
     list-style-type: none;
@@ -91,25 +77,9 @@ ul {
     overflow: hidden;
 }
 
-li {
-    float: left;
-    color: maroon;
-}
-
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
 
 /* Change the link color to #111 (black) on hover */
 
-li a:hover {
-    text-decoration: underline;
-    color: #eee;
-}
 
 header,
 footer {
@@ -117,15 +87,6 @@ footer {
     padding: 8px;
     color: #131313;
     background-color: maroon;
-    clear: left;
-    text-align: center;
-}
-
-.landingpagelinks {
-    padding: 8px;
-    
-    color: white;
-    background-color: white; 
     clear: left;
     text-align: center;
 }
@@ -217,10 +178,6 @@ footer {
     padding-top: 20px;
 }
 
-
-.NavLink {
-    color: whitesmoke;
-}
 
 main {
     background-color: #999696;
@@ -366,7 +323,21 @@ main {
       height:60vh;
   }
 
-  .ng-hide{
-      position: relative;
-      margin-left: -2000px;
+<<<<<<< HEAD
+  .landingCard{
+      background: rgba(255, 255, 255, .8);
+      border-radius: 650px;
   }
+
+  ._md-card{
+      background: rgba(255, 255, 255, .8);
+      border-radius: 650px;
+  }
+=======
+  /*.NavBar {
+    background-color: white; 
+    width: 100%;
+    opacity: 1;
+    color: white;
+} */
+>>>>>>> 3406246e61135e88acbf2076c418055dbf69c4eb
