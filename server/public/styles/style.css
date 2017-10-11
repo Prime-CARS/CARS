@@ -358,3 +358,8 @@ main {
   .monkey{
       height:60vh;
   }
+
+  .ng-hide{
+      position: relative;
+      margin-left: -2000px;
+  }

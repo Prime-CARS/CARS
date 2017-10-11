@@ -3,9 +3,6 @@ myApp.controller('LandingPageController', function(AdminService, $location) {
   
   var vm = this;
   vm.AdminService = AdminService;
-
-
-
   
     vm.currentNavItem = 'page1';
 
