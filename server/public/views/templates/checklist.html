@@ -15,6 +15,11 @@
 
 <md-card>
   <h4>Vehicle Inspection Checklist</h4>
+  <br>
+  <md-input-container>
+    <label for="text"> Me &#42;&#42; </label>
+    <input type='text' ng-model="cc.cars_checklist.info.name" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.name)">
+  </md-input-container>
 
 
   <form class="">
