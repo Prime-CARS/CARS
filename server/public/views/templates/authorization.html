@@ -1,14 +1,26 @@
-<div ng-include="'views/partials/nav.html'"></div>
 
+
+<md-nav-bar class="navBarStyle" md-selected-nav-item="currentNavItem" 
+layout="row" 
+ layout-align="space-around center"  
+ md-no-ink-bar="disableInkBar" 
+ nav-bar-aria-label="navigation links">
+
+<md-nav-item md-nav-href="#/landingpage" name="homeTab">
+      Home
+  </md-nav-item>
+  <md-nav-item md-nav-href="#/requestservice" name="serviceRequestTab">
+      Request for Service Form
+  </md-nav-item>
 
 <div flex="90" flex-offset="5" class="base">
+
       <div id="printMe">
             <md-action>
                   <md-button flex class="md-raised md-primary noPrint" ng-click="ac.printDiv()">Print</md-button>
                   <md-button flex class="md-raised md-warn removebutton noPrint" ng-click="ac.updateCustomer(data.customer_id, 'printed')">remove</md-button>
                   <br>
             </md-action>
-
 
             <h2 class="authClickToEdit" id="authDate">{{ac.date | date:MMM/dd/yyyy}}</h2>
             <H1>C.A.R.S.</H1>
@@ -19,10 +31,8 @@
                   <input type="text" onkeypress="this.style.width = ((this.value.length + 1) * 8) + 'px';" id="authName" style="border:none;background:transparent;"
                         ng-model="ac.serviceObject.name"> hereby authorize C.A.R.S. to perform the following services and repairs on the vehicle listed below:</p>
             <p>
-                  <input type="text" onkeypress="this.style.width = ((this.value.length + 1) * 8) + 'px';" id="authSR" style="border:none;background:transparent;"
-                        ng-model="ac.serviceObject.service_requested">
+                  <textarea type="text" rows="5" cols="75" style="border:none;background:transparent;" ng-model="ac.serviceObject.service_requested"></textarea>
             </p>
-
             <br>
 
             <p>I understand that the service(s) will be performed by volunteers who are not professional automotive technicians.
@@ -43,7 +53,7 @@
             <input type="text" style="border:none;background:transparent;width:150px;" ng-model="ac.serviceObject.model">
 
             <br>Miles:
-            <input type="text" style="border:none;background:transparent;width:80px;" ng-model="ac.checklistObject[0].current_mileage">
+            <input type="text" style="border:none;background:transparent;width:80px;" ng-model="ac.serviceObject.current_mileage">
 
             <br>VIN:
             <input type="text" style="border:none;background:transparent;width:150px;" ng-model="ac.serviceObject.vin">

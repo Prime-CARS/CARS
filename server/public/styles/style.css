@@ -18,11 +18,15 @@ main{
   height: 100vh;
 }
 
+.navBarStyle {
+   background: maroon;
+}
+
 ._md-nav-button-text {
-   color: rgb(126, 3, 13);
-    font-size: 15px;
-    font-weight: 800;
-    background-color:white;
+   color: rgb(240, 226, 227);
+    font-size: 14px;
+    font-weight: 700;
+    padding: 5px;
 }
     
 .carsImg {
@@ -30,6 +34,11 @@ main{
     height: 240px;
     padding: 0;
     float: left;
+}
+
+.container {
+    font: 32px;
+    color: black;
 }
 
 .instructions .container h1 {
@@ -76,14 +85,6 @@ main{
     margin-left: 10px;
 }
 
-.NavBar {
-    background-color: white; 
-    width: 100%;
-    opacity: 1;
-    color: white
-   
-} 
-
 ul {
     list-style-type: none;
     margin: 0;
@@ -117,15 +118,6 @@ footer {
     padding: 8px;
     color: #131313;
     background-color: maroon;
-    clear: left;
-    text-align: center;
-}
-
-.landingpagelinks {
-    padding: 8px;
-    
-    color: white;
-    background-color: white; 
     clear: left;
     text-align: center;
 }
@@ -217,10 +209,6 @@ footer {
     padding-top: 20px;
 }
 
-
-.NavLink {
-    color: whitesmoke;
-}
 
 main {
     background-color: #999696;
@@ -365,3 +353,10 @@ main {
   .monkey{
       height:60vh;
   }
+
+  /*.NavBar {
+    background-color: white; 
+    width: 100%;
+    opacity: 1;
+    color: white;
+} */
