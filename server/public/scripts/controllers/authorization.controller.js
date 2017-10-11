@@ -4,10 +4,6 @@ myApp.controller('AuthController', function (AuthService, RequestService) {
     $('.maskPhone').mask('(000) 000-0000');
 
     var self = this;
-    // self.AuthService = AuthService;
-    // self.serviceObject = AuthService.serviceObject;
-    // scope = $rootScope;
-    // scope.serviceObject = AuthService.serviceObject;
     self.date = new Date();
     self.test = {this:'wtf'};
     self.serviceObject = AuthService.serviceObject;

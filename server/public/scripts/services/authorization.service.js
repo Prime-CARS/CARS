@@ -5,6 +5,7 @@ myApp.service('AuthService', function ($http, $location) {
    self.userObject = {};
    self.Requests = { list: [] }
 
+
    self.getAuth = function (c) {
       $http.get('/authorization').then(function (response) {
          self.serviceObject = response.data[c];

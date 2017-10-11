@@ -40,7 +40,7 @@
                         <br>
                         <b>Qualifier:</b> {{data.qualify_input}}
                         <br>
-                        <b>Vehicle Issue:</b> {{data.service_request}}
+                        <b>Vehicle Issue:</b> {{data.service_requested}}
                         <br>
                         <p>
                             <button class="btn-btn-primary" type="submit" ng-click="ac.updateCustomer(data.customer_id, 'scheduled')">Scheduled!</button>
@@ -147,7 +147,7 @@
                         <input type="text" id="search" ng-model="history_search">
                         <button ng-click="ac.search_history(history_search)">submit</button>
                     </form>
-                    <div class="rqst" ng-repeat="customer in ac.AdminService.searchResults.list.data" ng-click="ac.getChecklist()"> {{customer.name}} {{customer.year}} {{customer.make}} {{customer.model}} {{customer.vin}}
+                    <div class="rqst" ng-repeat="customer in ac.AdminService.searchResults.list.data" ng-click="ac.getChecklist($index)"> {{customer.name}} {{customer.year}} {{customer.make}} {{customer.model}} {{customer.vin}}
                     </div>
                 </div>
             </md-tab-body>
