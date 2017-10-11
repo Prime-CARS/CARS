@@ -17,6 +17,7 @@ var requestServiceRouter = require('./routes/requestService.router');
 var RequestsForService = require('./routes/service_request.router');
 var authRouter = require('./routes/authorization.router');
 var mailRouter = require('./routes/mail.router');
+var summaryRouter = require('./routes/summary.router');
 
 var port = process.env.PORT || 5000;
 
@@ -39,7 +40,7 @@ app.use('/register', registerRouter);
 app.use('/user', userRouter);
 app.use('/checklist', checklistRouter);
 app.use('/requestservice',requestServiceRouter);
-
+app.use('/summary', summaryRouter);
 app.use('/RequestsForService', RequestsForService)
 
 //for nodemailer
