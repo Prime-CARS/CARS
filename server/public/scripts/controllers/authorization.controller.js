@@ -31,7 +31,7 @@ myApp.controller('AuthController', function (AuthService, RequestService) {
 
     // scope.$watch('serviceObject', self.logMe, true)
 
-    $('authName').css('width', ((authName.getAttribute('ng-model').length + 1) * 8) + 'px');
+    // $('authName').css('width', ((authName.getAttribute('ng-model').length + 1) * 8) + 'px');
     // $('authSR').css('width', ((authSR.getAttribute('ng-model').length + 1) * 8) + 'px');
 
 });
