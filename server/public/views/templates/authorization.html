@@ -12,10 +12,10 @@ layout="row"
   <md-nav-item md-nav-href="#/requestservice" name="serviceRequestTab">
       Request for Service Form
   </md-nav-item>
-
+</md-nav-bar>
 <div flex="90" flex-offset="5" class="base">
 
-      <div id="printMe">
+      <div id="printMe" style="overflow: hidden">
             <md-action>
                   <md-button flex class="md-raised md-primary noPrint" ng-click="ac.printDiv()">Print</md-button>
                   <md-button flex class="md-raised md-warn removebutton noPrint" ng-click="ac.updateCustomer(data.customer_id, 'printed')">remove</md-button>
@@ -28,10 +28,10 @@ layout="row"
             <img src="../views/images/cars-logo-transparent.png" id="authCarsLogo" />
 
             <p>I,
-                  <input type="text" onkeypress="this.style.width = ((this.value.length + 1) * 8) + 'px';" id="authName" style="border:none;background:transparent;"
+                  <input type="text" id="authNameLine" onkeypress="this.style.width = ((this.value.length + 1) * 8) + 'px';" style="border-bottom: 1px solid black;border-right:hidden;border-left:hidden;border-top:hidden;background:transparent;"
                         ng-model="ac.serviceObject.name"> hereby authorize C.A.R.S. to perform the following services and repairs on the vehicle listed below:</p>
             <p>
-                  <textarea type="text" rows="5" cols="75" style="border:none;background:transparent;" ng-model="ac.serviceObject.service_requested"></textarea>
+                  <textarea id="authProblemArea" type="text" rows="3" style="border:none;background:transparent;" ng-model="ac.serviceObject.service_requested"></textarea>
             </p>
             <br>
 
