@@ -59,11 +59,11 @@
     </md-input-container><br>
     <md-input-container class="RqstForm">
         <label>Cell Phone</label>
-        <input ng-model="rc.customer.cellPhone" required>
+        <input class="maskPhone" ng-model="rc.customer.cellPhone" required>
     </md-input-container>
     <md-input-container class="RqstForm">
         <label>Alternate Phone</label>
-        <input ng-model="rc.customer.altPhone" required>
+        <input class="maskPhone" ng-model="rc.customer.altPhone" required>
     </md-input-container><br>
     <md-input-container class="RqstForm" class="md-block">
         <label>Email</label>
@@ -79,7 +79,7 @@
 
     <md-input-container class="RqstForm">
         <label>Mileage</label>
-        <input ng-model="rc.customer.mileage" ng-click="rc.cardClose()" required>
+        <input ng-model="rc.customer.current_mileage" ng-click="rc.cardClose()" required>
     </md-input-container><br>
 
     <div layout="row" layout-align="start center" ng-cloak>
@@ -125,7 +125,7 @@
     
     <label>Please indicate why you qualify to use the services of C.A.R.S. Ministry</label>
 
-            <md-radio-group layout="row" ng-model="rc.customer.qualification">
+            <md-radio-group layout="column" ng-model="rc.customer.qualification">
                <div flex="10">
                 <md-radio-button value="Single Mother" ng-click="rc.closeTextbox()">Single Mother</md-radio-button> 
                 </div>
