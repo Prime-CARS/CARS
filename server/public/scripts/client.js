@@ -34,6 +34,14 @@ myApp.config(function($routeProvider, $locationProvider) {
           return AdminService.getuser();
         }
       }
+    }).when('/summary', {
+      templateUrl: '/views/templates/summary.html',
+      controller: 'SummaryController as sc',
+      resolve: {
+        getuser : function(AdminService){
+          return AdminService.getuser();
+        }
+      }
     })
     .when('/mechanic', {
       templateUrl: './views/templates/mechanic.landing.html',
