@@ -354,6 +354,11 @@ main {
       height:60vh;
   }
 
+.checklistGroup{
+    padding: 8px;
+    margin: 8px;
+    font-size: 20px;
+}
   /*.NavBar {
     background-color: white; 
     width: 100%;
