@@ -1,27 +1,26 @@
 <div>
+  <h1 class="alert alert-danger" role="alert" ng-if="lc.message != ''">{{lc.message}}</h1>
+    <md-card flex="20" flex-offset="40">
+      <h1 style="padding: 0 0 0 15px;">Register User</h1>
+      <form ng-submit="lc.registerUser()" style="padding: 8px; margin: 8px;">
+        <md-input-container>
+          <label>Username:</label>
+          <input type="text" ng-model="lc.user.username" />
+        </md-input-container>
+        <md-input-container>
+          <label for="password">Password:</label>
+          <input type="password" ng-model="lc.user.password" />
+        </md-input-container>
 
-  <div>
-    <h1 class="alert alert-danger" role="alert" ng-if="lc.message != ''">{{lc.message}}</h2>
-      <md-card flex="30" flex-offset"35">
-        <h1 style="padding: 0 0 0 15px;">Register User</h1>
-        <form ng-submit="lc.registerUser()" style="padding: 8px; margin: 8px;">
-          <md-input-container>
-            <label>Username:</label>
-            <input type="text" ng-model="lc.user.username" />
-          </md-input-container>
-          <md-input-container>
-            <label for="password">Password:</label>
-            <input type="password" ng-model="lc.user.password" />
-          </md-input-container>
+        <md-radio-group ng-model="lc.user.role">
+          <md-radio-button value="admin" class="md-primary">Admin</md-radio-button>
+          <md-radio-button value="mechanic">Mechanic</md-radio-button>
+        </md-radio-group>
 
-          <md-radio-group ng-model="lc.user.role">
-            <md-radio-button value="admin" class="md-primary">Admin</md-radio-button>
-            <md-radio-button value="mechanic">Mechanic</md-radio-button>
-          </md-radio-group>
-          
-          <div>
-            <button type="submit" name="submit" value="Log In" style="padding: 10px;">Log In</button>
-            <a href="#login"><button style="padding: 10px;">Cancel</button></a>
-          </div>
-        </form>
-  </div>
+        <div>
+          <button type="submit" name="submit" value="Log In" style="padding: 10px;">Log In</button>
+          <a href="#login"><button style="padding: 10px;">Cancel</button></a>
+        </div>
+      </form>
+    </md-card>
+</div>
