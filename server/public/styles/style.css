@@ -351,3 +351,8 @@ main {
     width: auto;
 
 }
+
+#what{
+    border-left-width: 5px;
+    border-left-color: #000000;
+}

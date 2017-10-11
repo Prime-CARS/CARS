@@ -28,7 +28,7 @@
     <md-card ng-click="lpc.whoExpandShrink()" ng-show="lpc.who" class="landingCard" flex="80" flex-offset="10" md-theme="default">
         <md-card-title>
             <md-card-title-text>
-                <span class="md-headline">+ Who are we?</span>
+                <span class="md-headline">- Who are we?</span>
                 <span class="md-subhead"><h3>
                                 CARS is a part of the nonprofit ministry of Youth Impact Racing (YIR).
                                 <br>At YIR, youth have an opportunity to learn about racing through RC cars and Go Karts
@@ -45,19 +45,19 @@
         </md-card-title>
     </md-card>
 </div>
+
 <div layout="row">
-            <md-card ng-hide="lpc.whoDO" ng-click="lpc.whoExpandDo()" class="landingCard" flex="80" flex-offset="10" md-theme="default">
+            <md-card ng-hide="lpc.whoDo" ng-click="lpc.whoExpandDo()" class="landingCard" flex="80" flex-offset="10" md-theme="default">
                 <md-card-title>
                     <md-card-title-text>
                         <span class="md-headline">+ Who do we serve and what does it cost?</span>
                     </md-card-title-text>
                 </md-card-title>
             </md-card>
-            </div>
-    <md-card flex="80" flex-offset="10" ng-click="lpc.whoExpandDoShrink()" ng-show="lpc.whoDo">
+    <md-card flex="80" flex-offset="10" ng-click="lpc.whoExpandDoShrink()" ng-show="lpc.whoDo" class="landingCard" md-theme="default">
         <md-card-title>
             <md-card-title-text>
-                <span class="md-headline">+ Who do we serve and what does it cost?</span>
+                <span class="md-headline">- Who do we serve and what does it cost?</span>
                 <span class="md-subhead"><h3>
                      Our mission is to serve single moms, single women, widows, financially limited individuals, and others who may need assistance
                     as our schedule permits.
@@ -69,11 +69,19 @@
         </md-card-title>
     </md-card>
 </div>
+
 <div layout="row">
-    <md-card flex="40" flex-offset="5">
+            <md-card ng-hide="lpc.how" ng-click="lpc.howExpand()" class="landingCard" flex="80" flex-offset="10" md-theme="default">
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">+ How can you be involved?</span>
+                    </md-card-title-text>
+                </md-card-title>
+            </md-card>
+    <md-card ng-click="lpc.howExpandShrink()" ng-show="lpc.how" flex="80" flex-offset="10">
         <md-card-title>
             <md-card-title-text>
-                <span class="md-headline">How can you be involved?</span>
+                <span class="md-headline">- How can you be involved?</span>
                 <span class="md-subhead">
         <h3>
             We are looking for other individuals who would like to help in the repair shop. Although previous car repair experience is
@@ -89,25 +97,43 @@
         </md-card-title>
     </md-card>
 </div>
+
 <div layout="row">
-    <md-card flex="40" flex-offset="10">
+    <md-card ng-hide="lpc.when" ng-click="lpc.whenExpand()" class="landingCard" flex="80" flex-offset="10" md-theme="default">
         <md-card-title>
             <md-card-title-text>
-                <span class="md-headline">When do we work on cars?</span>
-                <span class="md-subhead"><h3>
-                                    We usually work on cars the 1st Saturday of each month unless it conflicts with a major holiday weekend.
-                            </h3></span>
+                <span class="md-headline">+ When do we work on cars?</span>
             </md-card-title-text>
         </md-card-title>
     </md-card>
-</div>
+        <md-card ng-show="lpc.when" ng-click="lpc.whenExpandShrink()" class="landingCard" flex="80" flex-offset="10" md-theme="default">
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">- When do we work on cars?</span>
+                    <span class="md-subhead"><h3>
+                                    We usually work on cars the 1st Saturday of each month unless it conflicts with a major holiday weekend.
+                            </h3></span>
+                </md-card-title-text>
+            </md-card-title>
+        </md-card>
+        </div>
+
+
+
 <div layout="row">
-    <md-card flex="80" flex-offset="10">
+    <md-card ng-hide="lpc.what" ng-click="lpc.whatExpand()" class="landingCard" flex="80" flex-offset="10" md-theme="default">
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">+ What type of repairs can we do?</span>
+            </md-card-title-text>
+        </md-card-title>
+    </md-card>
+    <md-card ng-show="lpc.what"  ng-click="lpc.whatExpandShrink()" class="landingCard" flex="80" flex-offset="10" md-theme="default">
         <div layout="row">
             <div flex="50">
                 <md-card-title>
                     <md-card-title-text>
-                        <span class="md-headline">What type of repairs can we do?</span>
+                        <span class="md-headline">-What type of repairs can we do?</span>
                     </md-card-title-text>
                 </md-card-title>
                 <md-card-content>
@@ -135,10 +161,10 @@
                     </span>
                 </md-card-content>
             </div>
-            <div flex="50">
+            <div id="what" flex="50">
                 <md-card-title>
                     <md-card-title-text>
-                        <span class="md-headline">What don't we do?</span>
+                        <span class="md-headline">-What don't we do?</span>
                     </md-card-title-text>
                 </md-card-title>
                 <md-card-content>
