@@ -1,6 +1,8 @@
 myApp.controller('AuthController', function (AuthService, RequestService) {
     console.log('AuthController created');
 
+    $('.maskPhone').mask('(000) 000-0000');
+
     var self = this;
     // self.AuthService = AuthService;
     // self.serviceObject = AuthService.serviceObject;
