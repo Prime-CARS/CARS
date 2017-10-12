@@ -13,8 +13,6 @@ myApp.service('AuthService', function ($http, $location) {
          console.log('self.serviceObject is', self.serviceObject);
          $location.path('/authorization');
       })
-      
-      
    }
 
 
