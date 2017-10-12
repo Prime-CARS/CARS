@@ -34,7 +34,8 @@ myApp.config(function($routeProvider, $locationProvider) {
           return AdminService.getuser();
         }
       }
-    }).when('/summary', {
+    })
+    .when('/summary', {
       templateUrl: '/views/templates/summary.html',
       controller: 'SummaryController as sc',
       resolve: {

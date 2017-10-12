@@ -58,6 +58,43 @@ router.put('/updateService', function (req, res) {
     });
 });
 
+router.put('/cancelService', function (req, res) {
+    var service_status = 'canceled';
+    var customer_id = req.body.customer_id;
+    console.log('Cancel service hit with: ', req.body);
+
+
+    if (req.isAuthenticated()) {
+        if (req.user.role) {
+            pool.connect(function (errorConnectingToDatabase, client, done) {
+                //checking the status of the connection
+                if (errorConnectingToDatabase) { //if the connection failed
+                    console.log("error connecting to customer_info table in db: ", errorConnectingToDatabase);
+                    res.sendStatus(500);
+                } else { //the connection is successful
+                    client.query('UPDATE customer_info SET service_status = $1 WHERE customer_id = $2;',
+                        [service_status, customer_id],
+                        function (errorMakingQuery, result) {
+                            done;
+                            if (errorMakingQuery) {
+                                console.log("Error making db query in customer_info table in requestService.router.js: ", errorMakingQuery);
+                                res.sendStatus(500);
+                            } else {
+                                res.send('Update Service Put Route OK', service_status, index);
+                            }
+                        });
+                }
+            });
+        } else {
+            console.log('No role');
+            res.sendStatus(404);
+        }
+    } else {
+        console.log('Not logged in');
+        res.sendStatus(404);
+    }
+})
+
 
 router.post('/updateService/addChecklist', function (req, res) {
     index = req.body.index;

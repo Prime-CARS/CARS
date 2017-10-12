@@ -4,18 +4,20 @@ myApp.controller('AuthController', function (AuthService, RequestService) {
     $('.maskPhone').mask('(000) 000-0000');
 
     var self = this;
-    // self.AuthService = AuthService;
-    // self.serviceObject = AuthService.serviceObject;
-    // scope = $rootScope;
-    // scope.serviceObject = AuthService.serviceObject;
+    AuthService.getAuth()
     self.date = new Date();
     self.test = {this:'wtf'};
+    self.AuthService = AuthService.serviceObject
     self.serviceObject = AuthService.serviceObject;
+    self.serviceTest = AuthService.serviceTest;
 
-    // AuthService.getAuth()
     
 
     self.updateCustomer = function (z, x) {
+        // console.log('z',z);
+        // console.log('x', x);
+        
+        
         self.saveAuth();
         RequestService.updateCustomer(z, x)
     }
@@ -30,11 +32,6 @@ myApp.controller('AuthController', function (AuthService, RequestService) {
         console.log('saveAuth hit serviceObject is', self.serviceObject);
         AuthService.saveObject(self.serviceObject)
     }
-
-    // scope.$watch('serviceObject', self.logMe, true)
-
-    // $('authName').css('width', ((authName.getAttribute('ng-model').length + 1) * 8) + 'px');
-    // $('authSR').css('width', ((authSR.getAttribute('ng-model').length + 1) * 8) + 'px');
 
 });
 

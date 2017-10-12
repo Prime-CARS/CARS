@@ -19,7 +19,7 @@ layout="row"
       <div id="printMe" style="overflow: hidden">
             <md-action>
                   <md-button flex class="md-raised md-primary noPrint" ng-click="ac.printDiv()">Print</md-button>
-                  <md-button flex class="md-raised md-warn removebutton noPrint" ng-click="ac.updateCustomer(data.customer_id, 'printed')">remove</md-button>
+                  <md-button flex class="md-raised md-warn removebutton noPrint" ng-click="ac.updateCustomer(ac.serviceObject.customer_id, 'printed')">remove</md-button>
                   <br>
             </md-action>
 
@@ -29,7 +29,7 @@ layout="row"
             <img src="../views/images/cars-logo-transparent.png" id="authCarsLogo" />
 
             <p>I,
-                  <input type="text" id="authNameLine" onkeypress="this.style.width = ((this.value.length + 1) * 8) + 'px';" style="border-bottom: 1px solid black;border-right:hidden;border-left:hidden;border-top:hidden;background:transparent;"
+                  <input type="text" id="authNameLine" style="border-bottom: 1px solid black;border-right:hidden;border-left:hidden;border-top:hidden;background:transparent;"
                         ng-model="ac.serviceObject.name"> hereby authorize C.A.R.S. to perform the following services and repairs on the vehicle listed below:</p>
             <p>
                   <textarea id="authProblemArea" type="text" rows="3" style="border:none;background:transparent;" ng-model="ac.serviceObject.service_requested"></textarea>
