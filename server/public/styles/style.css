@@ -63,21 +63,6 @@ main {
     margin-top: 14px;
 }
 
-.message {
-    padding: 10px 0;
-}
-
-.message p {
-    margin-left: 10px;
-}
-
-.message:nth-child(odd) {
-    background-color: #eeeeee;
-}
-
-.message:nth-child(even) {
-    background-color: #f8f8f8;
-}
 
 .btn-danger {
     margin-left: 10px;
@@ -90,26 +75,10 @@ ul {
     overflow: hidden;
 }
 
-li {
-    float: left;
-    color: maroon;
-}
-
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
 
 
 /* Change the link color to #111 (black) on hover */
 
-li a:hover {
-    text-decoration: underline;
-    color: #eee;
-}
 
 header,
 footer {
@@ -206,15 +175,6 @@ footer {
 
 #title {
     padding-top: 20px;
-}
-
-main {
-    background-color: #999696;
-    /* background-image: url("../views/images/motor-background.jpeg"); */
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    opacity: 1
 }
 
 #authCarsLogo {
@@ -323,48 +283,75 @@ main {
     padding-left: 5%;
 }
 
-
 /* tabs */
-
 .tabsdemoStaticTabs md-content md-tabs {
-    border: 1px solid #e1e1e1;
+      border: 1px solid #e1e1e1;
 }
 
-.tabsdemoStaticTabs md-content md-tabs md-tab-content {
-    padding: 25px;
-}
+  .tabsdemoStaticTabs md-content md-tabs md-tab-content {
+    padding: 25px; }
+    .tabsdemoStaticTabs md-content md-tabs md-tab-content:nth-child(1) {
+      background-color: #cfd8dc; }
+    .tabsdemoStaticTabs md-content md-tabs md-tab-content:nth-child(2) {
+      background-color: #ffb74d; }
+    .tabsdemoStaticTabs md-content md-tabs md-tab-content:nth-child(3) {
+      background-color: #ffd54f; }
+    .tabsdemoStaticTabs md-content md-tabs md-tab-content:nth-child(4) {
+      background-color: #aed581; }
+    .tabsdemoStaticTabs md-content md-tabs md-tab-content:nth-child(5) {
+      background-color: #00897b; }
 
-.tabsdemoStaticTabs .after-tabs-area>span {
-    margin-top: 25px;
-    padding-right: 15px;
-    vertical-align: middle;
-    line-height: 30px;
-    height: 35px;
+.tabsdemoStaticTabs .after-tabs-area > span {
+  margin-top: 25px;
+  padding-right: 15px;
+  vertical-align: middle;
+  line-height: 30px;
+  height: 35px; 
 }
-
-.tabsdemoStaticTabs .after-tabs-area>md-checkbox {
-    margin-top: 26px;
-    margin-left: 0;
+.tabsdemoStaticTabs .after-tabs-area > md-checkbox {
+  margin-top: 26px;
+  margin-left: 0; 
 }
-
-.monkey {
-    height: 60vh;
-}
-
+  .monkey{
+      height:60vh;
+  }
+  .landingCard{
+      background: rgba(255, 255, 255, .8);
+      border-radius: 650px;
+  }
+  ._md-card{
+      background: rgba(255, 255, 255, .8);
+      border-radius: 650px;
+  }
+  .md-tab{
+      border-right-style: solid;
+      border-width: 1px;
+      height: 90%;
+  }
 .checklistGroup{
     padding: 8px;
     margin: 8px;
     font-size: 20px;
 }
 
-  /*.NavBar {
+
+/*.NavBar {
     background-color: white; 
     width: 100%;
     opacity: 1;
     color: white;
 } */
 
+.landingImg{
+    height: 50vh;
+    width: auto;
+}
+
+#what{
+    border-left-width: 5px;
+    border-left-color: #000000;
+}
+
 #authProblemArea {
     width: 60%
 }
-

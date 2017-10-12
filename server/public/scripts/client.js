@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', ['ngRoute', 'ngMaterial', 'ngAnimate', 'ngAria', /*'angular-carousel'*/]);
+var myApp = angular.module('myApp', ['ngRoute', 'ngMaterial', 'ngAnimate', 'ngAria',]);
 
 /// Routes ///
 myApp.config(function($routeProvider, $locationProvider) {
@@ -29,6 +29,15 @@ myApp.config(function($routeProvider, $locationProvider) {
     .when('/authorization', {
       templateUrl: '/views/templates/authorization.html',
       controller: 'AuthController as ac',
+      resolve: {
+        getuser : function(AdminService){
+          return AdminService.getuser();
+        }
+      }
+    })
+    .when('/summary', {
+      templateUrl: '/views/templates/summary.html',
+      controller: 'SummaryController as sc',
       resolve: {
         getuser : function(AdminService){
           return AdminService.getuser();
