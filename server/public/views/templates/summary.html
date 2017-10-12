@@ -1,0 +1,34 @@
+<div class="navbar noPrint">
+      <div class="container">
+          <md-nav-bar class="navBarStyle" md-selected-nav-item="currentNavItem" layout="row" layout-align="space-around center" md-no-ink-bar="disableInkBar"
+              nav-bar-aria-label="navigation links">
+              <md-nav-item md-nav-href="#/landingpage" name="homeTab">Home</md-nav-item>
+              <md-nav-item md-nav-href="#/requestservice" name="serviceRequestTab">Request for Service Form</md-nav-item>
+              <md-nav-item md-nav-href="#/mechanic" name="mechanicTab">Mechanic</md-nav-item>
+              <md-nav-item md-nav-href="#register" name="Register" ng-if="ac.AdminService.userObject.role === 'admin'">Register User</md-nav-item>
+              <md-nav-item md-nav-click="ac.AdminService.logout()" name="logOutTab">Log Out </md-nav-item>
+          </md-nav-bar>
+      </div>
+  </div>
+
+
+
+
+
+
+
+<div flex="90" flex-offset="5" class="base">
+
+      <div id="printMe" style="overflow: hidden">
+            <md-action>
+                  <md-button flex class="md-raised md-primary noPrint" ng-click="sc.printDiv()">Print</md-button>
+                  <br>
+            </md-action>
+
+
+            <H1>C.A.R.S.</H1>
+            <H2>Service Summary</H2>
+            <img src="../views/images/cars-logo-transparent.png" id="authCarsLogo" />
+
+      </div>
+</div>

@@ -12,7 +12,9 @@ layout="row"
   <md-nav-item md-nav-href="#/requestservice" name="serviceRequestTab">
       Request for Service Form
   </md-nav-item>
+
 </md-nav-bar>
+
 <div flex="90" flex-offset="5" class="base">
 
       <div id="printMe" style="overflow: hidden">
@@ -21,7 +23,7 @@ layout="row"
                   <md-button flex class="md-raised md-warn removebutton noPrint" ng-click="ac.updateCustomer(data.customer_id, 'printed')">remove</md-button>
                   <br>
             </md-action>
-
+{{ac}}
             <h2 class="authClickToEdit" id="authDate">{{ac.date | date:MMM/dd/yyyy}}</h2>
             <H1>C.A.R.S.</H1>
             <H2>Service Authorization</H2>
@@ -66,7 +68,7 @@ layout="row"
                               <input type="text" style="border:none;background:transparent;width:150px;" ng-model="ac.serviceObject.name">
                         </td>
                         <td>cell:
-                              <input type="text" style="border:none;background:transparent;width:150px;" ng-model="ac.serviceObject.cellphone">
+                              <input class="maskPhone" type="text" style="border:none;background:transparent;width:150px;" ng-model="ac.serviceObject.cellphone">
                         </td>
                   </tr>
                   <tr>
@@ -74,7 +76,7 @@ layout="row"
                               <input type="text" style="border:none;background:transparent;width:150px;" ng-model="ac.serviceObject.address">
                         </td>
                         <td>alternate:
-                              <input type="text" style="border:none;background:transparent;width:150px;" ng-model="ac.serviceObject.alternative_phone">
+                              <input class="maskPhone" type="text" style="border:none;background:transparent;width:150px;" ng-model="ac.serviceObject.alternative_phone">
                         </td>
                   </tr>
                   <tr>
