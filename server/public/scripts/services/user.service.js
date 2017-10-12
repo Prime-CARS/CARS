@@ -13,7 +13,6 @@ myApp.service('AdminService', function ($http, $location) {
     $http.get('/RequestsForService').then(function (response) {
       console.log('getRequests', response);
       vm.Requests.list = response;
-
     })
   }
 

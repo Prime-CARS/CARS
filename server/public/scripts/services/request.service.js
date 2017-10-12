@@ -42,12 +42,15 @@ myApp.service('RequestService', function ($http, $location) {
     }
 
     vm.updateCustomer = function (z, x) {
+        console.log('request service updateCustomer z', z);
+        console.log('request service updateCustomer x', x);
+
         if (x === 'scheduled') {
             vm.data = {
                 index: z,
                 service_status: x
             }
-            console.log('Update Customer hit on service');
+            console.log('"scheduled" Update Customer hit on service');
             $http({
                 method: 'PUT',
                 url: '/requestservice/updateService',
@@ -62,6 +65,32 @@ myApp.service('RequestService', function ($http, $location) {
                     console.log('Customer checklist added: ', response.data);
                 })
             })//end of .then 
+        } else if (x === 'printed') {
+            vm.data = {
+                index: z,
+                service_status: x
+            }
+            console.log('"printed" Update Customer hit on service');
+            $http({
+                method: 'PUT',
+                url: '/requestservice/updateService',
+                data: vm.data
+            }).then(function (response) {
+                console.log('Customer service update: ', response.data);
+            })//end of .then 
+        } else if (x === 'denied') {
+            vm.data = {
+                index: z,
+                service_status: x
+            }
+            console.log('"denied" Update Customer hit on service');
+            $http({
+                method: 'PUT',
+                url: '/requestservice/updateService',
+                data: vm.data
+            }).then(function (response) {
+                console.log('Customer service update: ', response.data);
+            })//end of .then 
         } else {
             $http({
                 method: 'PUT',
@@ -71,5 +100,5 @@ myApp.service('RequestService', function ($http, $location) {
                 console.log('Customer service is declined: ', response.data);
             })
         }
-    } // end of myApp.service module
-});
+    }
+});// end of myApp.service module

@@ -15,7 +15,12 @@ myApp.config(function($routeProvider, $locationProvider) {
     })
     .when('/register', {
       templateUrl: '/views/templates/register.html',
-      controller: 'LoginController as lc'
+      controller: 'LoginController as lc',
+       resolve: {
+        getuser: function (AdminService) {
+          return AdminService.getuser();
+        }
+      }
     })
     .when('/admin', {
       templateUrl: '/views/templates/admin.landing.html',
@@ -34,7 +39,8 @@ myApp.config(function($routeProvider, $locationProvider) {
           return AdminService.getuser();
         }
       }
-    }).when('/summary', {
+    })
+    .when('/summary', {
       templateUrl: '/views/templates/summary.html',
       controller: 'SummaryController as sc',
       resolve: {

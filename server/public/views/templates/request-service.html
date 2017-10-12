@@ -1,35 +1,44 @@
-<md-nav-bar class="navBarStyle" md-selected-nav-item="currentNavItem" 
- layout="row" 
-  layout-align="space-around center"  
- md-no-ink-bar="disableInkBar" 
- nav-bar-aria-label="navigation links">
-    <md-nav-item md-nav-href="#/landingpage" name="homeTab">
-        Home
-    </md-nav-item>
-
-    <md-nav-item md-nav-href="#/requestservice" name="serviceRequestTab">
-        Request for Service Form
-    </md-nav-item>
-
-    <!-- Only admin can navigate through all pages freely -->
-    <md-nav-item md-nav-href="#/mechanic" name="mechanicTab" ng-if="rc.AdminService.userObject.role">
-        Mechanic
-    </md-nav-item>
-
-    <md-nav-item md-nav-href="#/admin" name="adminTab" ng-if="rc.AdminService.userObject.role === 'admin'">
-        Admin
-    </md-nav-item>
-
-    <!-- Hides Log-in if user is logged in -->
-    <md-nav-item md-nav-href="#/login" name="loginTab" ng-hide="rc.AdminService.userObject.role">
-        Login
-    </md-nav-item>
-
-    <md-nav-item md-nav-click="rc.AdminService.logout()" name="logOutTab" ng-hide="!rc.AdminService.userObject.role">
-        Log Out
-    </md-nav-item>
-
-</md-nav-bar>
+<div class="navbar noPrint">
+    <span ng-if="rc.AdminService.userObject.role == null ">
+    <div class="container">
+        <md-nav-bar class="navBarStyle" md-selected-nav-item="currentNavItem" layout="row" layout-align="space-around center" md-no-ink-bar="disableInkBar"
+            nav-bar-aria-label="navigation links">
+            <md-nav-item md-nav-href="#/landingpage" name="homeTab">Home</md-nav-item>
+            <md-nav-item md-nav-href="#/requestservice" name="serviceRequestTab">Request for Service Form</md-nav-item>
+            <md-nav-item md-nav-href="#/login" name="loginTab">Login</md-nav-item>
+        </md-nav-bar>
+    </div>
+</div>
+</span>
+    <span ng-if="rc.AdminService.userObject.role === 'admin'">
+<div class="navbar noPrint">
+    <div class="container">
+        <md-nav-bar class="navBarStyle" md-selected-nav-item="currentNavItem" layout="row" layout-align="space-around center" md-no-ink-bar="disableInkBar"
+            nav-bar-aria-label="navigation links">
+            <md-nav-item md-nav-href="#/landingpage" name="homeTab">Home</md-nav-item>
+            <md-nav-item md-nav-href="#/requestservice" name="serviceRequestTab">Request for Service Form</md-nav-item>
+            <md-nav-item md-nav-href="#/admin" name="adminTab">Admin</md-nav-item>
+            <md-nav-item md-nav-href="#/mechanic" name="mechanicTab">Mechanic</md-nav-item>
+            <md-nav-item md-nav-href="#register" name="Register">Register User</md-nav-item>
+            <md-nav-item md-nav-click="rc.AdminService.logout()" name="logOutTab">Log Out </md-nav-item>
+        </md-nav-bar>
+    </div>
+</div>
+</span>
+    <span ng-if="rc.AdminService.userObject.role === 'mechanic'">
+<div class="navbar noPrint">
+    <div class="container">
+        <md-nav-bar class="navBarStyle" md-selected-nav-item="currentNavItem" layout="row" layout-align="space-around center" md-no-ink-bar="disableInkBar"
+            nav-bar-aria-label="navigation links">
+            <md-nav-item md-nav-href="#/landingpage" name="homeTab">Home</md-nav-item>
+            <md-nav-item md-nav-href="#/requestservice" name="serviceRequestTab">Request for Service Form</md-nav-item>
+            <md-nav-item md-nav-href="#/mechanic" name="mechanicTab">Mechanic</md-nav-item>
+            <md-nav-item md-nav-click="rc.AdminService.logout()" name="logOutTab">Log Out </md-nav-item>
+        </md-nav-bar>
+    </div>
+</div>
+</span>
+</div>
 <div class="base" flex="60" flex-offset="20">
 
 

@@ -1,9 +1,11 @@
 myApp.service('AuthService', function ($http, $location) {
    console.log('AuthService Loaded');
 
-   self = this
+   var self = this
    self.userObject = {};
    self.Requests = { list: [] }
+   self.serviceTest = {test:'wtf Service'}
+
 
    self.getAuth = function (c) {
       $http.get('/authorization').then(function (response) {
@@ -11,8 +13,6 @@ myApp.service('AuthService', function ($http, $location) {
          console.log('self.serviceObject is', self.serviceObject);
          $location.path('/authorization');
       })
-      
-      
    }
 
 

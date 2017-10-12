@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>C.A.R.S. Ministry</title>
+    <title>CARS Ministry</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <!-- angular  -->
@@ -42,6 +42,7 @@
     <script type="text/javascript" src="scripts/services/summary.service.js"></script>
     <script type="text/javascript" src="scripts/controllers/checklist.controller.js"></script>
 
+
     <!-- style sheets  -->
     <link href="vendors/angular-material/angular-material.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="styles/style.css">
@@ -49,7 +50,8 @@
 </head>
 
 <body ng-app="myApp">
-    <header  class="noPrint" ng-include="'/views/partials/header.html'"></header>
+    <header  class="noPrint" ng-include="'/views/partials/header.html'">
+    </header>
 
     <main ng-view></main>
 

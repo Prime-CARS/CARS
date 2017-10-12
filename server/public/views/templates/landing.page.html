@@ -1,19 +1,48 @@
 <!-- Landing Page Navbar -->
-<md-nav-bar class="NavBar" layout-align="space-around center" md-no-ink-bar="disableInkBar" md-selected-nav-item="currentNavItem"
-    nav-bar-aria-label="navigation links">
+<div class="navbar noPrint">
+    <span ng-if="lpc.AdminService.userObject.role == null ">
+    <div class="container">
+        <md-nav-bar class="navBarStyle" md-selected-nav-item="currentNavItem" layout="row" layout-align="space-around center" md-no-ink-bar="disableInkBar"
+            nav-bar-aria-label="navigation links">
+            <md-nav-item md-nav-href="#/landingpage" name="homeTab">Home</md-nav-item>
+            <md-nav-item md-nav-href="#/requestservice" name="serviceRequestTab">Request for Service Form</md-nav-item>
+            <md-nav-item md-nav-href="#/login" name="loginTab">Login</md-nav-item>
+        </md-nav-bar>
+    </div>
+</div>
+</span>
+    <span ng-if="lpc.AdminService.userObject.role === 'admin'">
+<div class="navbar noPrint">
+    <div class="container">
+        <md-nav-bar class="navBarStyle" md-selected-nav-item="currentNavItem" layout="row" layout-align="space-around center" md-no-ink-bar="disableInkBar"
+            nav-bar-aria-label="navigation links">
+            <md-nav-item md-nav-href="#/landingpage" name="homeTab">Home</md-nav-item>
+            <md-nav-item md-nav-href="#/requestservice" name="serviceRequestTab">Request for Service Form</md-nav-item>
+            <md-nav-item md-nav-href="#/admin" name="adminTab">Admin</md-nav-item>
+            <md-nav-item md-nav-href="#/mechanic" name="mechanicTab">Mechanic</md-nav-item>
+            <md-nav-item md-nav-href="#register" name="Register">Register User</md-nav-item>
+            <md-nav-item md-nav-click="lpc.AdminService.logout()" name="logOutTab">Log Out </md-nav-item>
+        </md-nav-bar>
+    </div>
+</div>
+</span>
+    <span ng-if="lpc.AdminService.userObject.role === 'mechanic'">
+<div class="navbar noPrint">
+    <div class="container">
+        <md-nav-bar class="navBarStyle" md-selected-nav-item="currentNavItem" layout="row" layout-align="space-around center" md-no-ink-bar="disableInkBar"
+            nav-bar-aria-label="navigation links">
+            <md-nav-item md-nav-href="#/landingpage" name="homeTab">Home</md-nav-item>
+            <md-nav-item md-nav-href="#/requestservice" name="serviceRequestTab">Request for Service Form</md-nav-item>
+            <md-nav-item md-nav-href="#/mechanic" name="mechanicTab">Mechanic</md-nav-item>
+            <md-nav-item md-nav-click="lpc.AdminService.logout()" name="logOutTab">Log Out </md-nav-item>
+        </md-nav-bar>
+    </div>
+</div>
+</span>
+</div>
 
-    <md-nav-item flex md-nav-href="#/requestservice" name="request service">Request for Service</md-nav-item>
-    <md-nav-item md-nav-href="#/login" name="loginTab">Login</md-nav-item>
-
-    <span ng-if="lpc.AdminService.userObject.role">
-      <md-nav-item flex md-nav-href="#/mechanic" name="mechanic view">Mechanic View</md-nav-item>
-      <md-nav-item  flex md-nav-href="#/admin" name="admin view">Admin View</md-nav-item>
-      <md-button flex class="md-raised md-warn" ng-click="lpc.AdminService.logout()" name="logOutTab"> Log Out</md-button>
-    </span>
-</md-nav-bar>
-<!-- Page content -->
 <div layout="column">
-    <div flex="40" flex-offset="30" id="landingImg" layout-align="center center">
+    <div flex="30" flex-offset="35" id="landingImg" layout-align="center center">
         <img flex class="landingImg" src="../views/images/cars-logo-transparent.png">
     </div>
 
@@ -21,166 +50,186 @@
         <md-card ng-hide="lpc.who" ng-click="lpc.whoExpand()" class="landingCard" flex="80" flex-offset="10" md-theme="default">
             <md-card-title>
                 <md-card-title-text>
-                    <span class="md-headline">+ Who are we?</span>
+                    <span class="md-headline">+ What​ ​is​ ​the​ ​CARS​ ​ministry?</span>
                 </md-card-title-text>
             </md-card-title>
         </md-card>
-    <md-card ng-click="lpc.whoExpandShrink()" ng-show="lpc.who" class="landingCard" flex="80" flex-offset="10" md-theme="default">
-        <md-card-title>
-            <md-card-title-text>
-                <span class="md-headline">- Who are we?</span>
-                <span class="md-subhead"><h3>
-                                CARS is a part of the nonprofit ministry of Youth Impact Racing (YIR).
-                                <br>At YIR, youth have an opportunity to learn about racing through RC cars and Go Karts
-                                while at the same time building relationships with other youth and learning life skills in
-                                a Gospel centered, Christian environment.
-                                <br>As the youth reach their Senior High School years, they have a further opportunity to
-                                work on actual cars alongside of older mentors in the CARS ministry.
-                                <br>The mentors in the CARS ministry are individuals who enjoy automobile repair and helping
-                                others who are in need.
-                                <br>Some are experienced mechanics while others just enjoy maintaining their car and the
-                                camaraderie of fellow car repair enthusiasts.
+        <md-card ng-click="lpc.whoExpandShrink()" ng-show="lpc.who" class="landingCard" flex="80" flex-offset="10" md-theme="default">
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">- What​ ​is​ ​the​ ​CARS​ ​ministry?</span>
+                    <span class="md-subhead"><h3>
+The CARS acronym stands for Christian Auto Repair Shop. We are a part of the nonprofit ministry, Youth Impact Racing (YIR).
+YIR is a gospel-centered, Christian program where youth learn about racing through RC cars and Go Karts while building relationships
+and developing life skills. Older teens have the opportunity to work on full-size cars with mentors from the CARS Ministry.
+Mentors range from experienced mechanics to people who enjoy auto repair, maintaining cars, and the camaraderie of other
+car repair enthusiasts. Regardless of skill level, all mentors value providing service for people in need.
                             </h3></span>
-            </md-card-title-text>
-        </md-card-title>
-    </md-card>
-</div>
+                </md-card-title-text>
+            </md-card-title>
+        </md-card>
+    </div>
 
-<div layout="row">
-            <md-card ng-hide="lpc.whoDo" ng-click="lpc.whoExpandDo()" class="landingCard" flex="80" flex-offset="10" md-theme="default">
-                <md-card-title>
-                    <md-card-title-text>
-                        <span class="md-headline">+ Who do we serve and what does it cost?</span>
-                    </md-card-title-text>
-                </md-card-title>
-            </md-card>
-    <md-card flex="80" flex-offset="10" ng-click="lpc.whoExpandDoShrink()" ng-show="lpc.whoDo" class="landingCard" md-theme="default">
-        <md-card-title>
-            <md-card-title-text>
-                <span class="md-headline">- Who do we serve and what does it cost?</span>
-                <span class="md-subhead"><h3>
-                     Our mission is to serve single moms, single women, widows, financially limited individuals, and others who may need assistance
-                    as our schedule permits.
-                     We charge only for the cost of the parts required for repair. These part costs are substantially less than any auto repair
-                    shop saving an individual as much as 50% on just the part cost alone. Our goal is to be able to provide
-                    totally free repair to those in need when funds are available to cover the cost.
+    <div layout="row">
+        <md-card ng-hide="lpc.whoDo" ng-click="lpc.whoExpandDo()" class="landingCard" flex="80" flex-offset="10" md-theme="default">
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">+ Who​ ​does​ ​CARS​ ​serve?</span>
+                </md-card-title-text>
+            </md-card-title>
+        </md-card>
+        <md-card flex="80" flex-offset="10" ng-click="lpc.whoExpandDoShrink()" ng-show="lpc.whoDo" class="landingCard" md-theme="default">
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">- Who​ ​does​ ​CARS​ ​serve?</span>
+                    <span class="md-subhead"><h3>
+                     CARS serves single moms, single women, widows, financially limited individuals, and others who may need assistance with
+                    vehicle repair as our schedule permits.
                             </h3></span>
-            </md-card-title-text>
-        </md-card-title>
-    </md-card>
-</div>
+                </md-card-title-text>
+            </md-card-title>
+        </md-card>
+    </div>
 
-<div layout="row">
-            <md-card ng-hide="lpc.how" ng-click="lpc.howExpand()" class="landingCard" flex="80" flex-offset="10" md-theme="default">
-                <md-card-title>
-                    <md-card-title-text>
-                        <span class="md-headline">+ How can you be involved?</span>
-                    </md-card-title-text>
-                </md-card-title>
-            </md-card>
-    <md-card ng-click="lpc.howExpandShrink()" ng-show="lpc.how" flex="80" flex-offset="10">
-        <md-card-title>
-            <md-card-title-text>
-                <span class="md-headline">- How can you be involved?</span>
-                <span class="md-subhead">
+    <div layout="row">
+        <md-card ng-hide="lpc.how" ng-click="lpc.howExpand()" class="landingCard" flex="80" flex-offset="10" md-theme="default">
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">+ Be​ ​Involved​ ​with​ ​CARS​ ​Ministry!</span>
+                </md-card-title-text>
+            </md-card-title>
+        </md-card>
+        <md-card ng-click="lpc.howExpandShrink()" ng-show="lpc.how" flex="80" flex-offset="10">
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">- Be​ ​Involved​ ​with​ ​CARS ​Ministry!</span>
+                    <span class="md-subhead">
         <h3>
-            We are looking for other individuals who would like to help in the repair shop. Although previous car repair experience is
-            helpful, we can help train you in various car repair skills. Also, we need individuals who are willing to help
-            with food preparation for the mechanics and those we serve. If you are interested in helping serve others who
-            are in need, please contact Mitch at the phone number or email address listed above. You can support us financially
-            by a donation to the CARS ministry. Donations can be mailed to: CARS 1613 Southcross Drive West Burnsville, MN
-            55306 All donations to the CARS ministry are tax deductible and are used to cover the cost of garage supplies,
-            tools, online manuals, insurance, and to fund the cost of automotive parts for financially limited individuals.
+         Volunteers are always needed to help with car repair and food preparation. Training is provided. If you want to use your
+        time and talents to serve others, please contact Mitch at 612-382-6828 or email cars@youthimpactracing.org for more
+        information. Please consider supporting the Christian Auto Repair Shop ministry with a tax deductible donation. Donations
+        go towards covering the cost of garage supplies, tools, online manuals, insurance, and automotive parts for individuals
+        in need. Please mail donations to: CARS 1613 Southcross Drive West Burnsville, MN 55306
         </h3>
                             </span>
-            </md-card-title-text>
-        </md-card-title>
-    </md-card>
-</div>
+                </md-card-title-text>
+            </md-card-title>
+        </md-card>
+    </div>
 
-<div layout="row">
-    <md-card ng-hide="lpc.when" ng-click="lpc.whenExpand()" class="landingCard" flex="80" flex-offset="10" md-theme="default">
-        <md-card-title>
-            <md-card-title-text>
-                <span class="md-headline">+ When do we work on cars?</span>
-            </md-card-title-text>
-        </md-card-title>
-    </md-card>
+    <div layout="row">
+        <md-card ng-hide="lpc.money" ng-click="lpc.moneyExpand()" class="landingCard" flex="80" flex-offset="10" md-theme="default">
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">+ How​ ​much​ ​do​ ​repairs​ ​cost?</span>
+                </md-card-title-text>
+            </md-card-title>
+        </md-card>
+        <md-card ng-click="lpc.moneyExpandShrink()" ng-show="lpc.money" flex="80" flex-offset="10">
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">- How​ ​much​ ​do​ ​repairs​ ​cost?</span>
+                    <span class="md-subhead">
+        <h3>
+         All labor for vehicle repair is provided free-of-charge by volunteer mechanics and mentors. Individuals eligible for vehicle
+        repairs pay for the cost of parts required for the service or repair. CARS obtains needed parts from various local
+        auto part suppliers at a substantial discount for our guests.
+        </h3>
+                            </span>
+                </md-card-title-text>
+            </md-card-title>
+        </md-card>
+    </div>
+
+    <div layout="row">
+        <md-card ng-hide="lpc.when" ng-click="lpc.whenExpand()" class="landingCard" flex="80" flex-offset="10" md-theme="default">
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">+ CARS ​ ​Hours​ ​of​ ​Operation​ ​and​ ​Location </span>
+                </md-card-title-text>
+            </md-card-title>
+        </md-card>
         <md-card ng-show="lpc.when" ng-click="lpc.whenExpandShrink()" class="landingCard" flex="80" flex-offset="10" md-theme="default">
             <md-card-title>
                 <md-card-title-text>
-                    <span class="md-headline">- When do we work on cars?</span>
+                    <span class="md-headline">- CARS ​ ​Hours​ ​of​ ​Operation​ ​and​ ​Location</span>
                     <span class="md-subhead"><h3>
-                                    We usually work on cars the 1st Saturday of each month unless it conflicts with a major holiday weekend.
-                            </h3></span>
+                                     All appointments must be scheduled. No drop-ins are accepted. The shop is open the first Saturday of each month, unless
+                                    it conflicts with a major holiday weekend. The garage is located at: 20685 Lynn Drive
+                                    Prior Lake, MN 55372.
+                    </h3></span>
                 </md-card-title-text>
             </md-card-title>
         </md-card>
-        </div>
+    </div>
 
 
 
-<div layout="row">
-    <md-card ng-hide="lpc.what" ng-click="lpc.whatExpand()" class="landingCard" flex="80" flex-offset="10" md-theme="default">
-        <md-card-title>
-            <md-card-title-text>
-                <span class="md-headline">+ What type of repairs can we do?</span>
-            </md-card-title-text>
-        </md-card-title>
-    </md-card>
-    <md-card ng-show="lpc.what"  ng-click="lpc.whatExpandShrink()" class="landingCard" flex="80" flex-offset="10" md-theme="default">
-        <div layout="row">
-            <div flex="50">
-                <md-card-title>
-                    <md-card-title-text>
-                        <span class="md-headline">-What type of repairs can we do?</span>
-                    </md-card-title-text>
-                </md-card-title>
-                <md-card-content>
-                    <ul>
-                        <li>Oil and oil filter change</li>
-                        <li>Check Engine light diagnosis</li>
-                        <li>Brake repair including:</li>
-                        <li class="listPush"> Disc Pads, Shoes, Rotors, Drums, Calipers</li>
-                        <li>Minor tune ups including:</li>
-                        <li class="listPush">Spark Plugs, Wires, Coil Replacement</li>
-                        <li>Replacement of:</li>
-                        <li class="listPush">Serpentine belts</li>
-                        <li class="listPush">Battery</li>
-                        <li class="listPush">Headlights</li>
-                        <li class="listPush">Tail and brake lights</li>
-                        <li class="listPush">Air Filter</li>
-                        <li class="listPush">Windshield Wiper Blades</li>
-                        <li class="listPush">Struts and Shocks</li>
-                        <li class="listPush">Tie rods</li>
-                        <li class="listPush">Stabilizer bar links </li>
-                        <li class="listPush">Some drive shafts </li>
-                        <li class="listPush"> Wheel bearings </li>
-                    </ul>
-                    </h3>
-                    </span>
-                </md-card-content>
+    <div layout="row">
+        <md-card ng-hide="lpc.what" ng-click="lpc.whatExpand()" class="landingCard" flex="80" flex-offset="10" md-theme="default">
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">+ What type of repairs can we do?</span>
+                </md-card-title-text>
+            </md-card-title>
+        </md-card>
+        <md-card ng-show="lpc.what" ng-click="lpc.whatExpandShrink()" class="landingCard" flex="80" flex-offset="10" md-theme="default">
+            <div layout="row">
+                <div flex="50">
+                    <md-card-title>
+                        <md-card-title-text>
+                            <span class="md-headline">-What type of repairs can we do?</span>
+                        </md-card-title-text>
+                    </md-card-title>
+                    <md-card-content>
+                        <ul>
+                            <li>Oil and oil filter change</li>
+                            <li>Check Engine light diagnosis</li>
+                            <li>Brake repair including:</li>
+                            <li class="listPush"> Disc Pads, Shoes, Rotors, Drums, Calipers</li>
+                            <li>Minor tune ups including:</li>
+                            <li class="listPush">Spark Plugs, Wires, Coil Replacement</li>
+                            <li>Replacement of:</li>
+                            <li class="listPush">Serpentine belts</li>
+                            <li class="listPush">Battery</li>
+                            <li class="listPush">Headlights</li>
+                            <li class="listPush">Tail and brake lights</li>
+                            <li class="listPush">Air Filter</li>
+                            <li class="listPush">Windshield Wiper Blades</li>
+                            <li class="listPush">Struts and Shocks</li>
+                            <li class="listPush">Tie rods</li>
+                            <li class="listPush">Stabilizer bar links </li>
+                            <li class="listPush">Some drive shafts </li>
+                            <li class="listPush"> Wheel bearings </li>
+                        </ul>
+                        </h3>
+                        </span>
+                    </md-card-content>
+                </div>
+                <div id="what" flex="50">
+                    <md-card-title>
+                        <md-card-title-text>
+                            <span class="md-headline">-What don't we do?</span>
+                        </md-card-title-text>
+                    </md-card-title>
+                    <md-card-content>
+                        <ul>
+                            <li>Timing Belts</li>
+                            <li> Water pumps</li>
+                            <li> Transmission repair or flushes</li>
+                            <li> Exhaust repair</li>
+                            <li> Major engine repair</li>
+                            <li> Body repair</li>
+                        </ul>
+                        <div>
+                            <b>** All cars must be in driving condition. We do not offer service calls or towing service. **</b>
+                        </div>
+                    </md-card-content>
+                </div>
             </div>
-            <div id="what" flex="50">
-                <md-card-title>
-                    <md-card-title-text>
-                        <span class="md-headline">-What don't we do?</span>
-                    </md-card-title-text>
-                </md-card-title>
-                <md-card-content>
-                    <ul>
-                        <li>Timing Belts</li>
-                        <li> Water pumps</li>
-                        <li> Transmission repair or flushes</li>
-                        <li> Exhaust repair</li>
-                        <li> Major engine repair</li>
-                        <li> Body repair</li>
-                    </ul>
-                </md-card-content>
-            </div>
-        </div>
-    </md-card>
-</div>
+        </md-card>
+
+    </div>
 </div>
 <footer>
     <h4>Location: 20685 Lynn Drive, Prior Lake, MN, 55372 Phone: 612-382-6828 Email: cars@youthimpactracing.org</h4>

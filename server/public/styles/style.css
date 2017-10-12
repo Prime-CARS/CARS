@@ -77,6 +77,7 @@ ul {
 
 
 
+
 /* Change the link color to #111 (black) on hover */
 
 
@@ -285,9 +286,7 @@ footer {
 
 /* tabs */
 .tabsdemoStaticTabs md-content md-tabs {
-      border: 1px solid #e1e1e1;
-}
-
+  border: 1px solid #e1e1e1; }
   .tabsdemoStaticTabs md-content md-tabs md-tab-content {
     padding: 25px; }
     .tabsdemoStaticTabs md-content md-tabs md-tab-content:nth-child(1) {
@@ -343,14 +342,19 @@ footer {
 } */
 
 .landingImg{
-    height: 50vh;
+    height: 40vh;
     width: auto;
 }
 
 #what{
     border-left-width: 5px;
     border-left-color: #000000;
+}
 
-#authProblemArea {
-    width: 60%
+#authProblemArea{
+    width: 60%;
+}
+
+.loginBox{
+    min-width: 200px;
 }

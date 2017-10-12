@@ -9,7 +9,7 @@ router.get('/', function (req, res) {
             console.log('Error connecting to database', err);
             res.sendStatus(500);
         } else {
-            client.query('SELECT customer_info.name, customer_info.year, customer_info.make, customer_info.model, customer_info.vin, customer_info.current_mileage, customer_info.service_requested, cars_checklist.checklist_status,cars_checklist.checklist_id FROM cars_checklist JOIN customer_info ON customer_info.customer_id=cars_checklist.customer_id WHERE NOT cars_checklist.checklist_status=\'finished\';',
+            client.query('SELECT customer_info.name, customer_info.customer_id, customer_info.year, customer_info.make, customer_info.model, customer_info.vin, customer_info.current_mileage, customer_info.service_requested, cars_checklist.checklist_status,cars_checklist.checklist_id FROM cars_checklist JOIN customer_info ON customer_info.customer_id=cars_checklist.customer_id WHERE NOT cars_checklist.checklist_status=\'finished\';',
                 function (err, result) {
                     if (err) {
                         console.log('Error selecting checklists', err);
@@ -84,6 +84,31 @@ router.post('/addChecklist', function (req, res) {
     } else {
         console.log('Not logged in');
         res.send('Not logged in, cant approve for service');
+    }
+});
+
+//Delete checklist from mechanic page
+router.delete('/:checklist_id', function (req, res) {
+    if (req.isAuthenticated()) {
+        if (req.user.role) {
+            pool.connect(function (err, client, done) {
+                if (err) {
+                    console.log('Error connecting to database', err);
+                    res.sendStatus(500);
+                } else {
+                    client.query('DELETE FROM cars_checklist WHERE checklist_id = $1;',
+                        [req.params.checklist_id],
+                        function (err, result) {
+                            if (err) {
+                                console.log('Error selecting checklist', err);
+                                res.sendStatus(500);
+                            } else {
+                                res.sendStatus(200);
+                            }
+                        })
+                }
+            })
+        }
     }
 });
 

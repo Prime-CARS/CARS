@@ -1,22 +1,50 @@
 <!-- Login Page Navbar -->
-<md-nav-bar class="navBarStyle" md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links" layout="row" layout-align="space-around center">
-        <md-nav-item md-nav-href="#/landingpage" name="homeTab">
-                Home
-        </md-nav-item>
-
-            <md-nav-item md-nav-href="#/requestservice" name="serviceRequestTab">
-                Request for Service Form
-            </md-nav-item>
-
-            <md-nav-item md-nav-href="#/login" name="loginTab">
-                Login
-            </md-nav-item>
-</md-nav-bar>
+<div class="navbar noPrint">
+    <span ng-if="lc.AdminService.userObject.role == null ">
+    <div class="container">
+        <md-nav-bar class="navBarStyle" md-selected-nav-item="currentNavItem" layout="row" layout-align="space-around center" md-no-ink-bar="disableInkBar"
+            nav-bar-aria-label="navigation links">
+            <md-nav-item md-nav-href="#/landingpage" name="homeTab">Home</md-nav-item>
+            <md-nav-item md-nav-href="#/requestservice" name="serviceRequestTab">Request for Service Form</md-nav-item>
+            <md-nav-item md-nav-href="#/login" name="loginTab">Login</md-nav-item>
+        </md-nav-bar>
+    </div>
+</div>
+</span>
+    <span ng-if="lc.AdminService.userObject.role === 'admin'">
+<div class="navbar noPrint">
+    <div class="container">
+        <md-nav-bar class="navBarStyle" md-selected-nav-item="currentNavItem" layout="row" layout-align="space-around center" md-no-ink-bar="disableInkBar"
+            nav-bar-aria-label="navigation links">
+            <md-nav-item md-nav-href="#/landingpage" name="homeTab">Home</md-nav-item>
+            <md-nav-item md-nav-href="#/requestservice" name="serviceRequestTab">Request for Service Form</md-nav-item>
+            <md-nav-item md-nav-href="#/admin" name="adminTab">Admin</md-nav-item>
+            <md-nav-item md-nav-href="#/mechanic" name="mechanicTab">Mechanic</md-nav-item>
+            <md-nav-item md-nav-href="#register" name="Register">Register User</md-nav-item>
+            <md-nav-item md-nav-click="lc.AdminService.logout()" name="logOutTab">Log Out </md-nav-item>
+        </md-nav-bar>
+    </div>
+</div>
+</span>
+    <span ng-if="lc.AdminService.userObject.role === 'mechanic'">
+<div class="navbar noPrint">
+    <div class="container">
+        <md-nav-bar class="navBarStyle" md-selected-nav-item="currentNavItem" layout="row" layout-align="space-around center" md-no-ink-bar="disableInkBar"
+            nav-bar-aria-label="navigation links">
+            <md-nav-item md-nav-href="#/landingpage" name="homeTab">Home</md-nav-item>
+            <md-nav-item md-nav-href="#/requestservice" name="serviceRequestTab">Request for Service Form</md-nav-item>
+            <md-nav-item md-nav-href="#/mechanic" name="mechanicTab">Mechanic</md-nav-item>
+            <md-nav-item md-nav-click="lc.AdminService.logout()" name="logOutTab">Log Out </md-nav-item>
+        </md-nav-bar>
+    </div>
+</div>
+</span>
+</div>
 
 <div>
-    <h1 class="alert alert-danger" role="alert" ng-if="lc.message != ''">{{lc.message}}</h2>
-        <md-card flex="20" flex-offset="40">
+        <md-card class="loginBox" flex="20" flex-offset="40">
             <h1 style="padding: 0 0 0 15px;">Login</h1>
+                <h2 class="alert alert-danger" role="alert" ng-if="lc.message != ''">{{lc.message}}</h2>
             <form ng-submit="lc.login()" style="padding: 8px; margin: 8px;">
                 <md-input-container>
                     <label>Username:</label>
