@@ -3,12 +3,12 @@ myApp.service('SummaryService', function ($http, $location) {
 
    var self = this;
 
-   self.getSummary = function (c) {
-      console.log('getSummary hit', c);
+   // self.getSummary = function (c) {
+   //    console.log('getSummary hit', c);
       
-      $http.get('/summary').then(function (response) {
-         //$location.path('/summary');
-      }, function() {});
-   }
+   //    $http.get('/summary').then(function (response) {
+   //       //$location.path('/summary');
+   //    }, function() {});
+   // }
 
 });
