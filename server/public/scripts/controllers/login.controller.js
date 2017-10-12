@@ -4,9 +4,11 @@ myApp.controller('LoginController', function ($http, $location, AdminService) {
   vm.user = {
     username: '',
     password: '',
-    role: 'admin'
+    role: '',
   };
   vm.message = '';
+
+  vm.AdminService = AdminService;
 
   vm.login = function () {
     console.log('LoginController -- login');
@@ -37,13 +39,17 @@ myApp.controller('LoginController', function ($http, $location, AdminService) {
 
   vm.registerUser = function () {
     console.log('LoginController -- registerUser');
-    if (vm.user.username === '' || vm.user.password === '') {
+    if (vm.user.username === '' || vm.user.password === '' || vm.user.role === '') {
       vm.message = "Choose a username and password!";
     } else {
       console.log('LoginController -- registerUser -- sending to server...', vm.user);
       $http.post('/register', vm.user).then(function (response) {
         console.log('LoginController -- registerUser -- success');
-        $location.path('/login');
+        swal({
+          title: 'All set!',
+          text: 'The new user has been registered.',
+          type: 'success',
+        })
       }).catch(function (response) {
         console.log('LoginController -- registerUser -- error');
         vm.message = "Please try again."

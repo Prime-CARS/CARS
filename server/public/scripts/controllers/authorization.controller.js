@@ -1,4 +1,4 @@
-myApp.controller('AuthController', function (AuthService, RequestService) {
+myApp.controller('AuthController', function (AuthService, RequestService, AdminService) {
     console.log('AuthController created');
 
     $('.maskPhone').mask('(000) 000-0000');
