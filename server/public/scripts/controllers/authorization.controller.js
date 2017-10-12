@@ -14,6 +14,10 @@ myApp.controller('AuthController', function (AuthService, RequestService) {
     
 
     self.updateCustomer = function (z, x) {
+        // console.log('z',z);
+        // console.log('x', x);
+        
+        
         self.saveAuth();
         RequestService.updateCustomer(z, x)
     }
@@ -28,11 +32,6 @@ myApp.controller('AuthController', function (AuthService, RequestService) {
         console.log('saveAuth hit serviceObject is', self.serviceObject);
         AuthService.saveObject(self.serviceObject)
     }
-
-    // scope.$watch('serviceObject', self.logMe, true)
-
-    // $('authName').css('width', ((authName.getAttribute('ng-model').length + 1) * 8) + 'px');
-    // $('authSR').css('width', ((authSR.getAttribute('ng-model').length + 1) * 8) + 'px');
 
 });
 
