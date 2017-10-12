@@ -68,7 +68,7 @@
                         <br>
                         <b>Qualifier:</b> {{data.qualify_input}}
                         <br>
-                        <b>Vehicle Issue:</b> {{data.service_request}}
+                        <b>Vehicle Issue:</b> {{data.service_requested}}
                         <br>
                         <p>
                             <button class="btn-btn-primary" type="submit" ng-click="ac.updateCustomer(data.customer_id, 'scheduled')">Scheduled!</button>
@@ -79,77 +79,116 @@
                     </div>
 
                 </div>
-                <div class="nrqst" ng-click="ac.AddRequest()">New request </div>
+                <div class="nrqst" ng-click="addRequest = !addRequest">New request</div>
 
-                <div class="nrqstform" ng-show="ac.nrqstneeded">
+                <div class="nrqstform" ng-show="addRequest">
                     <!--start of new person entry -->
                     <form id="customerInfo">
-                        <label>Name</label>
-                        <input type="text" name="first" ng-model="ac.customer.name" required>
-
-                        <label>Address</label>
-                        <input type="text" name="address" ng-model="ac.customer.address" required>
-
+                        <md-input-container>
+                            <label>Name</label>
+                            <input type="text" name="first" ng-model="ac.customer.name" required>
+                        </md-input-container>
+                        <md-input-container>
+                            <label>Address</label>
+                            <input type="text" name="address" ng-model="ac.customer.address" required>
+                        </md-input-container>
                         <div>
-                            <label>City</label>
-                            <input type="text" name="city" ng-model="ac.customer.city" required>
-                            <label>State</label>
-                            <input type="text" name="state" ng-model="ac.customer.state" required>
-                            <label>Zip Code</label>
-                            <input type="text" name="zip" ng-model="ac.customer.zip" title="5 or 5-4 digit zip code" pattern="\b\d{5}[-]\d{4}\b|\b\d{5}\b"
-                                required>
-                            <label>Cell Phone</label>
-                            <input type="tel" class="form-control maskPhone" name="cellPhone" ng-model="ac.customer.cellPhone " required>
-                            <label>Alternate Phone</label>
-                            <input type="text" class="form-group maskPhone" name="altPhone" ng-model="ac.customer.altPhone">
-                            <label>email address</label>
-                            <input type="email" class="form-group" name="altPhone" ng-model="ac.customer.email" required>
+                            <md-input-container>
+                                <label>City</label>
+                                <input type="text" name="city" ng-model="ac.customer.city" required>
+                            </md-input-container>
+                            <md-input-container>
+                                <label>State</label>
+                                <input type="text" name="state" ng-model="ac.customer.state" required>
+                            </md-input-container>
+                            <md-input-container>
+                                <label>Zip Code</label>
+                                <input type="text" name="zip" ng-model="ac.customer.zip" title="5 or 5-4 digit zip code" pattern="\b\d{5}[-]\d{4}\b|\b\d{5}\b"
+                                    required>
+                            </md-input-container>
+                            <md-input-container>
+                                <label>Cell Phone</label>
+                                <input type="tel" class="form-control maskPhone" name="cellPhone" ng-model="ac.customer.cellPhone " required>
+                            </md-input-container>
+                            <md-input-container>
+                                <label>Alternate Phone</label>
+                                <input type="text" class="form-group maskPhone" name="altPhone" ng-model="ac.customer.altPhone">
+                            </md-input-container>
+                            <md-input-container>
+                                <label>email address</label>
+                                <input type="email" class="form-group" name="altPhone" ng-model="ac.customer.email" required>
+                            </md-input-container>
                         </div>
 
                         <h2>Vehicle Information</h2>
                         <div>
-                            <label>VIN</label>
-                            <input type="text" name="VIN" title="VIN must be 17 digits long" pattern="\w{17}" ng-model="ac.customer.vin">
-                            <label>Year</label>
-                            <input type="number" name="year" ng-model="ac.customer.year" required>
-                            <label>Make</label>
-                            <input type="text" name="make" ng-model="ac.customer.make" required>
-                            <label>model</label>
-                            <input type="text" name="model" ng-model="ac.customer.model" required>
+
+                            <md-input-container>
+                                <label>VIN</label>
+                                <input type="text" name="VIN" title="VIN must be 17 digits long" pattern="\w{17}" ng-model="ac.customer.vin">
+                            </md-input-container>
+                            <md-input-container>
+                                <label>Year</label>
+                                <input type="number" name="year" ng-model="ac.customer.year" required>
+                            </md-input-container>
+                            <md-input-container>
+                                <label>Make</label>
+                                <input type="text" name="make" ng-model="ac.customer.make" required>
+                            </md-input-container>
+                            <md-input-container>
+                                <label>model</label>
+                                <input type="text" name="model" ng-model="ac.customer.model" required>
+                            </md-input-container>
                         </div>
+
 
                         <h3>Please describe the problems you are having with the vehicle</h3>
                         <textarea rows="5" cols="70" ng-model="ac.customer.problem"></textarea>
 
                         <div>
                             <h3>Please indicate why you qualify to use the services of C.A.R.S. Ministry</h3>
-                            <label>
 
+                            <md-radio-group layout="row" ng-model="ac.customer.qualification">
+                                <md-radio-button value="singleMother">Single Mother</md-radio-button>
+                                <md-radio-button value="singleWoman">Single Woman</md-radio-button>
+                                <md-radio-button value="widow">Widow</md-radio-button>
+                                <md-radio-button value="financiallyLimited">Financially Limited</md-radio-button>
+                                <md-radio-button value="other" ng-click="otherText = !otherText">Other</md-radio-button>
+                            </md-radio-group>
+
+                            <br>
+
+                            <!-- <label>
                                 <input type="radio" name="qualification" value="singleMother" ng-model="ac.customer.qualification" checked> Single Mother
                             </label>
+                            
                             <label>
                                 <input type="radio" name="qualification" value="singleWoman" ng-model="ac.customer.qualification" checked> Single Woman
                             </label>
+                            
                             <label>
                                 <input type="radio" name="qualification" value="widow" ng-model="ac.customer.qualification" checked> Widow
                             </label>
+                            
                             <label>
                                 <input type="radio" name="qualification" value="financiallyLimited" ng-model="ac.customer.qualification" checked> Financially Limited
                             </label>
+                            
                             <label>
                                 <input type="radio" name="qualification" value="other" ng-click="ac.openTextbox();"> Other
-                            </label>
+                            </label> -->
 
-                            <div ng-show="ac.textboxShowing">
+                            <div ng-show="otherText">
                                 <textarea rows="4" cols="50" ng-model="ac.customer.qualification" placeholder="Please explain your circumstances:"></textarea>
                             </div>
+
+                            <br>
 
                             <div>
                                 <button class="btn-btn-primary" type="submit" ng-click="ac.addCustomer()">Schedule!</button>
                             </div>
-
                             <!--end of new person entry -->
-                            <button class="btn-btn-primary" ng-click="ac.ReduceRequest()">Close</button>
+                            <!-- <button class="btn-btn-primary" ng-click="ac.ReduceRequest()">Close</button> -->
                         </div>
                 </div>
             </md-tab-body>
@@ -161,7 +200,11 @@
                 <div>
                     <!-- ng-show="ac.showAuths" -->
                     <h3>These authorizations have been created and need to be printed.</h3>
-                    <div ng-repeat="data in ac.AdminService.Prints.list.data" ng-click="ac.history_view($index)" class="rqst">{{data.name}}{{data.vin}}</div>
+                    <div ng-repeat="data in ac.AdminService.Prints.list.data" ng-click="ac.history_view($index)" class="rqst">
+                        Name: {{data.name}}
+                        <br> 
+                        VIN#: {{data.vin}}
+                    </div>
                 </div>
             </md-tab-body>
         </md-tab>
@@ -175,13 +218,10 @@
                         <input type="text" id="search" ng-model="history_search">
                         <button ng-click="ac.search_history(history_search)">submit</button>
                     </form>
-                    <div class="rqst" ng-repeat="customer in ac.AdminService.searchResults.list.data" ng-click="ac.getChecklist()"> {{customer.name}} {{customer.year}} {{customer.make}} {{customer.model}} {{customer.vin}}
+                    <div class="rqst" ng-repeat="customer in ac.AdminService.searchResults.list.data" ng-click="ac.getChecklist($index)"> {{customer.name}} {{customer.year}} {{customer.make}} {{customer.model}} {{customer.vin}}
                     </div>
                 </div>
             </md-tab-body>
         </md-tab>
     </md-tabs>
 </md-content>
-</div>
-</md-card-content>
-</md-card>

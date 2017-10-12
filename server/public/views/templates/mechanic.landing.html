@@ -48,35 +48,49 @@
   <div layout="row">
     <div layout="column" layout-wrap flex="45">
       <h2 style="color: black; padding: 10px;">Vehicles Pending Service:</h2>
-      <md-card ng-repeat="vehicle in mc.carsStatus.list" ng-class="'{{vehicle.checklist_status}}'" ng-hide="vehicle.checklist_status === 'serviced'">
-        <md-card-content>
-          <p>
+      <div ng-repeat="vehicle in mc.carsStatus.list">
+        <md-card ng-hide="vehicle.checklist_status === 'serviced'">
+          <md-card-content>
+
             <b>Name:</b> {{vehicle.name}}
             <br><b>Year:</b> {{vehicle.year}}
             <br><b>Make:</b> {{vehicle.make}}
             <br><b>Model:</b> {{vehicle.model}}
             <br><b>Vin:</b> {{vehicle.vin}}
             <br><b>Mileage:</b> {{vehicle.current_mileage}}
-            <br><b>Checklist status:</b> <a ng-href="#/checklist/{{vehicle.checklist_id}}">{{vehicle.checklist_status}}</a>
-          </p>
-      </md-card>
+            <br><b>Service Requested:</b> {{vehicle.service_requested}}
+            <br>
+            <br>
+            <span layout="column">
+            <md-button ng-class="'{{vehicle.checklist_status}}'" ng-href="#/checklist/{{vehicle.checklist_id}}"> Checklist status:  {{vehicle.checklist_status}}</md-button>
+            <md-button style="background-color: orange;" ng-click="mc.cancelChecklist(vehicle)">Cancel Service</md-button>
+            </span>
+          </md-card-content>
+        </md-card>
+      </div>
     </div>
 
     <div layout="column" layout-wrap flex="50">
       <h2 style="color: black; padding: 10px;">Vehicles Ready For Checkout:</h2>
-      <md-card ng-repeat="vehicle in mc.carsStatus.list" class="'{{vehicle.checklist_status}}'" ng-hide="vehicle.checklist_status != 'serviced'">
-        <md-card-content>
-          <p>
+      <div ng-repeat="vehicle in mc.carsStatus.list">
+        <md-card ng-hide="vehicle.checklist_status != 'serviced'">
+          <md-card-content>
+
             <b>Name:</b> {{vehicle.name}}
             <br><b>Year:</b> {{vehicle.year}}
             <br><b>Make:</b> {{vehicle.make}}
             <br><b>Model:</b> {{vehicle.model}}
             <br><b>Vin:</b> {{vehicle.vin}}
+            <br><b>Mileage:</b> {{vehicle.current_mileage}}
+            <br><b>Service Requested:</b> {{vehicle.service_requested}}
             <br>
-            <br><b>Checklist status:</b> <a ng-href="#/checklist/{{vehicle.checklist_id}}">{{vehicle.checklist_status}}</a>
-          </p>
+            <br>
+            <span layout="column">
+              <md-button ng-class="'{{vehicle.checklist_status}}'" ng-href="#/checklist/{{vehicle.checklist_id}}"> Checklist status:  {{vehicle.checklist_status}}</md-button>
+            </span>
           </md-card-content>
-      </md-card>
+        </md-card>
+      </div>
     </div>
   </div>
 </div>

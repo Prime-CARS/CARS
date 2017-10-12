@@ -41,15 +41,18 @@
 </div>
 
 <md-card>
-  <h1>Vehicle Inspection Checklist</h1>
-  <div class="checklistGroup">
-    <h3>Mechanics:</h3>
+  <h1 style="padding: 0 0 0 20px;">Vehicle Inspection Checklist</h1>
+  <h3 style="font-size: 20px; padding: 0 0 0 8px;">Mechanics:</h3>
+  <div style="font-size: 20px;" layout="column">
+    <md-input-container>
+      <label for="text">All Mechanics working on the vehicle:</label>
+      <input type='text' ng-model="cc.cars_checklist.info.mechanics" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.mechanics)">
+    </md-input-container>
+    <md-input-container>
+      <label for="text"> Service Requested </label>
+      <input type='text' ng-model="cc.cars_checklist.info.service_requested">
+    </md-input-container>
   </div>
-
-  <md-input-container>
-    <label for="text">All Mechanics working on the vehicle:</label>
-    <input type='text' ng-model="cc.cars_checklist.info.mechanics" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.mechanics)">
-  </md-input-container>
 
 
   <form>
@@ -500,21 +503,23 @@
 
           <div class="checklistGroup ">
             37. Rear Disc Brake Condition
-            <md-radio-group layout="row " ng-model="cc.cars_checklist.info.reardiscbrakecondition " ng-change="cc.saveChecklistItem(cc.cars_checklist.info.reardiscbrakecondition) ">
-              <label for="text "></label>
-              <md-radio-button value="good "> Good </md-radio-button>
-              <md-radio-button value="fair "> Fair </md-radio-button>
-              <md-radio-button value="poor "> Poor </md-radio-button>
-            </md-radio-group layout="row ">
+            <md-radio-group layout="row " ng-model="cc.cars_checklist.info.reardiscbrakecondition " ng-change="cc.saveChecklistItem(cc.cars_checklist.info.reardiscbrakecondition)">
+              <label for="text"></label>
+              <md-radio-button value="good"> Good </md-radio-button>
+              <md-radio-button value="fair"> Fair </md-radio-button>
+              <md-radio-button value="poor"> Poor </md-radio-button>
+              <md-radio-button value="drum"> Drum </md-radio-button>
+            </md-radio-group layout="row">
           </div>
 
           <div class="checklistGroup ">
             38. Rear Brake Calipers
-            <md-radio-group layout="row " ng-model="cc.cars_checklist.info.rearbrakecalipers " ng-change="cc.saveChecklistItem(cc.cars_checklist.info.rearbrakecalipers) ">
-              <label for="text "></label>
-              <md-radio-button class="md-primary " value="pass "> Pass </md-radio-button>
-              <md-radio-button class="md-primary " value="fail "> Fail </md-radio-button>
-            </md-radio-group layout="row ">
+            <md-radio-group layout="row " ng-model="cc.cars_checklist.info.rearbrakecalipers " ng-change="cc.saveChecklistItem(cc.cars_checklist.info.rearbrakecalipers)">
+              <label for="text"></label>
+              <md-radio-button class="md-primary " value="pass"> Pass </md-radio-button>
+              <md-radio-button class="md-primary " value="fail"> Fail </md-radio-button>
+              <md-radio-button class="md-primary " value="drum"> Drum </md-radio-button>
+            </md-radio-group layout="row">
           </div>
 
           <div class="checklistGroup ">
@@ -592,27 +597,30 @@
 
         <div ng-show="cc.cars_checklist.info.oilchange ">
           <h3>Oil Checklist:</h3>
+          <div layout="row">
+            <div layout="column" flex="40">
+              <md-checkbox ng-model="cc.cars_checklist.info.drain_oil " ng-change="cc.saveChecklistItem(cc.cars_checklist.info.drain_oil) "
+                ng-checked="cc.cars_checklist.info.drain_oil">
+                1. Drain Oil
+              </md-checkbox>
 
-          <md-checkbox ng-model="cc.cars_checklist.info.drain_oil " ng-change="cc.saveChecklistItem(cc.cars_checklist.info.drain_oil) "
-            ng-checked="cc.cars_checklist.info.drain_oil ">
-            1. Drain Oil
-          </md-checkbox>
+              <md-checkbox ng-model="cc.cars_checklist.info.remove_filter_gasket " ng-change="cc.saveChecklistItem(cc.cars_checklist.info.remove_filter_gasket) "
+                ng-checked="cc.cars_checklist.info.remove_filter_gasket">
+                2. Remove Oil Filter and Old Gasket
+              </md-checkbox>
+            </div>
+            <div layout="column" flex="40">
+              <md-checkbox ng-model="cc.cars_checklist.info.install_drain_plug " ng-change="cc.saveChecklistItem(cc.cars_checklist.info.install_drain_plug) "
+                ng-checked="cc.cars_checklist.info.install_drain_plug">
+                3. Install and Tighten Drain Plug
+              </md-checkbox>
 
-          <md-checkbox ng-model="cc.cars_checklist.info.remove_filter_gasket " ng-change="cc.saveChecklistItem(cc.cars_checklist.info.remove_filter_gasket) "
-            ng-checked="cc.cars_checklist.info.remove_filter_gasket ">
-            2. Remove Oil Filter and Old Gasket
-          </md-checkbox>
-          <br>
-          <md-checkbox ng-model="cc.cars_checklist.info.install_drain_plug " ng-change="cc.saveChecklistItem(cc.cars_checklist.info.install_drain_plug) "
-            ng-checked="cc.cars_checklist.info.install_drain_plug ">
-            3. Install and Tighten Drain Plug
-          </md-checkbox>
-
-          <md-checkbox ng-model="cc.cars_checklist.info.install_tighten_filter " ng-change="cc.saveChecklistItem(cc.cars_checklist.info.install_tighten_filter) "
-            ng-checked="cc.cars_checklist.info.install_tighten_filter ">
-            4. Install and Tighten Filter
-          </md-checkbox>
-
+              <md-checkbox ng-model="cc.cars_checklist.info.install_tighten_filter " ng-change="cc.saveChecklistItem(cc.cars_checklist.info.install_tighten_filter) "
+                ng-checked="cc.cars_checklist.info.install_tighten_filter">
+                4. Install and Tighten Filter
+              </md-checkbox>
+            </div>
+          </div>
           <div layout="row">
             <md-input-container>
               <label for="text ">5. Add Oil Amount</label>

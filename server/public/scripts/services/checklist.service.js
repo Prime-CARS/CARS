@@ -23,4 +23,16 @@ myApp.service('ChecklistService', ['$http', function ($http) {
             // console.log('Status of checklist being submitted: ', response.data);
         })
     }
+
+    vm.deleteChecklist = function (userObject) {
+        console.log('Checklist deleted at: ', userObject);
+        $http.delete('/checklist/' + userObject.checklist_id).then(function (response) {
+            vm.getChecklistsStatus();
+            //Checklist has been deleted: changing customer status to canceled
+
+            $http.put('/requestservice/cancelService', userObject).then(function (response) {
+                console.log('Customer updated: ', response.data);
+            })
+        })
+    }
 }]);
