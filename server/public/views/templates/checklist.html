@@ -14,15 +14,18 @@
 </md-nav-bar>
 
 <md-card>
-  <h1>Vehicle Inspection Checklist</h1>
-  <div class="checklistGroup">
-    <h3>Mechanics:</h3>
+  <h1 style="padding: 0 0 0 20px;">Vehicle Inspection Checklist</h1>
+  <h3 style="font-size: 20px; padding: 0 0 0 8px;">Mechanics:</h3>
+  <div style="font-size: 20px;" layout="column">
+    <md-input-container>
+      <label for="text">All Mechanics working on the vehicle:</label>
+      <input type='text' ng-model="cc.cars_checklist.info.mechanics" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.mechanics)">
+    </md-input-container>
+    <md-input-container>
+      <label for="text"> Service Requested </label>
+      <input type='text' ng-model="cc.cars_checklist.info.service_requested">
+    </md-input-container>
   </div>
-
-  <md-input-container>
-    <label for="text">All Mechanics working on the vehicle:</label>
-    <input type='text' ng-model="cc.cars_checklist.info.mechanics" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.mechanics)">
-  </md-input-container>
 
 
   <form>
@@ -480,6 +483,7 @@
               <md-radio-button value="good"> Good </md-radio-button>
               <md-radio-button value="fair"> Fair </md-radio-button>
               <md-radio-button value="poor"> Poor </md-radio-button>
+              <md-radio-button value="drum"> Drum </md-radio-button>
             </md-radio-group layout="row">
           </div>
 
@@ -489,6 +493,7 @@
               <label for="text"></label>
               <md-radio-button class="md-primary " value="pass"> Pass </md-radio-button>
               <md-radio-button class="md-primary " value="fail"> Fail </md-radio-button>
+              <md-radio-button class="md-primary " value="drum"> Drum </md-radio-button>
             </md-radio-group layout="row">
           </div>
 
@@ -567,7 +572,7 @@
 
         <div ng-show="cc.cars_checklist.info.oilchange">
           <h3>Oil Checklist:</h3>
-          <div layout="row"> 
+          <div layout="row">
             <div layout="column" flex="40">
               <md-checkbox ng-model="cc.cars_checklist.info.drain_oil " ng-change="cc.saveChecklistItem(cc.cars_checklist.info.drain_oil) "
                 ng-checked="cc.cars_checklist.info.drain_oil">
