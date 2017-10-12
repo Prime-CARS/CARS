@@ -1,17 +1,12 @@
+<md-nav-bar class="navBarStyle" md-selected-nav-item="currentNavItem" layout="row" layout-align="space-around center" md-no-ink-bar="disableInkBar"
+      nav-bar-aria-label="navigation links">
 
-
-<md-nav-bar class="navBarStyle" md-selected-nav-item="currentNavItem" 
-layout="row" 
- layout-align="space-around center"  
- md-no-ink-bar="disableInkBar" 
- nav-bar-aria-label="navigation links">
-
-<md-nav-item md-nav-href="#/landingpage" name="homeTab">
-      Home
-  </md-nav-item>
-  <md-nav-item md-nav-href="#/requestservice" name="serviceRequestTab">
-      Request for Service Form
-  </md-nav-item>
+      <md-nav-item md-nav-href="#/landingpage" name="homeTab">
+            Home
+      </md-nav-item>
+      <md-nav-item md-nav-href="#/requestservice" name="serviceRequestTab">
+            Request for Service Form
+      </md-nav-item>
 
 </md-nav-bar>
 
@@ -23,7 +18,7 @@ layout="row"
                   <md-button flex class="md-raised md-warn removebutton noPrint" ng-click="ac.updateCustomer(data.customer_id, 'printed')">remove</md-button>
                   <br>
             </md-action>
-{{ac}}
+            {{ac}}
             <h2 class="authClickToEdit" id="authDate">{{ac.date | date:MMM/dd/yyyy}}</h2>
             <H1>C.A.R.S.</H1>
             <H2>Service Authorization</H2>
@@ -31,7 +26,8 @@ layout="row"
 
             <p>I,
                   <input type="text" id="authNameLine" onkeypress="this.style.width = ((this.value.length + 1) * 8) + 'px';" style="border-bottom: 1px solid black;border-right:hidden;border-left:hidden;border-top:hidden;background:transparent;"
-                        ng-model="ac.serviceObject.name"> hereby authorize C.A.R.S. to perform the following services and repairs on the vehicle listed below:</p>
+                        ng-model="ac.serviceObject.name"> hereby authorize C.A.R.S. to perform the following
+                  services and repairs on the vehicle listed below:</p>
             <p>
                   <textarea id="authProblemArea" type="text" rows="3" style="border:none;background:transparent;" ng-model="ac.serviceObject.service_requested"></textarea>
             </p>

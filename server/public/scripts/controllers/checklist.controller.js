@@ -17,8 +17,6 @@ myApp.controller('ChecklistController', function (ChecklistService, AdminService
     $location.path("'" + page + "'")
   }
 
-
-
   vm.showFinishChecklist = function (show) {
     if (show == 'Y') {
       vm.cars_checklist.info.finishup_checklist = true;

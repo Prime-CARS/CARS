@@ -22,7 +22,7 @@ myApp.service('ChecklistService', ['$http', function ($http) {
         console.log('Checklist object: ', checklist);
         
         $http.put('/checklist/submit', checklist).then(function (response) {
-            // console.log('Status of checklist being submitted: ', response.data);
+            console.log('Status of checklist being submitted: ', response.data);
         })
     }
 
