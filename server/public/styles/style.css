@@ -354,3 +354,7 @@ footer {
 #authProblemArea{
     width: 60%;
 }
+
+.loginBox{
+    min-width: 200px;
+}
