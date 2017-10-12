@@ -1,4 +1,4 @@
-myApp.controller('AdminController', function (AdminService, RequestService, AuthService, $location) {
+myApp.controller('AdminController', function (AdminService, RequestService, AuthService, SummaryService, $location) {
 
   $('.maskPhone').mask('(000) 000-0000')
   
@@ -91,6 +91,8 @@ myApp.controller('AdminController', function (AdminService, RequestService, Auth
     AuthService.getAuth(c)
   }
 
+
+
   /* this function is called when the submit form is clicked on the Request for Service form on the       website's requestService.html page. */
   vm.addCustomer = function () {
     vm.customer.service_status = "scheduled"; 
@@ -107,12 +109,8 @@ myApp.controller('AdminController', function (AdminService, RequestService, Auth
     vm.textboxShowing = true;
   };
 
-  vm.getChecklist = function (){
-    swal({
-      title:"you hit the history button",
-      text: "now just to link it",
-      type: "success"
-    })
+  vm.getChecklist = function (c){
+    SummaryService.getSummary(c);
   };
   /*putting in tabs*/
 
