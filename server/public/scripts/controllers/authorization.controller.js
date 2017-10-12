@@ -1,4 +1,4 @@
-myApp.controller('AuthController', function (AuthService, RequestService, AdminService) {
+myApp.controller('AuthController', function (AuthService, RequestService, AdminService, $location) {
     console.log('AuthController created');
 
     $('.maskPhone').mask('(000) 000-0000');
@@ -20,6 +20,8 @@ myApp.controller('AuthController', function (AuthService, RequestService, AdminS
         
         self.saveAuth();
         RequestService.updateCustomer(z, x)
+        AdminService.getRequests();
+        $location.path('/admin'); 
     }
 
     self.printDiv = function () {

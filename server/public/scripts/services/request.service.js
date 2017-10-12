@@ -63,7 +63,6 @@ myApp.service('RequestService', function ($http, $location) {
                     data: vm.data
                 }).then(function (response) {
                     console.log('Customer checklist added: ', response.data);
-                    $location.path('/admin'); 
                 })
             })//end of .then 
         } else if (x === 'printed') {
@@ -78,7 +77,6 @@ myApp.service('RequestService', function ($http, $location) {
                 data: vm.data
             }).then(function (response) {
                 console.log('Customer service update: ', response.data);
-                $location.path('/admin'); 
             })//end of .then 
         } else if (x === 'denied') {
             vm.data = {
@@ -92,7 +90,6 @@ myApp.service('RequestService', function ($http, $location) {
                 data: vm.data
             }).then(function (response) {
                 console.log('Customer service update: ', response.data);
-                $location.path('/admin'); 
             })//end of .then 
         } else {
             $http({
@@ -101,7 +98,6 @@ myApp.service('RequestService', function ($http, $location) {
                 data: vm.data
             }).then(function (response) {
                 console.log('Customer service is declined: ', response.data);
-                $location.path('/admin'); 
             })
         }
     }
