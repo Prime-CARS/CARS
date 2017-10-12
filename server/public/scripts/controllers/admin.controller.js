@@ -1,7 +1,7 @@
 myApp.controller('AdminController', function (AdminService, RequestService, AuthService, SummaryService, $location) {
 
   $('.maskPhone').mask('(000) 000-0000')
-  
+
   console.log('AdminController created');
   var vm = this;
   vm.AdminService = AdminService;
@@ -19,7 +19,7 @@ myApp.controller('AdminController', function (AdminService, RequestService, Auth
   // vm.showAuths = false;
   // vm.showSearchs = false;
   vm.Prints = AdminService.Prints;
-  vm.customer= {};
+  vm.customer = {};
   vm.textboxShowing = false;
   vm.RetrievedRequests = AdminService.Requests;
   vm.searchResults = AdminService.searchResults.list;
@@ -29,7 +29,6 @@ myApp.controller('AdminController', function (AdminService, RequestService, Auth
     vm.showAuths = false;
     vm.showSearchs = false;
     vm.getRequests();
-
   }
 
   vm.showSearch = function () {
@@ -67,7 +66,7 @@ myApp.controller('AdminController', function (AdminService, RequestService, Auth
     AdminService.searchHistory(z);
   }
 
-  
+
 
   vm.showAuth = function () {
     vm.showAuths = true;
@@ -95,16 +94,17 @@ myApp.controller('AdminController', function (AdminService, RequestService, Auth
 
   /* this function is called when the submit form is clicked on the Request for Service form on the       website's requestService.html page. */
   vm.addCustomer = function () {
-    vm.customer.service_status = "scheduled"; 
+    vm.customer.service_status = "scheduled";
     RequestService.addCustomerNoEmail(vm.customer);
+    AdminService.getRequests();
   }
-// clled when a customers request is scheduled or denied
-  vm.updateCustomer = function (z,x){
+  // clled when a customers request is scheduled or denied
+  vm.updateCustomer = function (z, x) {
     console.log('Update Customer button hit on controller');
-    RequestService.updateCustomer(z,x);
-    vm.getRequests();
+    RequestService.updateCustomer(z, x);
+    AdminService.getRequests();
   }
-  
+
   vm.openTextbox = function () {
     vm.textboxShowing = true;
   };
@@ -115,24 +115,22 @@ myApp.controller('AdminController', function (AdminService, RequestService, Auth
   /*putting in tabs*/
 
 
-   vm.tabs = function () {
-      vm.data = {
-        selectedIndex: 0,
-        secondLocked: true,
-        secondLabel: "Item Two",
-        bottom: false
-      };
-      vm.next = function () {
-        vm.data.selectedIndex = Math.min(vm.data.selectedIndex + 1, 2);
-      };
-      vm.previous = function () {
-        vm.data.selectedIndex = Math.max(vm.data.selectedIndex - 1, 0);
-      };
-    }
- /*putting in tabs*/
+  vm.tabs = function () {
+    vm.data = {
+      selectedIndex: 0,
+      secondLocked: true,
+      secondLabel: "Item Two",
+      bottom: false
+    };
+    vm.next = function () {
+      vm.data.selectedIndex = Math.min(vm.data.selectedIndex + 1, 2);
+    };
+    vm.previous = function () {
+      vm.data.selectedIndex = Math.max(vm.data.selectedIndex - 1, 0);
+    };
+  }
+  /*putting in tabs*/
 
   vm.getPrint();
   vm.getRequests();
-
-
 });
