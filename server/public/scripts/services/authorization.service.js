@@ -1,9 +1,10 @@
 myApp.service('AuthService', function ($http, $location) {
    console.log('AuthService Loaded');
 
-   self = this
+   var self = this
    self.userObject = {};
    self.Requests = { list: [] }
+   self.serviceTest = {test:'wtf Service'}
 
 
    self.getAuth = function (c) {

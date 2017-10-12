@@ -4,11 +4,13 @@ myApp.controller('AuthController', function (AuthService, RequestService) {
     $('.maskPhone').mask('(000) 000-0000');
 
     var self = this;
+    AuthService.getAuth()
     self.date = new Date();
     self.test = {this:'wtf'};
+    self.AuthService = AuthService.serviceObject
     self.serviceObject = AuthService.serviceObject;
+    self.serviceTest = AuthService.serviceTest;
 
-    // AuthService.getAuth()
     
 
     self.updateCustomer = function (z, x) {
