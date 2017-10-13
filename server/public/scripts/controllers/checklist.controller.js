@@ -64,8 +64,7 @@ myApp.controller('ChecklistController', function (ChecklistService, AdminService
       vm.cars_checklist.info.testdrive &&
       vm.cars_checklist.info.retorquelugnuts &&
       vm.cars_checklist.info.giftpack &&
-      vm.cars_checklist.info.reviewchecklist &&
-      vm.cars_checklist.info.cost == true
+      vm.cars_checklist.info.reviewchecklist == true
     ) {
       vm.cars_checklist.info.checkout_completed = true;
       vm.disablePrintButton = false;
