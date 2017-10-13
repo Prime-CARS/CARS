@@ -7,6 +7,7 @@ myApp.controller('ChecklistController', function (ChecklistService, AdminService
   // Call to populate Checklist 
   ChecklistService.getVehicleInfo($routeParams.checklist_id);
   vm.cars_checklist = ChecklistService.vehicleInfo;
+  vm.disablePrintButton = true;
 
   vm.oilCheckListVisible = false;
 
