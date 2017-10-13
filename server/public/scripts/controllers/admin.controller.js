@@ -97,6 +97,7 @@ myApp.controller('AdminController', function (AdminService, RequestService, Auth
   vm.addCustomer = function () {
     vm.customer.service_status = "scheduled";
     RequestService.addCustomerNoEmail(vm.customer);
+    vm.nrqstneeded = false;
     vm.getRequests();
   }
   // clled when a customers request is scheduled or denied
