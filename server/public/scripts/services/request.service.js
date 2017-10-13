@@ -3,7 +3,6 @@ myApp.service('RequestService', function ($http, $location) {
     //"this" refers to request.service.js
     var vm = this;
 
-
     vm.sendMail = function () {
         console.log("sendMail function has been clicked in request.service line 7");
         $http.post('/mail').then(function (response) {
@@ -21,6 +20,11 @@ myApp.service('RequestService', function ($http, $location) {
         }).then(function (response) {
             console.log("http service has made a POST request for customers in request.service.js line 13: ", response.data);
             vm.sendMail();
+            swal({
+                title: 'Thank you!',
+                text: 'Your request has been recieved you will recieve a call shortly.',
+                type: 'success',
+            })
             $location.path('/cars');
         })//end of addCustomer http POST request
     }

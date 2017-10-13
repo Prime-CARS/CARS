@@ -10,6 +10,7 @@ myApp.controller('AuthController', function (AuthService, RequestService, AdminS
     self.AuthService = AuthService.serviceObject
     self.serviceObject = AuthService.serviceObject;
     self.serviceTest = AuthService.serviceTest;
+    self.AdminService = AdminService;
 
     
 
