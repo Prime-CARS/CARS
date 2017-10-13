@@ -327,11 +327,7 @@ footer {
       background: rgba(255, 255, 255, .8);
       border-radius: 650px;
   }
-  .md-tab{
-      border-right-style: solid;
-      border-width: 1px;
-      height: 90%;
-  }
+
 .checklistGroup{
     padding: 8px;
     margin: 8px;
@@ -368,4 +364,8 @@ footer {
     margin-left: 10%;
     height: 10%;
     width: 30%;
+}
+
+.highlight{
+    background-color:gray;
 }
