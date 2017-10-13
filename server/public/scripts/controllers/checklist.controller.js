@@ -879,7 +879,10 @@ myApp.controller('ChecklistController', function (ChecklistService, AdminService
 
   //Handling Print Functions for closing checklist
   vm.printAndCloseChecklist = function () {
-    console.log('Print and close clicked');
-
+    console.log('Print and close clicked:', vm.cars_checklist.info);
+    vm.cars_checklist.info.checklist_status = 'finished';
+    ChecklistService.submitChecklist(vm.cars_checklist.info);
+    window.print();
+    $location.path('/mechanic');
   }
 });
