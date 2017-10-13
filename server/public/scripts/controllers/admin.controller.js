@@ -31,14 +31,14 @@ myApp.controller('AdminController', function (AdminService, RequestService, Auth
     vm.getRequests();
   }
 
-  vm.showSearch = function () {
-    vm.showRequests = false;
-    vm.showSearchs = true;
-    vm.nrqstneeded = false;
-    vm.showAuths = false;
-    // vm.getRequests();
-    console.log(vm.showRequests);
-  }
+  // vm.showSearch = function () {
+  //   vm.showRequests = false;
+  //   vm.showSearchs = true;
+  //   vm.nrqstneeded = false;
+  //   vm.showAuths = false;
+  //   // vm.getRequests();
+  //   console.log(vm.showRequests);
+  // }
 
   // vm.expandInfo = function () {
   //   vm.InfoExpanded = true;
@@ -50,7 +50,9 @@ myApp.controller('AdminController', function (AdminService, RequestService, Auth
   }
 
   vm.getRequests = function () {
-    vm.Requests = AdminService.getRequests();
+    AdminService.getRequests();
+    AdminService.getPrints();
+    
   }
 
   vm.AddRequest = function () {
@@ -68,22 +70,21 @@ myApp.controller('AdminController', function (AdminService, RequestService, Auth
 
 
 
-  vm.showAuth = function () {
-    vm.showAuths = true;
-    vm.showRequests = false;
-    vm.nrqstneeded = false;
-    vm.showSearchs = false;
-    console.log('meow');
-  }
+  // vm.showAuth = function () {
+  //   vm.showAuths = true;
+  //   vm.showRequests = false;
+  //   vm.nrqstneeded = false;
+  //   vm.showSearchs = false;
+
+  //   console.log('meow');
+  // }
 
   vm.hideAuth = function () {
     vm.showAuths = false;
     console.log('woof')
   }
 
-  vm.getPrint = function () {
-    AdminService.getPrints()
-  }
+
 
   vm.history_view = function (c) {
     console.log(c);
@@ -96,20 +97,20 @@ myApp.controller('AdminController', function (AdminService, RequestService, Auth
   vm.addCustomer = function () {
     vm.customer.service_status = "scheduled";
     RequestService.addCustomerNoEmail(vm.customer);
-    AdminService.getRequests();
+    vm.getRequests();
   }
   // clled when a customers request is scheduled or denied
   vm.updateCustomer = function (z, x) {
     console.log('Update Customer button hit on controller');
     RequestService.updateCustomer(z, x);
-    AdminService.getRequests();
+    vm.getRequests();
   }
 
   vm.openTextbox = function () {
     vm.textboxShowing = true;
   };
 
-  vm.getChecklist = function (c){
+  vm.getChecklist = function (c) {
     SummaryService.getSummary(c);
   };
   /*putting in tabs*/
@@ -131,6 +132,6 @@ myApp.controller('AdminController', function (AdminService, RequestService, Auth
   }
   /*putting in tabs*/
 
-  vm.getPrint();
+
   vm.getRequests();
 });
