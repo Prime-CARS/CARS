@@ -62,6 +62,15 @@ myApp.config(function($routeProvider, $locationProvider) {
         }
       }
     })
+    .when('/printchecklist/:checklist_id', {
+      templateUrl: '/views/templates/printchecklist.html',
+      controller: 'ChecklistController as cc',
+      resolve: {
+        getuser : function(AdminService){
+          return AdminService.getuser();
+        }
+      }
+    })
     .when('/requestservice', {
       templateUrl: '/views/templates/request-service.html',
       controller: 'RequestController as rc'

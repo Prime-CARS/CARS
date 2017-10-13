@@ -12,9 +12,11 @@
             <div class="md-dialog-content">
                 <div>
                     <h2>Vehicle Observations &#42;&#42;</h2>
-                    <h4>Why did this item fail? Any General Observations:</h4> 
-                    <textarea ng-model="cc.cars_checklist.info.vehicle_observations" ng-change="cc.submitChecklist(cc.cars_checklist)" name="textarea"
-                        cols="70" rows="10"></textarea>
+                    <h4>Why did this item fail? Any General Observations:</h4>
+                    <md-input-container>
+                        <textarea ng-model="cc.cars_checklist.info.vehicle_observations" ng-change="cc.submitChecklist(cc.cars_checklist)" name="textarea"
+                            cols="70" rows="10"></textarea>
+                    </md-input-container>
                 </div>
             </div>
         </md-dialog-content>
