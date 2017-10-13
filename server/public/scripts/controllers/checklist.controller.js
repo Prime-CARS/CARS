@@ -64,7 +64,8 @@ myApp.controller('ChecklistController', function (ChecklistService, AdminService
       vm.cars_checklist.info.testdrive &&
       vm.cars_checklist.info.retorquelugnuts &&
       vm.cars_checklist.info.giftpack &&
-      vm.cars_checklist.info.reviewchecklist == true
+      vm.cars_checklist.info.reviewchecklist &&
+      vm.cars_checklist.info.cost == true
     ) {
       vm.cars_checklist.info.checkout_completed = true;
       vm.disablePrintButton = false;
@@ -879,7 +880,10 @@ myApp.controller('ChecklistController', function (ChecklistService, AdminService
 
   //Handling Print Functions for closing checklist
   vm.printAndCloseChecklist = function () {
-    console.log('Print and close clicked');
-
+    console.log('Print and close clicked:', vm.cars_checklist.info);
+    vm.cars_checklist.info.checklist_status = 'finished';
+    ChecklistService.submitChecklist(vm.cars_checklist.info);
+    window.print();
+    $location.path('/mechanic');
   }
 });
