@@ -10,7 +10,5 @@ myApp.controller('SummaryController', function (SummaryService, AdminService) {
         window.print();
     }
 
-    
-
 });
 

@@ -16,6 +16,8 @@ main {
     height: 100vh;
 }
 
+
+
 .navBarStyle {
     background: maroon;
 }
@@ -48,7 +50,7 @@ main {
     padding-top: 20px;
     color: #131313;
     padding: 15px;
-    background-color: #F5F5F5
+    background-color: #F5F5F5;
 }
 
 #entryForm {
@@ -212,6 +214,22 @@ footer {
     #authCarsLogo {
         float: right;
         margin-top: -20pt;
+    }
+    .pageBreak {
+        page-break-before: always !important;
+    }
+    .pageBreakAfter{
+        page-break-after: avoid !important;
+    }
+    body {
+        background: white !important;
+        background-image: hidden !important;
+    }
+    main {
+        background: white !important;
+        background-image: hidden !important;
+        font-size: 10px !important;
+        margin: auto;
     }
 }
 
