@@ -42,7 +42,7 @@
 
 <md-card>
   <h1 style="padding: 0 0 0 20px;">Vehicle Inspection Checklist</h1>
-  <h3 style="font-size: 20px; padding: 0 0 0 8px;">Mechanics:</h3>
+  <!-- <h3 style="font-size: 20px; padding: 0 0 0 8px;">Mechanics:</h3> -->
   <div style="font-size: 20px;" layout="column">
     <md-input-container>
       <label for="text">All Mechanics working on the vehicle:</label>
@@ -58,20 +58,25 @@
   <form>
     <div>
       <div class="checklistGroup">
-        <p> Vechile Information </p>
-        <br>
+        <p> Vehicle Information </p><hr>
+        <div layout="row">
         <md-input-container>
           <label for="text"> Vehicle Owner's Name &#42;&#42; </label>
           <input type='text' ng-model="cc.cars_checklist.info.name" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.name)">
         </md-input-container>
 
         <md-input-container>
-          <label for="text"> VIN &#42;&#42; </label>
-          <input type='text' ng-model="cc.cars_checklist.info.vin" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.vin)">
+          <label for="text">Miles &#42;&#42; </label>
+          <input type='text' ng-model="cc.cars_checklist.info.current_mileage" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.current_mileage)">
         </md-input-container>
 
-        <br>
-
+        </div>
+    
+<div layout="row"></div>
+  <md-input-container>
+    <label for="text">Year &#42;&#42; </label>
+    <input type='text' ng-model="cc.cars_checklist.info.year" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.year)">
+  </md-input-container>
         <md-input-container>
           <label for="text">Make &#42;&#42; </label>
           <input type='text' ng-model="cc.cars_checklist.info.make" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.make)">
@@ -82,28 +87,22 @@
           <input type='text' ng-model="cc.cars_checklist.info.model" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.model)">
         </md-input-container>
 
-        <md-input-container>
-          <label for="text">Year &#42;&#42; </label>
-          <input type='text' ng-model="cc.cars_checklist.info.year" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.year)">
-        </md-input-container>
+            <md-input-container>
+              <label for="text"> Engine Size &#42;&#42; </label>
+              <input type="text" ng-model="cc.cars_checklist.info.engine_size" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.year)">
+            </md-input-container>
 
+                <md-input-container>
+                  <label for="text"> VIN &#42;&#42; </label>
+                  <input type='text' ng-model="cc.cars_checklist.info.vin" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.vin)">
+                </md-input-container>
+      </div>
 
-        <br>
-
-        <md-input-container>
-          <label for="text"> Engine Size &#42;&#42; </label>
-          <input type="text" ng-model="cc.cars_checklist.info.engine_size" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.year)">
-        </md-input-container>
-
-        <md-input-container>
-          <label for="text">Miles &#42;&#42; </label>
-          <input type='text' ng-model="cc.cars_checklist.info.current_mileage" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.current_mileage)">
-        </md-input-container>
       </div>
 
       <!-- owner & vechile information -->
       <div layout="row">
-        <div layout="column" flex="60">
+        <div layout="column" flex="50">
           <div class="checklistGroup">
             2. Headlights - High
             <md-radio-group layout="row" ng-model="cc.cars_checklist.info.headlights_high" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.headlights_high)"

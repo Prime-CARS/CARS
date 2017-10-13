@@ -57,7 +57,7 @@
                 <div flex="40" flex-offset="30">
                     <h3 class="title">These requests are pending review and scheduling</h3>
                 </div>
-                <div flex="100" flex-offset="" ng-repeat="data in ac.RetrievedRequests.list.data" class="rqst" ng-click="expandInfo = !expandInfo">
+                <div flex="100" ng-repeat="data in ac.RetrievedRequests.list.data" class="rqst" ng-click="expandInfo = !expandInfo">
                     <b>{{data.name}}
                         <br>{{data.year}} {{data.make}} {{data.model}}</b>
                     <div ng-show="expandInfo" class="rqst">
@@ -79,20 +79,21 @@
                     </div>
 
                 </div>
-                <div class="nrqst" ng-click="addRequest = !addRequest">New request</div>
+                <div class="nrqst" ng-click="addRequest = !addRequest"><b> + New request</b></div>
 
                 <div class="nrqstform" ng-show="addRequest">
                     <!--start of new person entry -->
+                    <h2 class="sublead">Customer Information</h2>
                     <form id="customerInfo">
-                        <md-input-container>
-                            <label>Name</label>
-                            <input type="text" name="first" ng-model="ac.customer.name" required>
-                        </md-input-container>
-                        <md-input-container>
-                            <label>Address</label>
-                            <input type="text" name="address" ng-model="ac.customer.address" required>
-                        </md-input-container>
                         <div>
+                            <md-input-container>
+                                <label>Name</label>
+                                <input type="text" name="first" ng-model="ac.customer.name" required>
+                            </md-input-container>
+                            <md-input-container>
+                                <label>Address</label>
+                                <input type="text" name="address" ng-model="ac.customer.address" required>
+                            </md-input-container>
                             <md-input-container>
                                 <label>City</label>
                                 <input type="text" name="city" ng-model="ac.customer.city" required>
@@ -106,6 +107,8 @@
                                 <input type="text" name="zip" ng-model="ac.customer.zip" title="5 or 5-4 digit zip code" pattern="\b\d{5}[-]\d{4}\b|\b\d{5}\b"
                                     required>
                             </md-input-container>
+                        </div>
+                        <div>
                             <md-input-container>
                                 <label>Cell Phone</label>
                                 <input type="tel" class="form-control maskPhone" name="cellPhone" ng-model="ac.customer.cellPhone " required>
@@ -120,31 +123,32 @@
                             </md-input-container>
                         </div>
 
-                        <h2>Vehicle Information</h2>
-                        <div>
+                        <h2 class="sublead">Vehicle Information</h2>
+                        <div layout="rows">
+                            <div flex="55">
+                                <md-input-container>
+                                    <label>VIN</label>
+                                    <input type="text" name="VIN" title="VIN must be 17 digits long" pattern="\w{17}" ng-model="ac.customer.vin">
+                                </md-input-container><br>
+                                <md-input-container>
+                                    <label>Year</label>
+                                    <input type="number" name="year" ng-model="ac.customer.year" required>
+                                </md-input-container>
+                                <md-input-container>
+                                    <label>Make</label>
+                                    <input type="text" name="make" ng-model="ac.customer.make" required>
+                                </md-input-container>
+                                <md-input-container>
+                                    <label>model</label>
+                                    <input type="text" name="model" ng-model="ac.customer.model" required>
+                                </md-input-container>
+                            </div>
 
-                            <md-input-container>
-                                <label>VIN</label>
-                                <input type="text" name="VIN" title="VIN must be 17 digits long" pattern="\w{17}" ng-model="ac.customer.vin">
-                            </md-input-container>
-                            <md-input-container>
-                                <label>Year</label>
-                                <input type="number" name="year" ng-model="ac.customer.year" required>
-                            </md-input-container>
-                            <md-input-container>
-                                <label>Make</label>
-                                <input type="text" name="make" ng-model="ac.customer.make" required>
-                            </md-input-container>
-                            <md-input-container>
-                                <label>model</label>
-                                <input type="text" name="model" ng-model="ac.customer.model" required>
-                            </md-input-container>
+                            <div flex="45">
+                                <h3>Please describe the problems you are having with the vehicle</h3>
+                                <textarea rows="5" cols="70" ng-model="ac.customer.problem"></textarea>
+                            </div>
                         </div>
-
-
-                        <h3>Please describe the problems you are having with the vehicle</h3>
-                        <textarea rows="5" cols="70" ng-model="ac.customer.problem"></textarea>
-
                         <div>
                             <h3>Please indicate why you qualify to use the services of C.A.R.S. Ministry</h3>
 
@@ -199,11 +203,12 @@
             <md-tab-body>
                 <div>
                     <!-- ng-show="ac.showAuths" -->
-                    <h3>These authorizations have been created and need to be printed.</h3>
+                    <div flex="40" flex-offset="30">
+                    <h3 class="title">These authorizations have been created and need to be printed.</h3>
+                   </div>
                     <div ng-repeat="data in ac.AdminService.Prints.list.data" ng-click="ac.history_view($index)" class="rqst">
                         Name: {{data.name}}
-                        <br> 
-                        VIN#: {{data.vin}}
+                        <br> VIN#: {{data.vin}}
                     </div>
                 </div>
             </md-tab-body>
@@ -213,7 +218,10 @@
             <md-tab-label>Service History</md-tab-label>
             <md-tab-body>
                 <div>
+                    <div flex="40" flex-offset="30">
                     <!-- ng-show="ac.showSearchs" -->
+                    <h3 class="title"> Search History</h3>
+                    </div>
                     <form>
                         <input type="text" id="search" ng-model="history_search">
                         <button ng-click="ac.search_history(history_search)">submit</button>
