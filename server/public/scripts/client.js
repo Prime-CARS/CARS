@@ -3,7 +3,7 @@ var myApp = angular.module('myApp', ['ngRoute', 'ngMaterial', 'ngAnimate', 'ngAr
 /// Routes ///
 myApp.config(function($routeProvider, $locationProvider) {
   $locationProvider.hashPrefix('');
-  console.log('myApp -- config')
+  // console.log('myApp -- config')
   $routeProvider
     .when('/login', {
       templateUrl: '/views/templates/login.html',

@@ -7,14 +7,32 @@ myApp.controller('ChecklistController', function (ChecklistService, AdminService
   // Call to populate Checklist 
   ChecklistService.getVehicleInfo($routeParams.checklist_id);
   vm.cars_checklist = ChecklistService.vehicleInfo;
-  vm.disablePrintButton = true;
-
+  
   vm.oilCheckListVisible = false;
-
   vm.finishCheckListVisible = false;
 
+  if (
+    vm.cars_checklist.info.oilcapsecure == true &&
+    vm.cars_checklist.info.oilsticksecure == true &&
+    vm.cars_checklist.info.transmissionsticksecure == true &&
+    vm.cars_checklist.info.powersteeringcapsecure == true &&
+    vm.cars_checklist.info.brakereservoircap == true &&
+    vm.cars_checklist.info.coolantcapsecure == true &&
+    vm.cars_checklist.info.washerfluidcapsecure == true &&
+    vm.cars_checklist.info.toolcheck == true &&
+    vm.cars_checklist.info.testdrive == true &&
+    vm.cars_checklist.info.retorquelugnuts == true &&
+    vm.cars_checklist.info.giftpack == true &&
+    vm.cars_checklist.info.reviewchecklist == true &&
+    vm.cars_checklist.info.cost != null
+  ) {
+    vm.disablePrintButton = false;
+  } else {
+    vm.disablePrintButton = true;
+  }
+
   vm.goto = function (page) {
-    console.log("Goto " + "'" + page + "'");
+    //console.log("Goto " + "'" + page + "'");
     $location.path("'" + page + "'")
   }
 
@@ -54,18 +72,19 @@ myApp.controller('ChecklistController', function (ChecklistService, AdminService
       ChecklistService.submitChecklist(vm.cars_checklist.info);
     }
     if (
-      vm.cars_checklist.info.oilcapsecure &&
-      vm.cars_checklist.info.oilsticksecure &&
-      vm.cars_checklist.info.transmissionsticksecure &&
-      vm.cars_checklist.info.powersteeringcapsecure &&
-      vm.cars_checklist.info.brakereservoircap &&
-      vm.cars_checklist.info.coolantcapsecure &&
-      vm.cars_checklist.info.washerfluidcapsecure &&
-      vm.cars_checklist.info.toolcheck &&
-      vm.cars_checklist.info.testdrive &&
-      vm.cars_checklist.info.retorquelugnuts &&
-      vm.cars_checklist.info.giftpack &&
-      vm.cars_checklist.info.reviewchecklist == true
+      vm.cars_checklist.info.oilcapsecure == true &&
+      vm.cars_checklist.info.oilsticksecure == true &&
+      vm.cars_checklist.info.transmissionsticksecure == true &&
+      vm.cars_checklist.info.powersteeringcapsecure == true &&
+      vm.cars_checklist.info.brakereservoircap == true &&
+      vm.cars_checklist.info.coolantcapsecure == true &&
+      vm.cars_checklist.info.washerfluidcapsecure == true &&
+      vm.cars_checklist.info.toolcheck == true &&
+      vm.cars_checklist.info.testdrive == true &&
+      vm.cars_checklist.info.retorquelugnuts == true &&
+      vm.cars_checklist.info.giftpack == true &&
+      vm.cars_checklist.info.reviewchecklist == true &&
+      vm.cars_checklist.info.cost != null
     ) {
       vm.cars_checklist.info.checkout_completed = true;
       vm.disablePrintButton = false;
@@ -880,7 +899,7 @@ myApp.controller('ChecklistController', function (ChecklistService, AdminService
 
   //Handling Print Functions for closing checklist
   vm.printAndCloseChecklist = function () {
-    console.log('Print and close clicked:', vm.cars_checklist.info);
+    //console.log('Print and close clicked:', vm.cars_checklist.info);
     vm.cars_checklist.info.checklist_status = 'finished';
     ChecklistService.submitChecklist(vm.cars_checklist.info);
     window.print();

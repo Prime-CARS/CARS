@@ -6,13 +6,13 @@ var pool = require('../modules/pool.js');
 router.get('/', function (req, res) {
     pool.connect(function (err, client, done) {
         if (err) {
-            console.log('Error connecting to database', err);
+          //console.log('Error connecting to database', err);
             res.sendStatus(500);
         } else {
             client.query('SELECT customer_info.name, customer_info.customer_id, customer_info.year, customer_info.make, customer_info.model, customer_info.vin, customer_info.current_mileage, customer_info.service_requested, cars_checklist.checklist_status,cars_checklist.checklist_id FROM cars_checklist JOIN customer_info ON customer_info.customer_id=cars_checklist.customer_id WHERE NOT cars_checklist.checklist_status=\'finished\';',
                 function (err, result) {
                     if (err) {
-                        console.log('Error selecting checklists', err);
+                      //console.log('Error selecting checklists', err);
                         res.sendStatus(500);
                     } else {
                         res.send(result.rows);
@@ -30,14 +30,14 @@ router.get('/', function (req, res) {
 router.get('/:checklist_id', function (req, res) {
     pool.connect(function (err, client, done) {
         if (err) {
-            console.log('Error connecting to database', err);
+          //console.log('Error connecting to database', err);
             res.sendStatus(500);
         } else {
             client.query('SELECT customer_info.name, customer_info.year, customer_info.make, customer_info.model, customer_info.vin, customer_info.service_requested, customer_info.customer_id, customer_info.current_mileage, cars_checklist.* FROM cars_checklist JOIN customer_info ON customer_info.customer_id=cars_checklist.customer_id WHERE cars_checklist.checklist_id=$1;',
                 [req.params.checklist_id],
                 function (err, result) {
                     if (err) {
-                        console.log('Error selecting checklist', err);
+                      //console.log('Error selecting checklist', err);
                         res.sendStatus(500);
                     } else {
                         res.send(result.rows[0]);
@@ -54,13 +54,13 @@ router.post('/addChecklist', function (req, res) {
     if (req.isAuthenticated()) {
         if (req.user.role === 'admin') {
             var index = req.body.index;
-            console.log("The put route for customers in requestService.router.js was hit to update status");
+          //console.log("The put route for customers in requestService.router.js was hit to update status");
             //connecting to db
             pool.connect(function (errorConnectingToDatabase, client, done) {
                 //checking the status of the connection
                 if (errorConnectingToDatabase) {
                     //if the connection failed
-                    console.log("error connecting to customer_info table in db: ", errorConnectingToDatabase);
+                  //console.log("error connecting to customer_info table in db: ", errorConnectingToDatabase);
                     res.sendStatus(500);
                 } else {
                     //the connection is successful
@@ -69,7 +69,7 @@ router.post('/addChecklist', function (req, res) {
                         function (err, result) {
                             done();
                             if (err) {
-                                console.log('Error saving new checklist: ', err);
+                              //console.log('Error saving new checklist: ', err);
                                 res.sendStatus(500);
                             } else {
                                 res.sendStatus(200);
@@ -78,11 +78,11 @@ router.post('/addChecklist', function (req, res) {
                 }
             });
         } else {
-            console.log('Not an admin');
+          //console.log('Not an admin');
             res.send('Current user is not an admin');
         }
     } else {
-        console.log('Not logged in');
+      //console.log('Not logged in');
         res.send('Not logged in, cant approve for service');
     }
 });
@@ -93,14 +93,14 @@ router.delete('/:checklist_id', function (req, res) {
         if (req.user.role) {
             pool.connect(function (err, client, done) {
                 if (err) {
-                    console.log('Error connecting to database', err);
+                  //console.log('Error connecting to database', err);
                     res.sendStatus(500);
                 } else {
                     client.query('DELETE FROM cars_checklist WHERE checklist_id = $1;',
                         [req.params.checklist_id],
                         function (err, result) {
                             if (err) {
-                                console.log('Error selecting checklist', err);
+                              //console.log('Error selecting checklist', err);
                                 res.sendStatus(500);
                             } else {
                                 res.sendStatus(200);
@@ -118,13 +118,13 @@ router.put('/submit', function (req, res) {
     if (req.isAuthenticated()) {
         if (req.user.role) {
             var checklist = req.body;
-            console.log('checklist in router', checklist);
+          //console.log('checklist in router', checklist);
             //connecting to db
             pool.connect(function (errorConnectingToDatabase, client, done) {
                 //checking the status of the connection
                 if (errorConnectingToDatabase) {
                     //if the connection failed
-                    console.log("error connecting to cars_checklist table in db: ", errorConnectingToDatabase);
+                  //console.log("error connecting to cars_checklist table in db: ", errorConnectingToDatabase);
                     res.sendStatus(500);
                 } else {
                     //the connection is successful
@@ -224,14 +224,14 @@ router.put('/submit', function (req, res) {
                         function (err, result) {
                             done();
                             if (err) {
-                                console.log('Error saving new checklist: ', err);
+                              //console.log('Error saving new checklist: ', err);
                                 res.sendStatus(500);
                             } else {
                                 client.query('UPDATE customer_info SET name = $1, vin = $2, year = $3, make = $4, model = $5, current_mileage=$6 WHERE customer_id = $7;',
                                     [checklist.name, checklist.vin, checklist.year, checklist.make, checklist.model, checklist.current_mileage, checklist.customer_id],
                                     function (err, result) {
                                         if (err) {
-                                            console.log('Error saving new checklist: ', err);
+                                          //console.log('Error saving new checklist: ', err);
                                             res.sendStatus(500);
                                         } else {
                                             res.sendStatus(200);
@@ -242,11 +242,11 @@ router.put('/submit', function (req, res) {
                 }
             });
         } else {
-            console.log('Not an admin');
+          //console.log('Not an admin');
             res.send('Current user is not an admin');
         }
     } else {
-        console.log('Not logged in');
+      //console.log('Not logged in');
         res.send('Not logged in, cant approve for service');
     }
 });
