@@ -1,5 +1,5 @@
 myApp.service('SummaryService', function ($http, $location) {
-   console.log('SummaryService Loaded');
+//    console.log('SummaryService Loaded');
 
    var self = this;
 
