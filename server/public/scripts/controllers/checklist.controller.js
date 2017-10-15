@@ -92,6 +92,7 @@ myApp.controller('ChecklistController', function (ChecklistService, AdminService
     }
     else {
       vm.disablePrintButton = true;
+      vm.cars_checklist.info.checkout_completed = false;
       ChecklistService.submitChecklist(vm.cars_checklist.info);
     }
   };
@@ -99,6 +100,19 @@ myApp.controller('ChecklistController', function (ChecklistService, AdminService
 
   vm.submitChecklistForService = function (checklist) {
 
+    if (checklist.engine_size === null) {
+      $mdDialog.show(
+        $mdDialog.alert()
+          .parent(angular.element(document.querySelector('#popupContainer')))
+          .clickOutsideToClose(true)
+          .title('Missing Checklist Item')
+          .textContent('Please fill in engine size')
+          .ariaLabel('Alert Dialog Demo')
+          .ok('Ok')
+          .targetEvent(checklist)
+      );
+      return
+    }
     if (checklist.mechanics === null) {
       $mdDialog.show(
         $mdDialog.alert()

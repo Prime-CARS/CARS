@@ -72,7 +72,7 @@
                         <br>
                         <p>
                             <button class="btn-btn-primary" type="submit" ng-click="ac.updateCustomer(data.customer_id, 'scheduled')">Scheduled!</button>
-                            <button class="btn-btn-warn" type="submit" ng-click="ac.updateCustomer(data.customer_id, 'denied')">not eligable!</button>
+                            <button class="btn-btn-warn" type="submit" ng-click="ac.updateCustomer(data.customer_id, 'denied')">Not eligible!</button>
                         </p>
 
                         <!-- <button ng-click="ac.shrinkInfo()">close</button> -->
@@ -118,7 +118,7 @@
                                 <input type="text" class="form-group maskPhone" name="altPhone" ng-model="ac.customer.altPhone">
                             </md-input-container>
                             <md-input-container>
-                                <label>email address</label>
+                                <label>Email address</label>
                                 <input type="email" class="form-group" name="altPhone" ng-model="ac.customer.email" required>
                             </md-input-container>
                         </div>
@@ -139,7 +139,7 @@
                                     <input type="text" name="make" ng-model="ac.customer.make" required>
                                 </md-input-container>
                                 <md-input-container>
-                                    <label>model</label>
+                                    <label>Model</label>
                                     <input type="text" name="model" ng-model="ac.customer.model" required>
                                 </md-input-container>
                             </div>
@@ -224,7 +224,7 @@
                     </div>
                     <form>
                         <input type="text" id="search" ng-model="history_search">
-                        <button ng-click="ac.search_history(history_search)">submit</button>
+                        <button ng-click="ac.search_history(history_search)">Submit</button>
                     </form>
                     <div class="rqst" ng-repeat="customer in ac.AdminService.searchResults.list.data" ng-click="ac.getChecklist($index)"> {{customer.name}} {{customer.year}} {{customer.make}} {{customer.model}} {{customer.vin}}
                     </div>
