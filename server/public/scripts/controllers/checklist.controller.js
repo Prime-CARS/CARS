@@ -888,7 +888,7 @@ myApp.controller('ChecklistController', function (ChecklistService, AdminService
       swal({
         title: "Checklist has been submitted!",
         text: " Thank you " + checklist.mechanics,
-        icon: "success"
+        type: "success"
       })
       $location.path('/mechanic')
     }

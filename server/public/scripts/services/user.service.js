@@ -13,7 +13,7 @@ myApp.service('AdminService', function ($http, $location) {
     $http.get('/RequestsForService').then(function (response) {
     //console.log('getRequests', response);
       vm.Requests.list = response;
-      vm.updateAdminView();
+      // vm.updateAdminView();
     })
   }
 
@@ -21,7 +21,7 @@ myApp.service('AdminService', function ($http, $location) {
     $http.get('/RequestsForService/printable').then(function (response) {
     //console.log('PRINTS Requests', response);
       vm.Prints.list = response;
-      vm.updateAdminView();      
+      // vm.updateAdminView();
     })
   }
   
