@@ -1,4 +1,4 @@
 myApp.service('HistoryService', function ($http, $location) {
-    console.log('HistoryService Loaded');
+  //console.log('HistoryService Loaded');
 
 });

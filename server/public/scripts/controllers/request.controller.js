@@ -1,5 +1,5 @@
 myApp.controller('RequestController', function (AdminService, RequestService, $location) {
-  console.log('RequestController created');
+//console.log('RequestController created');
   
   //jquery mask pulg in for phone number validation
   $('.maskPhone').mask('(000) 000-0000');
@@ -21,6 +21,7 @@ myApp.controller('RequestController', function (AdminService, RequestService, $l
 
   //this function is called when "submit" is clicked on the Request for Service form 
   vm.addCustomer = function () {
+  //console.log("Inside addCustomer function in request.controller.js line 25: ", vm.customer);
     vm.RequestService.addCustomer(vm.customer);
   }
   
