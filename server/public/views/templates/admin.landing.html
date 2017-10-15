@@ -13,10 +13,11 @@
     </div>
 </div>
 </span>
+<!-- if logged iin as Admin -->
     <span ng-if="ac.AdminService.userObject.role === 'admin'">
 <div class="navbar noPrint">
     <div class="container">
-        <md-nav-bar class="navBarStyle" md-selected-nav-item="currentNavItem" layout="row" layout-align="space-around center" md-no-ink-bar="disableInkBar"
+        <md-nav-bar class="navBarStyle" md-selected-nav-item="ac.currentNavItem" layout="row" layout-align="space-around center" md-no-ink-bar="disableInkBar"
             nav-bar-aria-label="navigation links">
             <md-nav-item md-nav-href="#/landingpage" name="homeTab">Home</md-nav-item>
             <md-nav-item md-nav-href="#/requestservice" name="serviceRequestTab">Request for Service Form</md-nav-item>
@@ -31,7 +32,7 @@
     <span ng-if="ac.AdminService.userObject.role === 'mechanic'">
 <div class="navbar noPrint">
     <div class="container">
-        <md-nav-bar class="navBarStyle" md-selected-nav-item="currentNavItem" layout="row" layout-align="space-around center" md-no-ink-bar="disableInkBar"
+        <md-nav-bar class="navBarStyle" md-selected-nav-item="ac.currentNavItem" layout="row" layout-align="space-around center" md-no-ink-bar="disableInkBar"
             nav-bar-aria-label="navigation links">
             <md-nav-item md-nav-href="#/landingpage" name="homeTab">Home</md-nav-item>
             <md-nav-item md-nav-href="#/requestservice" name="serviceRequestTab">Request for Service Form</md-nav-item>
