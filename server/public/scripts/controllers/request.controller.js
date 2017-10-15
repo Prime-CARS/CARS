@@ -13,7 +13,7 @@ myApp.controller('RequestController', function (AdminService, RequestService, $l
   //will always set "service status" to requested when form is submitted by customer 
   vm.customer = { service_status: 'requested' };
 
- //highlights Request for Service Form in nav bar when on that page 
+ //highlights Request npm startfor Service Form in nav bar when on that page 
   vm.currentNavItem = "serviceRequestTab";
   
   //opens image of the car with description of where to find VIN 
