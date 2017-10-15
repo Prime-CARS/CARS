@@ -4,14 +4,15 @@ myApp.controller('LandingPageController', function(AdminService, $location) {
   var vm = this;
   vm.AdminService = AdminService;
   
+   //highlights Home in nav bar when user goes to page 
+   vm.currentNavItem =  "homeTab";
+
     vm.who= false;
     vm.whoDo= false;
     vm.how = false;
     vm.when = false;
     vm.what = false;
     vm.money = false;
-
-
     
     vm.moneyExpand = function () {
       vm.money = true;

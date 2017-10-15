@@ -9,10 +9,12 @@ myApp.controller('AdminController', function (AdminService, RequestService, Auth
   // handles current user role in case of log in/log out
   // sends users who aren't admins to the mechanic's page if they're logged in and attempting to hit the admin's page
 
+  //highlights 'Admin' when on the nav bar when on that page
+  vm.currentNavItem = "adminTab"; 
+
   // moved to service for resolve control
   AdminService.getuser();
-
-
+  
   // vm.showRequests = true;
   // vm.InfoExpanded = false;
   // vm.nrqstneeded = false;
@@ -52,7 +54,6 @@ myApp.controller('AdminController', function (AdminService, RequestService, Auth
   vm.getRequests = function () {
     AdminService.getRequests();
     AdminService.getPrints();
-    
   }
 
   vm.AddRequest = function () {
@@ -84,16 +85,12 @@ myApp.controller('AdminController', function (AdminService, RequestService, Auth
     console.log('woof')
   }
 
-
-
   vm.history_view = function (c) {
     console.log(c);
     AuthService.getAuth(c)
   }
 
-
-
-  /* this function is called when the submit form is clicked on the Request for Service form on the       website's requestService.html page. */
+  // this function is called when the submit form is clicked on the Request for Service form
   vm.addCustomer = function () {
     vm.customer.service_status = "scheduled";
     RequestService.addCustomerNoEmail(vm.customer);
@@ -115,7 +112,6 @@ myApp.controller('AdminController', function (AdminService, RequestService, Auth
   };
   /*putting in tabs*/
 
-
   vm.tabs = function () {
     vm.data = {
       selectedIndex: 0,
@@ -130,8 +126,6 @@ myApp.controller('AdminController', function (AdminService, RequestService, Auth
       vm.data.selectedIndex = Math.max(vm.data.selectedIndex - 1, 0);
     };
   }
-  /*putting in tabs*/
-
-
+// putting in tabs
   vm.getRequests();
 });

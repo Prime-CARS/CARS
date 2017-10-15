@@ -51,21 +51,12 @@ main {
     background-color: #F5F5F5
 }
 
-#entryForm {
-    margin-top: 14px;
-}
-
 #container {
     margin-top: 10px;
 }
 
 .container p {
     margin-top: 14px;
-}
-
-
-.btn-danger {
-    margin-left: 10px;
 }
 
 ul {
@@ -83,10 +74,6 @@ ul {
     font-size: 30px;
     margin-bottom: -10px;
 }
-
-
-/* Change the link color to #111 (black) on hover */
-
 
 header,
 footer {
@@ -215,25 +202,6 @@ footer {
     }
 }
 
-
-/* #authInput {
-    min-width: 90px!important;
-    max-width: 99.99%!important;
-    transition: width 0.25s;
-    text-align: center;
-} */
-
-#admin_nav {
-    position: relative;
-    margin-top: 30px;
-    color: white;
-    text-align: center;
-}
-
-.login_button {
-    margin-right: 15px;
-}
-
 .removebutton {
     align-content: right;
 }
@@ -249,24 +217,6 @@ footer {
 .input {
     opacity: 1;
     z-index: 20;
-}
-
-.ready {
-    background-color: greenyellow;
-}
-
-.in_progress {
-    background-color: lightcoral;
-}
-
-.serviced {
-    background-color: lightskyblue;
-}
-
-.questionMark {
-    font-size: 24px;
-    padding-bottom: 12px;
-    display: inline;
 }
 
 #vinSearch {
@@ -316,10 +266,8 @@ footer {
   margin-top: 26px;
   margin-left: 0; 
 }
-  .monkey{
-      height:80vh;
-  }
-  .landingCard{
+  
+.landingCard{
       background: rgba(255, 255, 255, .8);
       border-radius: 650px;
   }
@@ -338,13 +286,6 @@ footer {
     font-size: 20px;
 }
 
-
-/*.NavBar {
-    background-color: white; 
-    width: 100%;
-    opacity: 1;
-    color: white;
-} */
 
 .landingImg{
     height: 40vh;

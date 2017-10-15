@@ -7,6 +7,12 @@ myApp.controller('LoginController', function ($http, $location, AdminService) {
     role: '',
   };
   vm.message = '';
+  
+  //highlights "Register User" on nav bar when on that page
+  vm.currentNavItem = "Register";
+
+  //highlights "Login" on nav bar if when on that page
+  vm.currentNavItem = "loginTab";
 
   vm.AdminService = AdminService;
 

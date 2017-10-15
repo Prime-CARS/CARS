@@ -10,6 +10,9 @@ myApp.controller('MechanicController', function (AdminService, ChecklistService,
   // checking if current user is a mechanic or admin
   AdminService.getuser();
 
+  //highlights "Mechanic" on nav bar when on that page
+  vm.currentNavItem = "mechanicTab";
+  
   vm.cancelChecklist = function (userData) {
     swal({
       title: 'Are you sure you want to cancel service?',
