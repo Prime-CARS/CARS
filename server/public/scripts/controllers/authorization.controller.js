@@ -12,12 +12,12 @@ myApp.controller('AuthController', function (AuthService, RequestService, AdminS
     self.serviceTest = AuthService.serviceTest;
     self.AdminService = AdminService;
 
-    
+    //highlights "Admin" on nav bar when user is on page
+    self.currentNavItem = "adminTab";
 
     self.updateCustomer = function (z, x) {
         // console.log('z',z);
         // console.log('x', x);
-        
         
         self.saveAuth();
         RequestService.updateCustomer(z, x)
