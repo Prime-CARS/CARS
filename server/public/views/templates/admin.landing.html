@@ -203,7 +203,7 @@
 
         <md-tab id="tab3">
             <md-tab-label>Service History</md-tab-label>
-            <md-tab-body  style="width:100%">
+            <md-tab-body>
                 <div>
                     <!-- <div flex="30" flex-offset="35"> -->
                     <!-- ng-show="ac.showSearchs" -->
@@ -212,20 +212,23 @@
                     <!-- </div> -->
                     <div>
                         <form>
-                            <div flex="50%">
+                            <div>
                                 <div layout="row">
-                                    <md-input-container>
-                                        <label>Search</label>
-                                        <input type="text" class="md-block" ng-model="history_search" style="width:100%"></input>
-                                    </md-input-container>
-                                    <md-button class="md-raised md-primary" ng-click="ac.search_history(history_search)"style="width:40%">Search</md-button>
+                                    <div flex="50">
+                                        <md-input-container class="md-block">
+                                            <label>Search</label>
+                                            <input type="text" ng-model="history_search"></input>
+                                        </md-input-container>
+                                    </div>
+                                    <div flex="50">
+                                        <md-button class="md-raised md-primary" ng-click="ac.search_history(history_search)" style="width:40%">Search</md-button>
+                                    </div>
                                 </div>
-                            </div>
                         </form>
                         <br>
                         <div class="rqst" ng-repeat="customer in ac.AdminService.searchResults.list.data" ng-click="ac.getChecklist(customer.customer_id)">{{customer.name}} {{customer.year}} {{customer.make}} {{customer.model}} {{customer.vin}}
                         </div>
-                    </div>
+                        </div>
             </md-tab-body>
         </md-tab>
     </md-tabs>
