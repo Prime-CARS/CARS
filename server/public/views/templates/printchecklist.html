@@ -1,0 +1,785 @@
+<div class="navbar noPrint">
+    <span ng-if="cc.AdminService.userObject.role == null ">
+          <div class="container">
+              <md-nav-bar class="navBarStyle" md-selected-nav-item="currentNavItem" layout="row" layout-align="space-around center" md-no-ink-bar="disableInkBar"
+                  nav-bar-aria-label="navigation links">
+                  <md-nav-item md-nav-href="#/landingpage" name="homeTab">Home</md-nav-item>
+                  <md-nav-item md-nav-href="#/requestservice" name="serviceRequestTab">Request for Service Form</md-nav-item>
+                  <md-nav-item md-nav-href="#/login" name="loginTab">Login</md-nav-item>
+              </md-nav-bar>
+          </div>
+      </div>
+      </span>
+    <span ng-if="cc.AdminService.userObject.role === 'admin'">
+      <div class="navbar noPrint">
+          <div class="container">
+              <md-nav-bar class="navBarStyle" md-selected-nav-item="currentNavItem" layout="row" layout-align="space-around center" md-no-ink-bar="disableInkBar"
+                  nav-bar-aria-label="navigation links">
+                  <md-nav-item md-nav-href="#/landingpage" name="homeTab">Home</md-nav-item>
+                  <md-nav-item md-nav-href="#/requestservice" name="serviceRequestTab">Request for Service Form</md-nav-item>
+                  <md-nav-item md-nav-href="#/admin" name="adminTab">Admin</md-nav-item>
+                  <md-nav-item md-nav-href="#/mechanic" name="mechanicTab">Mechanic</md-nav-item>
+                  <md-nav-item md-nav-href="#register" name="Register">Register User</md-nav-item>
+                  <md-nav-item md-nav-click="cc.AdminService.logout()" name="logOutTab">Log Out </md-nav-item>
+              </md-nav-bar>
+          </div>
+      </div>
+      </span>
+    <span ng-if="cc.AdminService.userObject.role === 'mechanic'">
+      <div class="navbar noPrint">
+          <div class="container">
+              <md-nav-bar class="navBarStyle" md-selected-nav-item="currentNavItem" layout="row" layout-align="space-around center" md-no-ink-bar="disableInkBar"
+                  nav-bar-aria-label="navigation links">
+                  <md-nav-item md-nav-href="#/landingpage" name="homeTab">Home</md-nav-item>
+                  <md-nav-item md-nav-href="#/requestservice" name="serviceRequestTab">Request for Service Form</md-nav-item>
+                  <md-nav-item md-nav-href="#/mechanic" name="mechanicTab">Mechanic</md-nav-item>
+                  <md-nav-item md-nav-click="ac.AdminService.logout()" name="logOutTab">Log Out </md-nav-item>
+              </md-nav-bar>
+          </div>
+      </div>
+      </span>
+</div>
+
+<div style="height: 100%; width: 100%; background-color: white;" id="printMe">
+    <h1 style="padding: 0 0 0 20px;">Vehicle Inspection Checklist</h1>
+    <h3 style="padding: 0 0 0 8px;">Mechanics:</h3>
+    <div layout="row">
+        <md-input-container flex="50">
+            <label for="text">All Mechanics working on the vehicle:</label>
+            <input type='text' ng-model="cc.cars_checklist.info.mechanics" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.mechanics)">
+        </md-input-container>
+        <md-input-container flex="50">
+            <label for="text"> Service Requested </label>
+            <input type='text' ng-model="cc.cars_checklist.info.service_requested">
+        </md-input-container>
+    </div>
+
+    <form style="padding: -8px 0 0 0;">
+        <div>
+            <div>
+                <b style="padding: 0 0 0 8px;">Vehicle Information</b>
+                <br>
+                <div layout="row">
+                    <md-input-container>
+                        <label for="text"> Vehicle Owner's Name  </label>
+                        <input type='text' ng-model="cc.cars_checklist.info.name">
+                    </md-input-container>
+
+                    <md-input-container>
+                        <label for="text"> VIN  </label>
+                        <input type='text' ng-model="cc.cars_checklist.info.vin">
+                    </md-input-container>
+
+                    <br>
+
+                    <md-input-container>
+                        <label for="text">Make  </label>
+                        <input type='text' ng-model="cc.cars_checklist.info.make">
+                    </md-input-container>
+
+                    <md-input-container>
+                        <label for="text">Model  </label>
+                        <input type='text' ng-model="cc.cars_checklist.info.model">
+                    </md-input-container>
+
+                    <md-input-container>
+                        <label for="text">Year  </label>
+                        <input type='text' ng-model="cc.cars_checklist.info.year">
+                    </md-input-container>
+
+
+                    <br>
+
+                    <md-input-container>
+                        <label for="text"> Engine Size  </label>
+                        <input type="text" ng-model="cc.cars_checklist.info.engine_size">
+                    </md-input-container>
+
+                    <md-input-container>
+                        <label for="text">Miles  </label>
+                        <input type='text' ng-model="cc.cars_checklist.info.current_mileage">
+                    </md-input-container>
+                </div>
+
+                <!-- owner & vechile information -->
+                <div layout="row">
+                    <div layout="column" flex="50">
+                        <div>
+                            2. Headlights - High
+                            <md-radio-group disabled layout="row" ng-model="cc.cars_checklist.info.headlights_high" layout="row">
+                                <label for="text"></label>
+                                <md-radio-button class="md-primary" class="md-primary" value="pass"> Pass </md-radio-button>
+                                <md-radio-button class="md-primary" class="md-primary" value="fail"> Fail </md-radio-button>
+                            </md-radio-group>
+                        </div>
+
+                        <div>
+                            3. Headlights - Low
+                            <md-radio-group disabled layout="row" ng-model="cc.cars_checklist.info.headlights_low" layout="row">
+                                <label for="text"></label>
+                                <md-radio-button class="md-primary" class="md-primary" value="pass"> Pass </md-radio-button>
+                                <md-radio-button class="md-primary" class="md-primary" value="fail"> Fail </md-radio-button>
+                            </md-radio-group>
+                        </div>
+
+                        <div>
+                            4. Parking Lights - Front
+                            <md-radio-group disabled layout="row" ng-model="cc.cars_checklist.info.parkinglights_front" layout="row">
+                                <label for="text"></label>
+                                <md-radio-button class="md-primary" class="md-primary" value="pass"> Pass </md-radio-button>
+                                <md-radio-button class="md-primary" class="md-primary" value="fail"> Fail </md-radio-button>
+                            </md-radio-group>
+                        </div>
+
+                        <div>
+                            5. Turn Signals- Front
+                            <md-radio-group disabled layout="row" ng-model="cc.cars_checklist.info.turnsignals_front">
+                                <label for="text"></label>
+                                <md-radio-button class="md-primary" class="md-primary" value="pass"> Pass </md-radio-button>
+                                <md-radio-button class="md-primary" class="md-primary" value="fail"> Fail </md-radio-button>
+                            </md-radio-group>
+                        </div>
+
+                        <div>
+                            6. Tail lights
+                            <md-radio-group disabled layout="row" ng-model="cc.cars_checklist.info.taillights">
+                                <label for="text"></label>
+                                <md-radio-button class="md-primary" class="md-primary" value="pass"> Pass </md-radio-button>
+                                <md-radio-button class="md-primary" class="md-primary" value="fail"> Fail </md-radio-button>
+                            </md-radio-group>
+                        </div>
+
+                        <div>
+                            7. Turn Signals - Rear
+                            <md-radio-group disabled layout="row" ng-model="cc.cars_checklist.info.turnsignals_rear">
+                                <label for="text"></label>
+                                <md-radio-button class="md-primary" class="md-primary" value="pass"> Pass </md-radio-button>
+                                <md-radio-button class="md-primary" class="md-primary" value="fail"> Fail </md-radio-button>
+                            </md-radio-group>
+                        </div>
+
+                        <div>
+                            8. Brake Lights
+                            <md-radio-group disabled layout="row" ng-model="cc.cars_checklist.info.brakelights">
+                                <label for="text"></label>
+                                <md-radio-button class="md-primary" class="md-primary" value="pass"> Pass </md-radio-button>
+                                <md-radio-button class="md-primary" class="md-primary" value="fail"> Fail </md-radio-button>
+                            </md-radio-group>
+                        </div>
+
+                        <div>
+                            9. Backup Lights
+                            <md-radio-group disabled layout="row" ng-model="cc.cars_checklist.info.backup_lights">
+                                <label for="text"></label>
+                                <md-radio-button class="md-primary" class="md-primary" value="pass"> Pass </md-radio-button>
+                                <md-radio-button class="md-primary" class="md-primary" value="fail"> Fail </md-radio-button>
+                            </md-radio-group>
+                        </div>
+
+                        <p> <b>10. License Tabs Expiration</b>
+                            <br>{{cc.cars_checklist.info.licensetabs_expiration}}</p>
+
+                        <p> <b>11. Spare Tire Pressure</b>
+                            <br>{{cc.cars_checklist.info.sparetirepressure}}</p>
+
+                        <div>
+                            <b>12. Tire Pressure: Current / Final </b>
+                            <br>
+                            <div layout="row">
+                                <div>
+                                    <b>Current Left Front PSI</b>
+                                    <br>{{cc.cars_checklist.info.currenttirepressure_lf}}
+                                </div>
+                                <div style="padding: 0 0 0 8px;">
+                                    <b>Final Left Front PSI</b>
+                                    <br>{{cc.cars_checklist.info.finaltirepressure_lf}}
+                                </div>
+                            </div>
+                            <br>
+                            <div layout="row">
+                                <div>
+                                    <b>Current Right Front PSI</b>
+                                    <br>{{cc.cars_checklist.info.currenttirepressure_rf}}
+                                </div>
+                                <div style="padding: 0 0 0 8px;">
+                                    <b>Final Right Front PSI</b>
+                                    <br>{{cc.cars_checklist.info.finaltirepressure_rf}}
+                                </div>
+                            </div>
+                            <br>
+
+                            <div layout="row">
+                                <div>
+                                    <b>Current Left Rear PSI</b>
+                                    <br>{{cc.cars_checklist.info.currenttirepressure_lr}}
+                                </div>
+                                <div style="padding: 0 0 0 8px;">
+                                    <b>Final Left Rear PSI</b>
+                                    <br>{{cc.cars_checklist.info.finaltirepressure_lr}}
+                                </div>
+                            </div>
+                            <br>
+
+                            <div layout="row">
+                                <div>
+                                    <b>Current Right Rear PSI</b>
+                                    <br>{{cc.cars_checklist.info.currenttirepressure_rr}}
+                                </div>
+                                <div style="padding: 0 0 0 8px;">
+                                    <b>Final Right Rear PSI</b>
+                                    <br>{{cc.cars_checklist.info.finaltirepressure_rr}}
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div>
+                            <b>14. Tire Condition</b>
+
+                            <div layout="column" style="padding: 8px 0 0 10px;">
+                                <div>
+                                    <label> Left Front Tire Condition: </label>
+                                    <md-radio-group disabled layout="row" ng-model="cc.cars_checklist.info.tirecondition_lf">
+                                        <md-radio-button class="md-primary" value="good"> Good </md-radio-button>
+                                        <md-radio-button class="md-primary" value="fair"> Fair </md-radio-button>
+                                        <md-radio-button class="md-primary" value="poor"> Poor </md-radio-button>
+                                    </md-radio-group>
+                                </div>
+                                <div>
+                                    <label> Right Front Tire Condition: </label>
+                                    <md-radio-group disabled layout="row" ng-model="cc.cars_checklist.info.tirecondition_rf">
+                                        <md-radio-button class="md-primary" value="good"> Good </md-radio-button>
+                                        <md-radio-button class="md-primary" value="fair"> Fair </md-radio-button>
+                                        <md-radio-button class="md-primary" value="poor"> Poor </md-radio-button>
+                                    </md-radio-group>
+                                </div>
+                                <br>
+                                <div>
+                                    <label> Left Rear Tire Condition:</label>
+                                    <md-radio-group disabled layout="row" ng-model="cc.cars_checklist.info.tirecondition_lr">
+                                        <md-radio-button class="md-primary" value="good"> Good </md-radio-button>
+                                        <md-radio-button class="md-primary" value="fair"> Fair </md-radio-button>
+                                        <md-radio-button class="md-primary" value="poor"> Poor </md-radio-button>
+                                    </md-radio-group>
+                                </div>
+
+                                <div>
+                                    <label> Right Rear Tire Condition </label>
+                                    <md-radio-group disabled layout="row" ng-model="cc.cars_checklist.info.tirecondition_rr">
+                                        <md-radio-button class="md-primary" value="good"> Good </md-radio-button>
+                                        <md-radio-button class="md-primary" value="fair"> Fair </md-radio-button>
+                                        <md-radio-button class="md-primary" value="poor"> Poor </md-radio-button>
+                                    </md-radio-group>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Print Break -->
+                        <br><br>
+
+                        <div>
+                            15. Wiper Condition
+                            <md-radio-group disabled layout="row" ng-model="cc.cars_checklist.info.wipercondition">
+                                <label for="text"></label>
+                                <md-radio-button class="md-primary" value="good"> Good </md-radio-button>
+                                <md-radio-button class="md-primary" value="fair"> Fair </md-radio-button>
+                                <md-radio-button class="md-primary" value="poor"> Poor </md-radio-button>
+                            </md-radio-group>
+                        </div>
+
+                        <div>
+                            16. Air Filter Condition
+                            <md-radio-group disabled layout="row" ng-model="cc.cars_checklist.info.airfiltercondition">
+                                <label for="text"></label>
+                                <md-radio-button class="md-primary" value="good"> Good </md-radio-button>
+                                <md-radio-button class="md-primary" value="fair"> Fair </md-radio-button>
+                                <md-radio-button class="md-primary" value="poor"> Poor </md-radio-button>
+                            </md-radio-group>
+                        </div>
+
+                        <div>
+                            17. Brake Fluid
+                            <md-radio-group disabled layout="row" ng-model="cc.cars_checklist.info.brakefluid">
+                                <label for="text"></label>
+                                <md-radio-button class="md-primary" class="md-primary" value="pass"> Pass </md-radio-button>
+                                <md-radio-button class="md-primary" class="md-primary" value="fail"> Fail </md-radio-button>
+                            </md-radio-group>
+                        </div>
+
+                        <div>
+                            18. Power Steering Fluid
+                            <md-radio-group disabled layout="row" ng-model="cc.cars_checklist.info.powersteeringfluid">
+                                <label for="text"></label>
+                                <md-radio-button class="md-primary" class="md-primary" value="pass"> Pass </md-radio-button>
+                                <md-radio-button class="md-primary" class="md-primary" value="fail"> Fail </md-radio-button>
+                            </md-radio-group>
+                        </div>
+
+                        <div>
+                            19. Transmission Fluid
+                            <md-radio-group disabled layout="row" ng-model="cc.cars_checklist.info.transmissionfluid">
+                                <label for="text"> </label>
+                                <md-radio-button class="md-primary" class="md-primary" value="pass"> Pass </md-radio-button>
+                                <md-radio-button class="md-primary" class="md-primary" value="fail"> Fail </md-radio-button>
+                            </md-radio-group>
+                        </div>
+
+                    </div>
+                    <div flex="45" layout="column">
+
+                        <div>
+                            20. Oil Level
+                            <md-radio-group disabled layout="row" ng-model="cc.cars_checklist.info.oillevel">
+                                <label for="text"></label>
+                                <md-radio-button class="md-primary" class="md-primary" value="pass"> Pass </md-radio-button>
+                                <md-radio-button class="md-primary" class="md-primary" value="fail"> Fail </md-radio-button>
+                            </md-radio-group>
+                        </div>
+
+                        <div>
+                            21. Washer Fluid
+                            <md-radio-group disabled layout="row" ng-model="cc.cars_checklist.info.washerfluid">
+                                <label for="text"></label>
+                                <md-radio-button class="md-primary" class="md-primary" value="pass"> Pass </md-radio-button>
+                                <md-radio-button class="md-primary" class="md-primary" value="fail"> Fail </md-radio-button>
+                            </md-radio-group>
+                        </div>
+
+                        <div>
+                            <p> 22. Coolant Level and Strength</p>
+                            <div layout="row">
+                                <div layout="column" flex="30">
+                                    <b>Coolant Level</b> {{cc.cars_checklist.info.coolantlevel}}
+                                </div>
+                                <div layout="column">
+                                    <b>Coolant Strength</b> {{cc.cars_checklist.info.coolantlevel_strength}}
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div>
+                            23. Radiator Hose Condition
+                            <md-radio-group disabled layout="row" ng-model="cc.cars_checklist.info.radiatorhosecondition">
+                                <label for="text"></label>
+                                <md-radio-button class="md-primary" value="good"> Good </md-radio-button>
+                                <md-radio-button class="md-primary" value="fair"> Fair </md-radio-button>
+                                <md-radio-button class="md-primary" value="poor"> Poor </md-radio-button>
+                            </md-radio-group>
+                        </div>
+
+                        <div>
+                            24. Battery Condition
+                            <md-radio-group disabled layout="row" ng-model="cc.cars_checklist.info.batterycondition">
+                                <label for="text"></label>
+                                <md-radio-button class="md-primary" value="good"> Good </md-radio-button>
+                                <md-radio-button class="md-primary" value="fair"> Fair </md-radio-button>
+                                <md-radio-button class="md-primary" value="poor"> Poor </md-radio-button>
+                            </md-radio-group>
+                        </div>
+
+                        <div>
+                            25. Serpentine Belt Condition
+                            <md-radio-group disabled layout="row" ng-model="cc.cars_checklist.info.serpentinebeltcondition">
+                                <label for="text"></label>
+                                <md-radio-button class="md-primary" value="good"> Good </md-radio-button>
+                                <md-radio-button class="md-primary" value="fair"> Fair </md-radio-button>
+                                <md-radio-button class="md-primary" value="poor"> Poor </md-radio-button>
+                            </md-radio-group>
+                        </div>
+
+                        <div>
+                            26. Other Belt's Condition
+                            <md-radio-group disabled layout="row" ng-model="cc.cars_checklist.info.otherbeltscondition">
+                                <label for="text"></label>
+                                <md-radio-button class="md-primary" value="good"> Good </md-radio-button>
+                                <md-radio-button class="md-primary" value="fair"> Fair </md-radio-button>
+                                <md-radio-button class="md-primary" value="poor"> Poor </md-radio-button>
+                            </md-radio-group>
+                        </div>
+
+
+                        <div>
+                            27. Lube Hood Latch
+                            <md-radio-group disabled layout="row" ng-model="cc.cars_checklist.info.lubehoodlatch">
+                                <label for="text"></label>
+                                <md-radio-button class="md-primary" class="md-primary" value="pass"> Pass </md-radio-button>
+                                <md-radio-button class="md-primary" class="md-primary" value="fail"> Fail </md-radio-button>
+                            </md-radio-group>
+                        </div>
+
+                        <div>
+                            28. Shock/Strut Test
+                            <md-radio-group disabled layout="row" ng-model="cc.cars_checklist.info.shockstruttest">
+                                <label for="text"></label>
+                                <md-radio-button class="md-primary" class="md-primary" value="pass"> Pass </md-radio-button>
+                                <md-radio-button class="md-primary" class="md-primary" value="fail"> Fail </md-radio-button>
+                            </md-radio-group>
+                        </div>
+
+                        <div>
+                            29. Front Wheel Bearing Test
+                            <md-radio-group disabled layout="row" ng-model="cc.cars_checklist.info.frontwheelbearingtest">
+                                <label for="text"></label>
+                                <md-radio-button class="md-primary" class="md-primary" value="pass"> Pass </md-radio-button>
+                                <md-radio-button class="md-primary" class="md-primary" value="fail"> Fail </md-radio-button>
+                            </md-radio-group>
+                        </div>
+
+                        <div>
+                            30. Tie Rod Test
+                            <md-radio-group disabled layout="row" ng-model="cc.cars_checklist.info.tierodtest">
+                                <label for="text"></label>
+                                <md-radio-button class="md-primary" class="md-primary" value="pass"> Pass </md-radio-button>
+                                <md-radio-button class="md-primary" class="md-primary" value="fail"> Fail </md-radio-button>
+                            </md-radio-group>
+                        </div>
+
+                        <div>
+                            31. Ball Joint Test
+                            <md-radio-group disabled layout="row" ng-model="cc.cars_checklist.info.balljointtest">
+                                <label for="text"></label>
+                                <md-radio-button class="md-primary" class="md-primary" value="pass"> Pass </md-radio-button>
+                                <md-radio-button class="md-primary" class="md-primary" value="fail"> Fail </md-radio-button>
+                            </md-radio-group>
+                        </div>
+
+                        <div>
+                            32. Control Arm Condition
+                            <md-radio-group disabled layout="row" ng-model="cc.cars_checklist.info.controlarmcondition">
+                                <label for="text"></label>
+                                <md-radio-button class="md-primary" class="md-primary" value="pass"> Pass </md-radio-button>
+                                <md-radio-button class="md-primary" class="md-primary" value="fail"> Fail </md-radio-button>
+                            </md-radio-group>
+                        </div>
+
+                        <div>
+                            33. Stabilizer Link Condition
+                            <md-radio-group disabled layout="row" ng-model="cc.cars_checklist.info.stabilizerbarlinkcondition">
+                                <label for="text"></label>
+                                <md-radio-button class="md-primary" class="md-primary" value="pass"> Pass </md-radio-button>
+                                <md-radio-button class="md-primary" class="md-primary" value="fail"> Fail </md-radio-button>
+                            </md-radio-group>
+                        </div>
+
+                        <div class="pageBreak">
+                            34. CV Boot Condition
+                            <md-radio-group disabled layout="row" ng-model="cc.cars_checklist.info.cvbootcondition">
+                                <label for="text"></label>
+                                <md-radio-button class="md-primary" class="md-primary" value="pass"> Pass </md-radio-button>
+                                <md-radio-button class="md-primary" class="md-primary" value="fail"> Fail </md-radio-button>
+                            </md-radio-group>
+                        </div>
+
+                        <div>
+                            35. Front Brake Condition
+                            <md-radio-group disabled layout="row" ng-model="cc.cars_checklist.info.frontbrakecondition">
+                                <label for="text"> </label>
+                                <md-radio-button class="md-primary" value="good"> Good </md-radio-button>
+                                <md-radio-button class="md-primary" value="fair"> Fair </md-radio-button>
+                                <md-radio-button class="md-primary" value="poor"> Poor </md-radio-button>
+                            </md-radio-group>
+                        </div>
+
+                        <div>
+                            36. Front Brake Calipers
+                            <md-radio-group disabled layout="row" ng-model="cc.cars_checklist.info.frontbrakecalipers">
+                                <label for="text"></label>
+                                <md-radio-button class="md-primary" class="md-primary" value="pass"> Pass </md-radio-button>
+                                <md-radio-button class="md-primary" class="md-primary" value="fail"> Fail </md-radio-button>
+                            </md-radio-group>
+                        </div>
+
+                        <div>
+                            37. Rear Disc Brake Condition
+                            <md-radio-group disabled layout="row" ng-model="cc.cars_checklist.info.reardiscbrakecondition">
+                                <label for="text"></label>
+                                <md-radio-button class="md-primary" value="good"> Good </md-radio-button>
+                                <md-radio-button class="md-primary" value="fair"> Fair </md-radio-button>
+                                <md-radio-button class="md-primary" value="poor"> Poor </md-radio-button>
+                                <md-radio-button class="md-primary" value="drum"> Drum </md-radio-button>
+                            </md-radio-group>
+                        </div>
+
+                        <div>
+                            38. Rear Brake Calipers
+                            <md-radio-group disabled layout="row" ng-model="cc.cars_checklist.info.rearbrakecalipers">
+                                <label for="text"></label>
+                                <md-radio-button class="md-primary" class="md-primary" value="pass"> Pass </md-radio-button>
+                                <md-radio-button class="md-primary" class="md-primary" value="fail"> Fail </md-radio-button>
+                                <md-radio-button class="md-primary" class="md-primary" value="drum"> Drum </md-radio-button>
+                            </md-radio-group>
+                        </div>
+
+                        <div>
+                            39. Rear Stabililzer Bar Link Condition
+                            <md-radio-group disabled layout="row" ng-model="cc.cars_checklist.info.rearstabilizerbarlinkcondition">
+                                <label for="text"></label>
+                                <md-radio-button class="md-primary" class="md-primary" value="pass"> Pass </md-radio-button>
+                                <md-radio-button class="md-primary" class="md-primary" value="fail"> Fail </md-radio-button>
+                            </md-radio-group>
+                        </div>
+
+                        <div>
+                            40. Torque All Wheels Removed
+                            <md-radio-group disabled layout="row" ng-model="cc.cars_checklist.info.torqueallwheelsremoved">
+                                <label for="text"></label>
+                                <md-radio-button class="md-primary" class="md-primary" value="pass"> Pass </md-radio-button>
+                                <md-radio-button class="md-primary" class="md-primary" value="fail"> Fail </md-radio-button>
+                            </md-radio-group>
+                        </div>
+
+                        <!-- Print Break -->
+                        <br><br><br>
+
+                        <div>
+                            41. Exhaust System
+                            <md-radio-group disabled layout="row" ng-model="cc.cars_checklist.info.exhaustsystem">
+                                <label for="text"></label>
+                                <md-radio-button class="md-primary" class="md-primary" value="pass"> Pass </md-radio-button>
+                                <md-radio-button class="md-primary" class="md-primary" value="fail"> Fail </md-radio-button>
+                            </md-radio-group>
+                        </div>
+
+                        <div>
+                            42. Check Oil Level
+                            <md-radio-group disabled layout="row" ng-model="cc.cars_checklist.info.checkoil_level">
+                                <label for="text"></label>
+                                <md-radio-button class="md-primary" class="md-primary" value="pass"> Pass </md-radio-button>
+                                <md-radio-button class="md-primary" class="md-primary" value="fail"> Fail </md-radio-button>
+                            </md-radio-group>
+                        </div>
+
+                        <div>
+                            43. Oil Cap Secure
+                            <md-radio-group disabled layout="row" ng-model="cc.cars_checklist.info.oilcap_secure">
+                                <label for="text"></label>
+                                <md-radio-button class="md-primary" class="md-primary" value="pass"> Pass </md-radio-button>
+                                <md-radio-button class="md-primary" class="md-primary" value="fail"> Fail </md-radio-button>
+                            </md-radio-group>
+                        </div>
+
+                        <div>
+                            44. Start and Idle (5 seconds)
+                            <md-radio-group disabled layout="row" ng-model="cc.cars_checklist.info.start_idle">
+                                <label for="text"> </label>
+                                <md-radio-button class="md-primary" class="md-primary" value="pass"> Pass </md-radio-button>
+                                <md-radio-button class="md-primary" class="md-primary" value="fail"> Fail </md-radio-button>
+                            </md-radio-group>
+                        </div>
+                        <br>
+                        <div>
+                            <b>45. Engine Scan Codes</b>
+                            <br> {{cc.cars_checklist.info.enginescancodes}}
+                        </div>
+                    </div>
+                </div>
+                <!--Vehicle Inspection Checklist Ends Here-->
+
+                <!--Oil Change Checklist Begins here-->
+
+                <div style="font-size: 14px;" layout="column">
+                    <h3> Oil Change Required? </h3>
+                    <md-radio-group disabled layout="row" ng-model="cc.cars_checklist.info.oilchange">
+                        <md-radio-button class="md-primary" ng-value='true'> Yes </md-radio-button>
+                        <md-radio-button class="md-primary" ng-value='false'> No </md-radio-button>
+                    </md-radio-group>
+
+                    <div ng-show="cc.cars_checklist.info.oilchange">
+                        <h3>Oil Checklist:</h3>
+                        <div layout="row">
+                            <div layout="column" flex="30">
+                                <md-checkbox disabled ng-model="cc.cars_checklist.info.drain_oil" ng-checked="cc.cars_checklist.info.drain_oil">
+                                    1. Drain Oil
+                                </md-checkbox>
+
+                                <md-checkbox disabled ng-model="cc.cars_checklist.info.remove_filter_gasket" ng-checked="cc.cars_checklist.info.remove_filter_gasket">
+                                    2. Remove Oil Filter and Old Gasket
+                                </md-checkbox>
+
+                                <md-checkbox disabled ng-model="cc.cars_checklist.info.install_drain_plug" ng-checked="cc.cars_checklist.info.install_drain_plug">
+                                    3. Install and Tighten Drain Plug
+                                </md-checkbox>
+
+                            </div>
+                            <div layout="column" flex="40">
+
+                                <md-checkbox disabled ng-model="cc.cars_checklist.info.install_tighten_filter" ng-checked="cc.cars_checklist.info.install_tighten_filter">
+                                    4. Install and Tighten Filter
+                                </md-checkbox>
+
+                                <md-checkbox disabled ng-model="cc.cars_checklist.info.checkoil_plug" ng-checked="cc.cars_checklist.info.checkoil_plug">
+                                    7.Check Oil Plug for Leaks
+                                </md-checkbox>
+
+                                <md-checkbox disabled ng-model="cc.cars_checklist.info.check_filter" ng-checked="cc.cars_checklist.info.check_filter">
+                                    8. Check Filter for Leaks
+                                </md-checkbox>
+
+                            </div>
+                            <div layout="column" flex="40">
+
+                                <md-checkbox disabled ng-model="cc.cars_checklist.info.oilchange_sticker" ng-checked="cc.cars_checklist.info.oilchange_sticker">
+                                    9. Install Oil Change Sticker
+                                </md-checkbox>
+                            </div>
+                        </div>
+
+                        <div layout="row">
+                            <div layout="column" flex="50">
+                                <b>5. Add Oil Amount</b>
+                                <br>{{cc.cars_checklist.info.addoil_amount}}
+                            </div>
+
+                            <div layout="column" flex="50">
+                                <b>6. Add Oil Weight</b>
+                                <br>{{cc.cars_checklist.info.addoil_weight}}
+                            </div>
+
+                            <div layout="column" flex="50">
+                                <b>10. Oil Filter</b>
+                                <br> {{cc.cars_checklist.info.oilfilter_brand}}
+                            </div>
+
+                            <div layout="column" flex="50">
+                                <b>11. Oil Filter Number</b>
+                                <br> {{cc.cars_checklist.info.oilfilter_number}}
+                            </div>
+
+                            <div layout="column" flex="50">
+                                <b>12. Oil Type</b>
+                                <br> {{cc.cars_checklist.info.oiltype}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Vehicle Observations Comment Sections begins here-->
+            <div layout="row">
+                <div>
+                    <h4>Vehicle Observations </h4>
+                    <md-input-container disabled>
+                        <textarea ng-model="cc.cars_checklist.info.vehicle_observations " ng-change="cc.saveChecklistItem(cc.cars_checklist.info.vehicle_observations) "
+                            name="textarea " cols="50 " placeholder="Enter text here " style="background-color: #edeff2 "></textarea>
+                    </md-input-container>
+                </div>
+
+                <div>
+                    <h4>Recommended Repairs </h4>
+                    <md-input-container disabled>
+                        <textarea ng-model="cc.cars_checklist.info.recommended_repairs " ng-change="cc.saveChecklistItem(cc.cars_checklist.info.recommended_repairs) "
+                            name="textarea " cols="50 " placeholder="Enter text here " style="background-color: #edeff2 "></textarea>
+                    </md-input-container>
+                </div>
+
+                <div>
+                    <h4>Repairs Declined </h4>
+                    <md-input-container disabled>
+                        <textarea ng-model="cc.cars_checklist.info.repairs_declined " ng-change="cc.saveChecklistItem(cc.cars_checklist.info.repairs_declined)
+                            " name="textarea " cols="50 " placeholder="Enter text here " style="background-color: #edeff2 "></textarea>
+                    </md-input-container>
+                </div>
+
+                <div>
+                    <h4>Parts Installed </h4>
+                    <md-input-container disabled>
+                        <textarea ng-model="cc.cars_checklist.info.parts_installed " ng-change="cc.saveChecklistItem(cc.cars_checklist.info.parts_installed)
+                            " name="textarea " cols="50 " placeholder="Enter text here " style="background-color: #edeff2 "></textarea>
+                    </md-input-container>
+                </div>
+            </div>
+
+            <!--Finish Up Checklist begins here-->
+            <div>
+                <div class="noPrint ">
+                    <h3>Finish Up Checklist:</h3>
+                    <div layout="row ">
+                        <div layout="column " flex="50 ">
+                            <md-checkbox ng-model="cc.cars_checklist.info.oilcapsecure " ng-checked="cc.cars_checklist.info.oilcapsecure
+                            " ng-change="cc.saveChecklistItem(cc.cars_checklist.info.oilcapsecure) ">
+                                1. Oil Cap Secured
+                            </md-checkbox>
+
+                            <md-checkbox ng-model="cc.cars_checklist.info.oilsticksecure " ng-checked="cc.cars_checklist.info.oilsticksecure
+                            " ng-change="cc.saveChecklistItem(cc.cars_checklist.info.oilsticksecure) ">
+                                2. Oil Stick Secured
+                            </md-checkbox>
+
+                            <md-checkbox ng-model="cc.cars_checklist.info.transmissionsticksecure " ng-checked="cc.cars_checklist.info.transmissionsticksecure "
+                                ng-change="cc.saveChecklistItem(cc.cars_checklist.info.transmissionsticksecure) ">
+                                3. Transmission Stick Secured
+                            </md-checkbox>
+
+                            <md-checkbox ng-model="cc.cars_checklist.info.powersteeringcapsecure " ng-checked="cc.cars_checklist.info.powersteeringcapsecure "
+                                ng-change="cc.saveChecklistItem(cc.cars_checklist.info.powersteeringcapsecure) ">
+                                4. Power Steering Reservoir Cap Secured
+                            </md-checkbox>
+
+                            <md-checkbox ng-model="cc.cars_checklist.info.brakereservoircap " ng-checked="cc.cars_checklist.info.brakereservoircap
+                            " ng-change="cc.saveChecklistItem(cc.cars_checklist.info.brakereservoircap) ">
+                                5. Brake Reservoir Cap Secured
+                            </md-checkbox>
+
+                            <md-checkbox ng-model="cc.cars_checklist.info.coolantcapsecure " ng-checked="cc.cars_checklist.info.coolantcapsecure
+                            " ng-change="cc.saveChecklistItem(cc.cars_checklist.info.coolantcapsecure) ">
+                                6. Coolant Reservoir Cap Sercured
+                            </md-checkbox>
+                        </div>
+                        <div layout="column ">
+                            <md-checkbox ng-model="cc.cars_checklist.info.washerfluidcapsecure " ng-checked="cc.cars_checklist.info.washerfluidcapsecure "
+                                ng-change="cc.saveChecklistItem(cc.cars_checklist.info.washerfluidcapsecure) ">
+                                7. Washer Fluid Reservoir Cap Secured
+                            </md-checkbox>
+
+                            <md-checkbox ng-model="cc.cars_checklist.info.toolcheck " ng-checked="cc.cars_checklist.info.toolcheck
+                            " ng-change="cc.saveChecklistItem(cc.cars_checklist.info.toolcheck) ">
+                                8. Tool Check: Under Hood, Inside Car, Inside Trunk
+                            </md-checkbox>
+
+                            <md-checkbox ng-model="cc.cars_checklist.info.testdrive " ng-checked="cc.cars_checklist.info.testdrive
+                            " ng-change="cc.saveChecklistItem(cc.cars_checklist.info.testdrive) ">
+                                9. Test Drive Vehicle
+                            </md-checkbox>
+
+                            <md-checkbox ng-model="cc.cars_checklist.info.retorquelugnuts " ng-checked="cc.cars_checklist.info.retorquelugnuts
+                            " ng-change="cc.saveChecklistItem(cc.cars_checklist.info.retorquelugnuts) ">
+                                10. Re-Torque Lug Nuts
+                            </md-checkbox>
+
+                            <md-checkbox ng-model="cc.cars_checklist.info.giftpack " ng-checked="cc.cars_checklist.info.giftpack
+                            " ng-change="cc.saveChecklistItem(cc.cars_checklist.info.giftpack) ">
+                                11. Gift Packet Distributed
+                            </md-checkbox>
+
+                            <md-checkbox ng-model="cc.cars_checklist.info.reviewchecklist " ng-checked="cc.cars_checklist.info.reviewchecklist
+                            " ng-change="cc.saveChecklistItem(cc.cars_checklist.info.reviewchecklist) ">
+                                12. Review Checklist with Guest
+                            </md-checkbox>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Finish Up Checklist ends here-->
+            <div layout="row " class="pageBreakAfter ">
+                <div>
+                    <md-input-container>
+                        <label for="text ">Total Cost </label>
+                        <input type="input " ng-model="cc.cars_checklist.info.cost " ng-change="cc.saveChecklistItem(cc.cars_checklist.info.cost) ">
+                    </md-input-container>
+
+                    <div style="padding: -15px 0 -10px 0; ">
+                        <strong>Guest Signature/Date: {{cc.cars_checklist.info.date_completed | date:"MM.dd.y "}}</strong>
+                        <md-input-container layout="row">
+                            <label for="text"></label>
+                            <input type="input">
+                        </md-input-container>
+                    </div>
+                    <md-button class="noPrint " style="background-color: #fffb30; font-size: 20px; padding: 10px;
+                            " ng-click="cc.printAndCloseChecklist() " ng-disabled="cc.disablePrintButton ">Print and Close Checklist</md-button>
+                </div>
+                <!--Vehicle Observations Comment Sections ends here-->
+            </div>
+            <!--/container -->
+        </div>
+    </form>
+    <!--/form-->
+</div>

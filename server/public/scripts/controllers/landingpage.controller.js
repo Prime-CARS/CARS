@@ -1,8 +1,11 @@
 myApp.controller('LandingPageController', function(AdminService, $location) {
-  console.log('LandingPageController created');
+//console.log('LandingPageController created');
   
   var vm = this;
   vm.AdminService = AdminService;
+
+  //highlights "Home" on nav bar when user is on the page
+  vm.currentNavItem = "homeTab";
   
     vm.who= false;
     vm.whoDo= false;
@@ -55,7 +58,7 @@ myApp.controller('LandingPageController', function(AdminService, $location) {
 
     vm.currentNavItem = 'page1';
       vm.goto = function (page) {
-      console.log("Goto " + "'" + page + "'");
+    //console.log("Goto " + "'" + page + "'");
       $location.path("'" + page + "'")
     }
   

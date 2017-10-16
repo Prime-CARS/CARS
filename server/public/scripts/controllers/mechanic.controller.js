@@ -1,5 +1,5 @@
 myApp.controller('MechanicController', function (AdminService, ChecklistService, $location) {
-  console.log('MechanicController created');
+//console.log('MechanicController created');
   var vm = this;
   vm.AdminService = AdminService;
 
@@ -9,6 +9,9 @@ myApp.controller('MechanicController', function (AdminService, ChecklistService,
   // handles current user role in case of log in/log out
   // checking if current user is a mechanic or admin
   AdminService.getuser();
+
+  //highlights "Mechanic" on nav bar when user is on the page
+  vm.currentNavItem = "mechanicTab";
 
   vm.cancelChecklist = function (userData) {
     swal({
