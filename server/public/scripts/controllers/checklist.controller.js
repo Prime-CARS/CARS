@@ -7,7 +7,10 @@ myApp.controller('ChecklistController', function (ChecklistService, AdminService
   // Call to populate Checklist 
   ChecklistService.getVehicleInfo($routeParams.checklist_id);
   vm.cars_checklist = ChecklistService.vehicleInfo;
-  
+
+  //highlights "Mechanic" on nav bar when user is on the page
+  vm.currentNavItem = "mechanicTab";
+
   vm.oilCheckListVisible = false;
   vm.finishCheckListVisible = false;
 
