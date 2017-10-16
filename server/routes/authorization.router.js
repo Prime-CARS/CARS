@@ -39,7 +39,7 @@ router.get('/:id', function (req, res) {
               //console.log("Error connecting: ", err);
                 res.sendStatus(500);
             }
-            client.query("SELECT * FROM cars_checklist WHERE customer_id=$1;",
+            client.query("SELECT * FROM customer_info WHERE customer_id=$1;",
                 [req.params.id],
                 function (err, result) {
                     done;
