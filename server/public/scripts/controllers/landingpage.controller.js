@@ -3,6 +3,9 @@ myApp.controller('LandingPageController', function(AdminService, $location) {
   
   var vm = this;
   vm.AdminService = AdminService;
+
+  //highlights "Home" on nav bar when user is on the page
+  vm.currentNavItem = "homeTab";
   
    //highlights Home in nav bar when user goes to page 
    vm.currentNavItem =  "homeTab";
