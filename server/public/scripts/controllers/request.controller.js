@@ -22,6 +22,11 @@ myApp.controller('RequestController', function (AdminService, RequestService, $l
   vm.addCustomer = function () {
   //console.log("Inside addCustomer function in request.controller.js line 25: ", vm.customer);
     vm.RequestService.addCustomer(vm.customer);
+    swal(
+      'Congrats!',
+      'Your request has been submitted, please allow us 3-4 days to get back to you!',
+      'success'
+    )
   }
   
   vm.openTextbox = function () {

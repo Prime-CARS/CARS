@@ -10,10 +10,11 @@
     </div>
 </div>
 </span>
+<!-- if logged in as "Admin" -->
   <span ng-if="cc.AdminService.userObject.role === 'admin'">
 <div class="navbar noPrint">
     <div class="container">
-        <md-nav-bar class="navBarStyle" md-selected-nav-item="currentNavItem" layout="row" layout-align="space-around center" md-no-ink-bar="disableInkBar"
+        <md-nav-bar class="navBarStyle" md-selected-nav-item="cc.currentNavItem" layout="row" layout-align="space-around center" md-no-ink-bar="disableInkBar"
             nav-bar-aria-label="navigation links">
             <md-nav-item md-nav-href="#/landingpage" name="homeTab">Home</md-nav-item>
             <md-nav-item md-nav-href="#/requestservice" name="serviceRequestTab">Request for Service Form</md-nav-item>
@@ -253,35 +254,35 @@
           <div class="checklistGroup">
             <label> Left Front Tire Condition: </label>
             <md-radio-group class="md-primary" layout="row" ng-model="cc.cars_checklist.info.tirecondition_lf" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.tirecondition_lf)">
-              <md-radio-button value="good"> Good </md-radio-button>
-              <md-radio-button value="fair"> Fair </md-radio-button>
-              <md-radio-button value="poor"> Poor </md-radio-button>
+              <md-radio-button class="md-primary" value="good"> Good </md-radio-button>
+              <md-radio-button class="md-primary" value="fair"> Fair </md-radio-button>
+              <md-radio-button class="md-primary" value="poor"> Poor </md-radio-button>
             </md-radio-group layout="row">
           </div>
           <div class="checklistGroup">
             <label> Right Front Tire Condition: </label>
             <md-radio-group class="md-primary" layout="row" ng-model="cc.cars_checklist.info.tirecondition_rf" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.tirecondition_rf)">
-              <md-radio-button value="good"> Good </md-radio-button>
-              <md-radio-button value="fair"> Fair </md-radio-button>
-              <md-radio-button value="poor"> Poor </md-radio-button>
+              <md-radio-button class="md-primary" value="good"> Good </md-radio-button>
+              <md-radio-button class="md-primary" value="fair"> Fair </md-radio-button>
+              <md-radio-button class="md-primary" value="poor"> Poor </md-radio-button>
             </md-radio-group layout="row">
           </div>
           <br>
           <div class="checklistGroup">
             <label> Left Rear Tire Condition:</label>
             <md-radio-group class="md-primary" layout="row" ng-model="cc.cars_checklist.info.tirecondition_lr" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.tirecondition_lr)">
-              <md-radio-button value="good"> Good </md-radio-button>
-              <md-radio-button value="fair"> Fair </md-radio-button>
-              <md-radio-button value="poor"> Poor </md-radio-button>
+              <md-radio-button class="md-primary" value="good"> Good </md-radio-button>
+              <md-radio-button class="md-primary" value="fair"> Fair </md-radio-button>
+              <md-radio-button class="md-primary" value="poor"> Poor </md-radio-button>
             </md-radio-group layout="row">
           </div>
 
           <div class="checklistGroup">
             <label> Right Rear Tire Condition </label>
             <md-radio-group class="md-primary" layout="row" ng-model="cc.cars_checklist.info.tirecondition_rr" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.tirecondition_rr)">
-              <md-radio-button value="good"> Good </md-radio-button>
-              <md-radio-button value="fair"> Fair </md-radio-button>
-              <md-radio-button value="poor"> Poor </md-radio-button>
+              <md-radio-button class="md-primary" value="good"> Good </md-radio-button>
+              <md-radio-button class="md-primary" value="fair"> Fair </md-radio-button>
+              <md-radio-button class="md-primary" value="poor"> Poor </md-radio-button>
             </md-radio-group layout="row">
           </div>
 
@@ -291,9 +292,9 @@
           15. Wiper Condition
           <md-radio-group class="md-primary" layout="row" ng-model="cc.cars_checklist.info.wipercondition" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.wipercondition)">
             <label for="text"></label>
-            <md-radio-button value="good"> Good </md-radio-button>
-            <md-radio-button value="fair"> Fair </md-radio-button>
-            <md-radio-button value="poor"> Poor </md-radio-button>
+            <md-radio-button class="md-primary" value="good"> Good </md-radio-button>
+            <md-radio-button class="md-primary" value="fair"> Fair </md-radio-button>
+            <md-radio-button class="md-primary" value="poor"> Poor </md-radio-button>
           </md-radio-group layout="row">
         </div>
 
@@ -301,9 +302,9 @@
           16. Air Filter Condition
           <md-radio-group class="md-primary" layout="row" ng-model="cc.cars_checklist.info.airfiltercondition" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.airfiltercondition)">
             <label for="text"></label>
-            <md-radio-button value="good"> Good </md-radio-button>
-            <md-radio-button value="fair"> Fair </md-radio-button>
-            <md-radio-button value="poor"> Poor </md-radio-button>
+            <md-radio-button class="md-primary" value="good"> Good </md-radio-button>
+            <md-radio-button class="md-primary" value="fair"> Fair </md-radio-button>
+            <md-radio-button class="md-primary" value="poor"> Poor </md-radio-button>
           </md-radio-group layout="row">
         </div>
 
@@ -375,9 +376,9 @@
           23. Radiator Hose Condition
           <md-radio-group class="md-primary" layout="row" ng-model="cc.cars_checklist.info.radiatorhosecondition" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.radiatorhosecondition)">
             <label for="text"></label>
-            <md-radio-button value="good"> Good </md-radio-button>
-            <md-radio-button value="fair"> Fair </md-radio-button>
-            <md-radio-button value="poor"> Poor </md-radio-button>
+            <md-radio-button class="md-primary" value="good"> Good </md-radio-button>
+            <md-radio-button class="md-primary" value="fair"> Fair </md-radio-button>
+            <md-radio-button class="md-primary" value="poor"> Poor </md-radio-button>
           </md-radio-group layout="row">
         </div>
 
@@ -385,9 +386,9 @@
           24. Battery Condition
           <md-radio-group class="md-primary" layout="row" ng-model="cc.cars_checklist.info.batterycondition" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.batterycondition)">
             <label for="text"></label>
-            <md-radio-button value="good"> Good </md-radio-button>
-            <md-radio-button value="fair"> Fair </md-radio-button>
-            <md-radio-button value="poor"> Poor </md-radio-button>
+            <md-radio-button class="md-primary" value="good"> Good </md-radio-button>
+            <md-radio-button class="md-primary" value="fair"> Fair </md-radio-button>
+            <md-radio-button class="md-primary" value="poor"> Poor </md-radio-button>
           </md-radio-group layout="row">
         </div>
 
@@ -395,9 +396,9 @@
           25. Serpentine Belt Condition
           <md-radio-group class="md-primary" layout="row" ng-model="cc.cars_checklist.info.serpentinebeltcondition" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.serpentinebeltcondition)">
             <label for="text"></label>
-            <md-radio-button value="good"> Good </md-radio-button>
-            <md-radio-button value="fair"> Fair </md-radio-button>
-            <md-radio-button value="poor"> Poor </md-radio-button>
+            <md-radio-button class="md-primary" value="good"> Good </md-radio-button>
+            <md-radio-button class="md-primary" value="fair"> Fair </md-radio-button>
+            <md-radio-button class="md-primary" value="poor"> Poor </md-radio-button>
           </md-radio-group layout="row">
         </div>
 
@@ -405,9 +406,9 @@
           26. Other Belt's Condition
           <md-radio-group class="md-primary" layout="row" ng-model="cc.cars_checklist.info.otherbeltscondition" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.otherbeltscondition)">
             <label for="text"></label>
-            <md-radio-button value="good"> Good </md-radio-button>
-            <md-radio-button value="fair"> Fair </md-radio-button>
-            <md-radio-button value="poor"> Poor </md-radio-button>
+            <md-radio-button class="md-primary" value="good"> Good </md-radio-button>
+            <md-radio-button class="md-primary" value="fair"> Fair </md-radio-button>
+            <md-radio-button class="md-primary" value="poor"> Poor </md-radio-button>
           </md-radio-group layout="row">
         </div>
 
@@ -488,9 +489,9 @@
           35. Front Brake Condition &#42;
           <md-radio-group class="md-primary" layout="row" ng-model="cc.cars_checklist.info.frontbrakecondition" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.frontbrakecondition)">
             <label for="text"> </label>
-            <md-radio-button value="good"> Good </md-radio-button>
-            <md-radio-button value="fair"> Fair </md-radio-button>
-            <md-radio-button value="poor"> Poor </md-radio-button>
+            <md-radio-button class="md-primary" value="good"> Good </md-radio-button>
+            <md-radio-button class="md-primary" value="fair"> Fair </md-radio-button>
+            <md-radio-button class="md-primary" value="poor"> Poor </md-radio-button>
           </md-radio-group layout="row">
         </div>
 
@@ -507,10 +508,10 @@
           37. Rear Disc Brake Condition
           <md-radio-group class="md-primary" layout="row" ng-model="cc.cars_checklist.info.reardiscbrakecondition" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.reardiscbrakecondition)">
             <label for="text"></label>
-            <md-radio-button value="good"> Good </md-radio-button>
-            <md-radio-button value="fair"> Fair </md-radio-button>
-            <md-radio-button value="poor"> Poor </md-radio-button>
-            <md-radio-button value="drum"> Drum </md-radio-button>
+            <md-radio-button class="md-primary" value="good"> Good </md-radio-button>
+            <md-radio-button class="md-primary" value="fair"> Fair </md-radio-button>
+            <md-radio-button class="md-primary" value="poor"> Poor </md-radio-button>
+            <md-radio-button class="md-primary" value="drum"> Drum </md-radio-button>
           </md-radio-group layout="row">
         </div>
 
