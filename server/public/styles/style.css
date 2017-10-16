@@ -8,12 +8,16 @@ body {
 }
 
 main {
-    background-color: #999696;
-    background-image: radial-gradient(rgba(199, 195, 195, 0.71), rgba(24, 22, 22, 1)), url("../views/images/car-repair-background.jpg");
+    background-color: #a5907e;
+    height: 100vh;
+}
+
+.landingMainDiv {
+    background-image: radial-gradient(rgba(219, 215, 206, .71), rgba(24, 22, 22, 1)), url("../views/images/car-repair-background.jpg");
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    height: 100vh;
+
 }
 
 .navBarStyle {
@@ -21,7 +25,7 @@ main {
 }
 
 ._md-nav-button-text {
-    color: rgb(240, 226, 227);
+    color: rgba(219, 215, 206, 1);
     font-size: 14px;
     font-weight: 700;
     padding: 5px;
@@ -48,7 +52,7 @@ main {
     padding-top: 20px;
     color: #131313;
     padding: 15px;
-    background-color: #F5F5F5;
+    background-color: rgba(219, 215, 206, 1);
 }
 
 #container {
@@ -99,7 +103,7 @@ footer {
 }
 
 .infocontainer {
-    background-color: #F5F5F5;
+    background-color: rgba(219, 215, 206, 1);
     /* background: linear-gradient(maroon,maroon,maroon, #726F6F); */
     color: #131313;
     /* margin: 20px 0 20px 0; */
@@ -182,10 +186,11 @@ innerRqst{
 
 #logo img {
     border-width: 2px;
-    border-color: white;
+    border-color: rgba(219, 215, 206, 1);
     height: 100px;
     width: auto;
     object-fit: contain;
+
 }
 
 .title {
@@ -239,7 +244,7 @@ innerRqst{
 #admin_nav {
     position: relative;
     margin-top: 30px;
-    color: white;
+    color: rgba(219, 215, 206, 1);
     text-align: center;
 }
 
@@ -253,10 +258,10 @@ innerRqst{
 }
 
 .base {
-    background-color: #E9E9E9;
+    background-color: #d1c6ad;
     overflow-y: scroll;
     height: 90vh;
-    background: rgba(255, 255, 255, .6);
+    background: rgba(219, 215, 206, 1);
     border-radius: 5px;
 }
 
@@ -283,6 +288,7 @@ innerRqst{
 #card {
     height: 70%;
     margin-top: 5%;
+    background-color: rgba(219, 215, 206, 1)
 }
 
 .RqstForm {
@@ -335,15 +341,16 @@ innerRqst{
 
 .monkey {
     height: 80vh;
+    background-color: rgba(219, 215, 206, 1)
 }
 
 .landingCard {
-    background: rgba(255, 255, 255, .8);
+    background: rgba(219, 215, 206, 1);
     border-radius: 650px;
 }
 
 ._md-card {
-    background: rgba(255, 255, 255, .8);
+    background: rgba(219, 215, 206, 1);
     border-radius: 650px;
 }
 
@@ -386,7 +393,9 @@ innerRqst{
 }
 
 .loginBox {
-    min-width: 200px;
+    min-width: 400px;
+    background-color: rgba(219, 215, 206, 1);
+    margin: 3% auto 0 auto;
 }
 
 #search {
@@ -399,8 +408,15 @@ innerRqst{
     background-color:gray;
 }
 
+
 .summaryTable td, .summaryTable th {
     width: 15%;
     padding: 1%;
     
+}
+
+md-card.md-default-theme, md-card {
+    color: rgba(0,0,0,0.87);
+    background-color: rgba(219, 215, 206, 1);
+    border-radius: 2px;
 }
