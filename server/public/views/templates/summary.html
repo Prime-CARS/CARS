@@ -1,57 +1,104 @@
 <div class="navbar noPrint">
-      <span ng-if="ac.AdminService.userObject.role == null ">
-    <div class="container">
-        <md-nav-bar class="navBarStyle" md-selected-nav-item="currentNavItem" layout="row" layout-align="space-around center" md-no-ink-bar="disableInkBar"
-            nav-bar-aria-label="navigation links">
-            <md-nav-item md-nav-href="#/landingpage" name="homeTab">Home</md-nav-item>
-            <md-nav-item md-nav-href="#/requestservice" name="serviceRequestTab">Request for Service Form</md-nav-item>
-            <md-nav-item md-nav-href="#/login" name="loginTab">Login</md-nav-item>
-        </md-nav-bar>
-    </div>
+    <span ng-if="sc.AdminService.userObject.role == null ">
+        <div class="container">
+            <md-nav-bar class="navBarStyle" md-selected-nav-item="currentNavItem" layout="row" layout-align="space-around center" md-no-ink-bar="disableInkBar"
+                nav-bar-aria-label="navigation links">
+                <md-nav-item md-nav-href="#/landingpage" name="homeTab">Home</md-nav-item>
+                <md-nav-item md-nav-href="#/requestservice" name="serviceRequestTab">Request for Service Form</md-nav-item>
+                <md-nav-item md-nav-href="#/login" name="loginTab">Login</md-nav-item>
+            </md-nav-bar>
+        </div>
 </div>
 </span>
-      <span ng-if="ac.AdminService.userObject.role === 'admin'">
-<div class="navbar noPrint">
-    <div class="container">
-        <md-nav-bar class="navBarStyle" md-selected-nav-item="currentNavItem" layout="row" layout-align="space-around center" md-no-ink-bar="disableInkBar"
-            nav-bar-aria-label="navigation links">
-            <md-nav-item md-nav-href="#/landingpage" name="homeTab">Home</md-nav-item>
-            <md-nav-item md-nav-href="#/requestservice" name="serviceRequestTab">Request for Service Form</md-nav-item>
-            <md-nav-item md-nav-href="#/admin" name="adminTab">Admin</md-nav-item>
-            <md-nav-item md-nav-href="#/mechanic" name="mechanicTab">Mechanic</md-nav-item>
-            <md-nav-item md-nav-href="#register" name="Register">Register User</md-nav-item>
-            <md-nav-item md-nav-click="ac.AdminService.logout()" name="logOutTab">Log Out </md-nav-item>
-        </md-nav-bar>
+<span ng-if="sc.AdminService.userObject.role === 'admin'">
+    <div class="navbar noPrint">
+        <div class="container">
+            <md-nav-bar class="navBarStyle" md-selected-nav-item="currentNavItem" layout="row" layout-align="space-around center" md-no-ink-bar="disableInkBar"
+                nav-bar-aria-label="navigation links">
+                <md-nav-item md-nav-href="#/landingpage" name="homeTab">Home</md-nav-item>
+                <md-nav-item md-nav-href="#/requestservice" name="serviceRequestTab">Request for Service Form</md-nav-item>
+                <md-nav-item md-nav-href="#/admin" name="adminTab">Admin</md-nav-item>
+                <md-nav-item md-nav-href="#/mechanic" name="mechanicTab">Mechanic</md-nav-item>
+                <md-nav-item md-nav-href="#register" name="Register">Register User</md-nav-item>
+                <md-nav-item md-nav-click="sc.AdminService.logout()" name="logOutTab">Log Out </md-nav-item>
+            </md-nav-bar>
+        </div>
     </div>
-</div>
 </span>
-      <span ng-if="ac.AdminService.userObject.role === 'mechanic'">
-<div class="navbar noPrint">
-    <div class="container">
-        <md-nav-bar class="navBarStyle" md-selected-nav-item="currentNavItem" layout="row" layout-align="space-around center" md-no-ink-bar="disableInkBar"
-            nav-bar-aria-label="navigation links">
-            <md-nav-item md-nav-href="#/landingpage" name="homeTab">Home</md-nav-item>
-            <md-nav-item md-nav-href="#/requestservice" name="serviceRequestTab">Request for Service Form</md-nav-item>
-            <md-nav-item md-nav-href="#/mechanic" name="mechanicTab">Mechanic</md-nav-item>
-            <md-nav-item md-nav-click="ac.AdminService.logout()" name="logOutTab">Log Out </md-nav-item>
-        </md-nav-bar>
+<span ng-if="sc.AdminService.userObject.role === 'mechanic'">
+    <div class="navbar noPrint">
+        <div class="container">
+            <md-nav-bar class="navBarStyle" md-selected-nav-item="currentNavItem" layout="row" layout-align="space-around center" md-no-ink-bar="disableInkBar"
+                nav-bar-aria-label="navigation links">
+                <md-nav-item md-nav-href="#/landingpage" name="homeTab">Home</md-nav-item>
+                <md-nav-item md-nav-href="#/requestservice" name="serviceRequestTab">Request for Service Form</md-nav-item>
+                <md-nav-item md-nav-href="#/mechanic" name="mechanicTab">Mechanic</md-nav-item>
+                <md-nav-item md-nav-click="sc.AdminService.logout()" name="logOutTab">Log Out </md-nav-item>
+            </md-nav-bar>
+        </div>
     </div>
-</div>
 </span>
 </div>
 
 <div flex="90" flex-offset="5" class="base">
 
-      <div id="printMe" style="overflow: hidden">
-            <md-action>
-                  <md-button flex class="md-raised md-primary noPrint" ng-click="sc.printDiv()">Print</md-button>
-                  <br>
-            </md-action>
+    <div id="printMe" style="overflow: hidden">
+        <md-action>
+            <md-button flex class="md-raised md-primary noPrint" ng-click="sc.printDiv()">Print</md-button>
+            <br>
+        </md-action>
 
 
-            <H1>C.A.R.S.</H1>
-            <H2>Service Summary</H2>
-            <img src="../views/images/cars-logo-transparent.png" id="authCarsLogo" />
+        <H1>C.A.R.S.</H1>
+        <H2>Service Summary</H2>
+        <img src="../views/images/cars-logo-transparent.png" id="authCarsLogo" />
+        <table style="width:50%;">
+            <tr>
+                <td>
+                    {{sc.serviceObject.name}}
+                </td>
+                <td>cell: {{sc.serviceObject.cellphone}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {{sc.serviceObject.address}}
+                </td>
+                <td>alternate: {{sc.serviceObject.alternative_phone}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {{sc.serviceObject.city}} {{sc.serviceObject.state}} {{sc.serviceObject.zip}}
+                </td>
+                <td>email: {{sc.serviceObject.email_address}}
+                </td>
+            </tr>
 
-      </div>
+            <tr><td>{{sc.serviceObject.year}} {{sc.serviceObject.make}} {{sc.serviceObject.model}}</td></tr>
+            <tr><td>VIN: {{sc.serviceObject.vin}}, Miles: {{sc.serviceObject.current_mileage}}</td></tr>
+        </table>
+        <br> License tab expiration: {{sc.summaryObject.licensetabs_expiration}}
+        <br> Coolant level: {{sc.summaryObject.coolantlevel}}
+        <br> Coolant strength: {{sc.summaryObject.coolantlevel_strength}}
+
+        <table class="summaryTable">
+            <thead class="summaryTable">
+                <th class="summaryTable">Pass</th>
+                <th class="summaryTable">Fail</th>
+                <th class="summaryTable">Good</th>
+                <th class="summaryTable">Fair</th>
+                <th class="summaryTable">Poor</th>
+            </thead>
+            <tr ng-repeat="x in sc.pass" class="summaryTable">
+                <td class="summaryTable">{{x}}</td>
+                <td class="summaryTable">{{sc.fail[$index]}}</td>
+                <td class="summaryTable">{{sc.good[$index]}}</td>
+                <td class="summaryTable">{{sc.fair[$index]}}</td>
+                <td class="summaryTable">{{sc.poor[$index]}}</td>
+            </tr>
+        </table>
+
+
+    </div>
 </div>

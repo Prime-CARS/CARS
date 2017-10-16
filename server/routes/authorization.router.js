@@ -39,7 +39,7 @@ router.get('/:id', function (req, res) {
               //console.log("Error connecting: ", err);
                 res.sendStatus(500);
             }
-            client.query("SELECT * FROM cars_checklist WHERE customer_id=$1;",
+            client.query("SELECT * FROM customer_info WHERE customer_id=$1;",
                 [req.params.id],
                 function (err, result) {
                     done;
@@ -75,7 +75,7 @@ router.put('/', function (req, res) {
             client.query('UPDATE customer_info SET address=$1, alternative_phone=$2, cellphone=$3, city=$4, email_address=$5, make=$6, model=$7, name=$8, service_requested=$9, state=$10, vin=$11, year=$12, zip=$13, current_mileage=$14 WHERE customer_id=$15;',
                 [req.body.address, req.body.alternative_phone, req.body.cellphone, req.body.city, req.body.email_address, req.body.make, req.body.model, req.body.name, req.body.service_requested, req.body.state, req.body.vin, req.body.year, req.body.zip, req.body.current_mileage, req.body.customer_id],
                 function (err, result) {
-                    done();
+                    done;
                     if (err) {
                       //console.log('Error updating customer info: ', err);
                         res.sendStatus(500);

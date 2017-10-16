@@ -1,6 +1,3 @@
-<!-- 
-<div flex="90" class="base" flex-offset="5" md-theme='default' md-theme-watch>
--->
 <div class="navbar noPrint">
     <span ng-if="ac.AdminService.userObject.role == null ">
     <div class="container">
@@ -13,10 +10,11 @@
     </div>
 </div>
 </span>
+<!-- if logged iin as Admin -->
     <span ng-if="ac.AdminService.userObject.role === 'admin'">
 <div class="navbar noPrint">
     <div class="container">
-        <md-nav-bar class="navBarStyle" md-selected-nav-item="currentNavItem" layout="row" layout-align="space-around center" md-no-ink-bar="disableInkBar"
+        <md-nav-bar class="navBarStyle" md-selected-nav-item="ac.currentNavItem" layout="row" layout-align="space-around center" md-no-ink-bar="disableInkBar"
             nav-bar-aria-label="navigation links">
             <md-nav-item md-nav-href="#/landingpage" name="homeTab">Home</md-nav-item>
             <md-nav-item md-nav-href="#/requestservice" name="serviceRequestTab">Request for Service Form</md-nav-item>
@@ -44,7 +42,7 @@
 </div>
 <md-card-title>
     <md-card-title-text>
-        <div flex="20" flex-offset="40" class="AdminHello">Hello {{ac.AdminService.userObject.userName}}!</div>
+        <div class="AdminHello">Hello {{ac.AdminService.userObject.userName}}!</div>
     </md-card-title-text>
 </md-card-title>
 
@@ -54,13 +52,13 @@
             <md-tab-label>Service Requests</md-tab-label>
 
             <md-tab-body>
-                <div flex="40" flex-offset="30">
+                <!-- <div flex="40" flex-offset="30"> -->
                     <h3 class="title">These requests are pending review and scheduling</h3>
-                </div>
-                <div flex="100" ng-repeat="data in ac.RetrievedRequests.list.data" class="rqst" ng-click="expandInfo = !expandInfo">
+                <!-- </div> -->
+                <div flex="90" flex-offset="5" md-whiteframe="{{height}}" ng-init="height = 5" ng-mouseenter="height = 1" ng-mouseleave="height = 5" ng-repeat="data in ac.RetrievedRequests.list.data" class="rqst" ng-click="expandInfo = !expandInfo">
                     <b>{{data.name}}
                         <br>{{data.year}} {{data.make}} {{data.model}}</b>
-                    <div ng-show="expandInfo" class="rqst">
+                    <div ng-show="expandInfo" class="innerRqst">
                         <b>Phone:</b> {{data.cellphone}}
                         <b>Alt Phone:</b> {{data.alternative_phone}}
                         <br>
@@ -71,15 +69,15 @@
                         <b>Vehicle Issue:</b> {{data.service_requested}}
                         <br>
                         <p>
-                            <button class="btn-btn-primary" type="submit" ng-click="ac.updateCustomer(data.customer_id, 'scheduled')">Scheduled!</button>
-                            <button class="btn-btn-warn" type="submit" ng-click="ac.updateCustomer(data.customer_id, 'denied')">Not eligible!</button>
+                            <md-button class="md-raised md-primary" type="submit" ng-click="ac.updateCustomer(data.customer_id, 'scheduled')">Schedule for service</md-button>
+                            <md-button class="md-raised md-warn" type="submit" ng-click="ac.updateCustomer(data.customer_id, 'denied')">Remove request</md-button>
                         </p>
 
                         <!-- <button ng-click="ac.shrinkInfo()">close</button> -->
                     </div>
 
                 </div>
-                <div class="nrqst" ng-click="addRequest = !addRequest"><b> + New request</b></div>
+                <div  flex="90" flex-offset="5" md-whiteframe="{{height}}" ng-init="height = 5" ng-mouseenter="height = 1" ng-mouseleave="height = 5" class="nrqst" ng-click="addRequest = !addRequest"><b> + New request</b></div>
 
                 <div class="nrqstform" ng-show="addRequest">
                     <!--start of new person entry -->
@@ -144,9 +142,12 @@
                                 </md-input-container>
                             </div>
 
-                            <div flex="45">
-                                <h3>Please describe the problems you are having with the vehicle</h3>
-                                <textarea rows="5" cols="70" ng-model="ac.customer.problem"></textarea>
+                            <div flex="45" class="md-block">
+                                <!-- <h3>Please describe the problems you are having with the vehicle</h3> -->
+                                <md-input-container>
+                                <label>Please describe the problems you are having with the vehicle.</label>
+                                <textarea rows="3" cols="60" ng-model="ac.customer.problem"></textarea>
+                                </md-input-container>
                             </div>
                         </div>
                         <div>
@@ -162,26 +163,6 @@
 
                             <br>
 
-                            <!-- <label>
-                                <input type="radio" name="qualification" value="singleMother" ng-model="ac.customer.qualification" checked> Single Mother
-                            </label>
-                            
-                            <label>
-                                <input type="radio" name="qualification" value="singleWoman" ng-model="ac.customer.qualification" checked> Single Woman
-                            </label>
-                            
-                            <label>
-                                <input type="radio" name="qualification" value="widow" ng-model="ac.customer.qualification" checked> Widow
-                            </label>
-                            
-                            <label>
-                                <input type="radio" name="qualification" value="financiallyLimited" ng-model="ac.customer.qualification" checked> Financially Limited
-                            </label>
-                            
-                            <label>
-                                <input type="radio" name="qualification" value="other" ng-click="ac.openTextbox();"> Other
-                            </label> -->
-
                             <div ng-show="otherText">
                                 <textarea rows="4" cols="50" ng-model="ac.customer.qualification" placeholder="Please explain your circumstances:"></textarea>
                             </div>
@@ -189,7 +170,7 @@
                             <br>
 
                             <div>
-                                <button class="btn-btn-primary" type="submit" ng-click="ac.addCustomer(); addRequest = !addRequest;">Schedule!</button>
+                                <md-button class="md-raised md-primary" type="submit" ng-click="ac.addCustomer()">Schedule!</md-button>
                             </div>
                             <!--end of new person entry -->
                             <!-- <button class="btn-btn-primary" ng-click="ac.ReduceRequest()">Close</button> -->
@@ -203,12 +184,12 @@
             <md-tab-body>
                 <div>
                     <!-- ng-show="ac.showAuths" -->
-                    <div flex="40" flex-offset="30">
-                    <h3 class="title">These authorizations have been created and need to be printed.</h3>
-                   </div>
-                    <div ng-repeat="data in ac.AdminService.Prints.list.data" ng-click="ac.history_view($index)" class="rqst">
-                        Name: {{data.name}}
-                        <br> VIN#: {{data.vin}}
+                    <!-- <div flex="40" flex-offset="30"> -->
+                        <h3 class="title">These authorizations have been created and need to be printed.</h3>
+                    <!-- </div> -->
+                   <div flex="90" ng-repeat="data in ac.AdminService.Prints.list.data" ng-click="ac.history_view($index)" class="rqst"  md-whiteframe="{{height}}" ng-init="height = 3" ng-mouseenter="height = 1" ng-mouseleave="height = 3">
+                       <b> Name: {{data.name}}
+                        <br> VIN#: {{data.vin}}</b>
                     </div>
                 </div>
             </md-tab-body>
@@ -218,15 +199,24 @@
             <md-tab-label>Service History</md-tab-label>
             <md-tab-body>
                 <div>
-                    <div flex="40" flex-offset="30">
-                    <!-- ng-show="ac.showSearchs" -->
-                    <h3 class="title"> Search History</h3>
-                    </div>
+                    <!-- <div flex="30" flex-offset="35"> -->
+                        <!-- ng-show="ac.showSearchs" -->
+                        <h3 class="title"> Search History</h3>
+                        <h4 class="title">Enter part of name or any portion VIN</h4>
+                    <!-- </div> -->
+                    <div layout="row">
                     <form>
-                        <input type="text" id="search" ng-model="history_search">
-                        <button ng-click="ac.search_history(history_search)">Submit</button>
+                        <div flex="50">
+                            <div layout="column">
+                        <md-input-container>
+                                    <label>Search</label>
+                                    <input type="text" class="md-block"  ng-model="history_search"></input>
+                                </md-input-container>
+                                </div>
+                                </div>
+                            <md-button class="md-raised md-primary" ng-click="ac.search_history(history_search)">Search</md-button>
                     </form>
-                    <div class="rqst" ng-repeat="customer in ac.AdminService.searchResults.list.data" ng-click="ac.getChecklist($index)"> {{customer.name}} {{customer.year}} {{customer.make}} {{customer.model}} {{customer.vin}}
+                    <div class="rqst" ng-repeat="customer in ac.AdminService.searchResults.list.data" ng-click="ac.getChecklist(customer.customer_id)">{{customer.name}} {{customer.year}} {{customer.make}} {{customer.model}} {{customer.vin}}
                     </div>
                 </div>
             </md-tab-body>

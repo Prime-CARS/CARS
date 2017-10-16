@@ -12,6 +12,8 @@ myApp.controller('AdminController', function (AdminService, RequestService, Auth
   // moved to service for resolve control
   AdminService.getuser();
 
+  //highlights "Admin" when user is on the page
+  vm.currentNavItem = "adminTab";
 
   // vm.showRequests = true;
   // vm.InfoExpanded = false;
