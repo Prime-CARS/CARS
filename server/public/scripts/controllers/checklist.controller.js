@@ -52,12 +52,12 @@ myApp.controller('ChecklistController', function (ChecklistService, AdminService
     }
     //If statement throws up red-flag input box if item fails inspection
     if (checklistItem == 'fail') {
-      vm.redFlag(checklistItem);
       ChecklistService.submitChecklist(vm.cars_checklist.info);
+      vm.redFlag(checklistItem);
     }
     if (checklistItem == 'poor') {
-      vm.redFlag(checklistItem);
       ChecklistService.submitChecklist(vm.cars_checklist.info);
+      vm.redFlag(checklistItem);
     }
     if (vm.cars_checklist.info.oilchange === false) {
       vm.cars_checklist.info.drain_oil = false;
