@@ -1,5 +1,5 @@
 myApp.controller('AuthController', function (AuthService, RequestService, AdminService, $location) {
-    console.log('AuthController created');
+  //console.log('AuthController created');
 
     $('.maskPhone').mask('(000) 000-0000');
 
@@ -32,7 +32,7 @@ myApp.controller('AuthController', function (AuthService, RequestService, AdminS
     }
 
     self.saveAuth = function () {
-        console.log('saveAuth hit serviceObject is', self.serviceObject);
+      //console.log('saveAuth hit serviceObject is', self.serviceObject);
         AuthService.saveObject(self.serviceObject)
     }
 

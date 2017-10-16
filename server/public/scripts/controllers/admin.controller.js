@@ -2,7 +2,7 @@ myApp.controller('AdminController', function (AdminService, RequestService, Auth
 
   $('.maskPhone').mask('(000) 000-0000')
 
-  console.log('AdminController created');
+  //console.log('AdminController created');
   var vm = this;
   vm.AdminService = AdminService;
 
@@ -48,7 +48,7 @@ myApp.controller('AdminController', function (AdminService, RequestService, Auth
 
   vm.shrinkInfo = function () {
     vm.InfoExpanded = false;
-    console.log('shrink button clicked');
+// console.log('shrink button clicked');
   }
 
   vm.getRequests = function () {
@@ -83,13 +83,13 @@ myApp.controller('AdminController', function (AdminService, RequestService, Auth
 
   vm.hideAuth = function () {
     vm.showAuths = false;
-    console.log('woof')
+// console.log('woof')
   }
 
 
 
   vm.history_view = function (c) {
-    console.log(c);
+// console.log(c);
     AuthService.getAuth(c)
   }
 
@@ -99,11 +99,12 @@ myApp.controller('AdminController', function (AdminService, RequestService, Auth
   vm.addCustomer = function () {
     vm.customer.service_status = "scheduled";
     RequestService.addCustomerNoEmail(vm.customer);
+    vm.nrqstneeded = false;
     vm.getRequests();
   }
   // clled when a customers request is scheduled or denied
   vm.updateCustomer = function (z, x) {
-    console.log('Update Customer button hit on controller');
+// console.log('Update Customer button hit on controller');
     RequestService.updateCustomer(z, x);
     vm.getRequests();
   }

@@ -58,7 +58,7 @@
             <br><b>Year:</b> {{vehicle.year}}
             <br><b>Make:</b> {{vehicle.make}}
             <br><b>Model:</b> {{vehicle.model}}
-            <br><b>Vin:</b> {{vehicle.vin}}
+            <br><b>VIN:</b> {{vehicle.vin}}
             <br><b>Mileage:</b> {{vehicle.current_mileage}}
             <br><b>Service Requested:</b> {{vehicle.service_requested}}
             <br>
@@ -82,13 +82,14 @@
             <br><b>Year:</b> {{vehicle.year}}
             <br><b>Make:</b> {{vehicle.make}}
             <br><b>Model:</b> {{vehicle.model}}
-            <br><b>Vin:</b> {{vehicle.vin}}
+            <br><b>VIN:</b> {{vehicle.vin}}
             <br><b>Mileage:</b> {{vehicle.current_mileage}}
             <br><b>Service Requested:</b> {{vehicle.service_requested}}
             <br>
             <br>
             <span layout="column">
               <md-button ng-class="'{{vehicle.checklist_status}}'" ng-href="#/checklist/{{vehicle.checklist_id}}"> Checklist status:  {{vehicle.checklist_status}}</md-button>
+              <md-button style="background-color: #a4f442;" ng-href="#/printchecklist/{{vehicle.checklist_id}}"> Print and Close</md-button>
             </span>
           </md-card-content>
         </md-card>

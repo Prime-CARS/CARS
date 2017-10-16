@@ -22,9 +22,9 @@ router.post('/', function (req, res, next) {//this contacts the modemailer servi
 
     transporter.sendMail (mailOptions, function(error, info){
         if(error){
-            console.log("There was an error sending the email: ", error);
+          //console.log("There was an error sending the email: ", error);
         } else {
-            console.log("Email sent: " + info.response);
+          //console.log("Email sent: " + info.response);
             res.sendStatus(201);
         }
     });
