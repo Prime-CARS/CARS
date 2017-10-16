@@ -13,8 +13,6 @@ myApp.controller('LandingPageController', function(AdminService, $location) {
     vm.when = false;
     vm.what = false;
     vm.money = false;
-
-
     
     vm.moneyExpand = function () {
       vm.money = true;

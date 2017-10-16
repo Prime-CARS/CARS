@@ -1,7 +1,7 @@
 <div class="navbar noPrint">
   <span ng-if="mc.AdminService.userObject.role == null ">
     <div class="container">
-        <md-nav-bar class="navBarStyle" md-selected-nav-item="currentNavItem" layout="row" layout-align="space-around center" md-no-ink-bar="disableInkBar"
+        <md-nav-bar class="navBarStyle" md-selected-nav-item="mc.currentNavItem" layout="row" layout-align="space-around center" md-no-ink-bar="disableInkBar"
             nav-bar-aria-label="navigation links">
             <md-nav-item md-nav-href="#/landingpage" name="homeTab">Home</md-nav-item>
             <md-nav-item md-nav-href="#/requestservice" name="serviceRequestTab">Request for Service Form</md-nav-item>
@@ -26,7 +26,7 @@
     </div>
 </div>
 </span>
-<!-- if user is logged in as Mechanic -->
+<!-- If logged in as mechanic -->
   <span ng-if="mc.AdminService.userObject.role === 'mechanic'">
 <div class="navbar noPrint">
     <div class="container">
@@ -44,9 +44,6 @@
 
 <div class="base" flex="90" flex-offset="5">
   <h1 style="color: black; margin: 10px;">Mechanic Landing Page</h1>
-
-  <!-- Current mc:{{mc}} -->
-
   <div layout="row">
     <div layout="column" layout-wrap flex="45">
       <h2 style="color: black; padding: 10px;">Vehicles Pending Service:</h2>
