@@ -22,7 +22,7 @@ myApp.service('RequestService', function ($http, $location) {
             vm.sendMail();
             swal({
                 title: 'Thank you!',
-                text: 'Your request has been recieved you will recieve a call shortly.',
+                text: 'Your request has been recieved.',
                 type: 'success',
             })
             $location.path('/cars');
