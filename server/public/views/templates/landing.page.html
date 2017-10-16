@@ -1,6 +1,6 @@
 <!-- Landing Page Navbar -->
 <div class="navbar noPrint">
-    <!-- not logged in as a user -->
+    <!-- if not logged in -->
     <span ng-if="lpc.AdminService.userObject.role == null ">
     <div class="container">
         <md-nav-bar class="navBarStyle" md-selected-nav-item="lpc.currentNavItem" layout="row" layout-align="space-around center" md-no-ink-bar="disableInkBar"
@@ -28,7 +28,7 @@
     </div>
 </div>
 </span>
-<!-- if logged in as Mechanic -->
+    <!-- if logged in as Mechanic -->
     <span ng-if="lpc.AdminService.userObject.role === 'mechanic'">
 <div class="navbar noPrint">
     <div class="container">
@@ -44,7 +44,7 @@
 </span>
 </div>
 
-<div layout="column">
+<div layout="column" class="landingMainDiv">
     <div flex="30" flex-offset="35" id="landingImg" layout-align="center center">
         <img flex class="landingImg" src="../views/images/cars-logo-transparent.png">
     </div>

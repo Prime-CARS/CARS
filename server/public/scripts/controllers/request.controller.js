@@ -9,6 +9,7 @@ myApp.controller('RequestController', function (AdminService, RequestService, $l
   vm.AdminService = AdminService;
   vm.customer = RequestService.customer;
   vm.textboxShowing = false;
+  
   //will always set "service status" to requested when form is submitted by customer 
   vm.customer = { service_status: 'requested' };
 
@@ -18,7 +19,7 @@ myApp.controller('RequestController', function (AdminService, RequestService, $l
   //for opening the image of the car with description of where to find it on a vehicle
   vm.openCard = false;
 
-  /* this function is called when "submit" is clicked on the Request for Service form */
+  //this function is called when "submit" is clicked on the Request for Service form 
   vm.addCustomer = function () {
   //console.log("Inside addCustomer function in request.controller.js line 25: ", vm.customer);
     vm.RequestService.addCustomer(vm.customer);
@@ -40,7 +41,6 @@ myApp.controller('RequestController', function (AdminService, RequestService, $l
   vm.cardClose = function () {
     vm.openCard = false;
   };
-
 });
 
 
