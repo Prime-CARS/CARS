@@ -16,8 +16,6 @@ main {
     height: 100vh;
 }
 
-
-
 .navBarStyle {
     background: maroon;
 }
@@ -65,7 +63,6 @@ main {
     margin-top: 14px;
 }
 
-
 .btn-danger {
     margin-left: 10px;
 }
@@ -77,18 +74,17 @@ ul {
     overflow: hidden;
 }
 
-.lead{
+.lead {
     font-size: 48px;
 }
 
-.sublead{
+.sublead {
     font-size: 30px;
     margin-bottom: -10px;
 }
 
 
 /* Change the link color to #111 (black) on hover */
-
 
 header,
 footer {
@@ -145,14 +141,14 @@ footer {
     margin: 10px 10px 10px 10px;
     border: 1px solid black;
     background-color: lightblue;
-     padding: 8px 8px 8px 8px;
+    padding: 8px 8px 8px 8px;
 }
 
 .nrqstform {
     margin: 10px 10px 10px 10px;
     border: 1px solid black;
     background-color: lightblue;
-     padding: 8px 8px 8px 8px;
+    padding: 8px 8px 8px 8px;
 }
 
 .ready {
@@ -188,37 +184,30 @@ footer {
 #authCarsLogo {
     float: right;
     width: 35%;
-    margin: 4vh -5vw 0vh 0vw;
+    margin: 0% 5% 0% 0%;
 }
 
 #authDate {
     float: right;
+    margin: 0% 10% 0% 0%;
 }
 
 #printMe {
-    width: 75vw;
+    width: 95%;
     margin: auto;
-    margin-bottom: 8vh;
+    /* margin-bottom: 8vh; */
 }
 
 @media print {
+ 
     .noPrint {
-        visibility: hidden !important;
+        display: none;
         height: 0pt;
-    }
-    #printMe {
-        max-width: 670pt !important;
-        max-height: 300pt !important;
-        margin: auto;
-    }
-    #authCarsLogo {
-        float: right;
-        margin-top: -20pt;
     }
     .pageBreak {
         page-break-before: always !important;
     }
-    .pageBreakAfter{
+    .pageBreakAfter {
         page-break-after: avoid !important;
     }
     body {
@@ -230,16 +219,8 @@ footer {
         background-image: hidden !important;
         font-size: 12px !important;
         margin: auto;
-    }
+    } 
 }
-
-
-/* #authInput {
-    min-width: 90px!important;
-    max-width: 99.99%!important;
-    transition: width 0.25s;
-    text-align: center;
-} */
 
 #admin_nav {
     position: relative;
@@ -262,6 +243,10 @@ footer {
     height: 90vh;
     background: rgba(255, 255, 255, .6);
     border-radius: 5px;
+}
+
+.base::-webkit-scrollbar {
+    width: 0;
 }
 
 .input {
@@ -307,50 +292,71 @@ footer {
     padding-left: 5%;
 }
 
-/* tabs */
-.tabsdemoStaticTabs md-content md-tabs {
-  border: 1px solid #e1e1e1; }
-  .tabsdemoStaticTabs md-content md-tabs md-tab-content {
-    padding: 25px; }
-    .tabsdemoStaticTabs md-content md-tabs md-tab-content:nth-child(1) {
-      background-color: #cfd8dc; }
-    .tabsdemoStaticTabs md-content md-tabs md-tab-content:nth-child(2) {
-      background-color: #ffb74d; }
-    .tabsdemoStaticTabs md-content md-tabs md-tab-content:nth-child(3) {
-      background-color: #ffd54f; }
-    .tabsdemoStaticTabs md-content md-tabs md-tab-content:nth-child(4) {
-      background-color: #aed581; }
-    .tabsdemoStaticTabs md-content md-tabs md-tab-content:nth-child(5) {
-      background-color: #00897b; }
 
-.tabsdemoStaticTabs .after-tabs-area > span {
-  margin-top: 25px;
-  padding-right: 15px;
-  vertical-align: middle;
-  line-height: 30px;
-  height: 35px; 
+/* tabs */
+
+.tabsdemoStaticTabs md-content md-tabs {
+    border: 1px solid #e1e1e1;
 }
-.tabsdemoStaticTabs .after-tabs-area > md-checkbox {
-  margin-top: 26px;
-  margin-left: 0; 
+
+.tabsdemoStaticTabs md-content md-tabs md-tab-content {
+    padding: 25px;
 }
-  .monkey{
-      height:80vh;
-  }
-  .landingCard{
-      background: rgba(255, 255, 255, .8);
-      border-radius: 650px;
-  }
-  ._md-card{
-      background: rgba(255, 255, 255, .8);
-      border-radius: 650px;
-  }
-  .md-tab{
-      border-right-style: solid;
-      border-width: 1px;
-      height: 90%;
-  }
-.checklistGroup{
+
+.tabsdemoStaticTabs md-content md-tabs md-tab-content:nth-child(1) {
+    background-color: #cfd8dc;
+}
+
+.tabsdemoStaticTabs md-content md-tabs md-tab-content:nth-child(2) {
+    background-color: #ffb74d;
+}
+
+.tabsdemoStaticTabs md-content md-tabs md-tab-content:nth-child(3) {
+    background-color: #ffd54f;
+}
+
+.tabsdemoStaticTabs md-content md-tabs md-tab-content:nth-child(4) {
+    background-color: #aed581;
+}
+
+.tabsdemoStaticTabs md-content md-tabs md-tab-content:nth-child(5) {
+    background-color: #00897b;
+}
+
+.tabsdemoStaticTabs .after-tabs-area>span {
+    margin-top: 25px;
+    padding-right: 15px;
+    vertical-align: middle;
+    line-height: 30px;
+    height: 35px;
+}
+
+.tabsdemoStaticTabs .after-tabs-area>md-checkbox {
+    margin-top: 26px;
+    margin-left: 0;
+}
+
+.monkey {
+    height: 80vh;
+}
+
+.landingCard {
+    background: rgba(255, 255, 255, .8);
+    border-radius: 650px;
+}
+
+._md-card {
+    background: rgba(255, 255, 255, .8);
+    border-radius: 650px;
+}
+
+.md-tab {
+    border-right-style: solid;
+    border-width: 1px;
+    height: 90%;
+}
+
+.checklistGroup {
     padding: 8px;
     margin: 8px;
     font-size: 20px;
@@ -364,27 +370,27 @@ footer {
     color: white;
 } */
 
-.landingImg{
+.landingImg {
     height: 40vh;
     width: auto;
 }
 
-#what{
+#what {
     border-left-width: 5px;
     border-left-color: #000000;
 }
 
-#authProblemArea{
-    width: 60%;
+#authProblemArea {
+    width: 55%;
 }
 
-.loginBox{
+.loginBox {
     min-width: 200px;
 }
-#search{
+
+#search {
     margin-top: 5%;
     margin-left: 10%;
     height: 10%;
     width: 30%;
 }
-
