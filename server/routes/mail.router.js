@@ -15,7 +15,7 @@ router.post('/', function (req, res, next) {//this contacts the modemailer servi
 
     var mailOptions = {
         from: process.env.SENDER,
-        to: 'julie.berthiaume@gmail.com', /* this will be Mitch's email account, whatever he chooses to use to receive theses notifications */
+        to: 'newrequestcarsministrysystem@gmail.com', /* this will be Mitch's email account, whatever he chooses to use to receive theses notifications */
         subject: 'New request for service form',
         text: 'A new Request for Services form has just been created and submitted.' 
     };

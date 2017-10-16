@@ -15,7 +15,7 @@
                     <h4>Why did this item fail? Any General Observations:</h4>
                     <md-input-container>
                         <label></label>
-                        <textarea ng-model="cc.cars_checklist.info.vehicle_observations" ng-change="cc.submitChecklist(cc.cars_checklist)" name="textarea"
+                        <textarea ng-model="cc.cars_checklist.info.vehicle_observations" ng-blur="cc.submitChecklist(cc.cars_checklist.info)" name="textarea"
                             cols="70" rows="10"></textarea>
                     </md-input-container>
                 </div>
