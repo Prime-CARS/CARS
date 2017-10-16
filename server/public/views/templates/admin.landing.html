@@ -219,8 +219,7 @@
                                 </div>
                             <md-button class="md-raised md-primary" ng-click="ac.search_history(history_search)">Search</md-button>
                     </form>
-                    </div>
-                    <div class="rqst" ng-repeat="customer in ac.AdminService.searchResults.list.data" ng-click="ac.getChecklist($index)"> {{customer.name}} {{customer.year}} {{customer.make}} {{customer.model}} {{customer.vin}}
+                    <div class="rqst" ng-repeat="customer in ac.AdminService.searchResults.list.data" ng-click="ac.getChecklist(customer.customer_id)">{{customer.name}} {{customer.year}} {{customer.make}} {{customer.model}} {{customer.vin}}
                     </div>
                 </div>
             </md-tab-body>
