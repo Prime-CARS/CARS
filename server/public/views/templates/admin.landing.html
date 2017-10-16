@@ -162,26 +162,6 @@
 
                             <br>
 
-                            <!-- <label>
-                                <input type="radio" name="qualification" value="singleMother" ng-model="ac.customer.qualification" checked> Single Mother
-                            </label>
-                            
-                            <label>
-                                <input type="radio" name="qualification" value="singleWoman" ng-model="ac.customer.qualification" checked> Single Woman
-                            </label>
-                            
-                            <label>
-                                <input type="radio" name="qualification" value="widow" ng-model="ac.customer.qualification" checked> Widow
-                            </label>
-                            
-                            <label>
-                                <input type="radio" name="qualification" value="financiallyLimited" ng-model="ac.customer.qualification" checked> Financially Limited
-                            </label>
-                            
-                            <label>
-                                <input type="radio" name="qualification" value="other" ng-click="ac.openTextbox();"> Other
-                            </label> -->
-
                             <div ng-show="otherText">
                                 <textarea rows="4" cols="50" ng-model="ac.customer.qualification" placeholder="Please explain your circumstances:"></textarea>
                             </div>
@@ -223,7 +203,10 @@
                     <h3 class="title"> Search History</h3>
                     </div>
                     <form>
-                        <input type="text" id="search" ng-model="history_search">
+                        <md-input-container>
+                              <label>Search</label>
+                        <md-input type="text" id="search" ng-model="history_search"></md-input>
+                        </md-input-container>
                         <md-button class="md-raised md-primary" ng-click="ac.search_history(history_search)">Search</md-button>
                     </form>
                     <div class="rqst" ng-repeat="customer in ac.AdminService.searchResults.list.data" ng-click="ac.getChecklist($index)"> {{customer.name}} {{customer.year}} {{customer.make}} {{customer.model}} {{customer.vin}}
