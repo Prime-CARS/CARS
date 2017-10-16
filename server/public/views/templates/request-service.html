@@ -41,6 +41,7 @@
 </div>
 </span>
 </div>
+<form>
 <div class="base" flex="80" flex-offset="10">
 
 
@@ -88,7 +89,7 @@
 <div layout="row" layout-align="start center" ng-cloak>
     <md-input-container flex="20" class="RqstForm">
         <label>VIN</label>
-        <input pattern="\w{17}" name="VIN" ng-model="rc.customer.vin" ng-click="rc.cardClose()" required>
+        <input required pattern="\w{17}" name="VIN" ng-model="rc.customer.vin" ng-click="rc.cardClose()">
     </md-input-container>
 
    
@@ -162,3 +163,4 @@
 
     <md-button class="md-raised md-primary" class="btn-btn-primary" type="submit" ng-click="rc.addCustomer()">Submit Request</md-button>
 </div>
+</form>

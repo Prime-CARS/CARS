@@ -1,43 +1,43 @@
 <div class="navbar noPrint">
     <span ng-if="ac.AdminService.userObject.role == null ">
-    <div class="container">
-        <md-nav-bar class="navBarStyle" md-selected-nav-item="currentNavItem" layout="row" layout-align="space-around center" md-no-ink-bar="disableInkBar"
-            nav-bar-aria-label="navigation links">
-            <md-nav-item md-nav-href="#/landingpage" name="homeTab">Home</md-nav-item>
-            <md-nav-item md-nav-href="#/requestservice" name="serviceRequestTab">Request for Service Form</md-nav-item>
-            <md-nav-item md-nav-href="#/login" name="loginTab">Login</md-nav-item>
-        </md-nav-bar>
-    </div>
+        <div class="container">
+            <md-nav-bar class="navBarStyle" md-selected-nav-item="currentNavItem" layout="row" layout-align="space-around center" md-no-ink-bar="disableInkBar"
+                nav-bar-aria-label="navigation links">
+                <md-nav-item md-nav-href="#/landingpage" name="homeTab">Home</md-nav-item>
+                <md-nav-item md-nav-href="#/requestservice" name="serviceRequestTab">Request for Service Form</md-nav-item>
+                <md-nav-item md-nav-href="#/login" name="loginTab">Login</md-nav-item>
+            </md-nav-bar>
+        </div>
 </div>
 </span>
 <!-- if logged iin as Admin -->
-    <span ng-if="ac.AdminService.userObject.role === 'admin'">
-<div class="navbar noPrint">
-    <div class="container">
-        <md-nav-bar class="navBarStyle" md-selected-nav-item="ac.currentNavItem" layout="row" layout-align="space-around center" md-no-ink-bar="disableInkBar"
-            nav-bar-aria-label="navigation links">
-            <md-nav-item md-nav-href="#/landingpage" name="homeTab">Home</md-nav-item>
-            <md-nav-item md-nav-href="#/requestservice" name="serviceRequestTab">Request for Service Form</md-nav-item>
-            <md-nav-item md-nav-href="#/admin" name="adminTab">Admin</md-nav-item>
-            <md-nav-item md-nav-href="#/mechanic" name="mechanicTab">Mechanic</md-nav-item>
-            <md-nav-item md-nav-href="#register" name="Register">Register User</md-nav-item>
-            <md-nav-item md-nav-click="ac.AdminService.logout()" name="logOutTab">Log Out </md-nav-item>
-        </md-nav-bar>
+<span ng-if="ac.AdminService.userObject.role === 'admin'">
+    <div class="navbar noPrint">
+        <div class="container">
+            <md-nav-bar class="navBarStyle" md-selected-nav-item="ac.currentNavItem" layout="row" layout-align="space-around center"
+                md-no-ink-bar="disableInkBar" nav-bar-aria-label="navigation links">
+                <md-nav-item md-nav-href="#/landingpage" name="homeTab">Home</md-nav-item>
+                <md-nav-item md-nav-href="#/requestservice" name="serviceRequestTab">Request for Service Form</md-nav-item>
+                <md-nav-item md-nav-href="#/admin" name="adminTab">Admin</md-nav-item>
+                <md-nav-item md-nav-href="#/mechanic" name="mechanicTab">Mechanic</md-nav-item>
+                <md-nav-item md-nav-href="#register" name="Register">Register User</md-nav-item>
+                <md-nav-item md-nav-click="ac.AdminService.logout()" name="logOutTab">Log Out </md-nav-item>
+            </md-nav-bar>
+        </div>
     </div>
-</div>
 </span>
-    <span ng-if="ac.AdminService.userObject.role === 'mechanic'">
-<div class="navbar noPrint">
-    <div class="container">
-        <md-nav-bar class="navBarStyle" md-selected-nav-item="currentNavItem" layout="row" layout-align="space-around center" md-no-ink-bar="disableInkBar"
-            nav-bar-aria-label="navigation links">
-            <md-nav-item md-nav-href="#/landingpage" name="homeTab">Home</md-nav-item>
-            <md-nav-item md-nav-href="#/requestservice" name="serviceRequestTab">Request for Service Form</md-nav-item>
-            <md-nav-item md-nav-href="#/mechanic" name="mechanicTab">Mechanic</md-nav-item>
-            <md-nav-item md-nav-click="ac.AdminService.logout()" name="logOutTab">Log Out </md-nav-item>
-        </md-nav-bar>
+<span ng-if="ac.AdminService.userObject.role === 'mechanic'">
+    <div class="navbar noPrint">
+        <div class="container">
+            <md-nav-bar class="navBarStyle" md-selected-nav-item="currentNavItem" layout="row" layout-align="space-around center" md-no-ink-bar="disableInkBar"
+                nav-bar-aria-label="navigation links">
+                <md-nav-item md-nav-href="#/landingpage" name="homeTab">Home</md-nav-item>
+                <md-nav-item md-nav-href="#/requestservice" name="serviceRequestTab">Request for Service Form</md-nav-item>
+                <md-nav-item md-nav-href="#/mechanic" name="mechanicTab">Mechanic</md-nav-item>
+                <md-nav-item md-nav-click="ac.AdminService.logout()" name="logOutTab">Log Out </md-nav-item>
+            </md-nav-bar>
+        </div>
     </div>
-</div>
 </span>
 </div>
 <md-card-title>
@@ -53,9 +53,10 @@
 
             <md-tab-body>
                 <!-- <div flex="40" flex-offset="30"> -->
-                    <h3 class="title">These requests are pending review and scheduling</h3>
+                <h3 class="title">These requests are pending review and scheduling</h3>
                 <!-- </div> -->
-                <div flex="90" flex-offset="5" md-whiteframe="{{height}}" ng-init="height = 5" ng-mouseenter="height = 1" ng-mouseleave="height = 5" ng-repeat="data in ac.RetrievedRequests.list.data" class="rqst" ng-click="expandInfo = !expandInfo">
+                <div flex="90" flex-offset="5" md-whiteframe="{{height}}" ng-init="height = 5" ng-mouseenter="height = 1" ng-mouseleave="height = 5"
+                    ng-repeat="data in ac.RetrievedRequests.list.data" class="rqst" ng-click="expandInfo = !expandInfo">
                     <b>{{data.name}}
                         <br>{{data.year}} {{data.make}} {{data.model}}</b>
                     <div ng-show="expandInfo" class="innerRqst">
@@ -77,7 +78,10 @@
                     </div>
 
                 </div>
-                <div  flex="90" flex-offset="5" md-whiteframe="{{height}}" ng-init="height = 5" ng-mouseenter="height = 1" ng-mouseleave="height = 5" class="nrqst" ng-click="addRequest = !addRequest"><b> + New request</b></div>
+                <div flex="90" flex-offset="5" md-whiteframe="{{height}}" ng-init="height = 5" ng-mouseenter="height = 1" ng-mouseleave="height = 5"
+                    class="nrqst" ng-click="addRequest = !addRequest">
+                    <b> + New request</b>
+                </div>
 
                 <div class="nrqstform" ng-show="addRequest">
                     <!--start of new person entry -->
@@ -127,7 +131,8 @@
                                 <md-input-container>
                                     <label>VIN</label>
                                     <input type="text" name="VIN" title="VIN must be 17 digits long" pattern="\w{17}" ng-model="ac.customer.vin">
-                                </md-input-container><br>
+                                </md-input-container>
+                                <br>
                                 <md-input-container>
                                     <label>Year</label>
                                     <input type="number" name="year" ng-model="ac.customer.year" required>
@@ -145,8 +150,8 @@
                             <div flex="45" class="md-block">
                                 <!-- <h3>Please describe the problems you are having with the vehicle</h3> -->
                                 <md-input-container>
-                                <label>Please describe the problems you are having with the vehicle.</label>
-                                <textarea rows="3" cols="60" ng-model="ac.customer.problem"></textarea>
+                                    <label>Please describe the problems you are having with the vehicle.</label>
+                                    <textarea rows="3" cols="60" ng-model="ac.customer.problem"></textarea>
                                 </md-input-container>
                             </div>
                         </div>
@@ -185,11 +190,12 @@
                 <div>
                     <!-- ng-show="ac.showAuths" -->
                     <!-- <div flex="40" flex-offset="30"> -->
-                        <h3 class="title">These authorizations have been created and need to be printed.</h3>
+                    <h3 class="title">These authorizations have been created and need to be printed.</h3>
                     <!-- </div> -->
-                   <div flex="90" ng-repeat="data in ac.AdminService.Prints.list.data" ng-click="ac.history_view($index)" class="rqst"  md-whiteframe="{{height}}" ng-init="height = 3" ng-mouseenter="height = 1" ng-mouseleave="height = 3">
-                       <b> Name: {{data.name}}
-                        <br> VIN#: {{data.vin}}</b>
+                    <div flex="90" ng-repeat="data in ac.AdminService.Prints.list.data" ng-click="ac.history_view($index)" class="rqst" md-whiteframe="{{height}}"
+                        ng-init="height = 3" ng-mouseenter="height = 1" ng-mouseleave="height = 3">
+                        <b> Name: {{data.name}}
+                            <br> VIN#: {{data.vin}}</b>
                     </div>
                 </div>
             </md-tab-body>
@@ -197,28 +203,29 @@
 
         <md-tab id="tab3">
             <md-tab-label>Service History</md-tab-label>
-            <md-tab-body>
+            <md-tab-body  style="width:100%">
                 <div>
                     <!-- <div flex="30" flex-offset="35"> -->
-                        <!-- ng-show="ac.showSearchs" -->
-                        <h3 class="title"> Search History</h3>
-                        <h4 class="title">Enter part of name or any portion VIN</h4>
+                    <!-- ng-show="ac.showSearchs" -->
+                    <h3 class="title"> Search History</h3>
+                    <h4 class="title">Enter part of name or any portion VIN</h4>
                     <!-- </div> -->
-                    <div layout="row">
-                    <form>
-                        <div flex="50">
-                            <div layout="column">
-                        <md-input-container>
-                                    <label>Search</label>
-                                    <input type="text" class="md-block"  ng-model="history_search"></input>
-                                </md-input-container>
+                    <div>
+                        <form>
+                            <div flex="50%">
+                                <div layout="row">
+                                    <md-input-container>
+                                        <label>Search</label>
+                                        <input type="text" class="md-block" ng-model="history_search" style="width:100%"></input>
+                                    </md-input-container>
+                                    <md-button class="md-raised md-primary" ng-click="ac.search_history(history_search)"style="width:40%">Search</md-button>
                                 </div>
-                                </div>
-                            <md-button class="md-raised md-primary" ng-click="ac.search_history(history_search)">Search</md-button>
-                    </form>
-                    <div class="rqst" ng-repeat="customer in ac.AdminService.searchResults.list.data" ng-click="ac.getChecklist(customer.customer_id)">{{customer.name}} {{customer.year}} {{customer.make}} {{customer.model}} {{customer.vin}}
+                            </div>
+                        </form>
+                        <br>
+                        <div class="rqst" ng-repeat="customer in ac.AdminService.searchResults.list.data" ng-click="ac.getChecklist(customer.customer_id)">{{customer.name}} {{customer.year}} {{customer.make}} {{customer.model}} {{customer.vin}}
+                        </div>
                     </div>
-                </div>
             </md-tab-body>
         </md-tab>
     </md-tabs>
