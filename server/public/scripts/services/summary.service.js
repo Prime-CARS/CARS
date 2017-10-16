@@ -21,9 +21,10 @@ myApp.service('SummaryService', function ($http, $location) {
 
             self.serviceObject = response.data[0];
             console.log('SummaryService.serviceObject is', self.serviceObject);
+            $location.path('/summary');
          })
 
-         $location.path('/summary');
+         
       });
 
 
