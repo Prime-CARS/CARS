@@ -128,7 +128,7 @@ footer {
     border: 1px solid black;
     padding: 8px 8px 8px 8px;
     background-color: lightgray;
-    opacity: 1;
+    border-radius: 5px;
 }
 
 .expanded_request {
@@ -179,8 +179,9 @@ footer {
     object-fit: contain;
 }
 
-#title {
+.title {
     padding-top: 20px;
+    text-align: center;
 }
 
 #authCarsLogo {
@@ -363,7 +364,6 @@ footer {
     margin-top: 5%;
     margin-left: 10%;
     height: 10%;
-    width: 30%;
 }
 
 .highlight{

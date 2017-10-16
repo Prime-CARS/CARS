@@ -44,7 +44,7 @@
 </div>
 <md-card-title>
     <md-card-title-text>
-        <div flex="20" flex-offset="40" class="AdminHello">Hello {{ac.AdminService.userObject.userName}}!</div>
+        <div flex="40" flex-offset="30" class="AdminHello">Hello {{ac.AdminService.userObject.userName}}!</div>
     </md-card-title-text>
 </md-card-title>
 
@@ -54,9 +54,9 @@
             <md-tab-label>Service Requests</md-tab-label>
 
             <md-tab-body>
-                <div flex="40" flex-offset="30">
+                <!-- <div flex="40" flex-offset="30"> -->
                     <h3 class="title">These requests are pending review and scheduling</h3>
-                </div>
+                <!-- </div> -->
                 <div flex="100" ng-repeat="data in ac.RetrievedRequests.list.data" class="rqst" ng-click="expandInfo = !expandInfo">
                     <b>{{data.name}}
                         <br>{{data.year}} {{data.make}} {{data.model}}</b>
@@ -71,8 +71,8 @@
                         <b>Vehicle Issue:</b> {{data.service_requested}}
                         <br>
                         <p>
-                            <button class="btn-btn-primary" type="submit" ng-click="ac.updateCustomer(data.customer_id, 'scheduled')">Scheduled!</button>
-                            <button class="btn-btn-warn" type="submit" ng-click="ac.updateCustomer(data.customer_id, 'denied')">not eligable!</button>
+                            <md-button class="md-raised md-primary" type="submit" ng-click="ac.updateCustomer(data.customer_id, 'scheduled')">Schedule for service</md-button>
+                            <md-button class="md-raised md-warn" type="submit" ng-click="ac.updateCustomer(data.customer_id, 'denied')">Remove request</md-button>
                         </p>
 
                         <!-- <button ng-click="ac.shrinkInfo()">close</button> -->
@@ -144,9 +144,12 @@
                                 </md-input-container>
                             </div>
 
-                            <div flex="45">
-                                <h3>Please describe the problems you are having with the vehicle</h3>
-                                <textarea rows="5" cols="70" ng-model="ac.customer.problem"></textarea>
+                            <div flex="45" class="md-block">
+                                <!-- <h3>Please describe the problems you are having with the vehicle</h3> -->
+                                <md-input-container>
+                                <label>Please describe the problems you are having with the vehicle.</label>
+                                <textarea rows="3" cols="60" ng-model="ac.customer.problem"></textarea>
+                                </md-input-container>
                             </div>
                         </div>
                         <div>
@@ -183,9 +186,9 @@
             <md-tab-body>
                 <div>
                     <!-- ng-show="ac.showAuths" -->
-                    <div flex="40" flex-offset="30">
-                    <h3 class="title">These authorizations have been created and need to be printed.</h3>
-                   </div>
+                    <!-- <div flex="40" flex-offset="30"> -->
+                        <h3 class="title">These authorizations have been created and need to be printed.</h3>
+                    <!-- </div> -->
                     <div ng-repeat="data in ac.AdminService.Prints.list.data" ng-click="ac.history_view($index)" class="rqst">
                         Name: {{data.name}}
                         <br> VIN#: {{data.vin}}
@@ -198,17 +201,24 @@
             <md-tab-label>Service History</md-tab-label>
             <md-tab-body>
                 <div>
-                    <div flex="40" flex-offset="30">
-                    <!-- ng-show="ac.showSearchs" -->
-                    <h3 class="title"> Search History</h3>
-                    </div>
+                    <!-- <div flex="30" flex-offset="35"> -->
+                        <!-- ng-show="ac.showSearchs" -->
+                        <h3 class="title"> Search History</h3>
+                        <h4 class="title">Enter part of name or any portion VIN</h4>
+                    <!-- </div> -->
+                    <div layout="row">
                     <form>
+                        <div flex="50">
+                            <div layout="column">
                         <md-input-container>
-                              <label>Search</label>
-                        <md-input type="text" id="search" ng-model="history_search"></md-input>
-                        </md-input-container>
-                        <md-button class="md-raised md-primary" ng-click="ac.search_history(history_search)">Search</md-button>
+                                    <label>Search</label>
+                                    <input type="text" class="md-block"  ng-model="history_search"></input>
+                                </md-input-container>
+                                </div>
+                                </div>
+                            <md-button class="md-raised md-primary" ng-click="ac.search_history(history_search)">Search</md-button>
                     </form>
+                    </div>
                     <div class="rqst" ng-repeat="customer in ac.AdminService.searchResults.list.data" ng-click="ac.getChecklist($index)"> {{customer.name}} {{customer.year}} {{customer.make}} {{customer.model}} {{customer.vin}}
                     </div>
                 </div>
