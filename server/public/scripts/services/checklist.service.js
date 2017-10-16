@@ -23,6 +23,7 @@ myApp.service('ChecklistService', ['$http', function ($http) {
         
         $http.put('/checklist/submit', checklist).then(function (response) {
           //console.log('Status of checklist being submitted: ', response.data);
+          vm.getChecklistsStatus();
         })
     }
 

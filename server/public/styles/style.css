@@ -408,8 +408,6 @@ innerRqst{
     background-color:gray;
 }
 
-.summaryTable {
-}
 .summaryTable td, .summaryTable th {
     width: 15%;
     padding: 1%;

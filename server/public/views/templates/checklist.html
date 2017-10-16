@@ -602,23 +602,23 @@
         <h3>Oil Checklist:</h3>
         <div layout="row">
           <div layout="column" flex="40">
-            <md-checkbox ng-model="cc.cars_checklist.info.drain_oil" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.drain_oil)"
+            <md-checkbox class="md-primary" ng-model="cc.cars_checklist.info.drain_oil" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.drain_oil)"
               ng-checked="cc.cars_checklist.info.drain_oil">
               1. Drain Oil
             </md-checkbox>
 
-            <md-checkbox ng-model="cc.cars_checklist.info.remove_filter_gasket" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.remove_filter_gasket)"
+            <md-checkbox class="md-primary" ng-model="cc.cars_checklist.info.remove_filter_gasket" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.remove_filter_gasket)"
               ng-checked="cc.cars_checklist.info.remove_filter_gasket">
               2. Remove Oil Filter and Old Gasket
             </md-checkbox>
           </div>
           <div layout="column" flex="40">
-            <md-checkbox ng-model="cc.cars_checklist.info.install_drain_plug" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.install_drain_plug)"
+            <md-checkbox class="md-primary" ng-model="cc.cars_checklist.info.install_drain_plug" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.install_drain_plug)"
               ng-checked="cc.cars_checklist.info.install_drain_plug">
               3. Install and Tighten Drain Plug
             </md-checkbox>
 
-            <md-checkbox ng-model="cc.cars_checklist.info.install_tighten_filter" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.install_tighten_filter)"
+            <md-checkbox class="md-primary" ng-model="cc.cars_checklist.info.install_tighten_filter" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.install_tighten_filter)"
               ng-checked="cc.cars_checklist.info.install_tighten_filter">
               4. Install and Tighten Filter
             </md-checkbox>
@@ -636,17 +636,17 @@
           </md-input-container>
         </div>
 
-        <md-checkbox ng-model="cc.cars_checklist.info.checkoil_plug" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.checkoil_plug)"
+        <md-checkbox class="md-primary" ng-model="cc.cars_checklist.info.checkoil_plug" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.checkoil_plug)"
           ng-checked="cc.cars_checklist.info.checkoil_plug">
           7.Check Oil Plug for Leaks
         </md-checkbox>
 
-        <md-checkbox ng-model="cc.cars_checklist.info.check_filter" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.check_filter)"
+        <md-checkbox class="md-primary" ng-model="cc.cars_checklist.info.check_filter" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.check_filter)"
           ng-checked="cc.cars_checklist.info.check_filter">
           8. Check Filter for Leaks
         </md-checkbox>
 
-        <md-checkbox ng-model="cc.cars_checklist.info.oilchange_sticker" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.oilchange_sticker)"
+        <md-checkbox class="md-primary" ng-model="cc.cars_checklist.info.oilchange_sticker" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.oilchange_sticker)"
           ng-checked="cc.cars_checklist.info.oilchange_sticker">
           9. Install Oil Change Sticker
         </md-checkbox>
