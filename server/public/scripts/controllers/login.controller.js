@@ -21,6 +21,8 @@ myApp.controller('LoginController', function ($http, $location, AdminService) {
     if (vm.user.username === '' || vm.user.password === '') {
       vm.message = "Enter your username and password!";
     } else {
+      vm.user.username = vm.user.username.toUpperCase();
+      
     //console.log('LoginController -- login -- sending to server...', vm.user);
       $http.post('/', vm.user).then(function (response) {
         if (response.data.username) {
@@ -48,6 +50,7 @@ myApp.controller('LoginController', function ($http, $location, AdminService) {
     if (vm.user.username === '' || vm.user.password === '' || vm.user.role === '') {
       vm.message = "Choose a username and password!";
     } else {
+      vm.user.username = vm.user.username.toUpperCase();
     //console.log('LoginController -- registerUser -- sending to server...', vm.user);
       $http.post('/register', vm.user).then(function (response) {
       //console.log('LoginController -- registerUser -- success');
