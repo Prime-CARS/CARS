@@ -8,8 +8,9 @@
                 <md-nav-item md-nav-href="#/login" name="loginTab">Login</md-nav-item>
             </md-nav-bar>
         </div>
+    </span>
 </div>
-</span>
+
 <!-- if logged iin as Admin -->
 <span ng-if="ac.AdminService.userObject.role === 'admin'">
     <div class="navbar noPrint">
@@ -26,8 +27,8 @@
         </div>
     </div>
 </span>
-    <!-- If logged in as Mechanic -->
-    <span ng-if="ac.AdminService.userObject.role === 'mechanic'">
+<!-- If logged in as Mechanic -->
+<span ng-if="ac.AdminService.userObject.role === 'mechanic'">
 <div class="navbar noPrint">
     <div class="container">
         <md-nav-bar class="navBarStyle" md-selected-nav-item="currentNavItem" layout="row" layout-align="space-around center" md-no-ink-bar="disableInkBar"
@@ -38,8 +39,9 @@
             <md-nav-item md-nav-click="ac.AdminService.logout()" name="logOutTab">Log Out </md-nav-item>
         </md-nav-bar>
     </div>
-</span>
 </div>
+</span>
+
 <md-card-title>
     <md-card-title-text>
         <div class="AdminHello">Hello {{ac.AdminService.userObject.userName}}!</div>

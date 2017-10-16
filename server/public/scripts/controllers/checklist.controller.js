@@ -102,7 +102,6 @@ myApp.controller('ChecklistController', function (ChecklistService, AdminService
 
 
   vm.submitChecklistForService = function (checklist) {
-
     if (checklist.engine_size === null) {
       $mdDialog.show(
         $mdDialog.alert()
