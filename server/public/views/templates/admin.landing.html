@@ -229,7 +229,7 @@
                                 </div>
                         </form>
                         <br>
-                        <div class="rqst" ng-repeat="customer in ac.AdminService.searchResults.list.data" ng-click="ac.getChecklist(customer.customer_id)">{{customer.name}} {{customer.year}} {{customer.make}} {{customer.model}} {{customer.vin}}
+                        <div class="rqst" ng-repeat="customer in ac.AdminService.searchResults.list.data" ng-click="ac.getChecklist(customer.customer_id)">{{customer.date_of_request | date: MMM/dd/yyyy}} - {{customer.name}} - {{customer.year}} {{customer.make}} {{customer.model}} VIN:{{customer.vin}}
                         </div>
                         </div>
             </md-tab-body>
