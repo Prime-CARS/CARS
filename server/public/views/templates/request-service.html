@@ -138,7 +138,7 @@
 
     <label>Please indicate why you qualify to use the services of C.A.R.S. Ministry</label>
 
-    <md-radio-group layout="column" ng-model="rc.customer.qualification">
+    <md-radio-group layout="column" ng-model="rc.customer.qualification" ng-init="rc.customer.qualification=''" >
         <div layout="row">
             <div flex="15">
                 <md-radio-button value="Single Mother" ng-click="rc.closeTextbox()">Single Mother</md-radio-button>
@@ -150,7 +150,7 @@
                 <md-radio-button value="Widow" ng-click="rc.closeTextbox()">Widow</md-radio-button>
             </div>
             <div flex="15">
-                <md-radio-button value="Financially Limited" ng-click="rc.closeTextbox()">Financially Limited</md-radio-button>
+                <md-radio-button class="md-checked" value="Financially Limited" ng-click="rc.closeTextbox()">Financially Limited</md-radio-button>
             </div>
             <div flex="15">
                 <md-radio-button ng-click="rc.openTextbox()">Other</md-radio-button>
