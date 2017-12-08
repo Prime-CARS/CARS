@@ -358,7 +358,7 @@
         </div>
 
 
-
+<!-- 
         <div class="checklistGroup">
           22. Coolant Level and Strength
           <div layout="column">
@@ -371,9 +371,25 @@
               <input type='text' ng-model="cc.cars_checklist.info.coolantlevel_strength" ng-blur="cc.saveChecklistItem(cc.cars_checklist.info.coolantlevel_strength)">
             </md-input-container>
           </div>
+        </div> -->
+
+
+        <div class="checklistGroup">
+          22. Coolant Level and Strength
+          <div layout="column">
+            <md-radio-group class="md-primary" layout="row" ng-model="cc.cars_checklist.info.coolantlevel" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.coolantlevel)">
+              <label for="text"></label>
+              <md-radio-button class="md-primary" value="full"> Full </md-radio-button>
+              <md-radio-button class="md-primary" value="low"> Low </md-radio-button>
+            </md-radio-group layout="row">
+            <md-input-container>
+              <label>Coolant Strength</label>
+              <input type='text' ng-model="cc.cars_checklist.info.coolantlevel_strength" ng-blur="cc.saveChecklistItem(cc.cars_checklist.info.coolantlevel_strength)">
+            </md-input-container>
+          </div>
         </div>
 
-
+        
         <div class="checklistGroup">
           23. Radiator Hose Condition
           <md-radio-group class="md-primary" layout="row" ng-model="cc.cars_checklist.info.radiatorhosecondition" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.radiatorhosecondition)">
