@@ -580,12 +580,21 @@
             <md-radio-button class="md-primary" value="fail"> Fail </md-radio-button>
           </md-radio-group layout="row">
         </div>
-        <div class="checklistGroup">
+        <!-- <div class="checklistGroup">
           45. Engine Scan Codes &#42;
           <md-input-container>
             <label for="text"></label>
             <input type="text" ng-model="cc.cars_checklist.info.enginescancodes" ng-blur="cc.saveChecklistItem(cc.cars_checklist)">
           </md-input-container>
+        </div> -->
+        <div class="checklistGroup">
+          45. Engine Scan Codes
+          <md-radio-group class="md-primary" layout="row" ng-model="cc.cars_checklist.info.enginescancodes" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.enginescancodes)"
+            layout="row">
+            <label for="text"></label>
+            <md-radio-button class="md-primary" value="pass"> Pass </md-radio-button>
+            <md-radio-button class="md-primary" value="fail"> Fail </md-radio-button>
+          </md-radio-group layout="row">
         </div>
       </div>
     </div>
