@@ -18,14 +18,23 @@ myApp.service('RequestService', function ($http, $location) {
             url: '/requestservice',
             data: customer
         }).then(function (response) {
-          //console.log("http service has made a POST request for customers in request.service.js line 13: ", response.data);
-            vm.sendMail();
-            swal({
-                title: 'Thank you!',
-                text: 'Your request has been recieved you will recieve a call shortly.',
-                type: 'success',
-            })
-            $location.path('/cars');
+            console.log('this is the response from a request for service', response);
+            if (response == 500){
+                swal({
+                    title: 'Try Again.',
+                    text: 'Please make sure all required fields are completed.',
+                    type: 'failure',
+                })
+            } else {
+                console.log("http service has made a POST request for customers in request.service.js line 13: ", response.data);
+                vm.sendMail();
+                swal({
+                    title: 'Thank you!',
+                    text: 'Your request has been recieved you will recieve a call shortly.',
+                    type: 'success',
+                })
+                $location.path('/cars');
+            }
         })//end of addCustomer http POST request
     }
 
@@ -35,6 +44,15 @@ myApp.service('RequestService', function ($http, $location) {
             method: 'POST',
             url: '/requestservice',
             data: customer
+        }).then(function (response) {
+            //console.log('Customer service update: ', response.data);
+            $http({
+                method: 'POST',
+                url: '/checklist/addChecklist',
+                data: vm.data
+            }).then(function (response) {
+                //console.log('Customer checklist added: ', response.data);
+            })
         }).then(function (response) {
           //console.log("http service has made a POST request for customers in request.service.js line 13: ", response.data);
             swal({

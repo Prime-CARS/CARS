@@ -7,7 +7,7 @@ myApp.service('ChecklistService', ['$http', function ($http) {
     vm.getChecklistsStatus = function () {
         $http.get('/checklist').then(function (response) {
             vm.carsStatus.list = response.data;
-          //console.log('List of vehicles queued for/during service: ', vm.carsStatus);
+          console.log('List of vehicles queued for/during service: ', vm.carsStatus);
         })
     }
 
