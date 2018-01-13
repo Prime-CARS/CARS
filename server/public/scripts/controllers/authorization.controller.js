@@ -6,7 +6,7 @@ myApp.controller('AuthController', function (AuthService, RequestService, AdminS
     var self = this;
     AuthService.getAuth()
     self.date = new Date();
-    self.test = {this:'wtf'};
+    self.test = {this:"test"};
     self.AuthService = AuthService.serviceObject
     self.serviceObject = AuthService.serviceObject;
     self.serviceTest = AuthService.serviceTest;

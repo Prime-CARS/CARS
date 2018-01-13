@@ -4,7 +4,7 @@ myApp.service('AuthService', function ($http, $location) {
    var self = this
    self.userObject = {};
    self.Requests = { list: [] }
-   self.serviceTest = {test:'wtf Service'}
+   self.serviceTest = {test:'test Service'}
 
 
    self.getAuth = function (c) {
