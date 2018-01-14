@@ -250,10 +250,16 @@ innerRqst{
 
 .base {
     background-color: #d1c6ad;
-    overflow-y: scroll;
     height: 90vh;
     background: rgba(219, 215, 206, 1);
     border-radius: 5px;
+}
+
+@media screen {
+    .base {
+        overflow-y: scroll;
+    }
+
 }
 
 .base::-webkit-scrollbar {
