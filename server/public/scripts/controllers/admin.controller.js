@@ -18,11 +18,7 @@ myApp.controller('AdminController', function (AdminService, RequestService, Auth
   //highlights "Admin" when user is on the page
   vm.currentNavItem = "adminTab";
 
-  // vm.showRequests = true;
-  // vm.InfoExpanded = false;
-  // vm.nrqstneeded = false;
-  // vm.showAuths = false;
-  // vm.showSearchs = false;
+
   vm.Prints = AdminService.Prints;
   vm.customer = {};
   vm.textboxShowing = false;
@@ -97,7 +93,7 @@ myApp.controller('AdminController', function (AdminService, RequestService, Auth
   vm.addCustomer = function () {
     vm.customer.service_status = "scheduled";
     RequestService.addCustomerNoEmail(vm.customer);
-    vm.nrqstneeded = false;
+    vm.ReduceRequest();
     vm.getRequests();
   }
   // clled when a customers request is scheduled or denied
