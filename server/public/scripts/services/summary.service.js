@@ -1,8 +1,6 @@
 myApp.service('SummaryService', function ($http, $location) {
    //    console.log('SummaryService Loaded');
-
-   var self = this;
-
+    var self = this;
 
    self.getSummary = function (c) {
       // console.log('getSummary hit', c);
@@ -14,23 +12,20 @@ myApp.service('SummaryService', function ($http, $location) {
          // console.log('self.cuid', self.cuid);
 
          console.log('SummaryService.summaryOjbect is ', self.summaryObject);
+         self.getServiceObject(response.data[0]);
 
-
-         $http.get('/authorization/' + self.summaryObject.customer_id).then(function (response) {
-            // console.log('response.data', response.data);
-
-            self.serviceObject = response.data[0];
-            console.log('SummaryService.serviceObject is', self.serviceObject);
-            $location.path('/summary');
-         })
-
-         
       });
 
+   };
 
+   self.getServiceObject = function(o) {
+       $http.get('/authorization/' + o.customer_id).then(function (response) {
+           // console.log('response.data', response.data);
 
-
-
+           self.serviceObject = response.data[0];
+           console.log('SummaryService.serviceObject is', self.serviceObject);
+           $location.path('/summary');
+       });
    }
 
 });
