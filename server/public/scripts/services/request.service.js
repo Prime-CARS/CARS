@@ -56,10 +56,9 @@ myApp.service('RequestService', function ($http, $location) {
         }).then(function (response) {
           //console.log("http service has made a POST request for customers in request.service.js line 13: ", response.data);
             swal({
-                title: 'request has been added',
+                title: 'request has been scheduled.',
                 type: 'success'
             })
-            $location.path('/admin');
         })//end of addCustomer http POST request
     }
 
