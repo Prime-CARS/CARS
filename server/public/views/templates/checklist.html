@@ -613,34 +613,7 @@
             <input type="text" ng-model="cc.cars_checklist.info.addoil_weight" ng-blur="cc.saveChecklistItem(cc.cars_checklist.info.addoil_weight)">
           </md-input-container>
         </div>
-        <!-- ////////////////////////////// -->
-        <!-- <div class="checklistGroup">
-          7. Check Oil Level
-          <md-radio-group class="md-primary" layout="row" ng-model="cc.cars_checklist.info.checkoil_level" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.checkoil_level)">
-            <label for="text"></label>
-            <md-radio-button class="md-primary" value="pass"> Pass </md-radio-button>
-            <md-radio-button class="md-primary" value="fail"> Fail </md-radio-button>
-          </md-radio-group layout="row">
-        </div> -->
-        <!-- 
-        <div class="checklistGroup">
-          8. Oil Cap Secure
-          <md-radio-group class="md-primary" layout="row" ng-model="cc.cars_checklist.info.oilcap_secure" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.oilcap_secure)">
-            <label for="text"></label>
-            <md-radio-button class="md-primary" value="pass"> Pass </md-radio-button>
-            <md-radio-button class="md-primary" value="fail"> Fail </md-radio-button>
-          </md-radio-group layout="row">
-        </div> -->
-        <!-- 
-        <div class="checklistGroup">
-          9. Start and Idle (5 seconds)
-          <md-radio-group class="md-primary" layout="row" ng-model="cc.cars_checklist.info.start_idle" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.start_idle)">
-            <label for="text"> </label>
-            <md-radio-button class="md-primary" value="pass"> Pass </md-radio-button>
-            <md-radio-button class="md-primary" value="fail"> Fail </md-radio-button>
-          </md-radio-group layout="row">
-        </div>
-        ////////////////////////// -->
+
         <div layout="row">
           <md-checkbox class="md-primary" ng-model="cc.cars_checklist.info.checkoil_level" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.checkoil_level)"
             ng-checked="cc.cars_checklist.info.checkoil_level">
@@ -657,7 +630,7 @@
             9. Start and Idle (5 seconds)
           </md-checkbox>
         </div>
-        <!-- //////////////////////////// -->
+
         <div layout="row">
           <md-checkbox class="md-primary" ng-model="cc.cars_checklist.info.checkoil_plug" ng-change="cc.saveChecklistItem(cc.cars_checklist.info.checkoil_plug)"
             ng-checked="cc.cars_checklist.info.checkoil_plug">
